@@ -1,5 +1,6 @@
 package com.kony.adminconsole.service.customermanagement;
 
+import com.hbl.adminconsole.getlistcache.GetListCacheInvalidator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,6 +66,17 @@ public class MemberCreate implements JavaService2 {
 
     @Override
     public Object invoke(String methodID, Object[] inputArray, DataControllerRequest requestInstance,
+            DataControllerResponse dataControllerResponse) throws Exception {
+        try {
+            return invokeOperation(methodID, inputArray, requestInstance, dataControllerResponse);
+        } finally {
+            // Online-banking getList cache: this operation changes data getList returns. Runs even
+            // after a part-way failure, because some rows may already be written.
+            GetListCacheInvalidator.permissionsChanged();
+        }
+    }
+
+    private Object invokeOperation(String methodID, Object[] inputArray, DataControllerRequest requestInstance,
             DataControllerResponse dataControllerResponse) throws Exception {
         MemberBean memberBeanInstance = new MemberBean();
         String customerId = CustomerHandler.getCustomerId(memberBeanInstance.getUsername(), requestInstance);

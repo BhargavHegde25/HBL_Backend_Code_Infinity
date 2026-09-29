@@ -63,6 +63,14 @@ public class GetListCacheInvalidatorTest {
     }
 
     @Test
+    public void globalKeyMatchesTheSpotlightCopy() {
+        // adminconsoleservices-main has its own com.hbl.adminconsole.getlistcache.GetListCacheInvalidator (Spotlight
+        // does not depend on this module) with this literal; change both together.
+        assertEquals("HBLGL:v1:GLOBALVER", GetListCacheInvalidator.KEY_GLOBAL_VERSION);
+        assertEquals("HBL_GETLIST_PERMVER_TTL_SECONDS", GetListCacheInvalidator.PROP_PERMVER_TTL_SECONDS);
+    }
+
+    @Test
     public void customerChangedHidesOnlyThatCustomersSnapshots() {
         storeFor(CUSTOMER);
         storeFor(OTHER);
