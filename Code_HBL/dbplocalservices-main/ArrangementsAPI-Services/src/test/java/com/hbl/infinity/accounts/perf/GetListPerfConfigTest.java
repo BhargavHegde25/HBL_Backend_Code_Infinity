@@ -77,6 +77,50 @@ public class GetListPerfConfigTest {
         assertEquals(600, bundleTtlWithProperty("99999999999"));
     }
 
+    @Test
+    public void cacheSwitchIsOffUnlessExactlyTrue() {
+        assertFalse(cacheSwitchWithProperty(null));
+        assertFalse(cacheSwitchWithProperty("false"));
+        assertFalse(cacheSwitchWithProperty("on"));
+        assertTrue(cacheSwitchWithProperty("true"));
+        assertTrue(cacheSwitchWithProperty(" TRUE "));
+    }
+
+    @Test
+    public void positiveSettingsRejectZeroAndNegativeValues() {
+        assertEquals(1800, intWithProperty(GetListPerfConstants.PROP_ENT_TTL_SECONDS, "0"));
+        assertEquals(1800, intWithProperty(GetListPerfConstants.PROP_ENT_TTL_SECONDS, "-5"));
+        assertEquals(900, intWithProperty(GetListPerfConstants.PROP_ENT_TTL_SECONDS, "900"));
+        assertEquals(86400, intWithProperty(GetListPerfConstants.PROP_PERMVER_TTL_SECONDS, null));
+        assertEquals(50, intWithProperty(GetListPerfConstants.PROP_CACHE_TIMEOUT_MS, "abc"));
+        assertEquals(16, intWithProperty(GetListPerfConstants.PROP_POOL_SIZE, "0"));
+        assertEquals(4, intWithProperty(GetListPerfConstants.PROP_POOL_SIZE, "4"));
+    }
+
+    private static boolean cacheSwitchWithProperty(String value) {
+        try (MockedStatic<EnvironmentConfigurationsHandler> env = mockStatic(EnvironmentConfigurationsHandler.class)) {
+            env.when(() -> EnvironmentConfigurationsHandler.getServerProperty(
+                    GetListPerfConstants.PROP_CACHE_ENABLED)).thenReturn(value);
+            return GetListPerfConfig.isCacheEnabled();
+        }
+    }
+
+    private static int intWithProperty(String key, String value) {
+        try (MockedStatic<EnvironmentConfigurationsHandler> env = mockStatic(EnvironmentConfigurationsHandler.class)) {
+            env.when(() -> EnvironmentConfigurationsHandler.getServerProperty(key)).thenReturn(value);
+            switch (key) {
+            case GetListPerfConstants.PROP_ENT_TTL_SECONDS:
+                return GetListPerfConfig.getEntTtlSeconds();
+            case GetListPerfConstants.PROP_PERMVER_TTL_SECONDS:
+                return GetListPerfConfig.getPermVerTtlSeconds();
+            case GetListPerfConstants.PROP_CACHE_TIMEOUT_MS:
+                return GetListPerfConfig.getCacheTimeoutMs();
+            default:
+                return GetListPerfConfig.getPoolSize();
+            }
+        }
+    }
+
     private static int bundleTtlWithProperty(String value) {
         try (MockedStatic<EnvironmentConfigurationsHandler> env = mockStatic(EnvironmentConfigurationsHandler.class)) {
             env.when(() -> EnvironmentConfigurationsHandler.getServerProperty(

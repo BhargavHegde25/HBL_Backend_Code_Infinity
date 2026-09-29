@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.junit.After;
 import org.junit.Test;
 import org.mockito.MockedConstruction;
 import org.mockito.MockedStatic;
@@ -29,6 +30,9 @@ import com.dbp.core.fabric.extn.DBPServiceExecutorBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.hbl.infinity.accounts.perf.BundleConfigCache;
+import com.hbl.infinity.accounts.perf.GetListCacheTestSupport;
+import com.hbl.infinity.accounts.perf.GetListPerfConstants;
+import com.hbl.infinity.accounts.perf.PermissionVersionService;
 import com.infinity.dbx.temenos.accounts.legacy.LegacyGetAccountsFromT24PostProcessor;
 import com.infinity.dbx.temenos.utils.TemenosUtils;
 import com.kony.dbputilities.customersecurityservices.createOrgEmployeeAccounts;
@@ -204,6 +208,96 @@ public class GetAccountsFromT24PostProcessorEquivalenceTest {
         assertEquals("a failed load must be retried on the next request", 1, second.bundleLoads);
     }
 
+    // ---------------------------------------------------------------- getList cache (switch on)
+
+    @After
+    public void uninstallCache() {
+        GetListCacheTestSupport.uninstall();
+    }
+
+    @Test
+    public void cacheColdThenWarmGivesTheSameResultWithoutDbCalls() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = baseScenario();
+        s.cacheOn = true;
+        Outcome legacy = run(s, (r, req) -> new LegacyGetAccountsFromT24PostProcessor().execute(r, req, null));
+        Outcome cold = run(s, (r, req) -> new getAccountsFromT24PostProcessor().execute(r, req, null));
+        Outcome warm = run(s, (r, req) -> new getAccountsFromT24PostProcessor().execute(r, req, null));
+        assertEquals(legacy.toString(), cold.toString());
+        assertEquals(legacy.withoutCalls(), warm.withoutCalls());
+        assertTrue("warm call must not call NewAccountProcessing or the DB: " + warm.calls, warm.calls.isEmpty());
+    }
+
+    @Test
+    public void cacheDoesNotStoreWhenThereAreNewAccounts() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = baseScenario();
+        s.cacheOn = true;
+        s.napNewAccounts = CORE_A + ":100002";
+        assertNeverCached(s);
+    }
+
+    @Test
+    public void cacheDoesNotStoreWhenTheDefaultAccountHadToBeSet() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = baseScenario();
+        s.cacheOn = true;
+        s.defaultAccountResponse = "{\"customeraccounts\":[]}";
+        assertNeverCached(s);
+    }
+
+    @Test
+    public void cacheDoesNotStoreAnEmptyNewAccountProcessingResult() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = baseScenario();
+        s.cacheOn = true;
+        s.napAccounts = "";
+        assertNeverCached(s);
+    }
+
+    @Test
+    public void differentT24AccountsMissTheCache() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = baseScenario();
+        s.cacheOn = true;
+        run(s, (r, req) -> new getAccountsFromT24PostProcessor().execute(r, req, null));
+        s.t24 = t24Response(product("100001", "SAV01", "1001", "NPR", CORE_A, "Owner"),
+                product("100002", "CUR01", "1002", "NPR", CORE_A, "Owner"));
+        s.napAccounts = "100001,100002";
+        Outcome legacy = run(s, (r, req) -> new LegacyGetAccountsFromT24PostProcessor().execute(r, req, null));
+        Outcome current = run(s, (r, req) -> new getAccountsFromT24PostProcessor().execute(r, req, null));
+        assertEquals(legacy.toString(), current.toString());
+    }
+
+    @Test
+    public void cacheDownRunsTodaysCode() throws Exception {
+        GetListCacheTestSupport.install().failing = true;
+        Scenario s = baseScenario();
+        s.cacheOn = true;
+        assertNeverCached(s);
+    }
+
+    @Test
+    public void versionBumpMakesTheNextCallReadTheDatabase() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = baseScenario();
+        s.cacheOn = true;
+        run(s, (r, req) -> new getAccountsFromT24PostProcessor().execute(r, req, null));
+        PermissionVersionService.get().bump(LOGIN_USER);
+        Outcome legacy = run(s, (r, req) -> new LegacyGetAccountsFromT24PostProcessor().execute(r, req, null));
+        Outcome current = run(s, (r, req) -> new getAccountsFromT24PostProcessor().execute(r, req, null));
+        assertEquals(legacy.toString(), current.toString());
+    }
+
+    /** Runs today's code twice with the switch on: both runs must equal legacy, calls included. */
+    private static void assertNeverCached(Scenario s) throws Exception {
+        Outcome legacy = run(s, (r, req) -> new LegacyGetAccountsFromT24PostProcessor().execute(r, req, null));
+        Outcome first = run(s, (r, req) -> new getAccountsFromT24PostProcessor().execute(r, req, null));
+        Outcome second = run(s, (r, req) -> new getAccountsFromT24PostProcessor().execute(r, req, null));
+        assertEquals(legacy.toString(), first.toString());
+        assertEquals(legacy.toString(), second.toString());
+    }
+
     // ---------------------------------------------------------------- fixtures
 
     private static final class Scenario {
@@ -216,6 +310,8 @@ public class GetAccountsFromT24PostProcessorEquivalenceTest {
         Map<String, String> bundle = new HashMap<>();
         Map<String, String> accountTypes = new HashMap<>();
         Map<String, String> requestParams = new HashMap<>();
+        /** Switch HBL_GETLIST_CACHE_ENABLED on. */
+        boolean cacheOn;
     }
 
     private static Scenario baseScenario() {
@@ -306,6 +402,12 @@ public class GetAccountsFromT24PostProcessorEquivalenceTest {
             return "result=" + result + "\nexception=" + exception + "\nparams=" + requestParams + "\ncalls="
                     + calls + "\nsession=" + sessionWrites;
         }
+
+        /** Everything except the downstream calls, for comparing a cached run with a database run. */
+        String withoutCalls() {
+            return "result=" + result + "\nexception=" + exception + "\nparams=" + requestParams + "\nsession="
+                    + sessionWrites;
+        }
     }
 
     private interface PostProcessor {
@@ -371,6 +473,8 @@ public class GetAccountsFromT24PostProcessorEquivalenceTest {
                 MockedStatic<DBPServiceExecutorBuilder> sb = mockStatic(DBPServiceExecutorBuilder.class);
                 MockedStatic<HelperMethods> hm = mockStatic(HelperMethods.class);
                 MockedStatic<ResultToJSON> rtj = mockStatic(ResultToJSON.class);
+                MockedStatic<com.kony.dbputilities.util.EnvironmentConfigurationsHandler> perfEnv = mockStatic(
+                        com.kony.dbputilities.util.EnvironmentConfigurationsHandler.class);
                 MockedConstruction<createOrgEmployeeAccounts> accountsHelper = mockConstruction(
                         createOrgEmployeeAccounts.class, (m, ctx) -> when(
                                 m.getExistingAccounts(anyString(), anyString(), any()))
@@ -381,6 +485,8 @@ public class GetAccountsFromT24PostProcessorEquivalenceTest {
             rtj.when(() -> ResultToJSON.convert(any(Result.class)))
                     .thenAnswer(i -> ResultCanonical.of(i.getArgument(0)));
             tu.when(TemenosUtils::getInstance).thenReturn(temenosUtils);
+            perfEnv.when(() -> com.kony.dbputilities.util.EnvironmentConfigurationsHandler.getServerProperty(
+                    GetListPerfConstants.PROP_CACHE_ENABLED)).thenReturn(s.cacheOn ? "true" : null);
             bch.when(() -> BundleConfigurationHandler.fetchBundleConfigurations(eq("DBP"), any()))
                     .thenAnswer(i -> {
                         out.bundleLoads++;

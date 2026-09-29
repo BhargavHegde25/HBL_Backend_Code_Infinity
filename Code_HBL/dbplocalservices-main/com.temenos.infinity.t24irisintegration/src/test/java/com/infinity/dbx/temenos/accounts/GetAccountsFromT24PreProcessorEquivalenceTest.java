@@ -1,6 +1,7 @@
 package com.infinity.dbx.temenos.accounts;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.ArgumentMatchers.anyMap;
@@ -17,9 +18,13 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.junit.After;
 import org.junit.Test;
 import org.mockito.MockedStatic;
 
+import com.hbl.infinity.accounts.perf.GetListCacheTestSupport;
+import com.hbl.infinity.accounts.perf.GetListPerfConstants;
+import com.hbl.infinity.accounts.perf.PermissionVersionService;
 import com.infinity.dbx.dbp.jwt.auth.Authentication;
 import com.infinity.dbx.temenos.accounts.legacy.LegacyGetAccountsFromT24PreProcessor;
 import com.infinity.dbx.temenos.constants.TemenosConstants;
@@ -106,6 +111,86 @@ public class GetAccountsFromT24PreProcessorEquivalenceTest {
         assertEquals(legacy.toString(), current.toString());
     }
 
+    // ---------------------------------------------------------------- getList cache (switch on)
+
+    @After
+    public void uninstallCache() {
+        GetListCacheTestSupport.uninstall();
+    }
+
+    @Test
+    public void cacheColdThenWarmGivesTheSameRequestWithoutTheDbCall() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = new Scenario();
+        s.contractCustomers = "{\"contractcustomers\":[{\"coreCustomerId\":\"100100\",\"autoSyncAccounts\":\"true\"},"
+                + "{\"coreCustomerId\":\"100200\",\"autoSyncAccounts\":\"false\"}]}";
+        s.cacheOn = true;
+        Outcome legacy = run(s, true);
+        Outcome cold = run(s, false);
+        Outcome warm = run(s, false);
+        assertEquals(legacy.toString(), cold.toString());
+        assertEquals(legacy.withoutCalls(), warm.withoutCalls());
+        assertTrue("warm call must not read contract customers: " + warm.calls, warm.calls.isEmpty());
+        assertEquals("current signs one JWT", 1, warm.tokensGenerated);
+    }
+
+    @Test
+    public void cacheDoesNotStoreAnEmptyLookup() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = new Scenario();
+        s.contractCustomers = "{\"contractcustomers\":[]}";
+        s.cacheOn = true;
+        assertNeverCached(s);
+    }
+
+    @Test
+    public void cacheKeepsCompaniesApart() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = new Scenario();
+        s.cacheOn = true;
+        run(s, false);
+        s.companyId = "NP0010002";
+        s.contractCustomers = "{\"contractcustomers\":[{\"coreCustomerId\":\"300100\"}]}";
+        Outcome legacy = run(s, true);
+        assertEquals(legacy.toString(), run(s, false).toString());
+    }
+
+    @Test
+    public void cacheIsNotUsedWhenCoreCustomersAreGiven() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = new Scenario();
+        s.cacheOn = true;
+        s.requestParams.put("coreCustomerIdList", "100100 100200");
+        assertNeverCached(s);
+    }
+
+    @Test
+    public void cacheDownRunsTodaysCode() throws Exception {
+        GetListCacheTestSupport.install().failing = true;
+        Scenario s = new Scenario();
+        s.cacheOn = true;
+        assertNeverCached(s);
+    }
+
+    @Test
+    public void versionBumpMakesTheNextCallReadTheDatabase() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = new Scenario();
+        s.cacheOn = true;
+        run(s, false);
+        PermissionVersionService.get().bump(LOGIN_USER);
+        Outcome legacy = run(s, true);
+        Outcome current = run(s, false);
+        assertEquals(legacy.toString(), current.toString());
+    }
+
+    /** Runs today's code twice with the switch on: both runs must equal legacy, calls included. */
+    private static void assertNeverCached(Scenario s) throws Exception {
+        Outcome legacy = run(s, true);
+        assertEquals(legacy.toString(), run(s, false).toString());
+        assertEquals(legacy.toString(), run(s, false).toString());
+    }
+
     // ---------------------------------------------------------------- harness
 
     private static final class Scenario {
@@ -113,6 +198,8 @@ public class GetAccountsFromT24PreProcessorEquivalenceTest {
         String companyId = "NP0010001";
         String contractCustomers = "{\"contractcustomers\":[{\"coreCustomerId\":\"100100\"},{\"coreCustomerId\":\"100200\"}]}";
         boolean tokenFails;
+        /** Switch HBL_GETLIST_CACHE_ENABLED on. */
+        boolean cacheOn;
 
         Scenario() {
             requestParams.put("current_appID", "ArrangementT24ISAccounts");
@@ -132,6 +219,12 @@ public class GetAccountsFromT24PreProcessorEquivalenceTest {
         public String toString() {
             return "returned=" + returned + "\nexception=" + exception + "\nparams=" + params + "\nrequest="
                     + requestParams + "\ncalls=" + calls + "\nresult=" + result;
+        }
+
+        /** Everything except the DB calls, for comparing a cached run with a database run. */
+        String withoutCalls() {
+            return "returned=" + returned + "\nexception=" + exception + "\nparams=" + params + "\nrequest="
+                    + requestParams + "\nresult=" + result;
         }
     }
 
@@ -184,7 +277,9 @@ public class GetAccountsFromT24PreProcessorEquivalenceTest {
             acu.when(() -> com.temenos.infinity.api.arrangements.utils.CommonUtils
                     .getCompanyId(any(DataControllerRequest.class))).thenReturn(s.companyId);
             env.when(() -> EnvironmentConfigurationsHandler.getServerProperty(anyString()))
-                    .thenAnswer(i -> "BRANCH_ID_REFERENCE".equals(i.getArgument(0)) ? "NP0010099" : null);
+                    .thenAnswer(i -> "BRANCH_ID_REFERENCE".equals(i.getArgument(0)) ? "NP0010099"
+                            : GetListPerfConstants.PROP_CACHE_ENABLED.equals(i.getArgument(0)) && s.cacheOn ? "true"
+                                    : null);
             auth.when(Authentication::getInstance).thenReturn(null);
             cu.when(() -> CommonUtils.callIntegrationService(any(), anyMap(), any(), anyString(), anyString(),
                     anyBoolean())).thenAnswer(i -> {
