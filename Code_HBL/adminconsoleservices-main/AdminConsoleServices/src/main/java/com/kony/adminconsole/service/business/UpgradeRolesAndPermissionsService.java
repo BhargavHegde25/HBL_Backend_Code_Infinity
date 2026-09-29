@@ -1,5 +1,6 @@
 package com.kony.adminconsole.service.business;
 
+import com.hbl.adminconsole.getlistcache.GetListCacheInvalidator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,6 +40,17 @@ public class UpgradeRolesAndPermissionsService implements JavaService2 {
 
     @Override
     public Object invoke(String methodID, Object[] inputArray, DataControllerRequest requestInstance,
+            DataControllerResponse responseInstance) throws Exception {
+        try {
+            return invokeOperation(methodID, inputArray, requestInstance, responseInstance);
+        } finally {
+            // Online-banking getList cache: this operation changes data getList returns. Runs even
+            // after a part-way failure, because some rows may already be written.
+            GetListCacheInvalidator.permissionsChanged();
+        }
+    }
+
+    private Object invokeOperation(String methodID, Object[] inputArray, DataControllerRequest requestInstance,
             DataControllerResponse responseInstance) throws Exception {
         Result result = new Result();
         String customerId = "";

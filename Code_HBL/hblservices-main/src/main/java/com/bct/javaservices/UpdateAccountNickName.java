@@ -1,5 +1,6 @@
 package com.bct.javaservices;
 
+import com.hbl.infinity.accounts.perf.invalidation.GetListCacheInvalidator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,6 +59,8 @@ public class UpdateAccountNickName implements JavaService2 {
 			result.setParam(new Param("httpStatusCode", "200"));
 			LOG.debug("defualtAccUpdate Failed: " + e);
 		}
+		// getList cache: the nickname is part of the getList response.
+		GetListCacheInvalidator.customerChanged(customerId);
 		return result;
 	}
 

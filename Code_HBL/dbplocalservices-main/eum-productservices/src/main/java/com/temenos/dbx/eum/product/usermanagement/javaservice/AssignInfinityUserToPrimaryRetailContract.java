@@ -1,4 +1,5 @@
 package com.temenos.dbx.eum.product.usermanagement.javaservice;
+import com.hbl.infinity.accounts.perf.invalidation.GetListCacheInvalidator;
 import com.temenos.logger.Logger;
 import com.temenos.logger.alert.Alert;
 import com.temenos.logger.diagnostics.Diagnostic;
@@ -20,6 +21,17 @@ public class AssignInfinityUserToPrimaryRetailContract implements JavaService2 {
 
     @Override
     public Object invoke(String methodID, Object[] inputArray, DataControllerRequest request,
+            DataControllerResponse response) throws Exception {
+        try {
+            return invokeOperation(methodID, inputArray, request, response);
+        } finally {
+            // getList cache: this operation changes data getList returns. Runs even after a part-way
+            // failure, because some rows may already be written.
+            GetListCacheInvalidator.permissionsChanged();
+        }
+    }
+
+    private Object invokeOperation(String methodID, Object[] inputArray, DataControllerRequest request,
             DataControllerResponse response) throws Exception {
 		Log4j2Configurator.getInstance();
 

@@ -1,5 +1,6 @@
 package com.kony.adminconsole.service.business;
 
+import com.hbl.adminconsole.getlistcache.GetListCacheInvalidator;
 import java.math.BigDecimal;
 
 /**
@@ -55,6 +56,17 @@ public class BusinessBankingCustomerServiceLimitManageService implements JavaSer
 
     @Override
     public Object invoke(String methodID, Object[] inputArray, DataControllerRequest requestInstance,
+            DataControllerResponse responseInstance) throws Exception {
+        try {
+            return invokeOperation(methodID, inputArray, requestInstance, responseInstance);
+        } finally {
+            // Online-banking getList cache: this operation changes data getList returns. Runs even
+            // after a part-way failure, because some rows may already be written.
+            GetListCacheInvalidator.permissionsChanged();
+        }
+    }
+
+    private Object invokeOperation(String methodID, Object[] inputArray, DataControllerRequest requestInstance,
             DataControllerResponse responseInstance) throws Exception {
         try {
             if (StringUtils.equalsIgnoreCase(methodID, CREATE_BB_CUSTOMER_SERVICE_LIMIT_METHOD_NAME)) {

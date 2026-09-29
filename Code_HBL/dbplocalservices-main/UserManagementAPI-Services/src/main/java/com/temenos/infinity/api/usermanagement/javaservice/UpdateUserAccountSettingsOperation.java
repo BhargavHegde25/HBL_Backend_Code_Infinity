@@ -1,5 +1,6 @@
 package com.temenos.infinity.api.usermanagement.javaservice;
 
+import com.hbl.infinity.accounts.perf.invalidation.GetListCacheInvalidator;
 import java.util.HashMap;
 import com.kony.dbputilities.util.Log4j2Configurator;
 
@@ -29,6 +30,17 @@ public class UpdateUserAccountSettingsOperation implements JavaService2 {
 
 	@Override
 	public Object invoke(String methodID, Object[] inputArray, DataControllerRequest request,
+			DataControllerResponse response) throws Exception {
+		try {
+			return invokeOperation(methodID, inputArray, request, response);
+		} finally {
+			// getList cache: this operation changes data getList returns. Runs even after a part-way
+			// failure, because some rows may already be written.
+			GetListCacheInvalidator.sessionCustomerChanged(request);
+		}
+	}
+
+	private Object invokeOperation(String methodID, Object[] inputArray, DataControllerRequest request,
 			DataControllerResponse response) throws Exception {
 		Log4j2Configurator.getInstance();
 		try {

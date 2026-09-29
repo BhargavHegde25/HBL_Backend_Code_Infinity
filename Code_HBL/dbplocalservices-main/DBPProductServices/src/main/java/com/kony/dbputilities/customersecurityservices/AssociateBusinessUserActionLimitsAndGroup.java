@@ -1,5 +1,6 @@
 package com.kony.dbputilities.customersecurityservices;
 
+import com.hbl.infinity.accounts.perf.invalidation.GetListCacheInvalidator;
 import java.util.Map;
 import java.util.Set;
 
@@ -26,6 +27,17 @@ public class AssociateBusinessUserActionLimitsAndGroup implements JavaService2 {
 
     @Override
     public Object invoke(String methodID, Object[] inputArray, DataControllerRequest dcRequest,
+            DataControllerResponse dcResponse) throws Exception {
+        try {
+            return invokeOperation(methodID, inputArray, dcRequest, dcResponse);
+        } finally {
+            // getList cache: this operation changes data getList returns. Runs even after a part-way
+            // failure, because some rows may already be written.
+            GetListCacheInvalidator.permissionsChanged();
+        }
+    }
+
+    private Object invokeOperation(String methodID, Object[] inputArray, DataControllerRequest dcRequest,
             DataControllerResponse dcResponse) throws Exception {
         Result result = new Result();
         try {
