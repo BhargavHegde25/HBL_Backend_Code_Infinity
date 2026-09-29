@@ -1,5 +1,6 @@
 package com.kony.dbputilities.accountservices;
 
+import com.hbl.infinity.accounts.perf.invalidation.GetListCacheInvalidator;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -27,6 +28,17 @@ public class NewAccountOpening implements JavaService2 {
     @SuppressWarnings("rawtypes")
     @Override
     public Object invoke(String methodId, Object[] inputArray, DataControllerRequest dcRequest,
+            DataControllerResponse dcResponse) throws Exception {
+        try {
+            return invokeOperation(methodId, inputArray, dcRequest, dcResponse);
+        } finally {
+            // getList cache: this operation changes data getList returns. Runs even after a part-way
+            // failure, because some rows may already be written.
+            GetListCacheInvalidator.sessionCustomerChanged(dcRequest);
+        }
+    }
+
+    private Object invokeOperation(String methodId, Object[] inputArray, DataControllerRequest dcRequest,
             DataControllerResponse dcResponse) throws Exception {
         Map inputParams = HelperMethods.getInputParamMap(inputArray);
         Result result = process(methodId, inputArray, inputParams, dcRequest, dcResponse);

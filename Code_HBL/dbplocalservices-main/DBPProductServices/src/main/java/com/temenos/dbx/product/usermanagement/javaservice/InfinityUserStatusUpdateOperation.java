@@ -1,5 +1,6 @@
 package com.temenos.dbx.product.usermanagement.javaservice;
 
+import com.hbl.infinity.accounts.perf.invalidation.GetListCacheInvalidator;
 import com.dbp.core.api.factory.impl.DBPAPIAbstractFactoryImpl;
 import com.kony.dbp.exception.ApplicationException;
 import com.kony.dbputilities.util.ErrorCodeEnum;
@@ -17,6 +18,17 @@ public class InfinityUserStatusUpdateOperation implements JavaService2 {
 
     @Override
     public Object invoke(String methodID, Object[] inputArray, DataControllerRequest dcRequest,
+            DataControllerResponse dcResponse) throws Exception {
+        try {
+            return invokeOperation(methodID, inputArray, dcRequest, dcResponse);
+        } finally {
+            // getList cache: this operation changes data getList returns. Runs even after a part-way
+            // failure, because some rows may already be written.
+            GetListCacheInvalidator.permissionsChanged();
+        }
+    }
+
+    private Object invokeOperation(String methodID, Object[] inputArray, DataControllerRequest dcRequest,
             DataControllerResponse dcResponse) throws Exception {
 		Log4j2Configurator.getInstance();
 

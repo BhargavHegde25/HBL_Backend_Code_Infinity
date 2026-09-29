@@ -1,10 +1,10 @@
 package com.hbl.infinity.accounts.perf;
 
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.IntSupplier;
 
 import org.apache.commons.lang3.StringUtils;
 
+import com.hbl.infinity.accounts.perf.invalidation.GetListCacheInvalidator;
 import com.temenos.logger.Logger;
 import com.temenos.logger.alert.Alert;
 
@@ -114,7 +114,6 @@ public final class PermissionVersionService {
     }
 
     static String newToken() {
-        return Long.toString(System.currentTimeMillis(), Character.MAX_RADIX) + "-"
-                + Long.toString(ThreadLocalRandom.current().nextLong() & Long.MAX_VALUE, Character.MAX_RADIX);
+        return GetListCacheInvalidator.newToken();
     }
 }

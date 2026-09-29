@@ -88,8 +88,9 @@ public class GetListPerfConfigTest {
 
     @Test
     public void positiveSettingsRejectZeroAndNegativeValues() {
-        assertEquals(1800, intWithProperty(GetListPerfConstants.PROP_ENT_TTL_SECONDS, "0"));
-        assertEquals(1800, intWithProperty(GetListPerfConstants.PROP_ENT_TTL_SECONDS, "-5"));
+        assertEquals(300, intWithProperty(GetListPerfConstants.PROP_ENT_TTL_SECONDS, "0"));
+        assertEquals(300, intWithProperty(GetListPerfConstants.PROP_ENT_TTL_SECONDS, "-5"));
+        assertEquals(300, intWithProperty(GetListPerfConstants.PROP_ENT_TTL_SECONDS, null));
         assertEquals(900, intWithProperty(GetListPerfConstants.PROP_ENT_TTL_SECONDS, "900"));
         assertEquals(86400, intWithProperty(GetListPerfConstants.PROP_PERMVER_TTL_SECONDS, null));
         assertEquals(50, intWithProperty(GetListPerfConstants.PROP_CACHE_TIMEOUT_MS, "abc"));

@@ -1,5 +1,6 @@
 package com.bct.javaservices;
 
+import com.hbl.infinity.accounts.perf.invalidation.GetListCacheInvalidator;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -58,7 +59,13 @@ public class CrossBorderConsent implements JavaService2 {
 				/**
 				 * update customer accounts table to update consent for requested account ID
 				 **/
-				Integer updateStatus = updateCustoemrAccConsent(request, customerId, accountId, status);
+				Integer updateStatus;
+				try {
+					updateStatus = updateCustoemrAccConsent(request, customerId, accountId, status);
+				} finally {
+					// getList cache: the consent status is part of the getList response.
+					GetListCacheInvalidator.customerChanged(customerId);
+				}
 				if (updateStatus == 1)
 					result.addParam("consentupdated", "true");
 				else
