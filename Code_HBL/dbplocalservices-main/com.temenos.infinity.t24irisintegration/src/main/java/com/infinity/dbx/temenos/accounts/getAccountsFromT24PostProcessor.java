@@ -24,7 +24,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.hbl.infinity.accounts.perf.BundleConfigCache;
 import com.hbl.infinity.accounts.perf.GetListPerfConstants;
+import com.hbl.infinity.accounts.perf.GetListSnapshotCache;
 import com.hbl.infinity.accounts.perf.GetListTimer;
+import com.hbl.infinity.accounts.perf.T24PostSnapshot;
 import com.infinity.dbx.temenos.constants.TemenosConstants;
 import com.infinity.dbx.temenos.utils.TemenosUtils;
 import com.kony.dbp.exception.ApplicationException;
@@ -99,11 +101,31 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
         String backendId = getCoreBackendId(request);
 
         JsonArray jsonarray = parseRecordsForNAPNew(accountRecords,explicitCoreCustomerIdList,accountTypes,backendId);
-        Result NAPResult = newAccountProcessing(jsonarray,loginUserId, request);
-        timer.mark("newAccountProcessing");
+        String napInput = jsonarray.toString();
 
-        String accountsString = NAPResult.getParamValueByName("accounts");
-        String newAccounts = NAPResult.getParamValueByName("newAccounts");
+        // getList cache (HBL_GETLIST_CACHE_ENABLED): NewAccountProcessing and the default-account lookup depend only
+        // on the customer, its core id and the accounts T24 returned. When a stored result exists for exactly these
+        // inputs and the current permission version, it is replayed; it is only ever stored for a request that
+        // wrote nothing (no new account, default account already set).
+        GetListSnapshotCache.Session snapshots = GetListSnapshotCache.open(GetListPerfConstants.STAGE_T24_POST,
+                loginUserId, loginUserId, backendId, napInput);
+        T24PostSnapshot cached = snapshots == null ? null : snapshots.read(T24PostSnapshot.class);
+        timer.mark("snapshotLookup");
+
+        String accountsString;
+        String newAccounts;
+        if (cached != null) {
+            // The same request parameters newAccountProcessing sets before calling the service.
+            request.addRequestParam_("accounts", napInput);
+            request.addRequestParam_("customerId", loginUserId);
+            accountsString = cached.getAccounts();
+            newAccounts = null;
+        } else {
+            Result NAPResult = newAccountProcessing(jsonarray,loginUserId, request);
+            accountsString = NAPResult.getParamValueByName("accounts");
+            newAccounts = NAPResult.getParamValueByName("newAccounts");
+        }
+        timer.mark("newAccountProcessing");
 
         if(StringUtils.isBlank(accountsString)) {
             Result emptyResult = new Result();
@@ -113,13 +135,39 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
             return emptyResult;
         }
 
-        return processT24Data(accountRecords, request, accountsString, newAccounts, loginUserId, accountTypes,
-                backendId, timer);
+        DefaultAccountLookup defaultAccount = new DefaultAccountLookup(
+                cached == null ? null : cached.getDefaultAccountId());
+        Result processed = processT24Data(accountRecords, request, accountsString, newAccounts, loginUserId,
+                accountTypes, backendId, defaultAccount, timer);
+        if (snapshots != null && cached == null && StringUtils.isBlank(newAccounts)
+                && StringUtils.isNotBlank(defaultAccount.found)) {
+            snapshots.store(new T24PostSnapshot(accountsString, defaultAccount.found));
+        }
+        return processed;
+    }
+
+    /**
+     * The customer's default account for one request: replayed from the getList cache when available, otherwise
+     * read from the database. Records what was found, before any update, so the caller can tell whether the
+     * request had to set a default account.
+     */
+    private final class DefaultAccountLookup {
+        private final String cached;
+        private String found;
+
+        private DefaultAccountLookup(String cached) {
+            this.cached = cached;
+        }
+
+        private String resolve(String backendId) {
+            found = cached != null ? cached : getCustomerDefaultAcc(backendId);
+            return found;
+        }
     }
 
 	private Result processT24Data(List<Record> accountTypeRecords,DataControllerRequest request,
 			String accountsString,String newAccounts,String loginUserId, Map<String, String> accountTypes,
-			String backendId, GetListTimer timer) {
+			String backendId, DefaultAccountLookup defaultAccount, GetListTimer timer) {
 		// Static Admin configuration: served from a TTL cache (HBL_BUNDLE_CONFIG_TTL_SECONDS, 0 = off) instead of
 		// calling Admin.BundleConfifurations on every request. Failed loads are never cached.
 		Map<String, String> dbpConfigurations = BundleConfigCache.fetchBundleConfigurations(
@@ -163,7 +211,7 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
 
         TemenosUtils temenosUtils = TemenosUtils.getInstance();
 
-        String defaultAcc = getCustomerDefaultAcc(backendId);
+        String defaultAcc = defaultAccount.resolve(backendId);
         timer.mark("defaultAccount");
         boolean debugEnabled = diagnostic.isDebugEnabled();
 

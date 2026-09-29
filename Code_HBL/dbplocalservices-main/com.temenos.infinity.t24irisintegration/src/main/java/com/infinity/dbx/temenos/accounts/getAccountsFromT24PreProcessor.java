@@ -12,7 +12,9 @@ import com.temenos.logger.Logger;
 import com.temenos.logger.diagnostics.Diagnostic;
 
 import com.hbl.infinity.accounts.perf.GetListPerfConstants;
+import com.hbl.infinity.accounts.perf.GetListSnapshotCache;
 import com.hbl.infinity.accounts.perf.GetListTimer;
+import com.hbl.infinity.accounts.perf.T24PreSnapshot;
 import com.infinity.dbx.dbp.jwt.auth.Authentication;
 import com.infinity.dbx.temenos.TemenosBasePreProcessor;
 import com.infinity.dbx.temenos.constants.TemenosConstants;
@@ -90,6 +92,20 @@ public class getAccountsFromT24PreProcessor extends TemenosBasePreProcessor {
         inputParams.put("$filter", "customerId eq " + customerId +" and companyLegalUnit eq "+companyId);
         request.addRequestParam_("$filter", "customerId eq " + customerId+" and companyLegalUnit eq "+companyId);
 
+        // getList cache (HBL_GETLIST_CACHE_ENABLED): the contract-customer lookup depends only on the customer and
+        // the company, so a stored result for the same inputs and permission version is replayed instead.
+        GetListSnapshotCache.Session snapshots = GetListSnapshotCache.open(GetListPerfConstants.STAGE_T24_PRE,
+                customerId, customerId, companyId);
+        T24PreSnapshot cached = snapshots == null ? null : snapshots.read(T24PreSnapshot.class);
+        timer.mark("snapshotLookup");
+        if (cached != null) {
+            params.put("coreCustomerIdList", cached.getCoreCustomerIdList());
+            request.addRequestParam_("coreCustomerIdList", cached.getCoreCustomerIdList());
+            request.addRequestParam_("explicitCoreCustomerIdList", cached.getExplicitCoreCustomerIdList());
+            debug("core customer list replayed from the getList cache");
+            return Boolean.TRUE;
+        }
+
         Result coreCustomers = CommonUtils.callIntegrationService(request, inputParams, request.getHeaderMap(),
                 SERVICE_BACKEND_CERTIFICATE, OP_CONTRACT_CUSTOMERS_GET, true);
         timer.mark("contractCustomers");
@@ -113,6 +129,9 @@ public class getAccountsFromT24PreProcessor extends TemenosBasePreProcessor {
             params.put("coreCustomerIdList", encodedCoreCustomerIdList);
             request.addRequestParam_("coreCustomerIdList", encodedCoreCustomerIdList);
             request.addRequestParam_("explicitCoreCustomerIdList",explicitCoreCustomerIdList.toString());
+            if (snapshots != null) {
+                snapshots.store(new T24PreSnapshot(encodedCoreCustomerIdList, explicitCoreCustomerIdList.toString()));
+            }
             debug("core customer list resolved from contractcustomers");
             return Boolean.TRUE;
         }

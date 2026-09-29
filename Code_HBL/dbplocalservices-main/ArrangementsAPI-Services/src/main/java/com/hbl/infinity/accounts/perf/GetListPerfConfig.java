@@ -35,6 +35,60 @@ public final class GetListPerfConfig {
     }
 
     /**
+     * @return true when the getList snapshot cache is switched on ({@value GetListPerfConstants#PROP_CACHE_ENABLED})
+     */
+    public static boolean isCacheEnabled() {
+        return getBoolean(GetListPerfConstants.PROP_CACHE_ENABLED, GetListPerfConstants.DEFAULT_CACHE_ENABLED);
+    }
+
+    /**
+     * @return seconds a getList snapshot is kept ({@value GetListPerfConstants#PROP_ENT_TTL_SECONDS})
+     */
+    public static int getEntTtlSeconds() {
+        return getPositiveInt(GetListPerfConstants.PROP_ENT_TTL_SECONDS, GetListPerfConstants.DEFAULT_ENT_TTL_SECONDS);
+    }
+
+    /**
+     * @return seconds a permission-version key is kept ({@value GetListPerfConstants#PROP_PERMVER_TTL_SECONDS})
+     */
+    public static int getPermVerTtlSeconds() {
+        return getPositiveInt(GetListPerfConstants.PROP_PERMVER_TTL_SECONDS,
+                GetListPerfConstants.DEFAULT_PERMVER_TTL_SECONDS);
+    }
+
+    /**
+     * @return milliseconds to wait for one cache read ({@value GetListPerfConstants#PROP_CACHE_TIMEOUT_MS})
+     */
+    public static int getCacheTimeoutMs() {
+        return getPositiveInt(GetListPerfConstants.PROP_CACHE_TIMEOUT_MS,
+                GetListPerfConstants.DEFAULT_CACHE_TIMEOUT_MS);
+    }
+
+    /**
+     * @return threads in the cache-call pool ({@value GetListPerfConstants#PROP_POOL_SIZE})
+     */
+    public static int getPoolSize() {
+        return getPositiveInt(GetListPerfConstants.PROP_POOL_SIZE, GetListPerfConstants.DEFAULT_POOL_SIZE);
+    }
+
+    /**
+     * Reads a strictly positive integer server property. Zero, a negative or a non-numeric value returns the
+     * default and logs one warning.
+     *
+     * @param key          server property name
+     * @param defaultValue value used when the property is missing or invalid
+     * @return the property value, or the default
+     */
+    static int getPositiveInt(String key, int defaultValue) {
+        int value = getNonNegativeInt(key, defaultValue);
+        if (value > 0) {
+            return value;
+        }
+        alert.prepareWarn("Invalid value for server property " + key + ", using default " + defaultValue).log();
+        return defaultValue;
+    }
+
+    /**
      * Reads a non-negative integer server property. A negative or non-numeric value returns the default and logs
      * one warning.
      *

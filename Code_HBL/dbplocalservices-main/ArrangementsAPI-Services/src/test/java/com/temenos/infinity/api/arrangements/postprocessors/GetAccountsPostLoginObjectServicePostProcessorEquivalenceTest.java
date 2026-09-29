@@ -24,6 +24,7 @@ import java.util.TreeMap;
 import java.util.concurrent.Callable;
 import java.util.stream.Collectors;
 
+import org.junit.After;
 import org.junit.Test;
 import org.mockito.MockedStatic;
 
@@ -32,6 +33,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.hbl.infinity.accounts.perf.GetListCacheTestSupport;
+import com.hbl.infinity.accounts.perf.GetListPerfConstants;
+import com.hbl.infinity.accounts.perf.PermissionVersionService;
 import com.kony.dbputilities.memorymanagement.MemoryManager;
 import com.kony.dbputilities.util.HelperMethods;
 import com.kony.dbputilities.util.Log4j2Configurator;
@@ -144,6 +148,151 @@ public class GetAccountsPostLoginObjectServicePostProcessorEquivalenceTest {
         assertEquals(run(ok, false).toString(), current.toString());
     }
 
+    // ---------------------------------------------------------------- getList cache (switch on)
+
+    @After
+    public void uninstallCache() {
+        GetListCacheTestSupport.uninstall();
+    }
+
+    @Test
+    public void cacheColdThenWarmGivesTheSameResponseWithoutDbCalls() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = settledScenario();
+        Outcome legacy = withoutUserCustomers(run(s, true));
+        Outcome cold = run(s, false);
+        Outcome warm = run(s, false);
+        assertEquals(legacy.toString(), cold.toString());
+        assertEquals(legacy.withoutCalls(), warm.withoutCalls());
+        assertTrue("warm call must not read the database: " + warm.calls, warm.calls.isEmpty());
+    }
+
+    @Test
+    public void cacheWithActionsFalseIsKeptApart() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = settledScenario();
+        run(s, false);
+        s.request.addProperty("actions", "false");
+        Outcome legacy = withoutUserCustomers(run(s, true));
+        Outcome cold = run(s, false);
+        Outcome warm = run(s, false);
+        assertEquals(legacy.toString(), cold.toString());
+        assertEquals(legacy.withoutCalls(), warm.withoutCalls());
+        assertTrue(warm.calls.isEmpty());
+    }
+
+    @Test
+    public void cacheDoesNotStoreWhenNewFeatureActionsAreFound() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = settledScenario();
+        s.newFeatureActions = map("F1", "NEW_ACC_ACT", "NEW_GLOBAL");
+        assertNeverCached(s);
+    }
+
+    @Test
+    public void cacheDoesNotStoreAFailedDbRead() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = settledScenario();
+        s.failingUrl = URLConstants.USER_ACCOUNTACTIONS_GET_PROC;
+        assertNeverCached(s);
+    }
+
+    @Test
+    public void cacheDoesNotStoreWhileAnAccountHasNoDetailsRow() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = settledScenario();
+        s.response = response(true);
+        assertNeverCached(s);
+    }
+
+    @Test
+    public void cacheIsNotUsedForMockMortgage() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = settledScenario();
+        s.mockMortgage = "Yes";
+        Outcome legacy = run(s, true);
+        Outcome first = run(s, false);
+        Outcome second = run(s, false);
+        assertEquals(legacy.toString(), first.toString());
+        assertEquals(legacy.toString(), second.toString());
+    }
+
+    @Test
+    public void cacheDownRunsTodaysCode() throws Exception {
+        GetListCacheTestSupport.install().failing = true;
+        Scenario s = settledScenario();
+        Outcome legacy = withoutUserCustomers(run(s, true));
+        assertEquals(legacy.toString(), run(s, false).toString());
+        assertEquals(legacy.toString(), run(s, false).toString());
+    }
+
+    @Test
+    public void newAccountInTheResponseMissesTheCache() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = settledScenario();
+        run(s, false);
+        s.response.getAsJsonArray("Accounts").add(account("Account_id", "100005", "Savings", CORE_B));
+        Outcome legacy = withoutUserCustomers(run(s, true));
+        Outcome current = run(s, false);
+        assertEquals(legacy.toString(), current.toString());
+    }
+
+    @Test
+    public void versionBumpMakesTheNextCallReadTheDatabase() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = settledScenario();
+        run(s, false);
+        assertTrue(run(s, false).calls.isEmpty());
+        PermissionVersionService.get().bump(LOGIN_USER);
+        Outcome legacy = withoutUserCustomers(run(s, true));
+        assertEquals(legacy.toString(), run(s, false).toString());
+        PermissionVersionService.get().bumpGlobal();
+        assertEquals(legacy.toString(), run(s, false).toString());
+    }
+
+    @Test
+    public void switchOffIgnoresStoredSnapshots() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = settledScenario();
+        run(s, false);
+        s.cacheOn = false;
+        Outcome legacy = withoutUserCustomers(run(s, true));
+        assertEquals(legacy.toString(), run(s, false).toString());
+    }
+
+    /** No new feature actions, every account has a details row, Fabric-style opstatus on every DB response. */
+    private static Scenario settledScenario() {
+        Scenario s = new Scenario();
+        s.cacheOn = true;
+        s.newFeatureActions = null;
+        JsonArray accounts = new JsonArray();
+        for (JsonElement account : s.response.getAsJsonArray("Accounts")) {
+            if (!"100003".equals(account.getAsJsonObject().has("Account_id")
+                    ? account.getAsJsonObject().get("Account_id").getAsString() : "")) {
+                accounts.add(account);
+            }
+        }
+        s.response.add("Accounts", accounts);
+        return s;
+    }
+
+    /** Runs today's code twice with the switch on: both runs must equal legacy and read the database. */
+    private static void assertNeverCached(Scenario s) throws Exception {
+        Outcome legacy = withoutUserCustomers(run(s, true));
+        Outcome first = run(s, false);
+        Outcome second = run(s, false);
+        assertEquals(legacy.toString(), first.toString());
+        assertEquals(legacy.toString(), second.toString());
+    }
+
+    private static Outcome withoutUserCustomers(Outcome legacy) {
+        List<String> calls = legacy.calls.stream().filter(c -> !c.startsWith(URLConstants.USER_CUSTOMERS_PROC))
+                .collect(Collectors.toList());
+        legacy.calls.clear();
+        legacy.calls.addAll(calls);
+        return legacy;
+    }
+
     // ---------------------------------------------------------------- fixtures
 
     private static final class Scenario {
@@ -153,6 +302,10 @@ public class GetAccountsPostLoginObjectServicePostProcessorEquivalenceTest {
         String enableEvents = "false";
         Map<String, Set<String>> newFeatureActions = map("F1", "NEW_ACC_ACT", "NEW_GLOBAL");
         boolean userCustomersFails;
+        /** Switch HBL_GETLIST_CACHE_ENABLED on; DB responses then carry opstatus 0, as Fabric's do. */
+        boolean cacheOn;
+        /** DB call that returns Fabric's error JSON (no opstatus 0) instead of rows. */
+        String failingUrl;
     }
 
     private static JsonObject response(boolean withMembershipId) {
@@ -286,6 +439,12 @@ public class GetAccountsPostLoginObjectServicePostProcessorEquivalenceTest {
                     + payloadUpdates + "\ncache=" + cacheWrites + "\ncalls=" + calls + "\ninserts=" + inserts
                     + "\nevents=" + events;
         }
+
+        /** Everything except the DB calls, for comparing a cached run with a database run. */
+        String withoutCalls() {
+            return "returned=" + returned + "\nexception=" + exception + "\nresponse=" + response + "\nupdates="
+                    + payloadUpdates + "\ncache=" + cacheWrites + "\ninserts=" + inserts + "\nevents=" + events;
+        }
     }
 
     private static void assertEquivalent(Scenario s) throws Exception {
@@ -357,7 +516,12 @@ public class GetAccountsPostLoginObjectServicePostProcessorEquivalenceTest {
                 MockedStatic<DBPAPIAbstractFactoryImpl> factory = mockStatic(DBPAPIAbstractFactoryImpl.class);
                 MockedStatic<ThreadExecutor> te = mockStatic(ThreadExecutor.class);
                 MockedStatic<ObjectServiceHelperMethods> osh = mockStatic(ObjectServiceHelperMethods.class);
-                MockedStatic<Log4j2Configurator> log = mockStatic(Log4j2Configurator.class)) {
+                MockedStatic<Log4j2Configurator> log = mockStatic(Log4j2Configurator.class);
+                MockedStatic<com.kony.dbputilities.util.EnvironmentConfigurationsHandler> perfEnv = mockStatic(
+                        com.kony.dbputilities.util.EnvironmentConfigurationsHandler.class)) {
+
+            perfEnv.when(() -> com.kony.dbputilities.util.EnvironmentConfigurationsHandler.getServerProperty(
+                    GetListPerfConstants.PROP_CACHE_ENABLED)).thenReturn(s.cacheOn ? "true" : null);
 
             Map<String, String> identity = new HashMap<>();
             identity.put("customer_id", LOGIN_USER);
@@ -375,7 +539,14 @@ public class GetAccountsPostLoginObjectServicePostProcessorEquivalenceTest {
                         String url = i.getArgument(3);
                         Map<String, Object> input = i.getArgument(1);
                         out.calls.add(url + new TreeMap<>(input));
-                        return dbResponse(s, url, input);
+                        if (url.equals(s.failingUrl)) {
+                            return json("{\"errmsg\":\"Exception while calling service\"}");
+                        }
+                        JsonObject dbResponse = dbResponse(s, url, input);
+                        if (s.cacheOn) {
+                            dbResponse.addProperty("opstatus", 0);
+                        }
+                        return dbResponse;
                     });
             mm.when(() -> MemoryManager.saveIntoCache(anyString(), anyString(), anyInt())).thenAnswer(i -> {
                 out.cacheWrites.add(i.getArgument(0) + "=" + i.getArgument(1) + " ttl=" + i.getArgument(2));

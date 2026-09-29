@@ -1,8 +1,11 @@
 package com.temenos.infinity.api.arrangements.postprocessors;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Callable;
@@ -18,8 +21,11 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.hbl.infinity.accounts.perf.GetListPerfConfig;
 import com.hbl.infinity.accounts.perf.GetListPerfConstants;
+import com.hbl.infinity.accounts.perf.GetListSnapshotCache;
 import com.hbl.infinity.accounts.perf.GetListTimer;
+import com.hbl.infinity.accounts.perf.ObjectPostSnapshot;
 import com.kony.dbp.exception.ApplicationException;
 import com.kony.dbputilities.exceptions.HttpCallException;
 import com.kony.dbputilities.memorymanagement.MemoryManager;
@@ -123,11 +129,28 @@ public class GetAccountsPostLoginObjectServicePostProcessor
 		Map<String, String> contracts = new HashMap<>();
 		Map<String, String> customerGroups = new HashMap<>();
 		MockMortgageFlag mockMortgageFlag = new MockMortgageFlag();
+
+		// getList cache (HBL_GETLIST_CACHE_ENABLED): everything below that reads the database depends only on the
+		// customer, its legal entity, the "actions" flag and the account/core-customer ids in the response. A
+		// snapshot stored for exactly these inputs and the current permission version is replayed through the same
+		// attach code instead.
+		GetListSnapshotCache.Session snapshots = openSnapshots(customerId, responsePayloadJson, fabricRequestManager,
+				mockMortgageFlag);
+		ObjectPostSnapshot cached = snapshots == null ? null : snapshots.read(ObjectPostSnapshot.class);
+		timer.mark("snapshotLookup");
+		if (cached != null) {
+			addPermissionsToAccountRecords(responsePayloadJson, cached.getActionsByAccount(),
+					cached.getAccountDetails(), accountsCacheArray);
+			timer.mark("attachPermissions");
+			return;
+		}
+		Settledness settled = new Settledness();
+
 		Set<String> coreCustomers = getCoreCustomersList(responsePayloadJson, customerId, fabricRequestManager,
-				serviceDefinitions, customerGroups, contracts, mockMortgageFlag);
+				serviceDefinitions, customerGroups, contracts, mockMortgageFlag, settled);
 		timer.mark("coreCustomers");
 		Map<String, Map<String, String>> accountsDetails = getCoreCustomerAccountsDetails(coreCustomers, customerId,
-				fabricRequestManager);
+				fabricRequestManager, settled);
 		timer.mark("coreCustomerAccountsDetails");
         Set<String> usedCoreCustomers = new HashSet<>();
         JsonArray accountsArray = JSONUtil.hasKey(responsePayloadJson, "Accounts") ? responsePayloadJson.get("Accounts").getAsJsonArray() : new JsonArray();
@@ -184,10 +207,10 @@ public class GetAccountsPostLoginObjectServicePostProcessor
         for (String coreCustomerId : coreCustomers) {
             if (!usedCoreCustomers.contains(coreCustomerId)) {
                 inputParams.put("_coreCustomerId", coreCustomerId);
-                JsonObject resultObject =
+                JsonObject resultObject = checked(
                         com.kony.dbputilities.util.HelperMethods.callApiJson(fabricRequestManager, inputParams,
                                 com.kony.dbputilities.util.HelperMethods.getHeaders(fabricRequestManager),
-                                URLConstants.USER_ACCOUNTACTIONS_GET_PROC);
+                                URLConstants.USER_ACCOUNTACTIONS_GET_PROC), settled);
 
                 if (JSONUtil.isJsonNotNull(resultObject)
                         && JSONUtil.hasKey(resultObject, DBPDatasetConstants.DATASET_RECORDS) &&
@@ -220,13 +243,147 @@ public class GetAccountsPostLoginObjectServicePostProcessor
             }
 			getAccountLevelNewActions(customerId, contracts.get(coreCustomerId), coreCustomerId,
 					customerGroups.get(coreCustomerId), serviceDefinitions.get(coreCustomerId), fabricRequestManager,
-					accountLevelActions, accountsDetails);
+					accountLevelActions, accountsDetails, settled);
         }
         }
         timer.mark("accountActions");
 
-        addPermissionsToAccountRecords(responsePayloadJson, accountLevelActions, accountsDetails, accountsCacheArray);
+        Map<String, String> actionsByAccount = toActionStrings(accountLevelActions);
+        boolean storable = snapshots != null && settled.isSettled()
+                && allAccountsHaveDetails(responsePayloadJson, accountsDetails);
+        addPermissionsToAccountRecords(responsePayloadJson, actionsByAccount, accountsDetails, accountsCacheArray);
         timer.mark("attachPermissions");
+        if (storable) {
+            snapshots.store(new ObjectPostSnapshot(actionsByAccount, accountsDetails));
+            timer.mark("snapshotStore");
+        }
+    }
+
+    /**
+     * Opens the getList cache slot for this request, or returns null when the cache is off or must not be used:
+     * the MOCK_MORTGAGE_RESPONSE branch rewrites accounts, so it always runs today's code.
+     */
+    private static GetListSnapshotCache.Session openSnapshots(String customerId, JsonObject responsePayloadJson,
+            FabricRequestManager fabricRequestManager, MockMortgageFlag mockMortgageFlag) {
+        try {
+            if (!GetListPerfConfig.isCacheEnabled()) {
+                return null;
+            }
+            String mockMortgageResponse = mockMortgageFlag.get();
+            if (mockMortgageResponse != null && mockMortgageResponse.equalsIgnoreCase("Yes")) {
+                return null;
+            }
+            return GetListSnapshotCache.open(GetListPerfConstants.STAGE_OBJECT_POST, customerId, customerId,
+                    legalEntityIdOf(fabricRequestManager), isActionsMuted(fabricRequestManager) ? "0" : "1",
+                    accountIdsFingerprint(responsePayloadJson));
+        } catch (Exception e) {
+            // A failing MOCK_MORTGAGE_RESPONSE read is left to today's code, which reads it again at the same point.
+            return null;
+        }
+    }
+
+    /** Same test as the permissions loop below: the request payload has actions = "false". */
+    private static boolean isActionsMuted(FabricRequestManager fabricRequestManager) {
+        JsonObject request = (JsonObject) fabricRequestManager.getPayloadHandler().getPayloadAsJson();
+        return request != null && request.has("actions") && "false".equals(request.get("actions").getAsString());
+    }
+
+    /** Same value getAccountLevelNewActions passes to getRestrictiveFeatureActionLimits. */
+    private static String legalEntityIdOf(FabricRequestManager fabricRequestManager) {
+        try {
+            Map<String, Object> userAttributes =
+                    fabricRequestManager.getServicesManager().getIdentityHandler().getUserAttributes();
+            if (userAttributes != null && userAttributes.size() > 0) {
+                return (String) userAttributes.get("legalEntityId");
+            }
+            return (String) userAttributes.get("companyId");
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    /**
+     * The ids the database reads depend on, per account and in a stable order: Account_id, account_id and
+     * Membership_id, as raw JSON (absent is distinct from empty).
+     */
+    private static String accountIdsFingerprint(JsonObject responsePayloadJson) {
+        JsonArray accountsArray = JSONUtil.hasKey(responsePayloadJson, "Accounts")
+                ? responsePayloadJson.get("Accounts").getAsJsonArray()
+                : new JsonArray();
+        List<String> ids = new ArrayList<>();
+        for (JsonElement accountObject : accountsArray) {
+            JsonObject account = accountObject.isJsonObject() ? accountObject.getAsJsonObject() : new JsonObject();
+            ids.add(rawValue(account, "Account_id") + "|" + rawValue(account, "account_id") + "|"
+                    + rawValue(account, "Membership_id"));
+        }
+        Collections.sort(ids);
+        return String.join("\n", ids);
+    }
+
+    private static String rawValue(JsonObject object, String key) {
+        return object.has(key) ? object.get(key).toString() : "-";
+    }
+
+    /**
+     * True when every account in the response has its corecustomeraccounts_details row. An account without one has
+     * not been registered yet (new-account processing still running), so the result must not be stored.
+     */
+    private static boolean allAccountsHaveDetails(JsonObject responsePayloadJson,
+            Map<String, Map<String, String>> accountsDetails) {
+        JsonArray accountsArray = JSONUtil.hasKey(responsePayloadJson, "Accounts")
+                ? responsePayloadJson.get("Accounts").getAsJsonArray()
+                : new JsonArray();
+        if (accountsArray.size() == 0 || accountsDetails == null) {
+            return false;
+        }
+        for (JsonElement accountObject : accountsArray) {
+            if (!accountObject.isJsonObject()) {
+                return false;
+            }
+            JsonObject account = accountObject.getAsJsonObject();
+            JsonElement id = account.has("Account_id") ? account.get("Account_id") : account.get("account_id");
+            if (id == null || !id.isJsonPrimitive() || !accountsDetails.containsKey(id.getAsString())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /** The "actions" string of each account, built exactly as addPermissionsToAccountRecords used to build it. */
+    private Map<String, String> toActionStrings(Map<String, Set<String>> accountLevelActions) {
+        Map<String, String> actionsByAccount = new HashMap<>();
+        for (Map.Entry<String, Set<String>> entry : accountLevelActions.entrySet()) {
+            actionsByAccount.put(entry.getKey(), convertHasetToJsonArrayString(entry.getValue()));
+        }
+        return actionsByAccount;
+    }
+
+    /**
+     * Returns the response unchanged, and records whether it was a successful database read. Failed reads come
+     * back as an error JSON without opstatus 0; today's code treats them as "no rows", which must never be stored.
+     */
+    private static JsonObject checked(JsonObject response, Settledness settled) {
+        if (response == null || !response.has("opstatus") || !response.get("opstatus").isJsonPrimitive()
+                || !"0".equals(response.get("opstatus").getAsString())) {
+            settled.unsettle();
+        }
+        return response;
+    }
+
+    /**
+     * Tracks, for one request, whether everything read from the database is complete and final: every read
+     * succeeded and nothing new is being written in the background. Only then may the result be stored.
+     */
+    private static final class Settledness {
+        private boolean settled = true;
+
+        void unsettle() {
+            settled = false;
+        }
+
+        boolean isSettled() {
+            return settled;
+        }
     }
 
     /**
@@ -248,7 +405,8 @@ public class GetAccountsPostLoginObjectServicePostProcessor
 
 	private void getAccountLevelNewActions(String customerId, String contractId, String coreCustomerId, String groupId,
 			String serviceDefinitionId, FabricRequestManager fabricRequestManager,
-			Map<String, Set<String>> accountLevelActions, Map<String, Map<String, String>> accountsDetails) {
+			Map<String, Set<String>> accountLevelActions, Map<String, Map<String, String>> accountsDetails,
+			Settledness settled) {
 		Map<String, Map<String, Map<String, Boolean>>> globalActions = new HashMap<String, Map<String, Map<String, Boolean>>>();
 		Map<String, Map<String, Map<String, Map<String, Boolean>>>> accountActions = new HashMap<String, Map<String, Map<String, Map<String, Boolean>>>>();
 		try {
@@ -266,7 +424,7 @@ public class GetAccountsPostLoginObjectServicePostProcessor
 					 
                 
             } catch (Exception e) {
-                // TODO Auto-generated catch block
+                settled.unsettle();
                 alert.prepareError(e.toString()).log();
             }
 			/*
@@ -292,11 +450,11 @@ public class GetAccountsPostLoginObjectServicePostProcessor
 			JsonObject response = new JsonObject();
 			
 			try {
-				response = com.kony.dbputilities.util.HelperMethods.callApiJson(fabricRequestManager,
+				response = checked(com.kony.dbputilities.util.HelperMethods.callApiJson(fabricRequestManager,
 						input, com.kony.dbputilities.util.HelperMethods.getHeaders(fabricRequestManager),
-						URLConstants.EXCLUDED_CUSTOMER_ACTION_LIMITS_GET);
+						URLConstants.EXCLUDED_CUSTOMER_ACTION_LIMITS_GET), settled);
 			} catch (HttpCallException e) {
-				
+				settled.unsettle();
 				alert.prepareError(e.toString()).log();
 			}
 			JsonArray jsonArray = new JsonArray();
@@ -374,6 +532,11 @@ public class GetAccountsPostLoginObjectServicePostProcessor
 			
 			if (actionLimitsDTO.getNewFeatureAction() != null) {
 				Map<String, Set<String>> featureActions = actionLimitsDTO.getNewFeatureAction();
+				if (!featureActions.isEmpty()) {
+					// New feature actions are merged into this response and inserted in the background, so the next
+					// request reads different rows: this result must not be stored.
+					settled.unsettle();
+				}
 				for (String feature : featureActions.keySet()) {
 					for (String action : featureActions.get(feature)) {
 						if (actionLimitsDTO.getMonetaryActions().contains(action)
@@ -678,10 +841,11 @@ public class GetAccountsPostLoginObjectServicePostProcessor
 			try {
 				ThreadExecutor.getExecutor().execute(callable);
 			} catch (Exception e) {
+				settled.unsettle();
 				alert.prepareError("ThreadExecutor : Exception occured while adding new featureActions ", e).log();
 			}
 		} catch (ApplicationException e) {
-			
+			settled.unsettle();
 			alert.prepareError(e.toString()).log();
 		}
 		
@@ -689,7 +853,8 @@ public class GetAccountsPostLoginObjectServicePostProcessor
     }
 
     private Map<String, Map<String, String>> getCoreCustomerAccountsDetails(Set<String> coreCustomers,
-            String customerId, FabricRequestManager fabricRequestManager) throws HttpCallException {
+            String customerId, FabricRequestManager fabricRequestManager, Settledness settled)
+            throws HttpCallException {
 
         Map<String, Map<String, String>> accountDetailsMap = new HashMap<>();
         if (!coreCustomers.isEmpty()) {
@@ -708,10 +873,10 @@ public class GetAccountsPostLoginObjectServicePostProcessor
             input.put("_coreCustomerIdList", coreCustomersListCSV.toString());
             input.put("_customerId", customerId);
 
-            JsonObject response =
+            JsonObject response = checked(
                     com.kony.dbputilities.util.HelperMethods.callApiJson(fabricRequestManager, input,
                             com.kony.dbputilities.util.HelperMethods.getHeaders(fabricRequestManager),
-                            URLConstants.CORECUSTOMER_ACCOUNTS_DETAILS_GET_PROC);
+                            URLConstants.CORECUSTOMER_ACCOUNTS_DETAILS_GET_PROC), settled);
 
             if (JSONUtil.isJsonNotNull(response)
                     && JSONUtil.hasKey(response, DBPDatasetConstants.DATASET_RECORDS) &&
@@ -756,7 +921,7 @@ public class GetAccountsPostLoginObjectServicePostProcessor
     }
 
     private void addPermissionsToAccountRecords(JsonObject accountsJson,
-            Map<String, Set<String>> accountLevelActions, Map<String, Map<String, String>> accountsDetails,
+            Map<String, String> actionsByAccount, Map<String, Map<String, String>> accountsDetails,
             JsonArray accountsCacheArray) {
         JsonArray accountsArray = JSONUtil.hasKey(accountsJson, "Accounts")
                 ? accountsJson.get("Accounts").getAsJsonArray()
@@ -777,8 +942,8 @@ public class GetAccountsPostLoginObjectServicePostProcessor
                     account.add("nickName", account.get("displayName"));
                 }
 
-                if (accountLevelActions.containsKey(accountId)) {
-                    String actionsString = convertHasetToJsonArrayString(accountLevelActions.get(accountId));
+                if (actionsByAccount.containsKey(accountId)) {
+                    String actionsString = actionsByAccount.get(accountId);
                     account.addProperty("actions", actionsString);
                     updateAccountsCache(accountsCacheArray, accountId, actionsString);
                 } else if (!JSONUtil.hasKey(account, "actions")) {
@@ -894,7 +1059,7 @@ public class GetAccountsPostLoginObjectServicePostProcessor
 
     private Set<String> getCoreCustomersList(JsonObject accountsJson, String customerId, FabricRequestManager request,
 			Map<String, String> serviceDefinitions, Map<String, String> customerGroups, Map<String, String> contracts,
-			MockMortgageFlag mockMortgageFlag)
+			MockMortgageFlag mockMortgageFlag, Settledness settled)
             throws HttpCallException,Exception {
         Set<String> coreCustomers = new HashSet<>();
 		Map<String, String> serviceDefinition = new HashMap<String, String>();
@@ -931,10 +1096,10 @@ public class GetAccountsPostLoginObjectServicePostProcessor
             Map<String, Object> input = new HashMap<String, Object>();
             input.put(DBPUtilitiesConstants.FILTER, filter);
 
-            JsonObject response =
+            JsonObject response = checked(
                     com.kony.dbputilities.util.HelperMethods.callApiJson(request, input,
                             com.kony.dbputilities.util.HelperMethods.getHeaders(request),
-                            URLConstants.CONTRACT_CUSTOMERS_GET);
+                            URLConstants.CONTRACT_CUSTOMERS_GET), settled);
 
             if (JSONUtil.isJsonNotNull(response)
                     && JSONUtil.hasKey(response, DBPDatasetConstants.DATASET_CONTRACT_CUSTOMERS) &&
@@ -952,9 +1117,9 @@ public class GetAccountsPostLoginObjectServicePostProcessor
 							filter = InfinityConstants.id + DBPUtilitiesConstants.EQUAL + contractId;
 							input = new HashMap<String, Object>();
 							input.put(DBPUtilitiesConstants.FILTER, filter);
-							JsonObject contractResponse = com.kony.dbputilities.util.HelperMethods.callApiJson(request,
-									input, com.kony.dbputilities.util.HelperMethods.getHeaders(request),
-									URLConstants.CONTRACT_GET);
+							JsonObject contractResponse = checked(com.kony.dbputilities.util.HelperMethods.callApiJson(
+									request, input, com.kony.dbputilities.util.HelperMethods.getHeaders(request),
+									URLConstants.CONTRACT_GET), settled);
 							if (JSONUtil.isJsonNotNull(contractResponse)
 									&& JSONUtil.hasKey(contractResponse, DBPDatasetConstants.DATASET_CONTRACT)
 									&& contractResponse.get(DBPDatasetConstants.DATASET_CONTRACT).isJsonArray()) {
@@ -979,9 +1144,9 @@ public class GetAccountsPostLoginObjectServicePostProcessor
 				Map<String, Object> input = new HashMap<String, Object>();
 				input.put(DBPUtilitiesConstants.FILTER, filter);
 
-				JsonObject response = com.kony.dbputilities.util.HelperMethods.callApiJson(request, input,
+				JsonObject response = checked(com.kony.dbputilities.util.HelperMethods.callApiJson(request, input,
 						com.kony.dbputilities.util.HelperMethods.getHeaders(request),
-						URLConstants.CONTRACTCORECUSTOMER_GET);
+						URLConstants.CONTRACTCORECUSTOMER_GET), settled);
 
 				if (JSONUtil.isJsonNotNull(response)
 						&& JSONUtil.hasKey(response, DBPDatasetConstants.CONTRACT_CORE_CUSTOMERS)
@@ -999,9 +1164,9 @@ public class GetAccountsPostLoginObjectServicePostProcessor
 							filter = InfinityConstants.id + DBPUtilitiesConstants.EQUAL + contractId;
 							input = new HashMap<String, Object>();
 							input.put(DBPUtilitiesConstants.FILTER, filter);
-							JsonObject contractResponse = com.kony.dbputilities.util.HelperMethods.callApiJson(request,
-									input, com.kony.dbputilities.util.HelperMethods.getHeaders(request),
-									URLConstants.CONTRACT_GET);
+							JsonObject contractResponse = checked(com.kony.dbputilities.util.HelperMethods.callApiJson(
+									request, input, com.kony.dbputilities.util.HelperMethods.getHeaders(request),
+									URLConstants.CONTRACT_GET), settled);
 							if (JSONUtil.isJsonNotNull(contractResponse)
 									&& JSONUtil.hasKey(contractResponse, DBPDatasetConstants.DATASET_CONTRACT)
 									&& contractResponse.get(DBPDatasetConstants.DATASET_CONTRACT).isJsonArray()) {
@@ -1025,8 +1190,9 @@ public class GetAccountsPostLoginObjectServicePostProcessor
 						+ customerId;
 				Map<String, Object> input = new HashMap<String, Object>();
 				input.put(DBPUtilitiesConstants.FILTER, filter);
-				JsonObject jsonResponse = com.kony.dbputilities.util.HelperMethods.callApiJson(request, input,
-						com.kony.dbputilities.util.HelperMethods.getHeaders(request), URLConstants.CUSTOMER_GROUP_GET);
+				JsonObject jsonResponse = checked(com.kony.dbputilities.util.HelperMethods.callApiJson(request, input,
+						com.kony.dbputilities.util.HelperMethods.getHeaders(request), URLConstants.CUSTOMER_GROUP_GET),
+						settled);
 				if (jsonResponse.has(DBPDatasetConstants.DATASET_CUSTOMERGROUP)) {
 					JsonElement jsonElement = jsonResponse.get(DBPDatasetConstants.DATASET_CUSTOMERGROUP);
 					if (jsonElement.isJsonArray() && jsonElement.getAsJsonArray().size() > 0) {
