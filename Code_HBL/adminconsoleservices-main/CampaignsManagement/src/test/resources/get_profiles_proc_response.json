@@ -1,0 +1,75 @@
+        {
+            "records1": [
+                {
+                    "profileId": "PRF1237724182"
+                },
+                {
+                    "endDate": "2024-02-29T00:00",
+                    "profileId": "PRF1661799417",
+                    "campaignId": "CP1370526108",
+                    "campaignStatus": "SCHEDULED_ACTIVE_COMPLETED",
+                    "campaignDescription": "Sridhar Campaign in MS MSSQL",
+                    "campaignName": "Sridhar Campaign in MS MSSQL",
+                    "startDate": "2024-02-02T00:00"
+                },
+                {
+                    "profileId": "PRF1860546458"
+                }
+            ],
+            "records": [
+                {
+                    "profileName": "test profile",
+                    "profileCreationDate": "2024-02-05T12:30:44",
+                    "conditionExpression": "LoanBalance%20ne%20%2713%27",
+                    "dataContextName": "Next Best Product Model flow",
+                    "profileDescription": "test profile",
+                    "dataContextId": "DC001",
+                    "profileId": "PRF1661799417",
+                    "dataContextEndPoints": "http://tmnstransact2.southeastasia.cloudapp.azure.com/APIService/odata/Tenant1/Dataset_AllCustomersNBP",
+                    "profileStatus": "Active",
+                    "profileConditionId": "PC1079582210",
+                    "dataContextDescription": "DataContext created for Next Best Product Model flow Profiles"
+                },
+                {
+                    "profileName": "teset t1",
+                    "profileCreationDate": "2024-02-05T15:33:53",
+                    "conditionExpression": "EstMonthlyExpenseVarGroup%20eq%20%2701.%20Low%27",
+                    "dataContextName": "Customer Attrition Model flow",
+                    "profileDescription": "testt1",
+                    "dataContextId": "DC002",
+                    "profileId": "PRF1860546458",
+                    "dataContextEndPoints": "http://40.127.187.34/APIServices/odata/Tenant1/XAIAttritionResultsDetailed",
+                    "profileStatus": "Active",
+                    "profileConditionId": "PC1086941081",
+                    "dataContextDescription": "DataContext created for Customer Attrition Model flow Profiles"
+                },
+                {
+                    "profileName": "profiledemo",
+                    "profileCreationDate": "2024-02-05T11:39:53",
+                    "conditionExpression": "EstMonthlyExpenseVarGroup%20eq%20%2705.%20Unknown%27",
+                    "dataContextName": "Funds flow",
+                    "profileDescription": "profile demo",
+                    "dataContextId": "DC003",
+                    "profileId": "PRF1237724182",
+                    "dataContextEndPoints": "http://tmnstransact2.southeastasia.cloudapp.azure.com/APIService/odata/Tenant1/Dataset_AllCustomers",
+                    "profileStatus": "Active",
+                    "profileConditionId": "PC1413557980",
+                    "dataContextDescription": "DataContext created for Funds flow Profiles"
+                },
+                {
+                    "profileName": "test profile",
+                    "profileCreationDate": "2024-02-05T12:30:44",
+                    "conditionExpression": "EstMonthlyExpense%20gt%20%2713%27",
+                    "dataContextName": "Funds flow",
+                    "profileDescription": "test profile",
+                    "dataContextId": "DC003",
+                    "profileId": "PRF1661799417",
+                    "dataContextEndPoints": "http://tmnstransact2.southeastasia.cloudapp.azure.com/APIService/odata/Tenant1/Dataset_AllCustomers",
+                    "profileStatus": "Active",
+                    "profileConditionId": "PC1415867389",
+                    "dataContextDescription": "DataContext created for Funds flow Profiles"
+                }
+            ],
+            "opstatus": 0,
+            "httpStatusCode": 0
+        }

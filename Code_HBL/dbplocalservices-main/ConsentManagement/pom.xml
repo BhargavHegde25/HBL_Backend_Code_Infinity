@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.kony.dbp</groupId>
+		<artifactId>dbp-localservicesaggregator</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+	</properties>
+
+	<artifactId>dbp-consentmanagement</artifactId>
+	<name>ConsentManagement</name>
+	<description>ConsentManagementAPI</description>
+	<groupId>com.temenos.infinity</groupId>
+	<version>0.0.1-SNAPSHOT</version>
+	
+	<dependencies>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-commonutilityservices</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>DBPFramework</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.temenos.technology</groupId>
+			<artifactId>TemnLogger</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.temenos.technology</groupId>
+			<artifactId>TemnMonitorLib</artifactId>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.6</version>	
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.14.1</version>
+		</dependency>
+		<dependency>
+            <groupId>com.temenos.infinity</groupId>
+            <artifactId>infinity-authtoken-manager</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kony.dbp</groupId>
+            <artifactId>dbp-ObjectServices</artifactId>
+			<version>${project.version}</version>
+        </dependency>
+		<dependency>
+			<groupId>com.nimbusds</groupId>
+			<artifactId>nimbus-jose-jwt</artifactId>
+			<version>9.37.3</version>
+		</dependency>
+	</dependencies>
+    <build>
+      <finalName>dbp-consentmanagement</finalName>
+    </build>
+	<repositories>
+		<repository>
+			<id>dbx</id>
+			<name>dbx releases</name>
+			<url>https://quantum-maven.temenosgroup.com/content/repositories/dbx/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>mBaaS</id>
+			<name>mBaaS releases</name>
+			<url>https://quantum-maven.temenosgroup.com/content/repositories/mBaaS</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>temenos</id>
+			<url>http://maven.temenosgroup.com/content/repositories/temenos/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>
+
+</project>

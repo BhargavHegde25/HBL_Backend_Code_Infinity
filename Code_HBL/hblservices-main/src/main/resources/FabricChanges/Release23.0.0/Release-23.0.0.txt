@@ -1,0 +1,67 @@
+QR Payment Service
+=================================================================================================================================================================================================================================================================================================
+In Arrangements App :
+
+In dbpRbLocalServicesdb integration service - Updated/Refreshed the meta data for CRUD operations of qr_validation_results table as a new column has been added to this table.
+Published the App
+
+=================================================================================================================================================================================================================================================================================================
+In Payments App,
+
+In HBLCustomQRService service, Added a new operation - qrPaymentExecution and configured the request input params.
+
+Added new jars - codec-21, commons-codec-1.1, flexicoreprovider-1.7 in the fabric custom code.
+
+=================================================================================================================================================================================================================================================================================================
+In Payments App:
+
+In HBLCustomQRService, added the above added jars.
+In qrValidationService service, added the fromAccountNumber param in the request input.
+Added fromAccountNumber field in the qrValidation data model of QRPayments object service.
+Added the request mapping in validateQR method.
+
+Created a new json integration service - HBLSmartQR with basic service authentication.
+Added a new operation - merchantVerification. Configured the URL, request params and response params.
+
+In QRPayment operation of ConnectIPS integration service, added the request param - categoryPurpose and also changed the API url to nQR/v1/payment/dnrq.
+
+=================================================================================================================================================================================================================================================================================================
+
+Configured a server property - SMARTQR_VALIDATE_SERVICE_MERCHANT_ID to store valid merchantId which is used in smart QR validation service as merchantId accepted by the API is only of length 20 but when we parse the qr and extract merchantId , it may exceed length of 20 for some QRs.
+
+Configured the server property - SMARTQR_VALIDATION_SERVICE_BASE_URL to store the smart QR validation service base url.
+
+Created a new json integration service - SmartQRPayment.
+
+Validation service configuration with new end point:
+Created a new json integration service - HBLQRNepalPay. Added HBLServices jar.
+Added a new operation - getAccessToken. Configured the URL, request params and response params.
+Added a new operation - validateQR. Configured the URL, request params and response params. Added a preprocessor - QRConnectIPSAuthorizationPreprocessor.
+Added a new operation - QRPayment. Configured the URL, request params and response params. Added a preprocessor - QRConnectIPSAuthorizationPreprocessor.
+
+=================================================================================================================================================================================================================================================================================================
+
+Configured the server property - QR_CONNECTIPS_CERT_FILE_PATH to store the QR cert file for encryption.
+Configured the server property - QR_CONNECTIPS_CERT_PATH to store the QR pfx file for decryption.
+Configured the server property - QR_CONNECTIPS_CERT_PASSWORD to store the QR cert files password.
+Configured the server properties - NCHL_QR_PAY_ISSUER_ID, NCHL_QR_PAY_DEBTOR_AGENT, NCHL_QR_PAY_DEBTOR_AGENT_BRANCH to store the issuerId, debtorAgent and debtorAgentBranch details respectively.
+
+Configured the server property - CUSTOMER_CACHE_EXPIRE_TIME to externally manage TTL.
+
+Configured the server properties - NCHL_QR_PAY_PAYABLE_ACCNOUNT_NO, SMARTQR_QR_PAY_PAYABLE_ACCNOUNT_NO, INTRABANK_PAYABLE_ACCNOUNT_NO, CONNECTIPS_BILL_PAY_PAYABLE_ACCNOUNT_NO to store the payableAccountId details respectively.
+
+=================================================================================================================================================================================================================================================================================================
+
+In Payments app, Created a new data model - qrPayment and added the required fields.
+Added a new custom verb - qrPaymentService and mapped it to HBLCustomQRService - qrPaymentExecution integration service.
+Added request mapping and published the app.
+
+Added dbp-mfaservices jar in QRPayments object service.
+
+Added responseDescription, fieldErrors, field, message response parameters in the QRPayment operation of HBLQRNepalPay service.
+
+================================================================================================================================================================================================================================================================================================= 
+
+In Payments app, under QRPayments object service, updated the qrPaymentService method to use the preprocessor: com.bct.preprocessor.QRPaymentMFAPreprocessor.
+
+=================================================================================================================================================================================================================================================================================================

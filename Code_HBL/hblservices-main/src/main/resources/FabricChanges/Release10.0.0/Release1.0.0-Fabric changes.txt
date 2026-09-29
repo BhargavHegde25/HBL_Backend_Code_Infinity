@@ -1,0 +1,7 @@
+//Added below server properties for locate us to defined working hours of friday
+
+	FRIDAY_START_TIME (make sure value should be in HH:MM Ex: 08:00)
+	FRIDAY_END_TIME ((make sure value should be in HH:MM Ex: 15:00(3PM))
+	
+	Also, make sure previous defined location should be remove or disable from spotlight as 
+	they are following Base SAT & SUN as weekend logic.

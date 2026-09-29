@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>dbp-localservicesaggregator</artifactId>
+		<groupId>com.kony.dbp</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>cardmanagement-services</artifactId>
+	<name>CardManagement-Services</name>
+	<description>RetailBankingAPIs</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.temenos.infinity</groupId>
+			<artifactId>infinity-api-commons</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-commonutilityservices</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.temenos.technology</groupId>
+			<artifactId>TemnLogger</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.temenos.technology</groupId>
+			<artifactId>TemnMonitorLib</artifactId>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-scaintegration</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-mfaservices</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-adminintegrationservices</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-ObjectServices</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-productservices</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>Event-Dispatcher</artifactId>
+			<version>2022.04.00</version>
+		</dependency>
+	</dependencies>
+    <build>
+      <finalName>cardmanagement-services</finalName>
+    </build>
+
+</project>

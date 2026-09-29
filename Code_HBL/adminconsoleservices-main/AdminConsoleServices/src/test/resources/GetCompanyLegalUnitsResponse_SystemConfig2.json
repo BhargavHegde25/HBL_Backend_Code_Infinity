@@ -1,0 +1,61 @@
+{
+	"configurations": [
+		{
+			"lastmodifiedts": "2022-09-01 12:19:11.0",
+			"config_value": "[{\"id\":\"GB0010001\",\"companyName\":\"Europe\",\"region\":\"Europe\",\"typeId\":\"LEGALENTITY\",\"parentId\":\"GR23698574\",\"countryCode\":\"EU\",\"baseCurrency\":\"Euro\",\"language\":\"EN\",\"effectiveDate\":\"1990-09-20\",\"closeDate\":\"2045-09-20\",\"description\":\"LE for Europe\"}]",
+			"companyLegalUnit": "GB0010001",
+			"isPreLoginConfiguration": "false",
+			"description": "Available legal units in the system",
+			"createdts": "2022-09-01 12:19:11.0",
+			"softdeleteflag": "false",
+			"target": "SERVER",
+			"createdby": "Kony dev",
+			"config_key": "LEGAL_UNITS",
+			"bundle_id": "DBP_CONFIG_BUNDLE",
+			"modifiedby": "Kony dev",
+			"synctimestamp": "2022-09-01 12:19:11.0",
+			"config_type": "PREFERENCE",
+			"configuration_id": "110"
+		}
+	],
+	"records": [
+		{
+			"closeDate": "2035-09-29 23:59:54.0",
+			"countryCode": "AU",
+			"companyName": "Australia Model Bank",
+			"typeId": "LEGALENTITY",
+			"language": "EN",
+			"id": "AU0010001",
+			"shortName": "Australia Model Bank",
+			"parentId": "",
+			"baseCurrency": "AUD",
+			"effectiveDate": "1990-09-20 18:00:54.0"
+		},
+		{
+			"closeDate": "2035-09-29 23:59:54.0",
+			"countryCode": "US",
+			"companyName": "Model Bank",
+			"typeId": "LEGALENTITY",
+			"language": "EN",
+			"id": "GB0010001",
+			"shortName": "Model Bank",
+			"parentId": "",
+			"baseCurrency": "USD",
+			"effectiveDate": "1990-09-20 18:00:54.0"
+		},
+		{
+			"closeDate": "2035-09-29 23:59:54.0",
+			"countryCode": "US",
+			"companyName": "BSG Company",
+			"typeId": "LEGALENTITY",
+			"language": "EN",
+			"id": "NL0020001",
+			"shortName": "BSG Company",
+			"parentId": "",
+			"baseCurrency": "EUR",
+			"effectiveDate": "1990-09-20 18:00:54.0"
+		}
+	],
+	"opstatus": 0,
+	"httpStatusCode": 0
+}

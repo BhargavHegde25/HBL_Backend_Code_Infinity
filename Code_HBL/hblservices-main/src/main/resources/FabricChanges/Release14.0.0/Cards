@@ -1,0 +1,93 @@
+--------Configure below parameters in server properties--------
+
+HBL_BANK_ID - 627707
+S2M_E_BANKING_USER - zaincash
+S2M_E-BANKING_PASSWORD - tt5678
+CARD_STATUS_ACTION - 1
+S2M_HOST_URL - http://192.168.6.71:7001/
+NO_OF_DAYS_CARD_DISPUTE: 7
+NO_OF_DAYS_CARD_EMI: 30
+
+NOTE: S2M_E_BANKING_USER & S2M_E-BANKING_PASSWORD values will be different for production environment
+
+---server properties------
+CARD_ESTIMATED_TIME = 15 business days
+CARD_CUSTOMERCARE_NUMBER = 01-5971346 01-5327749 01-5346218
+PHYSICAL_PREPAID_CARD_FEE = 100.00
+VIRTUAL_PREPAID_CARD_FEE = 200.00
+HBL_CARDS_TEAM_DL = "lokeswararao.g@bahwancybertek.com"
+CARD_TEAM_NAME = "HBL CARD TEAM"
+S2M_JSON_BASE_URL -  http://192.168.6.75:9094/
+FD_CUSTOMERCARE_NUMBER - 01-5971346 01-5327749 01-5346218
+HBL_IMAGES_APP_URL:  https://infinity.himalayanbank.com/apps/HBLImages/1948869477/desktopweb/images
+
+-------Cross border server properties-------
+PFX_FILE_PASS = NPIX@123
+NPIX_URL = https://devnpix.connectips.com/npix/v1/api/
+NPIX_AUTH_URL = https://devnpix.connectips.com/oauth/token
+DBX_CUSTOMER_UNLOCK_LINK = https://infinity.himalayanbank.com/apps/OnlineBanking/
+
+------- Below token Milli seconds values might be different in production ----Start-----
+
+ACCESS_TOKEN_EXPIRY_MS  = 180000
+REFRESH_TOKEN_INCREMENT_MS = 180000
+REFRESH_TOKEN_MAX_LIFE_MS = 43200000
+RENEWAL_BUFFER_MS = 5000
+
+---------------- End ---------------
+
+CARD_TOPUP_FEE_SLAB1_MAX_VAL = 50.00;
+CARD_TOPUP_FEE_SLAB1_FEE = 10.00;
+CARD_TOPUP_FEE_SLAB2_MIN_VAL = 50.00;
+CARD_TOPUP_FEE_SLAB2_MAX_VAL = 250.00;
+CARD_TOPUP_FEE_SLAB2_FEE = 20.00;
+CARD_TOPUP_FEE_SLAB3_MIN_VAL = 250.00;
+CARD_TOPUP_FEE_SLAB3_MAX_VAL = 500.00;
+CARD_TOPUP_FEE_SLAB3_FEE = 30.00;
+CARD_TOPUP_FEE_SLAB4_MIN_VAL = 500.00;
+CARD_TOPUP_FEE_SLAB4_FEE = 40.00;
+CARD_TOPUP_NPR_CURRENCY_CONVERSION = 524;
+CARD_TOPUP_USD_CURRENCY_CONVERSION = 840;
+
+CARD_EMI_FEE_FLAG = 0;
+CARD_EMI_INSTA_NUMBER = 6;
+HBL_TRANSACTIONPIN_CC_EMAIL - email to be configure
+HBL_TRANSACTIONPIN_TO_EMAIL - email to be configure
+
+----Application upgrade logic server properties------
+
+ANDROID_LATEST: 3.0.0
+ANDROID_MIN: 2.0.0
+ANDROID_STORE_URL: https://play.google.com/store/apps/details?id=com.hbl.himb&hl=en_IN&pli=1
+
+IOS_LATEST: 3.0.0,
+IOS_MIN: 2.0.0,
+IPHONE_STORE_URL: https://apps.apple.com/in/app/hi-mb/id1425594561
+
+---client properties------
+CARD_ESTIMATED_TIME = 15 business days
+PHYSICAL_PREPAID_CARD_FEE = 100.00
+VIRTUAL_PREPAID_CARD_FEE = 200.00
+STATUS_LOCK_CARD : 10
+STATUS_REPORT_LOST_CARD : 11
+STATUS_ACTIVATE_CARD : 2
+CARD_PAYMENT_DUE_DATE : 16
+MAX_AMOUNT_FOR_EMI_ELIGIBLE: 5000
+STATUS_EXPIRED_CARD: 3
+EXPIRED_CARDS_VALIDITY_DISPLAY: 30
+
+MIN_ELIGIBLE_AMT_NORMAL_FD : 10000
+MIN_ELIGIBLE_AMT_HIMAL_FD : 10000
+MIN_ELIGIBLE_AMT_STRUCTURE_FD : 50000
+
+S2M_CARD_TOPUP_PAYABLE_ACCNOUNT_NO : 12008433710017
+S2M_CARD_TOPUP_PAYABLE_ACCNOUNT_NAME : Card TopUp Payable Account
+S2M_CARD_PAYMENT_PAYABLE_ACCNOUNT_NO : 25143
+
+CARD_EMI_INSTA_NUMBER: 6
+CARD_EMI_INTREST_RATE: 10.35
+HBL_COPY_RIGHTS : Ⓒ  Copyright 2025 Himalayan Bank Limited. All Right Reserved.
+RESET_PIN_ESTIMATED_TIME : 10 Business days
+
+CARD_TYPE_CATEGORY : { "Debit Card": ["Visa", "Master Card", "SCT UPI", "Nepal Pay"], "Physical Prepaid Card": ["Visa Domesti", "Visa International", "AMEX Domestic","AMEX International"], "Virtual Prepaid Card": ["Visa Domesti", "Visa International", "AMEX Domestic","AMEX International"] }
+HBL_CARD_TYPES: {"SELECT": ["Select Card Type"], "Debit Card": ["Select Card Type","Visa", "Master Card", "SCT UPI", "Nepal Pay"], "Physical Prepaid Card": ["Select Card Type", "Visa Domestic", "Visa International", "AMEX Domestic","AMEX International", "Domestic Union Pay", "International Union Pay", "PhonePe Card"], "Virtual Prepaid Card": ["Select Card Type", "Visa International", "AMEX International","SCT UPI International"]}

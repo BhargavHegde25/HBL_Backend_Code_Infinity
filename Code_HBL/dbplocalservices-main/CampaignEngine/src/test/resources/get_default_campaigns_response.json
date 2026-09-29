@@ -1,0 +1,31 @@
+{
+    "campaignList":[
+    {
+        "placeholderIdentifier":"PRELOGIN",
+        "placeholderId":"PH001",
+        "placeholderDescription":"Sample place holder description",
+        "imageURL":"https://retailbanking2.konycloud.com/dbimages/campaign-mobile-prelogin-1x-1.jpg",
+        "placeholderName":"Homepage",
+        "channelSubType":"MOBILE",
+        "imageResolution":"375x106",
+        "targetURL":"https://google.com",
+        "onlineContentId":"OC001",
+        "imageScale":"1x",
+        "imageIndex":1
+    }
+,
+    {
+        "placeholderIdentifier":"PRELOGIN",
+        "placeholderId":"PH002",
+        "placeholderDescription":"Sample place holder description",
+        "imageURL":"https://retailbanking1.konycloud.com/dbimages/campaign-mobile-prelogin-2x-1.jpg",
+        "placeholderName":"Homepage",
+        "channelSubType":"MOBILE",
+        "imageResolution":"750x212",
+        "targetURL":"https://google.com",
+        "onlineContentId":"OC002",
+        "imageScale":"2x",
+        "imageIndex":1
+    }
+],"opstatus":0,"httpStatusCode":0
+}

@@ -1,0 +1,2 @@
+INSERT INTO [${dbxschemaname}].[configurationbundles] ([bundle_id], [bundle_name], [app_id], [createdby], [modifiedby], [createdts], [lastmodifiedts], [synctimestamp], [softdeleteflag]) VALUES ('NUO-SFDC_CONFIG_BUNDLE', 'NUO-SFDC', 'NUO-SFDC', 'Kony dev', 'Kony dev', '2021-02-24 12:37:45', '2021-02-24 12:37:45', '2021-02-24 12:37:45', '0');
+GO

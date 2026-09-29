@@ -1,0 +1,14 @@
+{
+  "newSignatories": "18ca792d-2121-444c-884e-e5bfd233de78,29d52604-4dab-46a4-85f0-aa70b1964485",
+  "oldSignatories": "18ca792d-2121-444c-884e-e5bfd233de78,29d52604-4dab-46a4-85f0-aa70b1964488",
+  "isNewFlow": false,
+  "signatoryGroupValues": "29d52604-4dab-46a4-85f0-aa70b1964485,GsxVkrMuAf,GsxVkrMuAf,3358932067",
+  "newSigValues": "18ca792d-2121-444c-884e-e5bfd233de78,29d52604-4dab-46a4-85f0-aa70b1964485,3358932067",
+  "deleteSigValues": "18ca792d-2121-444c-884e-e5bfd233de78,29d52604-4dab-46a4-85f0-aa70b1964488",
+  "accountIds":"[1389540560,1389540561,1389540562]",
+  "limitTypeId":"NON_MONETARY_LIMIT",
+  "limits":"[{\"lowerlimit\":\"-1\",\"upperlimit\":\"-1\",\"approvalruleId\":\"ANY_ONE\",\"approvers\":[{\"approverId\":\"1389540560\"}]}]",
+  "approvalMatrixFeatureActionID":"INTERNATIONAL_ACCOUNT_FUND_TRANSFER_CREATE_RECEPIENT"
+  }
+
+

@@ -1,0 +1,16 @@
+{
+	"termandcondition": [
+		{
+			"id": "1920004"
+		}
+	],
+	"termandconditiontext": [
+		{
+			"Content": "sample text",
+			"Version_Id": "1.0",
+			"ContentType_id": "TEXT"
+		}
+	],
+	"opstatus": 0,
+	"httpStatusCode": 0
+}

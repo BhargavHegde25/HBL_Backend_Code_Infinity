@@ -1,0 +1,59 @@
+{
+    "opstatus":0,"permission":[
+    {
+        "lastmodifiedts":"2024-01-11 11:40:34.0",
+        "Description":"Permission to approve a newly created contract",
+        "isComposite":"false",
+        "Status_id":"SID_ACTIVE",
+        "PermissionValue":"TRUE",
+        "id":"PID701",
+        "synctimestamp":"2024-01-11 11:40:34.0",
+        "createdts":"2024-01-11 11:40:34.0",
+        "softdeleteflag":"false",
+        "Name":"ApproveCreateContract",
+        "Type_id":"PER_TYPE_MAKERCHECKER"
+    }
+,
+    {
+        "lastmodifiedts":"2024-01-11 11:40:34.0",
+        "Description":"Permission to approve updated contract",
+        "isComposite":"false",
+        "Status_id":"SID_ACTIVE",
+        "PermissionValue":"TRUE",
+        "id":"PID702",
+        "synctimestamp":"2024-01-11 11:40:34.0",
+        "createdts":"2024-01-11 11:40:34.0",
+        "softdeleteflag":"false",
+        "Name":"ApproveUpdateContract",
+        "Type_id":"PER_TYPE_MAKERCHECKER"
+    }
+,
+    {
+        "lastmodifiedts":"2024-01-11 11:40:34.0",
+        "Description":"Permission to approve a newly created customer",
+        "isComposite":"false",
+        "Status_id":"SID_ACTIVE",
+        "PermissionValue":"TRUE",
+        "id":"PID703",
+        "synctimestamp":"2024-01-11 11:40:34.0",
+        "createdts":"2024-01-11 11:40:34.0",
+        "softdeleteflag":"false",
+        "Name":"ApproveCreateCustomer",
+        "Type_id":"PER_TYPE_MAKERCHECKER"
+    }
+,
+    {
+        "lastmodifiedts":"2024-01-11 11:40:34.0",
+        "Description":"Permission to approve updated customer",
+        "isComposite":"false",
+        "Status_id":"SID_ACTIVE",
+        "PermissionValue":"TRUE",
+        "id":"PID704",
+        "synctimestamp":"2024-01-11 11:40:34.0",
+        "createdts":"2024-01-11 11:40:34.0",
+        "softdeleteflag":"false",
+        "Name":"ApproveUpdateCustomer",
+        "Type_id":"PER_TYPE_MAKERCHECKER"
+    }
+],"httpStatusCode":0
+}

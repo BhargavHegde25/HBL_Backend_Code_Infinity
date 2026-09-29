@@ -1,0 +1,30 @@
+{
+    "MakerCheckerConfigData": [
+        {
+            "isApprovalRequired": "false",
+            "companyLegalUnit": "GB0010001",
+            "moduleName": "Contract Management",
+            "id": "1",
+            "languageCode": "en-US",
+            "actionName": "Create Contract"
+        },
+        {
+            "isApprovalRequired": "false",
+            "companyLegalUnit": "GB0010001",
+            "moduleName": "Contract Management",
+            "id": "2",
+            "languageCode": "en-US",
+            "actionName": "Edit Contract"
+        },
+        {
+            "isApprovalRequired": "false",
+            "companyLegalUnit": "GB0010001",
+            "moduleName": "Customer Management",
+            "id": "3",
+            "languageCode": "en-US",
+            "actionName": "Create Customer"
+        }
+    ],
+    "opstatus": 0,
+    "httpStatusCode": 0
+}

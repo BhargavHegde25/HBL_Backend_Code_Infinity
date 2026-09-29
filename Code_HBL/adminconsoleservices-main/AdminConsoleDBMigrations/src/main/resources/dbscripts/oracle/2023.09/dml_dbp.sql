@@ -1,0 +1,6 @@
+INSERT INTO "configurations" ("configuration_id", "bundle_id", "config_type", "config_key", "description", "config_value", "target", "isPreLoginConfiguration")
+VALUES ('TRAN_1', 'DBP_CONFIG_BUNDLE', 'PREFERENCE', 'TRANSACTIONS_PER_PAGE', 'Configuration to display number of Transactions per page in Account Overview screen', '10', 'CLIENT', '1');
+INSERT INTO "configurations" ("configuration_id", "bundle_id", "config_type", "config_key", "description", "config_value", "target", "isPreLoginConfiguration")
+VALUES ('TRAN_2', 'DBP_CONFIG_BUNDLE', 'PREFERENCE', 'POSTED_TRANSACTIONS_LIMIT', 'Configuration to display number of posted transactions in initial landing page of Account Overview screen', '20', 'CLIENT', '1');
+INSERT INTO "configurations" ("configuration_id", "bundle_id", "config_type", "config_key", "description", "config_value", "target", "isPreLoginConfiguration")
+VALUES ('TRAN_3', 'DBP_CONFIG_BUNDLE', 'PREFERENCE', 'PENDING_TRANSACTIONS_LIMIT', 'Configuration to display number of pending transactions in initial landing page of Account Overview screen', '20', 'CLIENT', '1');

@@ -1,0 +1,35 @@
+{
+    "opstatus":0,"get_mc_moduleactionname_view":[
+    {
+        "languagecode":"en-GB",
+        "modulename":"Contract Management",
+        "actionid":"CREATE_CONTRACT",
+        "moduleid":"CONTRACT_MANAGEMENT",
+        "actionname":"Create Contract"
+    }
+,
+    {
+        "languagecode":"en-GB",
+        "modulename":"Contract Management",
+        "actionid":"EDIT_CONTRACT",
+        "moduleid":"CONTRACT_MANAGEMENT",
+        "actionname":"Edit Contract"
+    }
+,
+    {
+        "languagecode":"en-GB",
+        "modulename":"Customer Management",
+        "actionid":"CREATE_CUSTOMER",
+        "moduleid":"CUSTOMER_MANAGEMENT",
+        "actionname":"Create Customer"
+    }
+,
+    {
+        "languagecode":"en-GB",
+        "modulename":"Customer Management",
+        "actionid":"EDIT_CUSTOMER",
+        "moduleid":"CUSTOMER_MANAGEMENT",
+        "actionname":"Edit Customer"
+    }
+],"httpStatusCode":0
+}

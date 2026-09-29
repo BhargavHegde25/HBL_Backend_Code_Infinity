@@ -1,0 +1,34 @@
+{
+    "opstatus": 0,
+    "modules": [
+        {
+            "requestType": [
+                {
+                    "requestName": "Create Contract",
+                    "requestId": "CREATE_CONTRACT"
+                },
+                {
+                    "requestName": "Edit Contract",
+                    "requestId": "EDIT_CONTRACT"
+                }
+            ],
+            "moduleName": "Contract Management",
+            "moduleId": "CONTRACT_MANAGEMENT"
+        },
+        {
+            "requestType": [
+                {
+                    "requestName": "Create Customer",
+                    "requestId": "CREATE_CUSTOMER"
+                },
+                {
+                    "requestName": "Edit Customer",
+                    "requestId": "EDIT_CUSTOMER"
+                }
+            ],
+            "moduleName": "Customer Management",
+            "moduleId": "CUSTOMER_MANAGEMENT"
+        }
+    ],
+    "httpStatusCode": 0
+}

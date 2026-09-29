@@ -1,0 +1,12 @@
+{
+	"termandcondition": [
+		{
+			"Description": "Login",
+			"Title": "Login",
+			"id": "1920004",
+			"Code": "Login_TnC"
+		}
+	],
+	"opstatus": 0,
+	"httpStatusCode": 0
+}

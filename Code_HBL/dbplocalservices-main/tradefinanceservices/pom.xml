@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>dbp-localservicesaggregator</artifactId>
+    <groupId>com.kony.dbp</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <groupId>com.temenos.infinity</groupId>
+  <artifactId>tradefinanceservices</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <name>tradefinanceservices</name>
+
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>11</java.version>
+
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.temenos.technology</groupId>
+			<artifactId>TemnLogger</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.temenos.technology</groupId>
+			<artifactId>TemnMonitorLib</artifactId>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>DBPFramework</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-commonutilityservices</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+            <groupId>com.temenos.infinity</groupId>
+            <artifactId>infinity-authtoken-manager</artifactId>
+        </dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-productservices</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-ObjectServices</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>com.temenos.infinity.t24irisintegration</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+
+<!-- Thanks for using https://jar-download.com -->
+
+	</dependencies>
+
+	<build>
+		<finalName>tradefinanceservices</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<id>mBaaS</id>
+			<name>mBaaS releases</name>
+			<url>https://quantum-maven.temenosgroup.com/content/repositories/mBaaS</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>
+</project>

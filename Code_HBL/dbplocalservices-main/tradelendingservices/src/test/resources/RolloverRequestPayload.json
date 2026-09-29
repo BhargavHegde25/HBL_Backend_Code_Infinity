@@ -1,0 +1,9 @@
+{
+    "facilityId" : "F123456789",
+    "loanId": "12345654321",
+    "rolloverDays":"1",
+    "rolloverMonths":"2",
+    "rolloverYears":"3",
+    "rolloverRequestId": "10000003",
+    "record_id" : "10000003"
+}

@@ -1,0 +1,1 @@
+ALTER TABLE `backendidentifier` ADD COLUMN `CompanyId` VARCHAR(200);

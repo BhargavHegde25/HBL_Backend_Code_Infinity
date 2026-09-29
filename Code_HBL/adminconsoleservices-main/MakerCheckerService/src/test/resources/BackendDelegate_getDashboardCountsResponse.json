@@ -1,0 +1,3 @@
+{
+	"makerRequests":{"get_mc_approvalrequests_view":[{"requestCount":"1","companyLegalUnit":"GB0010001"},{"requestCount":"2","companyLegalUnit":"AU0010001"}]},"checkerRequests":{"get_mc_approvalrequests_view":[{"requestCount":"3","companyLegalUnit":"GB0010001"},{"requestCount":"4","companyLegalUnit":"AU0010001"}]}
+}

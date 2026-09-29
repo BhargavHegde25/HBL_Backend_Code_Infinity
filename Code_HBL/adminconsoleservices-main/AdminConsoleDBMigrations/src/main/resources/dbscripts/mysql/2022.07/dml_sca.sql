@@ -1,0 +1,2 @@
+INSERT INTO sca_alias (hashedvalue,userId,partyId,type,createdby,modifiedby,createdts,lastmodifiedts,synctimestamp,softdeleteflag) VALUES ("A238B724C7AD98A8BB8861028489D300CE8E1043","328272992","109499","SELFENROLMENT","admin","",CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,0);
+INSERT INTO sca_alias (hashedvalue,userId,partyId,type,createdby,modifiedby,createdts,lastmodifiedts,synctimestamp,softdeleteflag) VALUES ("4F7B4A0A7A7D1C22E0D443EA4483797D6C97D369","2332787232","108399","SELFENROLMENT","admin","",CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,0);

@@ -1,0 +1,10 @@
+--------------------------
+DISPUTETXNS_BACKEND - value change to T24 from STUB
+
+//*********
+Authentication and Arrangements Fabric are update with new services 
+and  HBLServices.ja & holdingsapi-services.jar are updated with dispute transactions changes
+************//
+
+/*------Added server property----- */
+SHOW_DISPUTE_TRANSACTIONS_DAYS = 90

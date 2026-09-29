@@ -1,0 +1,25 @@
+{
+    "scope": "Form",
+    "filters": [
+        {
+            "operator": "and",
+            "criteria": [                
+                "formDataMap['$BackendType'] = '$BackendId'",
+                "formDataMap['Status'] = 'InProgress'"
+            ]
+        }
+    ],
+    "attributes": [
+        "formDataMap",
+        "trackingCode",
+        "timeRequest",
+        "timeCreated",
+        "job.name",
+        "timeUserLastModified"
+    ],
+    "sorts": [
+        "job.timeCreated desc"
+    ],
+    "fetchLimit": 999,
+    "fetchOffset": 0
+}

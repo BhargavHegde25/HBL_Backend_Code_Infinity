@@ -1,0 +1,130 @@
+{
+    "0": {
+        "customerName": "Apple",
+        "empty": "",
+        "countOfOverdueInvoices": 350000,
+        "overdueAmt": 350000.0
+    },
+    "1": {
+        "customerName": "Saudi Airlines",
+        "empty": "",
+        "countOfOverdueInvoices": 430000,
+        "overdueAmt": 400000.0
+    },
+    "2": {
+        "customerName": "Saudi Aramco",
+        "empty": "",
+        "countOfOverdueInvoices": 210000,
+        "overdueAmt": 130000.0
+    },
+    "3": {
+        "customerName": "Microsoft",
+        "empty": "",
+        "countOfOverdueInvoices": 240000,
+        "overdueAmt": 249873.0
+    },
+    "4": {
+        "customerName": "Amazon",
+        "empty": "",
+        "countOfOverdueInvoices": 96000,
+        "overdueAmt": 90078.0
+    },
+    "5": {
+        "customerName": "Alphabet",
+        "empty": "",
+        "countOfOverdueInvoices": 15,
+        "overdueAmt": 14650.0
+    },
+    "6": {
+        "customerName": "Facebook",
+        "empty": "",
+        "countOfOverdueInvoices": 6,
+        "overdueAmt": 467840.0
+    },
+    "7": {
+        "customerName": "Tencent",
+        "empty": "",
+        "countOfOverdueInvoices": 5,
+        "overdueAmt": 67840.0
+    },
+    "8": {
+        "customerName": "Tesla",
+        "empty": "",
+        "countOfOverdueInvoices": 1,
+        "overdueAmt": 247840.0
+    },
+    "9": {
+        "customerName": "Alibaba",
+        "empty": "",
+        "countOfOverdueInvoices": 13,
+        "overdueAmt": 45840.0
+    },
+    "10": {
+        "customerName": "Berkshire Hathway",
+        "empty": "",
+        "countOfOverdueInvoices": 21,
+        "overdueAmt": 968840.0
+    },
+    "11": {
+        "customerName": "TSMC",
+        "empty": "",
+        "countOfOverdueInvoices": 43,
+        "overdueAmt": 2127840.0
+    },
+    "12": {
+        "customerName": "Visa",
+        "empty": "",
+        "countOfOverdueInvoices": 12,
+        "overdueAmt": 324740.0
+    },
+    "13": {
+        "customerName": "JPMorgan Chase",
+        "empty": "",
+        "countOfOverdueInvoices": 2,
+        "overdueAmt": 864350.0
+    },
+    "14": {
+        "customerName": "Samsung Mobiles",
+        "empty": "",
+        "countOfOverdueInvoices": 14,
+        "overdueAmt": 38540.0
+    },
+    "15": {
+        "customerName": "Samsung Electronics",
+        "empty": "",
+        "countOfOverdueInvoices": 15,
+        "overdueAmt": 3345740.0
+    },
+    "16": {
+        "customerName": "Kweichow Moutai",
+        "empty": "",
+        "countOfOverdueInvoices": 12,
+        "overdueAmt": 75467800.0
+    },
+    "17": {
+        "customerName": "Walmart",
+        "empty": "",
+        "countOfOverdueInvoices": 15,
+        "overdueAmt": 96678840.0
+    },
+    "18": {
+        "customerName": "Mastercard",
+        "empty": "",
+        "countOfOverdueInvoices": 10,
+        "overdueAmt": 4588840.0
+    },
+    "19": {
+        "customerName": "UnitedHealth Group",
+        "empty": "",
+        "countOfOverdueInvoices": 11,
+        "overdueAmt": 245660.0
+    },
+    "20": {
+        "customerName": "UnitedHealth Group",
+        "empty": "",
+        "countOfOverdueInvoices": 31,
+        "overdueAmt": 386578.0
+    },
+    "opstatus":0,
+    "httpStatusCode": 200
+}

@@ -1,0 +1,2 @@
+UPDATE [${dbxschemaname}].[configurations] SET config_value='{"Retail":[{"JOINT.OWNER":"Joint Owner"}],"Business":[{"Owner":"Owner"},{"AUTH.SIGNER":"Authorized Signer"},{"Non Signer":"Non Signer"}]}' WHERE configuration_id='NUO_SFDC_99';
+GO

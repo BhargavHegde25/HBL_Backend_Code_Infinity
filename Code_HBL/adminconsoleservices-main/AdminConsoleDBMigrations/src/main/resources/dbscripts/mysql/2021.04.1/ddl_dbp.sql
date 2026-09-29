@@ -1,0 +1,1 @@
+ALTER TABLE contractcustomrole ADD autoSyncAccounts TINYINT DEFAULT 0 NOT NULL;

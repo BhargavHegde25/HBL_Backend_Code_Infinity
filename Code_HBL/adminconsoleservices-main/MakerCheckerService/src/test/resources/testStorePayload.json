@@ -1,0 +1,24 @@
+{
+  "approvalrequests": [
+    {
+      "permissionId": "",
+      "reason": "",
+      "companyLegalUnit": "GB0010001",
+      "expAPINickName": "enroll",
+      "module": "Customer Management",
+      "expAPIOperationName": "CustomerManagementObjService_InfinityUser_createInfinityUser",
+      "createdts": "2020-10-09T18:30:00Z",
+      "checkedts": "2020-10-09T18:30:00Z",
+      "recordId": "363467",
+      "feature": "Customer",
+      "createdby": "",
+      "requestId": "REQ_111",
+      "checkedBy": "",
+      "reqPayload": "{\"key1\":\"value1\",\"key2\":{\"key21\":\"value21\"}}",
+      "permissionName": "",
+      "status": ""
+    }
+  ],
+  "opstatus": 0,
+  "httpStatusCode": 0
+}

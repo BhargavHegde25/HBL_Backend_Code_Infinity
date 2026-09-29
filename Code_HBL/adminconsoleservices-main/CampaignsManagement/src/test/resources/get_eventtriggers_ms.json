@@ -1,0 +1,15 @@
+{
+	"eventTrigger": [
+		{
+			"eventCode": "SURPLUSFUNDS",
+			"eventTriggerId": "ET001",
+			"eventTriggerType": "External",
+			"eventDescription": "CustomerhassurplusFundsintheselectedaccount",
+			"eventSource": "Transact/DS",
+			"eventName": "SurplusFunds",
+			"extensionData": {}
+		}
+	],
+	"opstatus": 0,
+	"httpStatusCode": 0
+}

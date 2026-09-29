@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.kony.dbp</groupId>
+		<artifactId>dbp-transactionlimitsengineaggregator</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>TransactionLimitsArtifactsManager</artifactId>
+	<name>DBP Transaction Limits Engine Artifact Manager</name>
+	<description>This module manages all the artifacts that are needed by DBX Event Engine</description>
+	<packaging>pom</packaging>
+	
+
+	<dependencies>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-transactionlimitsengine</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>DBPFramework</artifactId>
+		</dependency>
+	</dependencies>
+
+	<properties>
+		<project.repo.dir>${project.basedir}/../../..</project.repo.dir>
+		<project.dist.folder.name>release</project.dist.folder.name>
+		<project.dist.dir>${project.repo.dir}/${project.dist.folder.name}</project.dist.dir>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>${project.dist.dir}</directory>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>package-binaries-tools</id>
+						<phase>install</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<appendAssemblyId>false</appendAssemblyId>
+							<outputDirectory>${project.dist.dir}</outputDirectory>
+							<attach>false</attach>
+							<descriptors>
+								<descriptor>${project.basedir}/assembly/copy-binaries.xml</descriptor>
+							</descriptors>
+							<finalName>binaries</finalName>
+						</configuration>
+					</execution>
+					<execution>
+						<id>package-openapidb-app</id>
+						<phase>install</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<appendAssemblyId>false</appendAssemblyId>
+							<outputDirectory>${project.dist.dir}/apps</outputDirectory>
+							<attach>false</attach>
+							<descriptors>
+								<descriptor>${project.basedir}/assembly/copy-transactionlimitsengine-app.xml</descriptor>
+							</descriptors>
+							<finalName>TransactionLimitsEngine</finalName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

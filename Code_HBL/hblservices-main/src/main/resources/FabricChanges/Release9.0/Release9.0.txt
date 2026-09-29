@@ -1,0 +1,10 @@
+HBL Certificate Import
+----------------------------
+Please extract the HBL-Certificate.zip file in to C:\\HBL-Certificate\\Certificate folder.
+ after extract will get HBL.pfx file. double click on HBL.pfx file and certificate import Wizard window will open. and please follow the below steps
+ 1. select the Store Location option as Local Mechine. and click Next
+ 2. Give the file name as "C:\HBL-Certificate\Certificate\HBL.pfx" and click Next
+ 3. Give Password as 123 and click next
+ 4. Select the option "Automatically Select the certificate store based on the type of the certificate". And click Next
+ 5. Select the Finish option
+ 6. Click Ok button on The Import was Successful.

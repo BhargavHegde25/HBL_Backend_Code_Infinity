@@ -1,0 +1,55 @@
+CREATE TABLE `disputeTransactions` (
+  `id` varchar(50) NOT NULL,
+  `Customer_id` varchar(50) NOT NULL,
+  `amount` varchar(50) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `fromAccountName` varchar(50) NOT NULL,
+  `fromAccountNumber` varchar(50) NOT NULL,
+  `transactionDate` varchar(50) NOT NULL,
+  `transactionId` varchar(50) NOT NULL,
+  `transactionsNotes` varchar(50) NOT NULL,
+  `transactionType` varchar(50) NOT NULL,
+  `disputeReason` varchar(50) NOT NULL,
+  `disputeStatus` varchar(50) NOT NULL,
+  `remarks` varchar(50) NOT NULL,
+  `serviceReqId` varchar(50) NOT NULL,
+  `serviceReqProcessedTime` varchar(50) NOT NULL,
+  `serviceReqStatus` varchar(50) NOT NULL,
+  `createdby` varchar(50) DEFAULT NULL,
+  `modifiedby` varchar(50) DEFAULT NULL,
+  `createdts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `lastmodifiedts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `lastsynctimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `softdeleteflag` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `FK_Cust_id_idx` (`Customer_id`),
+  CONSTRAINT `FK_Custr_id` FOREIGN KEY (`Customer_id`) REFERENCES `customer` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3
+
+
+
+
+/* Email templete to send email to Customer */
+
+INSERT INTO `dbxdb`.`emailtemplates` (`id`, `TemplateName`, `TemplateText`, `Subject`, `SenderName`, `SenderEmail`) VALUES ('218', 'disputeEmailToCustomer', '<tbody> <tr> <td style="padding:0 0 15pt 0;"> <div align="center"> <table border="0" cellspacing="0" cellpadding="0" style="width:100%;"> <tbody> <tr> <td style="padding:0 0 15pt 0;"> <p align="center" style="font-size:12pt;font-family:Aptos,sans-serif;text-align:center;margin:0;"> <img data-imagetype="External" src="https://ib1.himalayanbank.com/Public/client/emailBrand.png" border="0" id="x__x0000_i1025" style="width:390.99pt;height:72.99pt;"> </p> </td> </tr> </tbody> </table> </div> </td> </tr> <tr> <td style="padding:15pt 11.25pt;border:4.5pt solid black;"> <p> <strong> <span style="font-family:Aptos,sans-serif;">Hi %customerName% ,</span> </strong> </p> </td> <td style="padding:15pt 11.25pt;border:4.5pt solid black;"> <p> <strong> <span style="font-family:Aptos,sans-serif;">We have received your dispute transaction request and is currently under review. Please find the details below</span> </strong> </p> </td> <td><b>Dispute ID:</b> %id%</td> </br> </td> <td><b>Dispute Reason:</b> %reason%</td> </br> <td><b>Dispute Description:</b> %disputeDescription%</td> </br> <td><b>Transaction Details:</b></td> </br> <ul> <li> <td><b>Date:</b> %date%</td> </li> <li> <td><b>Amount:</b> %amount%</td> </li> <li> <td><b>Reference Number:</b> %referenceNumber%</td> </li> <li> <td><b>Transaction Type:</b> %transactionType%</td> </li> <li> <td><b>From Account:</b> %fromAccountr%</td> </li> <li> <td><b>To Account:</b> %toAccount%</td> </li> <li> <td><b>Notes:</b> %notes%</td> </li> </ul> </br> <l>Best Regards,</l></br> <l>Himalayan Bank Limited,</l></br> </tr> </tbody>', 'Dispute Transaction Request', 'himalayanbank', 'ibanking@himalayanbank.com');
+
+/* Email templete to send email to bank */
+
+INSERT INTO `dbxdb`.`emailtemplates` (`id`, `TemplateName`, `TemplateText`, `Subject`, `SenderName`, `SenderEmail`) VALUES ('219', 'disputeEmailToBank', '<tbody> <tr> <td style="padding:0 0 15pt 0;"> <div align="center"> <table border="0" cellspacing="0" cellpadding="0" style="width:100%;"> <tbody> <tr> <td style="padding:0 0 15pt 0;"> <p align="center" style="font-size:12pt;font-family:Aptos,sans-serif;text-align:center;margin:0;"> <img data-imagetype="External" src="https://ib1.himalayanbank.com/Public/client/emailBrand.png" border="0" id="x__x0000_i1025" style="width:390.99pt;height:72.99pt;"> </p> </td> </tr> </tbody> </table> </div> </td> </tr> <tr> <td style="padding:15pt 11.25pt;border:4.5pt solid black;"> <p> <strong> <span style="font-family:Aptos,sans-serif;">A new dispute request has been raised by %customerName% with details as follows:</span> </strong> </p> </td> <td><b>Dispute ID:</b> %id%</td> </br> </td> <td><b>Dispute Reason:</b> %reason%</td> </br> <td><b>Dispute Description:</b> %disputeDescription%</td> </br> <td><b>Transaction Details:</b></td> </br> <ul> <li> <td><b>Date:</b> %date%</td> </li> <li> <td><b>Amount:</b> %amount%</td> </li> <li> <td><b>Reference Number:</b> %referenceNumber%</td> </li> <li> <td><b>Transaction Type:</b> %transactionType%</td> </li> <li> <td><b>From Account:</b> %fromAccountr%</td> </li> <li> <td><b>To Account:</b> %toAccount%</td> </li> <li> <td><b>Notes:</b> %notes%</td> </li> </ul>', 'Dispute Transaction Request', 'himalayanbank', 'ibanking@himalayanbank.com');
+
+add below client app property
+--------------------------------
+
+DISPUTE_BANK_DL: card.dispute@himalayanbank.com
+
+----update dispute transaction service details---- Below details only for reference------
+https://temenosdigital.bahwancybertek.com:443/services/data/v1/CustomerManagementObjService/operations/ProductTransaction/updateDisputeTransaction
+sample payload: 
+{
+"id":"2b6349e9-c847-4f4d-a819-5a68a7fac647",
+"disputeStatus":"Settled"
+}
+
+Fabric APP: Konybankingadminconsole 
+
+------------------------------------------------

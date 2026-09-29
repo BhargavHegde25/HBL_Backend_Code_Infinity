@@ -1,0 +1,10 @@
+{
+    "CASUAL-EMPLOYEE": "Casual Employee",
+    "FULL-TIME-EMPLOYED": "Full-Time Employee",
+    "PART-TIME-EMPLOYED": "Part-Time Employee",
+    "CONTRACT-EMPLOYEE": "Contract Employee",
+    "TRAINEE": "Trainee",
+    "SELF-EMPLOYED": "Self-Employed",
+    "UNEMPLOYED": "Unemployed",
+    "RETIRED": "Retired"
+}

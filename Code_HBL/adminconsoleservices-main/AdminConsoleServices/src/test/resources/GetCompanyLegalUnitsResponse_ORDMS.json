@@ -1,0 +1,44 @@
+[
+  {
+    "id": "GB0010001",
+    "companyName": "Europe",
+    "region": "Europe",
+    "typeId": "LEGALENTITY",
+    "parentId": "GR23698574",
+    "countryCode": "EU",
+    "baseCurrency": "Euro",
+    "language": "EN",
+    "effectiveDate": "1990-09-20",
+    "closeDate": "2045-09-20",
+    "description": "LE for Europe",
+    "alternateReferences":{"alternateId":"EU1"}
+  },
+  {
+    "id": "AU0010001",
+    "companyName": "Australia",
+    "region": "Australia",
+    "typeId": "LEGALENTITY",
+    "parentId": "GR23698111",
+    "countryCode": "AU",
+    "baseCurrency": "AUD",
+    "language": "EN",
+    "effectiveDate": "1990-09-20",
+    "closeDate": "2045-09-20",
+    "description": "LE for Australia",
+    "alternateReferences":{"alternateId":"AU1"}
+  },
+  {
+    "id": "NL0020001",
+    "companyName": "BSG Company",
+    "region": "BSG",
+    "typeId": "LEGALENTITY",
+    "parentId": "GR1233213",
+    "countryCode": "BSG",
+    "baseCurrency": "BSG",
+    "language": "EN",
+    "effectiveDate": "1990-09-20",
+    "closeDate": "2045-09-20",
+    "description": "LE for BSG",
+    "alternateReferences":{"alternateId":"BSG1"}
+  }
+]

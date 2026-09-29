@@ -1,0 +1,1 @@
+UPDATE `alertsubtype` SET `recipienttype` = '1' WHERE (`id` = 'APPROVE_SINGLE_INTERNATIONAL_TRANSFER_APPROVERS');

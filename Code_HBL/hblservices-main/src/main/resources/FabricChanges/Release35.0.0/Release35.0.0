@@ -1,0 +1,29 @@
+1. Deploy AdminConsoleServices.jar For-MFA Scenarios enbled only for HBL requrements
+
+2. /*Domestic Transfer Fee Configuration*/
+Create new configuration under DBP Bundle.
+name is : DOMESTIC_TRANSFER_FEE
+description: Domestic Transfer Fee Configuration
+Value is: [
+    {
+        "minRange": "1.00",
+        "maxRange": "100.00",
+        "feeValue": "1.00"
+    },
+	{
+        "minRange": "101.00",
+        "maxRange": "1000.00",
+        "feeValue": "2.00"
+    },
+    {
+        "minRange": "1001.00",
+        "maxRange": "10000.00",
+        "feeValue": "3.00"
+    },
+    {
+        "minRange": "10001.00",
+        "maxRange": "100000000.00",
+        "feeValue": "10.00"
+    }
+]
+

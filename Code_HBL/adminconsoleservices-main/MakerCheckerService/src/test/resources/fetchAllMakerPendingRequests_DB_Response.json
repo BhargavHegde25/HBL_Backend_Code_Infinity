@@ -1,0 +1,77 @@
+{
+    "records1":[
+    {
+        "requestId":"REQ_1141526772",
+        "module":"CUSTOMER_MANAGEMENT",
+        "action":"CREATE_CUSTOMER",
+        "createdts":"2024-02-27 14:40:32.0"
+    }
+,
+    {
+        "requestId":"REQ_1276237510",
+        "module":"CUSTOMER_MANAGEMENT",
+        "action":"CREATE_CUSTOMER",
+        "createdts":"2024-02-27 14:42:29.0"
+    }
+,
+    {
+        "requestId":"REQ_1683261463",
+        "module":"CUSTOMER_MANAGEMENT",
+        "action":"CREATE_CUSTOMER",
+        "createdts":"2024-02-27 14:49:57.0"
+    }
+,
+    {
+        "requestId":"REQ_1410266106",
+        "module":"CUSTOMER_MANAGEMENT",
+        "action":"CREATE_CUSTOMER",
+        "createdts":"2024-02-27 15:25:25.0"
+    }
+,
+    {
+        "requestId":"REQ_1387506412",
+        "module":"CUSTOMER_MANAGEMENT",
+        "action":"EDIT_CUSTOMER",
+        "createdts":"2024-02-27 15:48:33.0"
+    }
+,
+    {
+        "requestId":"REQ_1397592294",
+        "module":"CUSTOMER_MANAGEMENT",
+        "action":"CREATE_CUSTOMER",
+        "createdts":"2024-02-27 15:53:51.0"
+    }
+,
+    {
+        "requestId":"REQ_1389233874",
+        "module":"CUSTOMER_MANAGEMENT",
+        "action":"EDIT_CUSTOMER",
+        "createdts":"2024-02-27 16:54:05.0"
+    }
+,
+    {
+        "requestId":"REQ_1193344215",
+        "module":"CUSTOMER_MANAGEMENT",
+        "action":"EDIT_CUSTOMER",
+        "createdts":"2024-02-27 17:04:21.0"
+    }
+,
+    {
+        "requestId":"REQ_1408402661",
+        "module":"CUSTOMER_MANAGEMENT",
+        "action":"CREATE_CUSTOMER",
+        "createdts":"2024-02-27 18:03:01.0"
+    }
+,
+    {
+        "requestId":"REQ_1009482979",
+        "module":"CUSTOMER_MANAGEMENT",
+        "action":"CREATE_CUSTOMER",
+        "createdts":"2024-02-27 18:04:36.0"
+    }
+],"records":[
+    {
+        "totalRecords":"17"
+    }
+],"opstatus":0,"httpStatusCode":0
+}

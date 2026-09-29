@@ -1,0 +1,124 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+		<groupId>com.kony.dbp</groupId>
+		<artifactId>dbp-localservicesaggregator</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<name>eum-productservices</name>
+	<artifactId>eum-productservices</artifactId>
+	<description>This module contains all the Utility classes for the DBP Platform</description>
+      <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		
+	</properties>
+	<dependencies>
+
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>DBPFramework</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-productservices</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-commonutilityservices</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.temenos.technology</groupId>
+			<artifactId>TemnLogger</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.temenos.technology</groupId>
+			<artifactId>TemnMonitorLib</artifactId>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>Event-Dispatcher</artifactId>
+		</dependency>
+		<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+			</dependency>
+			
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+			</dependency>
+			<dependency>
+			    <groupId>org.yaml</groupId>
+			    <artifactId>snakeyaml</artifactId>
+			    <version>2.0</version>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-inline</artifactId>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-module-junit4</artifactId>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-api-mockito2</artifactId>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.jacoco</groupId>
+				<artifactId>org.jacoco.agent</artifactId>
+				<classifier>runtime</classifier>
+			</dependency>
+</dependencies>
+    <build>
+      <finalName>eum-productservices</finalName>
+       <pluginManagement>
+    <plugins>
+		<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+					 <skipTests>true</skipTests>
+                    <systemPropertyVariables>
+                        <jacoco-agent.destfile>
+							${project.build.directory}/coverage.exec</jacoco-agent.destfile>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+	</plugins>
+	</pluginManagement>
+    </build>
+		
+<repositories>
+	<repository>
+		<id>dbx</id>
+		<name>dbx releases</name>
+		<url>
+		https://quantum-maven.temenosgroup.com/content/repositories/dbx/
+		</url>
+		<releases>
+		<enabled>false</enabled>
+		</releases>
+	</repository>
+</repositories>
+		
+</project>

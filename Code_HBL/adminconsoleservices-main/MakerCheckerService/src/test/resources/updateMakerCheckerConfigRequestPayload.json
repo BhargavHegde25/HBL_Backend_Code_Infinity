@@ -1,0 +1,14 @@
+{
+    "makerCheckerConfig": [
+        {
+            "companyLegalUnit": "GB0010001",
+            "id": "1",
+            "isApprovalRequired": "false"
+        },
+        {
+            "companyLegalUnit": "GB0010001",
+            "id": "2",
+            "isApprovalRequired": "true"
+        }
+    ]
+}

@@ -1,0 +1,3283 @@
+{
+    "opstatus": 0,
+    "httpStatusCode": 200,
+    "marketingCatalogue": [
+        {
+            "productLineRef": "PORTFOLIO",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120VXO4E",
+                    "productGroupRef": "PORTFOLIO",
+                    "products": [
+                        {
+                            "productId": "PR23120PYIME",
+                            "productRef": "9",
+                            "productName": "NO MANDATE",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120FROGJ",
+                            "productRef": "1",
+                            "productName": "Advisory",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231207Q30B",
+                            "productRef": "2",
+                            "productName": "Discretionary",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120VJTP7",
+                            "productRef": "3",
+                            "productName": "Robo Advisor",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231206PIFG",
+                            "productRef": "4",
+                            "productName": "Execution Only",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120UMGP8",
+                            "productRef": "5",
+                            "productName": "Goal Based",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120VQWPI",
+                            "productRef": "6",
+                            "productName": "Others",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120QPFJ0",
+                            "productRef": "4*GB0010001",
+                            "productName": "Discretionary - Special",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23206DUZ7M",
+                            "productRef": "Test",
+                            "productName": "Testing",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120KZZZF"
+        },
+        {
+            "productLineRef": "AGENT",
+            "productLineName": "Agent",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120JRWEV",
+                    "productGroupRef": "AGENT.GROUP",
+                    "products": [
+                        {
+                            "productId": "PR23120ZZJBD",
+                            "productRef": "AGENT.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120U6JGV",
+                            "productRef": "AFFILIATED.AGENT",
+                            "productName": "Affiliated Agent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120F7VMA",
+                            "productRef": "NEGOTIABLE.AGENT",
+                            "productName": "Negotiable Agent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120HXAGO",
+                            "productRef": "NON.AFFILIATED.AGENT",
+                            "productName": "Non Affiliated Agent",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120YMI4O",
+                    "productGroupRef": "MANUFACTURER.GROUP",
+                    "products": [
+                        {
+                            "productId": "PR23120Y71KE",
+                            "productRef": "MANUFACTURER",
+                            "productName": "Manufacturer",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120HR4ZL",
+                            "productRef": "MANUFACTURER.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120WNC44"
+        },
+        {
+            "productLineRef": "PROMOTIONS",
+            "productLineName": "Promotions And Referrals",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120BRV61",
+                    "productGroupRef": "PROMOTIONS.AND.REWARDS",
+                    "products": [
+                        {
+                            "productId": "PR231208D8S2",
+                            "productRef": "NEWACC1",
+                            "productName": "NEWACC1",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120BX0I5"
+        },
+        {
+            "productLineRef": "XEXTERNAL.BN",
+            "productLineName": "External Bundles",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120YZUUE",
+                    "productGroupRef": "EXTERNALBUNDLES",
+                    "products": [
+                        {
+                            "productId": "PR23120K52CR",
+                            "productRef": "EXTERNAL.BN",
+                            "productName": "External Bundles",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231206L3W5",
+                            "productRef": "EXT.BN.PARENT",
+                            "productName": "External Bundles - Parent",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL231204PDDZ"
+        },
+        {
+            "productLineRef": "XEXTERNAL.ACCOUNTS",
+            "productLineName": "External Accounts",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120S5H6L",
+                    "productGroupRef": "TFO.PRODUCTS",
+                    "products": [
+                        {
+                            "productId": "PR23120EMWOL",
+                            "productRef": "FO.DEPOSITS",
+                            "productName": "Other Bank Deposits",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120OPCOW",
+                            "productRef": "FO.SAVINGS.ACCOUNT",
+                            "productName": "Other Bank Savings Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120SD6QD",
+                            "productRef": "TFO.PRODUCT.PARENT",
+                            "productName": "Other Bank Products - Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR2312025OST",
+                            "productRef": "FO.CURRENT.ACCOUNT",
+                            "productName": "Other Bank Current Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120F6A31",
+                            "productRef": "FO.MORTGAGES",
+                            "productName": "Other Bank Mortgages",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120UD6R1",
+                    "productGroupRef": "EXTERNAL.ACCOUNTS",
+                    "products": [
+                        {
+                            "productId": "PR23120TXIHQ",
+                            "productRef": "EXT.ACCOUNT.PARENT",
+                            "productName": "External Accounts - Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120OTYHQ",
+                            "productRef": "EXTERNAL.ACCOUNT",
+                            "productName": "External Accounts",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120T00J8"
+        },
+        {
+            "productLineRef": "INTERNET.SERVICES",
+            "productLineName": "Internet Services",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120ST53P",
+                    "productGroupRef": "TC.CONNECT.WEALTH",
+                    "products": [
+                        {
+                            "productId": "PR2312055O66",
+                            "productRef": "TCIB.WEALTHHNI",
+                            "productName": "TCIB Wealth Discretionary",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120EOWMQ",
+                            "productRef": "TCIB.WEALTHADV",
+                            "productName": "TCIB Wealth Advisory",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120755CW",
+                            "productRef": "TCIB.WEALTHINT",
+                            "productName": "TCIB Wealth Intermediary",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120WX1I1"
+        },
+        {
+            "productLineRef": "RELATIONSHIP.PRICING",
+            "productLineName": "Relationship Pricing",
+            "productGroups": [
+                {
+                    "productGroupId": "PG231202AMBD",
+                    "productGroupRef": "LOYALTY",
+                    "products": [
+                        {
+                            "productId": "PR2312042XJ9",
+                            "productRef": "LOYALTY.PARENT",
+                            "productName": "Loyalty Pricing Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120RAVWU",
+                            "productRef": "LOYALTY",
+                            "productName": "Loyalty Pricing Product",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120QCL5Z",
+                    "productGroupRef": "VALUED.CUSTOMER",
+                    "products": [
+                        {
+                            "productId": "PR231200WAZO",
+                            "productRef": "VALUED.CUST.PARENT",
+                            "productName": "Valued Customer Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120YAKVV",
+                            "productRef": "VALUED.CUST",
+                            "productName": "Valued Customer",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG2312005DQC",
+                    "productGroupRef": "INTERNAL.FX",
+                    "products": [
+                        {
+                            "productId": "PR23120S64FR",
+                            "productRef": "INTERNAL.FX.PARENT",
+                            "productName": "Internal FX Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231205GW3Q",
+                            "productRef": "INTERNAL.FX",
+                            "productName": "Internal FX",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120L7AVC"
+        },
+        {
+            "productLineRef": "XEXTERNAL.DEPOSITS",
+            "productLineName": "External Deposits",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120O9J64",
+                    "productGroupRef": "EXTERNAL.DEPOSITS",
+                    "products": [
+                        {
+                            "productId": "PR23120RXJ9Q",
+                            "productRef": "EXTERNAL.DEPOSIT",
+                            "productName": "External Deposits",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120CPZ4C",
+                            "productRef": "EXT.DEPOSIT.PARENT",
+                            "productName": "External Deposits- Parent",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120OVDRU"
+        },
+        {
+            "productLineRef": "BUNDLE",
+            "productLineName": "Bundles",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120HUR6W",
+                    "productGroupRef": "LOAN.OFFSET",
+                    "products": [
+                        {
+                            "productId": "PR23120X6BSB",
+                            "productRef": "LOAN.OFFSET.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120YNNZP",
+                            "productRef": "MORTGAGE.OFFSET",
+                            "productName": "Offset Mortgage",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120P9FQK",
+                    "productGroupRef": "ACCOUNT.BUNDLE",
+                    "products": [
+                        {
+                            "productId": "PR23120NBK62",
+                            "productRef": "GROUP.ACCOUNT",
+                            "productName": "Group Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR2312086ZIB",
+                            "productRef": "NOTIONAL.POOL",
+                            "productName": "Notional Pooling",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120QAG9E",
+                            "productRef": "INTEREST.UPGRADE",
+                            "productName": "Interest Upgrade",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231206NLIB",
+                            "productRef": "BONUS.INTEREST",
+                            "productName": "Bundle Bonus",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120N7Z1E",
+                            "productRef": "INTEREST.COMPENSATION",
+                            "productName": "Interest Compensation",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120KZN0M",
+                            "productRef": "ACCOUNT.BUNDLE.PARENT",
+                            "productName": "Account Bundle Parent",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG2312049ELP",
+                    "productGroupRef": "MASTER.ACCOUNT",
+                    "products": [
+                        {
+                            "productId": "PR23120AXQ4L",
+                            "productRef": "MASTER.ACCOUNT",
+                            "productName": "Master Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120WM76W",
+                            "productRef": "DEF.MASTER.ACCOUNT",
+                            "productName": "Master Account - Default",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120EV6ZB",
+                    "productGroupRef": "RETAIL.PACKAGES",
+                    "products": [
+                        {
+                            "productId": "PR23120ZVI5Z",
+                            "productRef": "LOAN.PACKAGE",
+                            "productName": "Loan Package",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120BNBBJ",
+                            "productRef": "SAVINGS.PACKAGE",
+                            "productName": "Savings Package",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120CDSBV",
+                            "productRef": "RET.PACKAGES.PARENT",
+                            "productName": "Retail Packages Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120UUORW",
+                            "productRef": "CURRENT.PACKAGE",
+                            "productName": "Current Account Package",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120P3IY6",
+                    "productGroupRef": "CARD.PACKAGES",
+                    "products": [
+                        {
+                            "productId": "PR231202CB0Z",
+                            "productRef": "CARDS.PACK.PARENT",
+                            "productName": "Card Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120ALDJV",
+                            "productRef": "CARDS.PACKAGE",
+                            "productName": "Card Package",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120Q2X5E"
+        },
+        {
+            "productLineRef": "XLETTER.OF.CREDIT",
+            "productLineName": "External - Letter of Credit",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120AERDI",
+                    "productGroupRef": "LC.IMPORT",
+                    "products": [
+                        {
+                            "productId": "PR23120Z5CRZ",
+                            "productRef": "IMPORT.LC.PARENT",
+                            "productName": "External Import LC - Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120EIVWN",
+                            "productRef": "LC.IMPORT",
+                            "productName": "External - Import LC",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG231203F8SF",
+                    "productGroupRef": "LC.EXPORT",
+                    "products": [
+                        {
+                            "productId": "PR23120KVITM",
+                            "productRef": "EXPORT.LC.PARENT",
+                            "productName": "External Export LC - Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120K18UR",
+                            "productRef": "LC.EXPORT",
+                            "productName": "External - Export LC",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120SBKR4"
+        },
+        {
+            "productLineRef": "REWARDS",
+            "productLineName": "Rewards",
+            "productGroups": [
+                {
+                    "productGroupId": "PG231203N3AN",
+                    "productGroupRef": "REWARD.GROUP",
+                    "products": [
+                        {
+                            "productId": "PR23120OO71G",
+                            "productRef": "PARENT.REWARD",
+                            "productName": "Reward Parent Conditions.",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231202H5YZ",
+                            "productRef": "REWARDS.INTERN",
+                            "productName": "Internal Standard Reward Scheme.",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120EFR5C",
+                            "productRef": "REWARD.AVIOS",
+                            "productName": "Avios Standard Reward Scheme.",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120Z7HCL",
+                            "productRef": "REWARDS.AIMIA",
+                            "productName": "Aimia Standard Reward Scheme.",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL231208C5OB"
+        },
+        {
+            "productLineRef": "GUARANTEES",
+            "productLineName": "Guarantees",
+            "productGroups": [
+                {
+                    "productGroupId": "PG231205ENVT",
+                    "productGroupRef": "CONTINGENT.LIABILITY",
+                    "products": [
+                        {
+                            "productId": "PR23120YPLIW",
+                            "productRef": "FINANCIAL.SBLC",
+                            "productName": "Financial SBLC",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120EZ1W5",
+                            "productRef": "PERFORMANCE.GUARANTEE",
+                            "productName": "Performance Guarantee",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231205OLR1",
+                            "productRef": "PERFORMANCE.SBLC",
+                            "productName": "Performance SBLC",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231200H52I",
+                            "productRef": "FINANCIAL.GUARANTEE",
+                            "productName": "Financial Guarantee",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120F0DPZ",
+                            "productRef": "CONT.LIAB.PARENT",
+                            "productName": "Parent conditions",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL231204N6TP"
+        },
+        {
+            "productLineRef": "XEXTERNAL.LENDING",
+            "productLineName": "External Lending",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120ID9TU",
+                    "productGroupRef": "EXTERNAL.LENDING",
+                    "products": [
+                        {
+                            "productId": "PR23120ROYF0",
+                            "productRef": "EXT.LENDING.PARENT",
+                            "productName": "External Lending- Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120IW235",
+                            "productRef": "EXTERNAL.LENDING",
+                            "productName": "External Lending",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120ANLJV"
+        },
+        {
+            "productLineRef": "OTHER",
+            "productLineName": "Other Products",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120MMZJO",
+                    "productGroupRef": "B.ASSET.MANAGEMENT",
+                    "products": [
+                        {
+                            "productId": "PR231202KWT1",
+                            "productRef": "D.SWITCH",
+                            "productName": "Switch",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120YQSJR",
+                            "productRef": "C.CASH",
+                            "productName": "Raise Cash",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231201EEHY",
+                            "productRef": "A.BUY",
+                            "productName": "Bulk Buy",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120R9SLO",
+                            "productRef": "B.SELL",
+                            "productName": "Bulk Sell",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120YIF65",
+                    "productGroupRef": "A.SECURITIES",
+                    "products": [
+                        {
+                            "productId": "PR23120EAZJ4",
+                            "productRef": "EQUITY",
+                            "productName": "Equities",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231209MIH6",
+                            "productRef": "BOND",
+                            "productName": "Bonds",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG2312049BR0",
+                    "productGroupRef": "PROCESS",
+                    "products": [
+                        {
+                            "productId": "PR231202MJUQ",
+                            "productRef": "AF.ACCT.CARD",
+                            "productName": "Apply Overdraft Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120O1RE1",
+                            "productRef": "AF.DEPO.STFD",
+                            "productName": "Apply Deposit STFD",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR2312042HS3",
+                            "productRef": "AF.DEPO.LTFD",
+                            "productName": "Apply Deposit LTFD",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120GVCAF",
+                            "productRef": "AF.ACCT.SAVING",
+                            "productName": "Apply Account Saving",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120KMPRK",
+                    "productGroupRef": "D.DERIVATIVES",
+                    "products": [
+                        {
+                            "productId": "PR23120P9QBQ",
+                            "productRef": "OPTIONS.EXO",
+                            "productName": "Options-Exotic",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR2312041NZM",
+                            "productRef": "OPTIONS.ETD",
+                            "productName": "Options-Exchange Traded",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120AA117",
+                            "productRef": "FUTURES",
+                            "productName": "Futures",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120CVZK7",
+                            "productRef": "OPTIONS.OTC",
+                            "productName": "Options-OTC",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120HTOI5",
+                    "productGroupRef": "C.FIDUCIARIES",
+                    "products": [
+                        {
+                            "productId": "PR23120OOFJT",
+                            "productRef": "D.NOTICE.PLACEMENT",
+                            "productName": "Notice Placements",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120T0FIX",
+                            "productRef": "B.NOTICE.TAKING",
+                            "productName": "Notice Fiduciary Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120PQXYF",
+                            "productRef": "A.FIXED.TAKING",
+                            "productName": "Fixed Fiduciary Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR2312040CGK",
+                            "productRef": "C.FIXED.PLACEMENT",
+                            "productName": "Fixed Placements",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120ZDYVA",
+                    "productGroupRef": "E.MUTUAL.FUNDS",
+                    "products": [
+                        {
+                            "productId": "PR23120JOF8F",
+                            "productRef": "A.MUTUAL.FUNDS",
+                            "productName": "Mutual Funds",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120MV45Z",
+                            "productRef": "B.MF.SIP",
+                            "productName": "Systematic Investments",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG231200WT8S",
+                    "productGroupRef": "F.STRUCTURED.PRODUCTS",
+                    "products": [
+                        {
+                            "productId": "PR23120J3B2H",
+                            "productRef": "SY.FX.FORWARDS",
+                            "productName": "FX Forwards",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120X34LS",
+                            "productRef": "SY.IMF",
+                            "productName": "Interest Multiplier Factor",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120QDYEV",
+                            "productRef": "SY.TARKO",
+                            "productName": "Tarko",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120POC0U",
+                            "productRef": "SY.DCI",
+                            "productName": "Dual Currency Investments",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120WDGB3",
+                            "productRef": "SY.TCI",
+                            "productName": "Triple Currency Investments",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120P1EDY"
+        },
+        {
+            "productLineRef": "REGIONAL.VARIATIONS",
+            "productLineName": "Regional Variations",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120NP3LL",
+                    "productGroupRef": "REGIONAL.VARIATIONS",
+                    "products": [
+                        {
+                            "productId": "PR23120JFZLC",
+                            "productRef": "BRANCH*80021",
+                            "productName": "Denver New Branch Pricing",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120GKHC1",
+                            "productRef": "STATE*NY",
+                            "productName": "New York State Pricing",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231202BT7Q",
+                            "productRef": "BRANCH*02110",
+                            "productName": "Boston Branch Pricing",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120E4ACX",
+                            "productRef": "BRANCH*32746",
+                            "productName": "Orlando Branch Pricing",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120H1ZP9",
+                            "productRef": "BRANCH*19355",
+                            "productName": "Philadelphia Branch Pricing",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120QWYL1"
+        },
+        {
+            "productLineRef": "LENDING",
+            "productLineName": "Lending",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120QPD25",
+                    "productGroupRef": "CONSUMER.INSTALLMENT.LOANS",
+                    "products": [
+                        {
+                            "productId": "PR231202NZBU",
+                            "productRef": "CONSUMER.LOAN.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120BVZG8",
+                            "productRef": "CONSUMER.LOAN",
+                            "productName": "Consumer Loan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120TJA3E",
+                            "productRef": "CONSUMER.LOAN.INTEREST",
+                            "productName": "Consumer Loan with Interest",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23284R606F",
+                            "productRef": "RES.CONSUMER.LOAN.PARENT",
+                            "productName": "Consumer Loan Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23284JPVHP",
+                            "productRef": "RES.CONSUMER.LOAN",
+                            "productName": "Consumer Loan",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120UA57S",
+                    "productGroupRef": "INSTALLMENT.LOANS",
+                    "products": [
+                        {
+                            "productId": "PR23120931O4",
+                            "productRef": "INSTALLMENT.LOAN.PARENT",
+                            "productName": "Installment Loan Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120JBOEE",
+                            "productRef": "INSTALLMENT.3M",
+                            "productName": "3 Months",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231204OD0C",
+                            "productRef": "INSTALLMENT.12M",
+                            "productName": "12 Months",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120ZZ1LJ",
+                            "productRef": "INSTALLMENT.6M",
+                            "productName": "6 Months",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120IJEDT",
+                    "productGroupRef": "RES.BNPL",
+                    "products": [
+                        {
+                            "productId": "PR23287IQJRR",
+                            "productRef": "RES.PAYIN.3",
+                            "productName": "Pay In 3 (Monthly)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23284TT7EC",
+                            "productRef": "RES.PAYIN.3M",
+                            "productName": "Installment Plan 3 Months",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23287VT3VX",
+                            "productRef": "RES.PAST.PURCHASE",
+                            "productName": "Past Purchase",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120W4KWA",
+                    "productGroupRef": "DIGI.MORTGAGES",
+                    "products": [
+                        {
+                            "productId": "PR23287A9801",
+                            "productRef": "DIGI.MORTGAGE.PARENT",
+                            "productName": "Digital Mortgage Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23287JKRC2",
+                            "productRef": "DIGI.MORTGAGE.2Y.FIXED.CONST",
+                            "productName": "Digi Mortgage 2Y Fixed+Constant Pay",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23287LQ37D",
+                            "productRef": "DIGI.MORTGAGE.2Y.TRACK.INTONLY",
+                            "productName": "Digi Mortgage 2Y Tracker+Int Only",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR232872CMLM",
+                            "productRef": "DIGI.MORTGAGE.5Y.FIXED.CONST",
+                            "productName": "Digi Mortgage 5Y Fixed+Constant Pay",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23287XI2CQ",
+                            "productRef": "DIGI.MORTGAGE.5Y.TRACKER.CONST",
+                            "productName": "Digi Mortgage 5Y Track+Constant Pay",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23287WPNJ1",
+                            "productRef": "MORTGAGE.BRIDGE",
+                            "productName": "Mortgage Bridge",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120X9R9A",
+                    "productGroupRef": "CORPORATE.DRAWINGS",
+                    "products": [
+                        {
+                            "productId": "PR23120X5E9N",
+                            "productRef": "FIXED.RATE.DRAWINGS",
+                            "productName": "Fixed Rate Drawing",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120D3X0F",
+                            "productRef": "CONSTRUCTION.LOAN",
+                            "productName": "Construction Loan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231204ODUO",
+                            "productRef": "CORP.DRAWING.PARENT",
+                            "productName": "Parent conditions",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231204KKI2",
+                            "productRef": "EURIBOR.DRAWINGS",
+                            "productName": "Euribor Drawing",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120DO5AI",
+                            "productRef": "LIBOR.DRAWINGS",
+                            "productName": "LIBOR Drawing",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120FRCH3",
+                            "productRef": "INDEX.BASED.DRAWING",
+                            "productName": "Index Based Drawings",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231206JO4G",
+                            "productRef": "ANNUITY.DRAWINGS",
+                            "productName": "Annuity Drawings",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG231200DM95",
+                    "productGroupRef": "SMALL.BUSINESS.LOANS",
+                    "products": [
+                        {
+                            "productId": "PR23120IAH1K",
+                            "productRef": "SB.LOAN.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120JGN6X",
+                            "productRef": "COMMERCIAL.LOAN",
+                            "productName": "Commercial Loan (Interest Upfront)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120ESE3H",
+                            "productRef": "LOAN.DEFAULT",
+                            "productName": "Default (for failed eligibility)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231203W5U8",
+                            "productRef": "NEGOTIABLE.LOAN",
+                            "productName": "Fully Negotiable Loan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231209NU3T",
+                            "productRef": "SMALL.BUSINESS.LOAN",
+                            "productName": "Small Business Loan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120E4GUX",
+                            "productRef": "WAR.LOAN",
+                            "productName": "War Loan",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120CB05W",
+                    "productGroupRef": "HOME.EQUITY",
+                    "products": [
+                        {
+                            "productId": "PR23120ACF5U",
+                            "productRef": "HOME.EQUITY.LOAN",
+                            "productName": "Home Equity Loan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120QEH42",
+                            "productRef": "HOME.EQUITY.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120IWA3T",
+                            "productRef": "HELOC",
+                            "productName": "Home Equity Line of Credit",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120ZW64A",
+                    "productGroupRef": "IS.MUL.STR.FIN",
+                    "products": [
+                        {
+                            "productId": "PR23120RRDPL",
+                            "productRef": "MUSAWAMA.FIN",
+                            "productName": "Musawama Finance",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120L2AE2",
+                            "productRef": "IS.MUL.STR.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231201YM2V",
+                            "productRef": "WAKALA.FIN",
+                            "productName": "Wakala Finance",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120XQIJC",
+                    "productGroupRef": "SECURITIES.LOANS",
+                    "products": [
+                        {
+                            "productId": "PR23120PEDJZ",
+                            "productRef": "MARGIN.LOAN",
+                            "productName": "Margin Loans",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120A2BGW",
+                    "productGroupRef": "IS.CONST.PFT.FIN",
+                    "products": [
+                        {
+                            "productId": "PR23120U6LHA",
+                            "productRef": "IS.CONST.PFT.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231202ZAY6",
+                            "productRef": "IJARA.FIN",
+                            "productName": "Ijara Finance",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120LL2DS",
+                            "productRef": "COM.MUR.FIN",
+                            "productName": "Commodity Murabaha Finance",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120CCXG2",
+                            "productRef": "MUR.FIN",
+                            "productName": "Murabaha Finance",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120P7ESM",
+                    "productGroupRef": "RETAIL.LOAN.FACILITIES",
+                    "products": [
+                        {
+                            "productId": "PR23120ZFFPF",
+                            "productRef": "XPG.PERSONAL.LOAN.STD",
+                            "productName": "Personal Loans STD",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG231205XRJC",
+                    "productGroupRef": "IS.VAR.PFT.FIN",
+                    "products": [
+                        {
+                            "productId": "PR23120QB0K5",
+                            "productRef": "QARD.HASSAN.FIN",
+                            "productName": "Qard Hassan Finance",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120WJGCQ",
+                            "productRef": "BAISALAM.FIN",
+                            "productName": "Bai Salam Finance",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120HY495",
+                            "productRef": "FWD.IJARA.FIN",
+                            "productName": "Forward Ijara Finance",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120YLJCC",
+                            "productRef": "IS.VAR.PFT.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120KGZZQ",
+                            "productRef": "CONSTN.FIN",
+                            "productName": "Construction Finance",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120DRGR3",
+                            "productRef": "MUD.FIN",
+                            "productName": "Mudaraba Financing",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR2312019LQ7",
+                            "productRef": "DIM.MUS.FIN",
+                            "productName": "Diminishing Musharaka Finance",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120OWRUJ",
+                    "productGroupRef": "RES.MORTGAGES",
+                    "products": [
+                        {
+                            "productId": "PR2328417JTA",
+                            "productRef": "RES.2Y.FIXED.CONST",
+                            "productName": "Mortgage 2Y Fixed+Constant Pay",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23284MG6L2",
+                            "productRef": "RES.5Y.TRACKER.CONST",
+                            "productName": "Mortgage 5Y Track+Constant Pay",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120EOU22",
+                    "productGroupName": "Business Banking - Loans",
+                    "productGroupRef": "BUSINESS.BANKING.LOAN",
+                    "products": [
+                        {
+                            "productId": "PR23120HIX3E",
+                            "productRef": "BB.FLEXIPAY.3M.DRAWING",
+                            "productName": "FlexiPay (3M)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120YIHFG",
+                            "productRef": "BB.TERM.LOANS.BR.LINEAR",
+                            "productName": "Base Rate Linked + Straight Line",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120SSAVA",
+                            "productRef": "BB.TERM.LOANS.BR.BULLET",
+                            "productName": "Base Rate Linked + Bullet",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120DBV0E",
+                            "productRef": "BB.STARTUP.LOAN",
+                            "productName": "Start Up Loan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR2312027CCK",
+                            "productRef": "BB.TERM.LOANS.RFR.BULLET",
+                            "productName": "Risk Free Rate Linked + Bullet",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120Z4GF3",
+                            "productRef": "BB.FLEXIPAY.6M.DRAWING",
+                            "productName": "FlexiPay (6M)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120ZFBMK",
+                            "productRef": "BB.TERM.LOANS.BR.ANNUITY",
+                            "productName": "Base Rate Linked + Annuity",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120NZN4O",
+                            "productRef": "BB.TERM.LOANS.FR.ANNUITY",
+                            "productName": "Fixed Rate + Annuity",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231208M43G",
+                            "productRef": "BB.TERM.LOANS.FR.BULLET",
+                            "productName": "Fixed Rate + Bullet",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120OMN2V",
+                            "productRef": "BB.TERM.LOANS.FR.LINEAR",
+                            "productName": "Fixed Rate + Straight Line",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231206E0Z2",
+                            "productRef": "BB.SMALL.BUSINESS.LOAN",
+                            "productName": "Small Business Loan",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120OL143",
+                    "productGroupName": "Mortgage",
+                    "productGroupRef": "MORTGAGES",
+                    "products": [
+                        {
+                            "productId": "PR23120KCWMU",
+                            "productRef": "MORTGAGE.SECURITISED",
+                            "productName": "Securitised Mortgage Loan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120OSIX3",
+                            "productRef": "MORTGAGE.ARM",
+                            "productName": "Mortgage (Adjustable Rate)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231208ZMT0",
+                            "productRef": "MORTGAGE.FIXED.TWOYRS",
+                            "productName": "Mortgage (Fixed 2 year Product.)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120HYG23",
+                            "productRef": "MORTGAGE.FIXED.FIVEYRS",
+                            "productName": "Mortgage (Fixed 5 year Product.)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120R2UIO",
+                            "productRef": "MORTGAGE.FEP",
+                            "productName": "Mortgage (Fixed Equal Repayment)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120DHWJO",
+                            "productRef": "MORTGAGE.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120FFG0G",
+                            "productRef": "MORTGAGE",
+                            "productName": "Mortgage",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231201A2SD",
+                            "productRef": "MORTGAGE.CASHBACK",
+                            "productName": "Mortgage (CashBack)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120XVG24",
+                            "productRef": "MORTGAGE.SEASONAL",
+                            "productName": "Mortgage (Seasonal Repayments)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120F0R99",
+                            "productRef": "MORTGAGE.LINK",
+                            "productName": "Mortgage (Linked Rate)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR232841L081",
+                            "productRef": "BRIDGE.LOAN",
+                            "productName": "Bridge loan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120SXQ90",
+                            "productRef": "MORTGAGE.OFFER",
+                            "productName": "Mortgage (Special Offer)",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120CG1CA",
+                    "productGroupName": "LINE OF CREDIT",
+                    "productGroupRef": "LINES.OF.CREDIT",
+                    "products": [
+                        {
+                            "productId": "PR23120AYLQO",
+                            "productRef": "LOC.PERCENTAGE",
+                            "productName": "LOC with 3% Principal Repayment",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231200EL5C",
+                            "productRef": "LOC.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231204CWCM",
+                            "productRef": "LOC.INTEREST.ONLY",
+                            "productName": "LOC with Interest Only Payments",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120A4VL9",
+                            "productRef": "CREDIT.LINE.PARENT",
+                            "productName": "Credit Line Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120WZJ23",
+                            "productRef": "CREDIT.LINE",
+                            "productName": "Credit Line",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23285X1VA6",
+                            "productRef": "RES.CREDIT.LINE",
+                            "productName": "Credit Line",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23284JNQZR",
+                            "productRef": "RES.CREDIT.LINE.PARENT",
+                            "productName": "Credit Line Parent",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120N47YN",
+                    "productGroupName": "Personal Loann",
+                    "productGroupRef": "PERSONAL.LOANS",
+                    "products": [
+                        {
+                            "productId": "PR23120COX0W",
+                            "productRef": "TECHNICAL.LOAN",
+                            "productName": "Technical Loan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120996RM",
+                            "productRef": "PERSONAL.LOAN.FWD",
+                            "productName": "Personal Loan FWD",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120BX7KO",
+                            "productRef": "STUDENT.LOAN",
+                            "productName": "Student Loan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120TR3Q2",
+                            "productRef": "FASB.LOAN",
+                            "productName": "FASB Loan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120H8BQL",
+                            "productRef": "FASB.LOAN.PARENT",
+                            "productName": "Parent Conditions (FASB)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120XFT6H",
+                            "productRef": "PERSONAL.LOAN.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120NLFB8",
+                            "productRef": "PERSONAL.LOAN.LINK",
+                            "productName": "Personal Loan (Linked Rate)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120UMPQ8",
+                            "productRef": "PAYROLL.LOAN",
+                            "productName": "Payroll Loan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120H9DPH",
+                            "productRef": "PERSONAL.LOAN.2W",
+                            "productName": "Personal Loan (Biweekly Repayments)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120SINNN",
+                            "productRef": "VEHICLE.LOAN",
+                            "productName": "Vehicle Loan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120JESD5",
+                            "productRef": "PERSONAL.LOAN",
+                            "productName": "Personal Loan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23207C54B6",
+                            "productRef": "Testing",
+                            "productName": "Retail123",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120Y6VC2"
+        },
+        {
+            "productLineRef": "XGUARANTEE",
+            "productLineName": "External - Guarantee",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120GHY6B",
+                    "productGroupRef": "GUARANTEE",
+                    "products": [
+                        {
+                            "productId": "PR23120PT7QV",
+                            "productRef": "GUARANTEE",
+                            "productName": "External - Guarantee",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120RV6HW",
+                            "productRef": "GUARANTEE.PARENT",
+                            "productName": "External Guarantee - Parent",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120CAI39",
+                    "productGroupRef": "SBLC",
+                    "products": [
+                        {
+                            "productId": "PR231204W3L8",
+                            "productRef": "SBLC",
+                            "productName": "External - SBLC",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120D8RHF",
+                            "productRef": "SBLC.PARENT",
+                            "productName": "External SBLC - Parent",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120HN7WF"
+        },
+        {
+            "productLineRef": "DEPOSITS",
+            "productLineName": "Deposits",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120TORFM",
+                    "productGroupRef": "BUSINESS.BANKING.DEPOSITS",
+                    "products": [
+                        {
+                            "productId": "PR231202BO0V",
+                            "productRef": "BB.FIXED.TERM.BOND.1Y",
+                            "productName": "Business Banking - Fixed Bond",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120NQH3T",
+                    "productGroupRef": "BONDS",
+                    "products": [
+                        {
+                            "productId": "PR231206L5E1",
+                            "productRef": "BONDS.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120YYNDX",
+                            "productRef": "BONDS.B.1Y",
+                            "productName": "Fixed Term 1 Year - Bond",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231200T21D",
+                            "productRef": "BONDS.A.6M",
+                            "productName": "Fixed Term 6M - Bond",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR2312024ERC",
+                            "productRef": "BONDS.C.3Y",
+                            "productName": "Fixed Term 3 Year - Bond",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG231203BRO0",
+                    "productGroupRef": "DEPOSITS.SAVINGS.PLAN",
+                    "products": [
+                        {
+                            "productId": "PR23120X3XZ9",
+                            "productRef": "COMMITMENT.SAVINGS",
+                            "productName": "Commitment Savings Plan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231204LGWC",
+                            "productRef": "SAVINGSPLAN.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120OFWXX",
+                    "productGroupRef": "PRIVATE.INDI.DEPOSITS",
+                    "products": [
+                        {
+                            "productId": "PR23120E5Y94",
+                            "productRef": "XPG.DEPOSITS.STD",
+                            "productName": "Deposits STD",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120XJQYI",
+                    "productGroupRef": "NOTICE.DEPOSIT.ACCOUNTS",
+                    "products": [
+                        {
+                            "productId": "PR23120HFWE8",
+                            "productRef": "NOTICE.DEP.PARENT",
+                            "productName": "Notice Deposit Parent",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120HPAOZ",
+                    "productGroupRef": "ISLAMIC.DEPOSITS",
+                    "products": [
+                        {
+                            "productId": "PR23120IY7B6",
+                            "productRef": "MUDARABA.DEPOSIT.6M",
+                            "productName": "6 Months Mudaraba Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120NS6GT",
+                            "productRef": "MUDARABA.DEPOSIT.2Y",
+                            "productName": "2 Years Mudaraba Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120Z5OH0",
+                            "productRef": "MUDARABA.DEPOSIT.12M",
+                            "productName": "12 Months Mudaraba Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120SRJMH",
+                            "productRef": "MUDARABA.DEPOSIT",
+                            "productName": "Long Term Mudaraba Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120R7EXE",
+                            "productRef": "MUDARABA.DEPOSIT.3M",
+                            "productName": "3 Months Mudaraba Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120B5XM4",
+                            "productRef": "WAKALA.DEPOSIT",
+                            "productName": "Wakala Deposits",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120HV4BL",
+                            "productRef": "ISLAMIC.SAVINGS.PLAN",
+                            "productName": "Mudaraba Savings Plan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120H98X3",
+                            "productRef": "ADV.PRFT.MUDARABA.DEPOSIT",
+                            "productName": "Adv Profit Fixed Mudaraba Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR2312076TQZ",
+                            "productRef": "ID.DEPOSIT.PARENT",
+                            "productName": "Islamic Deposit Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120HS4TY",
+                            "productRef": "MUDARABA.DEPOSIT.1M",
+                            "productName": "1 Month Mudaraba Deposit",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120PNJZ3",
+                    "productGroupName": "Term Deposits",
+                    "productGroupRef": "DEPOSITS",
+                    "products": [
+                        {
+                            "productId": "PR23120CK33H",
+                            "productRef": "DEPOSIT.SHORT",
+                            "productName": "Short Term Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120Y56MT",
+                            "productRef": "DEPOSIT.4Y",
+                            "productName": "4 Year Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120XLV5V",
+                            "productRef": "DEPOSIT.03M",
+                            "productName": "3 Months Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231209HG7D",
+                            "productRef": "DEPOSIT.2Y",
+                            "productName": "2 Year Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120BZZ69",
+                            "productRef": "DEPOSIT.09M",
+                            "productName": "9 Months Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120RU30V",
+                            "productRef": "DEPOSIT.DEFAULT",
+                            "productName": "Deposit Default",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231202SENL",
+                            "productRef": "DEPOSIT.NEGOTIABLE",
+                            "productName": "Fully Negotiable deposit.",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120JYJVK",
+                            "productRef": "DEPOSIT.06M",
+                            "productName": "6 Months Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120XRAM3",
+                            "productRef": "DEPOSIT.12M",
+                            "productName": "12 Months Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231208KATE",
+                            "productRef": "DEPOSIT.18M",
+                            "productName": "18 Months Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120LMZSX",
+                            "productRef": "DEPOSIT.MAT",
+                            "productName": "Maturity Term Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120E92W6",
+                            "productRef": "DEPOSIT.3Y",
+                            "productName": "3 Year Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120CWXM5",
+                            "productRef": "DEPOSIT.PARENT",
+                            "productName": "Deposit Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120UNJEI",
+                            "productRef": "EBKM.DEPOSIT",
+                            "productName": "EBKM Depost",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120UBVDR",
+                            "productRef": "DEPOSIT.CALL",
+                            "productName": "Call Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120PTN8D",
+                            "productRef": "DEPOSIT.5Y",
+                            "productName": "5 Year Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120AQGN2",
+                            "productRef": "DEPOSIT.LONG",
+                            "productName": "Long Term Deposit",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120D6SH6",
+                    "productGroupName": "Term Deposit",
+                    "productGroupRef": "RES.TERM.DEPOSIT",
+                    "products": [
+                        {
+                            "productId": "PR23177HMIQW",
+                            "productRef": "RES.DEPOSIT.PARENT",
+                            "productName": "Term Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23177LG2DZ",
+                            "productRef": "RES.LONG.TERM.HIGH.EARN",
+                            "productName": "Long Term High Earning Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23177BUPL6",
+                            "productRef": "RES.SAVINGS.PLAN",
+                            "productName": "Savings Plan",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23177EZEPT",
+                            "productRef": "RES.SHORT.TERM.AUTO.ROLL",
+                            "productName": "Short Term Auto Rollover Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23177BLJE2",
+                            "productRef": "RES.SHORT.TERM.MANUAL.ROLL",
+                            "productName": "Short Term Manual Rollover Deposit",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23177EANTY",
+                            "productRef": "RES.LONG.TERM.FLEXI.PAY",
+                            "productName": "Long Term.Flexi Payment Deposit",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL231201XUQ6"
+        },
+        {
+            "productLineRef": "MULTI.CCY.ACCOUNT",
+            "productLineName": "Multi Currency Account",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120SZV7S",
+                    "productGroupRef": "MULTI.CURRENCY.ACCOUNTS",
+                    "products": [
+                        {
+                            "productId": "PR23120LON4V",
+                            "productRef": "DEFAULT.MCY.ACCOUNT",
+                            "productName": "Default MCY Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231209OW4X",
+                            "productRef": "MULTI.CURRENCY.ACCOUNT",
+                            "productName": "Multi Currency Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120BY6QP",
+                            "productRef": "MCY.GOLD.ACCOUNT",
+                            "productName": "Multi Currency Account - Gold",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23284YP6YR",
+                            "productRef": "RES.MULTI.CURRENCY.ACCOUNT",
+                            "productName": "Multi Currency Account",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120YU3YR"
+        },
+        {
+            "productLineRef": "ACCOUNTS",
+            "productLineName": "Accounts",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120PB3EG",
+                    "productGroupRef": "LIMIT.ACCOUNTS",
+                    "products": [
+                        {
+                            "productId": "PR23120TQN0D",
+                            "productRef": "LIMIT.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR2312002VVT",
+                            "productRef": "LIMIT.ACCOUNT",
+                            "productName": "Limit Account",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG2312036QQU",
+                    "productGroupRef": "SUMMARY.ACCOUNTS",
+                    "products": [
+                        {
+                            "productId": "PR231205BJSQ",
+                            "productRef": "CCY.SUM.ACCOUNT",
+                            "productName": "CS Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120TI7OS",
+                            "productRef": "SUMMARY.ACCOUNT",
+                            "productName": "SA Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120TPZUL",
+                            "productRef": "SA.PARENT",
+                            "productName": "SA Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120OY7LO",
+                            "productRef": "DEFAULT.SUMMARY",
+                            "productName": "Default SA Account",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG231207EZQK",
+                    "productGroupRef": "RETAIL.ACCOUNTS",
+                    "products": [
+                        {
+                            "productId": "PR23120ZL1S5",
+                            "productRef": "XPG.SAVINGS.STD",
+                            "productName": "Savings Account STD",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120RX5G0",
+                    "productGroupRef": "ISLAMIC.ACCOUNTS",
+                    "products": [
+                        {
+                            "productId": "PR231204O38N",
+                            "productRef": "MUDARABA.MONTHLY.MIN.ACCOUNT",
+                            "productName": "Mudaraba Account - Monthly Minimum",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231202DYK9",
+                            "productRef": "MUDARABA.DAILY.PRODUCT.ACCOUNT",
+                            "productName": "Mudaraba Daily Product Savings",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120H4KH6",
+                            "productRef": "MUDARABA.DAILY.MIN.ACCOUNT",
+                            "productName": "Mudaraba Account - Daily Minimum",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231209ZMJ2",
+                            "productRef": "ID.SAVINGS.PARENT",
+                            "productName": "Parent Conditions -Islamic Accounts",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120VE0DL",
+                            "productRef": "MUDARABA.ACCOUNT",
+                            "productName": "Mudaraba Accounts",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG231206TGE1",
+                    "productGroupName": "Current Accounts",
+                    "productGroupRef": "CURRENT.ACCOUNTS",
+                    "products": [
+                        {
+                            "productId": "PR2312068HC0",
+                            "productRef": "CURRENT.PARENT.STD",
+                            "productName": "Parent Conditions (Standard)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120EU6I5",
+                            "productRef": "SUB.DEFAULT.ACCOUNT",
+                            "productName": "MCY Sub Account (Default)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120XF6QD",
+                            "productRef": "TR.ACCOUNT",
+                            "productName": "TR Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120QKFRE",
+                            "productRef": "STUDENT.ACCOUNT",
+                            "productName": "Current Account (Student)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120ZOXU0",
+                            "productRef": "SUBACCOUNT",
+                            "productName": "METHOD2 SUB ACCOUNT",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120S1LRN",
+                            "productRef": "SUBACCOUNTM1",
+                            "productName": "METHOD1 SUB ACCOUNT",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120WKUA5",
+                            "productRef": "SME.ACCOUNT",
+                            "productName": "Current Account (SME)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120CPHCA",
+                            "productRef": "GROUP.SUBSIDIARY",
+                            "productName": "Group Subsidiary Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120I20MF",
+                            "productRef": "BASIC.CHECKING.ACCOUNT",
+                            "productName": "Basic Checking Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231203DSA1",
+                            "productRef": "CURRENT.ACCOUNT.GEN",
+                            "productName": "Current Account (General Charge)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120UI2QX",
+                            "productRef": "ADVANCED.CHECKING.ACCOUNT",
+                            "productName": "Advanced Checking Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120VYRV9",
+                            "productRef": "CURRENT.PARENT",
+                            "productName": "Parent Conditions (Top Level)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120V5J5B",
+                            "productRef": "NEGOTIABLE.ACCOUNT",
+                            "productName": "Fully Negotiable Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120FVZRA",
+                            "productRef": "CURRENT.DEFAULT",
+                            "productName": "Default (for failed eligibility)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120TQSPP",
+                            "productRef": "CURRENT.ACCOUNT.STAFF",
+                            "productName": "Current Account (Staff)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120DM1HQ",
+                            "productRef": "CURRENT.SHADOW",
+                            "productName": "Shadow Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120FU4SE",
+                            "productRef": "CURRENT.PARENT.INFINITY",
+                            "productName": "Parent Conditions (Infinity)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231207CQGQ",
+                            "productRef": "CURRENT.PARENT.PREF",
+                            "productName": "Parent Conditions (Preferential)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231209W3RC",
+                            "productRef": "BN.PARENT",
+                            "productName": "BN Parent Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120I4NBY",
+                            "productRef": "SSA.ACCOUNT",
+                            "productName": "Current Account (SSA)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120BA4XJ",
+                            "productRef": "PREMIUM.ACCOUNT",
+                            "productName": "Current Account (Premium)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120VPWPM",
+                            "productRef": "CT.ACCOUNT",
+                            "productName": "CT Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120G6HMS",
+                            "productRef": "PREFERRED.CHECKING.ACCOUNT",
+                            "productName": "Preferred Checking Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120RQ4W6",
+                            "productRef": "PREFER.ACCOUNT",
+                            "productName": "Current Account (Preferred)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231208WGIM",
+                            "productRef": "CURRENT.PARENT.SME",
+                            "productName": "Parent Conditions (SME)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120R7F87",
+                            "productRef": "MASTERACCOUNT",
+                            "productName": "Master Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231203ORA3",
+                            "productRef": "GROUP.CHECKING",
+                            "productName": "Group Checking Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120G2QA1",
+                            "productRef": "CURRENT.ACCOUNT.LINK",
+                            "productName": "Current Account (Linked Rate)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120RURB6",
+                            "productRef": "POOL.ACCOUNT",
+                            "productName": "Pool Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231200NNOK",
+                            "productRef": "CRRT.ACCOUNT",
+                            "productName": "CashReserve Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120MTKFE",
+                            "productRef": "INVESTMENT.CASH.ACCOUNTS",
+                            "productName": "Investment Cash Accounts",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120DA5LD",
+                            "productRef": "MCY.SUB.GOLD.ACC",
+                            "productName": "MCY Sub Account - Gold",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120DWDFX",
+                            "productRef": "MIRROR.TR.ACCOUNT",
+                            "productName": "Mirror TR Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23172GB2QL",
+                            "productRef": "RES.CURRENT.ACCOUNT",
+                            "productName": "Current Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23172XJ4GK",
+                            "productRef": "RES.PREMIUM.ACCOUNT",
+                            "productName": "Premium Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231209OX9T",
+                            "productRef": "CORP.CURRENT.ACCOUNT",
+                            "productName": "Corporate Current Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR233135QMLV",
+                            "productRef": "kumar",
+                            "productName": "kumar account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120CBE1V",
+                            "productRef": "MCY.SUB.ACCOUNT",
+                            "productName": "MCY Sub Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231204D8JF",
+                            "productRef": "CURRENT.ACCOUNT",
+                            "productName": "Current Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231209BU1X",
+                            "productRef": "PAYROLL.ACCOUNT",
+                            "productName": "Payroll Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120DS6PH",
+                            "productRef": "POOL.PARENT",
+                            "productName": "Parent Conditions (Pool)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23172HY97R",
+                            "productRef": "RES.CURRENT.PARENT",
+                            "productName": "Current Account Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23284GMYMW",
+                            "productRef": "RES.MCY.SUB.ACCOUNT",
+                            "productName": "MCY Sub Account",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG231202TW4U",
+                    "productGroupName": "Savings Accounts",
+                    "productGroupRef": "SAVINGS.ACCOUNTS",
+                    "products": [
+                        {
+                            "productId": "PR2312019SYK",
+                            "productRef": "SAVINGS.ACCOUNT",
+                            "productName": "Savings Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231200FUFQ",
+                            "productRef": "PREMIUM.SAVINGS",
+                            "productName": "Premium Savings",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231209EG8R",
+                            "productRef": "IBAN.VALIDATION",
+                            "productName": "RIB- IBAN Validation",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120UEJBD",
+                            "productRef": "FREE.SAVINGS",
+                            "productName": "Free Savings",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120PY4YX",
+                            "productRef": "COND.SAVINGS.ACCOUNT",
+                            "productName": "Conditional Savings Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120E02V8",
+                            "productRef": "WELCOME.SAVINGS",
+                            "productName": "Welcome Savings Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231204VYF4",
+                            "productRef": "SAVINGS.SALARY.INFINITY",
+                            "productName": "Salary Saving Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231209R1ZY",
+                            "productRef": "SAUDI.ACCT.POST.REST",
+                            "productName": "Saudi Post Rest Savings Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120EG0LT",
+                            "productRef": "INCOME.ACCOUNT",
+                            "productName": "Savings Account (Income)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231208MIPL",
+                            "productRef": "SALBLK.SAVINGS.ACCOUNT",
+                            "productName": "SALBLK Savings Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120VKLAE",
+                            "productRef": "SAVINGS.PARENT.INFINITY",
+                            "productName": "Parent Conditions (Infinity)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231201O9YZ",
+                            "productRef": "SAVINGS.PARENT.PREF",
+                            "productName": "Parent Conditions (Preferential)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120P89YT",
+                            "productRef": "SAVINGS.PRIME.INFINITY",
+                            "productName": "Prime Saving Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120XIZ63",
+                            "productRef": "AFRCIP.SAVINGS.ACCOUNT",
+                            "productName": "CIP Savings Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231209CBKX",
+                            "productRef": "SAVINGS.DEFAULT",
+                            "productName": "Default (for failed eligibility)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120SOKKF",
+                            "productRef": "SAVINGS.PARENT",
+                            "productName": "Parent Conditions (Top Level)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23181XSY2E",
+                            "productRef": "RES.SAVINGS.PARENT",
+                            "productName": "Savings Account Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23181TNZQN",
+                            "productRef": "RES.SAVINGS.ACCOUNT",
+                            "productName": "Savings Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR233134N5A8",
+                            "productRef": "vizupgrade",
+                            "productName": "vizupgrade",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120T0HP2",
+                            "productRef": "STAFF.ACCOUNT",
+                            "productName": "Savings Account (Staff)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231208VINC",
+                            "productRef": "SAVINGS.ACCOUNT.BENEFITS",
+                            "productName": "Savings Account Benefits",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120IUKUE",
+                            "productRef": "SAVINGS.PARENT.STD",
+                            "productName": "Parent Conditions (Standard)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120XNI4Q",
+                            "productRef": "CHILD.ACCOUNT",
+                            "productName": "Savings Account (Child)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120682SM",
+                            "productRef": "SAVINGS.ACCOUNT.FORCECAP",
+                            "productName": "Savings Account ForceCap",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR2318191IOJ",
+                            "productRef": "RES.FCY.SAVINGS.ACCOUNT",
+                            "productName": "FCY Savings Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120GQBBH",
+                            "productRef": "SAVINGS.STANDARD.INFINITY",
+                            "productName": "Standard Saving Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120DD1WY",
+                            "productRef": "PREF.SAVINGS.ACCOUNT",
+                            "productName": "Preferred Savings Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120PJOV1",
+                            "productRef": "SAVINGS.ACCOUNT.FCY",
+                            "productName": "Savings Account (Foreign Resident)",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG231218NB03",
+                    "productGroupName": "Overdraft Accounts",
+                    "productGroupRef": "OVERDRAFT.ACCOUNTS",
+                    "products": [
+                        {
+                            "productId": "PR23121H41WP",
+                            "productRef": "OVERDRAFT.ACCOUNT",
+                            "productName": "Overdraft account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23121ZFRB7",
+                            "productRef": "OVERDRAFT.ACCOUNT.SME",
+                            "productName": "Business Overdraft",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120BK92O",
+                    "productGroupName": "Business Banking - Accounts",
+                    "productGroupRef": "BUSINESS.BANKING.ACCOUNTS",
+                    "products": [
+                        {
+                            "productId": "PR23120ETB9Q",
+                            "productRef": "BB.SAVINGS.ACCOUNT",
+                            "productName": "Business Banking - Savings Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231206R5P9",
+                            "productRef": "BB.START.UP.ACCOUNT",
+                            "productName": "Business Banking - Start Up Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120O2ASY",
+                            "productRef": "BB.PREMIUM.ACCOUNT",
+                            "productName": "Business Banking - Premium Account",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120NJNNJ",
+                            "productRef": "BB.STANDARD.ACCOUNT",
+                            "productName": "Business Banking - Standard Account",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120TP7X6"
+        },
+        {
+            "productLineRef": "SAFE.DEPOSIT.BOX",
+            "productLineName": "Safe Deposit Box",
+            "productGroups": [
+                {
+                    "productGroupId": "PG2312092YWV",
+                    "productGroupRef": "SAFE.DEPOSIT.BOX",
+                    "products": [
+                        {
+                            "productId": "PR2312061148",
+                            "productRef": "SDB.MEDIUM",
+                            "productName": "Safe Deposit Box (Medium)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR2312099C4L",
+                            "productRef": "SDB.SMALL",
+                            "productName": "Safe Deposit Box (Small)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231203Y0AC",
+                            "productRef": "SDB.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231208WM8V",
+                            "productRef": "SDB.LARGE",
+                            "productName": "Safe Deposit Box (Large)",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL231200M03Z"
+        },
+        {
+            "productLineRef": "CONSENT",
+            "productLineName": "Client Consent",
+            "productGroups": [
+                {
+                    "productGroupId": "PG231205DFSQ",
+                    "productGroupRef": "PERSONAL.CONSENT",
+                    "products": [
+                        {
+                            "productId": "PR23120627SR",
+                            "productRef": "CDP.CONSENT.PARENT",
+                            "productName": "Personal Consent - Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120L23C2",
+                            "productRef": "CDP.CONSENT",
+                            "productName": "Personal Consent",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120WHS9X"
+        },
+        {
+            "productLineRef": "ONLINE.SERVICES",
+            "productLineName": "Online services",
+            "productGroups": [
+                {
+                    "productGroupId": "PG231205UINY",
+                    "productGroupRef": "TC.CORPORATE",
+                    "products": [
+                        {
+                            "productId": "PR23120SHDRD",
+                            "productRef": "TC.CORPORATE.INTERNET",
+                            "productName": "Corporate Internet Banking",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120GJO5H",
+                    "productGroupRef": "TC.RETAIL",
+                    "products": [
+                        {
+                            "productId": "PR23120Z4W89",
+                            "productRef": "TC.RETAIL.INTERNET",
+                            "productName": "Retail Internet Banking.",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120KFPYQ"
+        },
+        {
+            "productLineRef": "XCREDIT.CARDS",
+            "productLineName": "External Credit Cards",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120Q3F14",
+                    "productGroupRef": "CREDIT.CARDS",
+                    "products": [
+                        {
+                            "productId": "PR23120GWWIS",
+                            "productRef": "CREDIT.CARD",
+                            "productName": "External Credit Card",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120H65WV",
+                            "productRef": "CREDIT.CARD.PARENT",
+                            "productName": "External Credit Card - Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23121S2X7G",
+                            "productRef": "INFINITY.ADAMANTIUM.CARD",
+                            "productName": "Infinity Silver Credit Card",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23121E50L4",
+                            "productRef": "INFINITY.VIBRANIUM.CARD",
+                            "productName": "Infinity Platinum Credit Card",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR2312119ZST",
+                            "productRef": "INFINITY.BESKAR.CARD",
+                            "productName": "Infinity Gold Credit Card",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL231204GPH2"
+        },
+        {
+            "productLineRef": "ASSET.FINANCE",
+            "productLineName": "Asset Finance",
+            "productGroups": [
+                {
+                    "productGroupId": "PG231201GRVT",
+                    "productGroupRef": "FINANCE.LEASE",
+                    "products": [
+                        {
+                            "productId": "PR231203AWJO",
+                            "productRef": "FINANCE.LEASE.HEALTH",
+                            "productName": "Finance Lease (Healthcare)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120570XU",
+                            "productRef": "FINANCE.LEASE.VEHICLES",
+                            "productName": "Finance Lease (Vehicle)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120S5CEL",
+                            "productRef": "FINANCE.LEASE.EQUIPMENT",
+                            "productName": "Finance Lease (Equipment)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR2312078H0T",
+                            "productRef": "FINANCE.LEASE.EV",
+                            "productName": "Finance Lease (EVs)",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120L2NGF",
+                    "productGroupRef": "CONTRACT.HIRE",
+                    "products": [
+                        {
+                            "productId": "PR231201VUJP",
+                            "productRef": "CONTRACT.HIRE.TRUCKS",
+                            "productName": "Contract Hire (Trucks)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120MQJXD",
+                            "productRef": "CONTRACT.HIRE.TECHNOLOGY",
+                            "productName": "Contract Hire (Technology)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120SIRLK",
+                            "productRef": "CONTRACT.HIRE.EQUIPMENTS",
+                            "productName": "Contract Hire (Equipment)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231200R00I",
+                            "productRef": "CONTRACT.HIRE.VEHICLES",
+                            "productName": "Contract Hire (Vehicle)",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120LW5RK",
+                    "productGroupRef": "HIRE.PURCHASE",
+                    "products": [
+                        {
+                            "productId": "PR2312074R34",
+                            "productRef": "HIRE.PURCHASE.MACHINERY",
+                            "productName": "Hire Purchase (Machinery)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120ZBIVU",
+                            "productRef": "HIRE.PURCHASE.EQUIPMENT",
+                            "productName": "Hire Purchase (Equipment)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120CIAX4",
+                            "productRef": "HIRE.PURCHASE.CARS",
+                            "productName": "Hire Purchase (Cars)",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231208AN7W",
+                            "productRef": "HIRE.PURCHASE.VEHICLES",
+                            "productName": "Hire Purchase (Vehicle)",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120MMZ7L"
+        },
+        {
+            "productLineRef": "ACC.CONSENT",
+            "productLineName": "PSD2 Consent",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120J01SD",
+                    "productGroupRef": "ACCOUNT.CONSENT",
+                    "products": [
+                        {
+                            "productId": "PR23120THZVU",
+                            "productRef": "PSD2.CONSENT.PARENT",
+                            "productName": "Open Banking Consent - Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120NE5YH",
+                            "productRef": "PSD2.CONSENT",
+                            "productName": "Open Banking Consent",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL231207ANJJ"
+        },
+        {
+            "productLineRef": "XINSURANCE",
+            "productLineName": "Insurance - External Product",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23120Q4JDU",
+                    "productGroupRef": "PAYMENT.PROTECTION",
+                    "products": [
+                        {
+                            "productId": "PR23120NIEO2",
+                            "productRef": "AVI.PAYMT.PROT",
+                            "productName": "Aviva Payment Protection",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120WLK3K",
+                            "productRef": "PAYMT.PROT.PARENT",
+                            "productName": "Payment Protection - Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120NQ7Z1",
+                            "productRef": "AXA.PAYMT.PROT",
+                            "productName": "Axa Payment Protection",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120NO3FQ",
+                            "productRef": "ZUR.PAYMT.PROT",
+                            "productName": "Zurich Payment Protection",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120X9KHH",
+                    "productGroupRef": "HOME.OWNER.INSURANCE",
+                    "products": [
+                        {
+                            "productId": "PR23120UY4QM",
+                            "productRef": "HOME.OWNER.INS.PARENT",
+                            "productName": "Home Owner Insurance - Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120CUW6O",
+                            "productRef": "AVI.HOME.OWN.INS",
+                            "productName": "Aviva Home Owner Insurance",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120G9AO2",
+                            "productRef": "AXA.HOME.OWN.INS",
+                            "productName": "Axa Home Owner Insurance",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120C0GOL",
+                            "productRef": "ZUR.HOME.OWN.INS",
+                            "productName": "Zurich Home Owner Insurance",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120178NN"
+        },
+        {
+            "productLineRef": "FACILITY",
+            "productLineName": "Facility",
+            "productGroups": [
+                {
+                    "productGroupId": "PG2312086JYF",
+                    "productGroupRef": "RES.BNPL.FACILITY",
+                    "products": [
+                        {
+                            "productId": "PR232840GZGS",
+                            "productRef": "RES.BNPL.FACILITY",
+                            "productName": "Retail BNPL Facility",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG2312084EW2",
+                    "productGroupRef": "CORPORATE.FACILITY",
+                    "products": [
+                        {
+                            "productId": "PR23120CCS2Y",
+                            "productRef": "TERM.FACILITY",
+                            "productName": "Term Facility",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR231205QYAM",
+                            "productRef": "REVOLVING.FACILITY",
+                            "productName": "Revolving Facility",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120GH5RL",
+                            "productRef": "CORP.FACILITY.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG231208HEHI",
+                    "productGroupRef": "MORTGAGE.FACILITIES",
+                    "products": [
+                        {
+                            "productId": "PR23120JWITQ",
+                            "productRef": "MORTGAGE.FACILITY",
+                            "productName": "Mortgage Facility",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120J7HPO",
+                            "productRef": "MORTGAGE.FACILITY.PARENT",
+                            "productName": "Parent Conditions",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120PRS8D",
+                    "productGroupRef": "RETAIL.FACILITIES",
+                    "products": [
+                        {
+                            "productId": "PR23120OT6VI",
+                            "productRef": "CL.FACILITY.PARENT",
+                            "productName": "Credit Line Facility - Parent",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120ZDROT",
+                            "productRef": "CREDIT.LINE.FACILITY",
+                            "productName": "Credit Line Facility",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120EMHRX",
+                    "productGroupRef": "BUSINESS.BANKING.FACILITY",
+                    "products": [
+                        {
+                            "productId": "PR231201FUBS",
+                            "productRef": "BB.FLEXIPAY",
+                            "productName": "Flexi Pay Credit",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120KN291",
+                    "productGroupRef": "DEAL",
+                    "products": [
+                        {
+                            "productId": "PR23120YAUPR",
+                            "productRef": "DEAL",
+                            "productName": "Deal",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23120GY091",
+                            "productRef": "DEAL.PARENT",
+                            "productName": "Parent Conditions - Deal",
+                            "status": "Active"
+                        }
+                    ]
+                },
+                {
+                    "productGroupId": "PG23120WU1O6",
+                    "productGroupRef": "RES.MORTGAGE.FACILITIES",
+                    "products": [
+                        {
+                            "productId": "PR232878A2FZ",
+                            "productRef": "RES.MORTGAGE.FACILITIES",
+                            "productName": "Mortgage Facility",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23120DC9PG"
+        },
+        {
+            "productLineRef": "AjjUuu",
+            "productLineName": "AjjUuu",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23305WBUTM",
+                    "productGroupName": "lwRYQB",
+                    "productGroupRef": "lwRYQB",
+                    "products": [
+                        {
+                            "productId": "PR23305CCNA6",
+                            "productRef": "ZlmrBN",
+                            "productName": "ZlmrBN",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL233052DVB7"
+        },
+        {
+            "productLineRef": "hGGRqr",
+            "productLineName": "hGGRqr",
+            "productGroups": [
+                {
+                    "productGroupId": "PG233056VI8J",
+                    "productGroupName": "ByPdZq",
+                    "productGroupRef": "ByPdZq",
+                    "products": [
+                        {
+                            "productId": "PR233054C205",
+                            "productRef": "ZHgMJz",
+                            "productName": "ZHgMJz",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23305RY9TV"
+        },
+        {
+            "productLineRef": "oSSOKP",
+            "productLineName": "oSSOKP",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23306VU4Y5",
+                    "productGroupName": "qEoAlU",
+                    "productGroupRef": "qEoAlU",
+                    "products": [
+                        {
+                            "productId": "PR23306YDAEJ",
+                            "productRef": "fECqpn",
+                            "productName": "fECqpn",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL233066W4HS"
+        },
+        {
+            "productLineRef": "AfcdIC",
+            "productLineName": "AfcdIC",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23307B8S6G",
+                    "productGroupName": "XTrfIo",
+                    "productGroupRef": "XTrfIo",
+                    "products": [
+                        {
+                            "productId": "PR23307OTNWW",
+                            "productRef": "HfmsgN",
+                            "productName": "HfmsgN",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23307E3GTE"
+        },
+        {
+            "productLineRef": "testing",
+            "productLineName": "testing edited",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23312J8ZZ9",
+                    "productGroupName": "testing",
+                    "productGroupRef": "testing",
+                    "products": [
+                        {
+                            "productId": "PR23327UMTUN",
+                            "productRef": "1244",
+                            "productName": "testing product",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23308T0FQ6"
+        },
+        {
+            "productLineRef": "gUmcSS",
+            "productLineName": "gUmcSS",
+            "productGroups": [
+                {
+                    "productGroupId": "PG233125LMT1",
+                    "productGroupName": "BGQsSq",
+                    "productGroupRef": "BGQsSq",
+                    "products": [
+                        {
+                            "productId": "PR23312VIJHM",
+                            "productRef": "GeLFBN",
+                            "productName": "GeLFBN",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23312CA0T6"
+        },
+        {
+            "productLineRef": "nZQGwm",
+            "productLineName": "nZQGwm",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23318AAS1Z",
+                    "productGroupName": "CbFJgc",
+                    "productGroupRef": "CbFJgc",
+                    "products": [
+                        {
+                            "productId": "PR23318ZHPD0",
+                            "productRef": "arGyBS",
+                            "productName": "arGyBS",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23318ZMT0O"
+        },
+        {
+            "productLineRef": "JkmexS",
+            "productLineName": "JkmexS",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23319DU649",
+                    "productGroupName": "VaAMwp",
+                    "productGroupRef": "VaAMwp",
+                    "products": [
+                        {
+                            "productId": "PR23319HFCAH",
+                            "productRef": "JQDQys",
+                            "productName": "JQDQys",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23319AD8I5"
+        },
+        {
+            "productLineRef": "dizwSn",
+            "productLineName": "dizwSn",
+            "productGroups": [
+                {
+                    "productGroupId": "PG233198E2VG",
+                    "productGroupName": "DeLCST",
+                    "productGroupRef": "DeLCST",
+                    "products": [
+                        {
+                            "productId": "PR23319J6CNX",
+                            "productRef": "VfwhlF",
+                            "productName": "VfwhlF",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL233194FNDE"
+        },
+        {
+            "productLineRef": "xmalOR",
+            "productLineName": "xmalOR",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23319VJX1P",
+                    "productGroupName": "kBxmun",
+                    "productGroupRef": "kBxmun",
+                    "products": [
+                        {
+                            "productId": "PR23319YB289",
+                            "productRef": "yWAwcv",
+                            "productName": "yWAwcv",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23319RH714"
+        },
+        {
+            "productLineRef": "PkXWsD",
+            "productLineName": "PkXWsD",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23319EWGU3",
+                    "productGroupName": "DQRNIP",
+                    "productGroupRef": "DQRNIP",
+                    "products": [
+                        {
+                            "productId": "PR233193CPH9",
+                            "productRef": "FXDvBS",
+                            "productName": "FXDvBS",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23319ZSIA6"
+        },
+        {
+            "productLineRef": "ePQhlj",
+            "productLineName": "ePQhlj",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23319S6I3G",
+                    "productGroupName": "KhkAFp",
+                    "productGroupRef": "KhkAFp",
+                    "products": [
+                        {
+                            "productId": "PR233198JOQ1",
+                            "productRef": "ZvuZIg",
+                            "productName": "ZvuZIg",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23319Y2R9D"
+        },
+        {
+            "productLineRef": "ooyPMp",
+            "productLineName": "ooyPMp",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23321R43ET",
+                    "productGroupName": "EHawwS",
+                    "productGroupRef": "EHawwS",
+                    "products": [
+                        {
+                            "productId": "PR23321ZMQ6G",
+                            "productRef": "eoXscp",
+                            "productName": "eoXscp",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23321MWC2S"
+        },
+        {
+            "productLineRef": "yIFjvL",
+            "productLineName": "yIFjvL",
+            "productGroups": [
+                {
+                    "productGroupId": "PG23325JO57A",
+                    "productGroupName": "INDibg",
+                    "productGroupRef": "INDibg",
+                    "products": [
+                        {
+                            "productId": "PR233259HRB9",
+                            "productRef": "VdcZvO",
+                            "productName": "VdcZvO",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23325GLUX5"
+        },
+        {
+            "productLineRef": "haIqAu",
+            "productLineName": "haIqAu",
+            "productGroups": [
+                {
+                    "productGroupId": "PG233252QBNW",
+                    "productGroupName": "zgczCD",
+                    "productGroupRef": "zgczCD",
+                    "products": [
+                        {
+                            "productId": "PR23325KP1TM",
+                            "productRef": "QupGZS",
+                            "productName": "QupGZS",
+                            "status": "Active"
+                        },
+                        {
+                            "productId": "PR23327N5DXZ",
+                            "productRef": "product",
+                            "productName": "product",
+                            "status": "Active"
+                        }
+                    ]
+                }
+            ],
+            "productLineId": "PL23325T4E5R"
+        }
+    ]
+}

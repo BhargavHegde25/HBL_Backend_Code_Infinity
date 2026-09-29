@@ -1,0 +1,17 @@
+INSERT INTO `rrole` (`id`) VALUES ('EARLY_PAYOFF_SIMULATION-CREATE');
+INSERT INTO `feature` (`id`, `App_id`, `name`, `description`, `Type_id`, `Status_id`, `DisplaySequence`, `isPrimary`) VALUES ('EARLY_PAYOFF_SIMULATION', 'RETAIL_AND_BUSINESS_BANKING', 'Early Payoff Simulation', 'Early Payoff Simulation', 'NON_MONETARY', 'SID_FEATURE_ACTIVE', '86', '0');
+INSERT INTO `featuredisplaynamedescription` (`Feature_id`, `Locale_id`, `displayName`, `displayDescription`) VALUES ('EARLY_PAYOFF_SIMULATION', 'en-GB', 'Early Payoff Simulation', 'Early Payoff Simulation');
+INSERT INTO `featuredisplaynamedescription` (`Feature_id`, `Locale_id`, `displayName`, `displayDescription`) VALUES ('EARLY_PAYOFF_SIMULATION', 'de-DE', 'Early Payoff Simulation', 'Early Payoff Simulation');
+INSERT INTO `featuredisplaynamedescription` (`Feature_id`, `Locale_id`, `displayName`, `displayDescription`) VALUES ('EARLY_PAYOFF_SIMULATION', 'en-US', 'Early Payoff Simulation', 'Early Payoff Simulation');
+INSERT INTO `featuredisplaynamedescription` (`Feature_id`, `Locale_id`, `displayName`, `displayDescription`) VALUES ('EARLY_PAYOFF_SIMULATION', 'es-ES', 'Early Payoff Simulation', 'Early Payoff Simulation');
+INSERT INTO `featuredisplaynamedescription` (`Feature_id`, `Locale_id`, `displayName`, `displayDescription`) VALUES ('EARLY_PAYOFF_SIMULATION', 'fr-FR', 'Early Payoff Simulation', 'Early Payoff Simulation');
+INSERT INTO `featureroletype` (`RoleType_id`, `Feature_id`) VALUES ('TYPE_ID_BUSINESS', 'EARLY_PAYOFF_SIMULATION');
+INSERT INTO `featureroletype` (`RoleType_id`, `Feature_id`) VALUES ('TYPE_ID_WEALTH', 'EARLY_PAYOFF_SIMULATION');
+INSERT INTO `featureroletype` (`RoleType_id`, `Feature_id`) VALUES ('TYPE_ID_RETAIL', 'EARLY_PAYOFF_SIMULATION');
+INSERT INTO `featureaction` (`id`, `Feature_id`, `App_id`, `Type_id`, `Rrole_id`, `name`, `description`, `isAccountLevel`, `isMFAApplicable`, `isPrimary`, `DisplaySequence`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `status`, `accesspolicyId`, `actionlevelId`) VALUES ('EARLY_PAYOFF_SIMULATION-CREATE','EARLY_PAYOFF_SIMULATION','RETAIL_AND_BUSINESS_BANKING','NON_MONETARY','EARLY_PAYOFF_SIMULATION-CREATE','Create Early Payoff Simulation','Create Early Payoff Simulation','0', '0', '0', '10', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,'0','SID_ACTION_ACTIVE','CREATE','CUSTOMERID_LEVEL');
+INSERT INTO `actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`) VALUES ('EARLY_PAYOFF_SIMULATION-CREATE','en-US', 'Create Early Payoff Simulation', 'Create Early Payoff Simulation');
+INSERT INTO `featureactionroletype` (`RoleType_id`, `Action_id`) VALUES ('TYPE_ID_WEALTH', 'EARLY_PAYOFF_SIMULATION-CREATE');
+INSERT INTO `featureactionroletype` (`RoleType_id`, `Action_id`) VALUES ('TYPE_ID_BUSINESS', 'EARLY_PAYOFF_SIMULATION-CREATE');
+INSERT INTO `featureactionroletype` (`RoleType_id`, `Action_id`) VALUES ('TYPE_ID_RETAIL', 'EARLY_PAYOFF_SIMULATION-CREATE');
+INSERT INTO `dependentactions` (`actionId`, `dependentactionId`, `featureId`, `actionName`, `featureName`) VALUES ('EARLY_PAYOFF_SIMULATION-CREATE', 'EARLY_PAYOFF_SIMULATION-CREATE', 'EARLY_PAYOFF_SIMULATION', 'Create Early Payoff Simulation', 'Early Payoff Simulation');
+INSERT INTO `compositeaction` (`id`, `Permission_id`, `Action_id`, `Feature_id`, `isEnabled`) VALUES ('CAID363','PID45', 'EARLY_PAYOFF_SIMULATION-CREATE', 'EARLY_PAYOFF_SIMULATION', '1');

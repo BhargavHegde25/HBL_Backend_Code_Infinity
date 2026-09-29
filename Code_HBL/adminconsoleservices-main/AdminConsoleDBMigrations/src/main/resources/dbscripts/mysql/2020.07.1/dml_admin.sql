@@ -1,0 +1,4 @@
+UPDATE `featureaction` SET `isPrimary` = '0' WHERE (`id` = 'DOMESTIC_WIRE_TRANSFER_VIEW_BULK_FILES');
+UPDATE `featureaction` SET `isPrimary` = '0' WHERE (`id` = 'DOMESTIC_WIRE_TRANSFER_VIEW_BULK_TEMPLATES');
+UPDATE `featureaction` SET `isPrimary` = '0' WHERE (`id` = 'INTERNATIONAL_WIRE_TRANSFER_VIEW_BULK_FILES');
+UPDATE `featureaction` SET `isPrimary` = '0' WHERE (`id` = 'INTERNATIONAL_WIRE_TRANSFER_VIEW_BULK_TEMPLATES');

@@ -1,0 +1,65 @@
+View, cancel and download scheduled domestic transfers
+-------------------------------------------------------------
+1. paymentType param added in requestMapping for DocumentManagement-DownloadTransactionPDF-POST service in Arrangments Fabric app
+2. paymentType param added in requestMapping for T24DocumentService-GenerateTransactionPDF service in Arrangments Fabric app
+
+Added new integration service for download scheduled domestic transfers
+-------------------------------------------------------------
+HBLOtherbankTrnsferJavaService-getCIPSTransactionsById in Payments App
+
+CreateChannelAccessRequest service added for OLB to Spotlight
+---------------------------------------------------------------
+1. created new object service ExternalUserManagement-ExternalUsers_1-CreateChannelAccessRequest under ExternalUserManagement App
+2. created new Integration service HBLeumProductServices-CreateNewChannelAccess under ExternalUserManagement App
+
+
+update Enroll Consent Status  
+-----------------------------
+1. Added below three request parameters in DBPServices-updateContractStatus Integration Service in KonyBankingAdminConsole App
+	1.isMobileBankingService
+	2.isInternetBankingService
+	3.isEnrollConsentProvided
+2. Basemapper2 added for ExternalUserManagement-Contract-updateContractStatus service in ExternalUserManagement App
+	Request Mapping
+	------------------
+	<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+	<mapper xmlns="http://www.kony.com/ns/mapper">      
+  	<map inputpath="request_in" outputpath="request_out">            
+    <set-param inputpath="contractId" outputpath="contractId"/>            
+    <set-param inputpath="rejectedReason" outputpath="rejectedReason"/>            
+    <set-param inputpath="rejectedBy" outputpath="rejectedby"/>            
+    <set-param inputpath="statusId" outputpath="statusId"/>                 
+    <set-param inputpath="isMobileBankingService" outputpath="isMobileBankingService"/>            
+    <set-param inputpath="isInternetBankingService" outputpath="isInternetBankingService"/>            
+    <set-param inputpath="isEnrollConsentProvided" outputpath="isEnrollConsentProvided"/>      
+  	</map>
+	</mapper>
+	
+	ResponseMapping
+	----------------
+	<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+	<mapper xmlns="http://www.kony.com/ns/mapper">
+  	<map inputpath="response_in" outputpath="response_out">
+   	<set-param inputpath="status" outputpath="status"/>
+      <set-param inputpath="dbpErrMsg" outputpath="dbpErrMsg"/>
+      <set-param inputpath="dbpErrCode" outputpath="dbpErrCode"/>
+  	</map>
+	</mapper>
+	
+3.Added below three request parameters in eumProductServices-UpdateContractStatus Integration Service in ExternalUserManagement App
+	1.isMobileBankingService
+	2.isInternetBankingService
+	3.isEnrollConsentProvided
+4.Added new integration service (HBL_T24ISUser-updateEnrollConsent) for update enroll consent in Authentication App.
+
+5. Add below on Client properties
+	FT_DOMESTIC_INPUT_CONFIG {"acNumLen":"25","acNameLen":"25","remarksLen":"25"}
+	FT_INTERNATIONAL_INPUT_CONFIG {"acNumLen":"25","acNameLen":"25","remarksLen":"25"}
+	FT_OWNACC_INPUT_CONFIG {"acNumLen":"25","acNameLen":"25","remarksLen":"25"}
+	FT_SAMEBANK_INPUT_CONFIG {"acNumLen":"25","acNameLen":"25","remarksLen":"25"}
+	ADDPAYEE_OTHERBANK_INPUT_CONFIG {"acNumLen":"25","acNameLen":"25","nickNameLen":"25"}
+	ADDPAYEE_INTERNATIONAL_INPUT_CONFIG {"acNumLen":"25","acNameLen":"25","nickNameLen":"25"}
+	ADDPAYEE_SAMEBANK_INPUT_CONFIG {"acNumLen":"25","acNameLen":"25","nickNameLen":"25"}
+	DISABLE_PAPER_STATEMENT 1
+	MB_HIDE_THEME_SECTION 1
+

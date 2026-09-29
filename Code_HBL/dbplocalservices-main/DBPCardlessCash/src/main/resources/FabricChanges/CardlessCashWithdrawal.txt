@@ -1,0 +1,12 @@
+Configured the server property - CARDLESS_CASH_OTP_VALIDITY_HOURS to define the validity duration of the OTP generated for CardlessCash transactions.
+
+Import hbl_update_cardless_cash_expired_trx.sql Store Procedure available in the DB scripts folder
+
+Navigate to
+Fabric -> Authentication -> Integration -> HBLCustomCRUD 
+
+Select dbxdb -> StoredProcedures -> dbxdb_hbl_update_cardless_cash_expired_trx -> Click Add Operation
+
+Publish Authentication
+
+Create a Job updateCardlessCashExpiredTransactions which will execute every 5 minutes of dbxdb_hbl_update_cardless_cash_expired_trx service(Refer to QA Fabric)

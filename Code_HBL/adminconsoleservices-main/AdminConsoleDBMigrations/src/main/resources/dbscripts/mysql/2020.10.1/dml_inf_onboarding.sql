@@ -1,0 +1,1 @@
+INSERT INTO `service_permission_mapper` (`id`, `service_name`, `object_name`, `operation`, `permissions`) VALUES ('b3b68908-c3fb-4a0b-a655-9048d82229f8', 'CustomerManagementObjService', 'Customer', 'GetOnboardingApplications', 'ViewCustomer');

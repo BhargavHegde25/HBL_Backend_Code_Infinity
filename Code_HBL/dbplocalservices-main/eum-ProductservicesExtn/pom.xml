@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>dbp-localservicesaggregator</artifactId>
+    <groupId>com.kony.dbp</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  
+  <artifactId>eum-ProductservicesExtn</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <name>eum-ProductservicesExtn</name>
+ 
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   <maven.compiler.source>11</maven.compiler.source>
+	<maven.compiler.target>11</maven.compiler.target>
+	
+  </properties>
+
+  <dependencies>
+   <dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>eum-productservices</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>com.temenos.infinity.integration.common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>com.temenos.infinity.t24irisintegration</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>servlet-api</artifactId>
+    <version>2.5</version>
+    <scope>provided</scope>
+</dependency>
+		<!-- <dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>eum-productservices</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>DBPFramework</artifactId>
+			<version>${dbp.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-productservices</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-commonutilityservices</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>Event-Dispatcher</artifactId>
+			<version>2022.04.00</version>
+		</dependency>
+		<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.12.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>2.9.1</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>32.1.1-jre</version>
+				
+			</dependency>
+			<dependency>
+			    <groupId>org.yaml</groupId>
+			    <artifactId>snakeyaml</artifactId>
+			    <version>2.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.kony.dbp</groupId>
+				<artifactId>
+					com.temenos.infinity.integration.common
+				</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.kony.middleware</groupId>
+				<artifactId>middleware-api</artifactId>
+				<version>9.7.1.16</version>
+				</dependency>
+				-->
+  </dependencies>
+
+  
+</project>

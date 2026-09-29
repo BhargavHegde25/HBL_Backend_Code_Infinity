@@ -1,0 +1,12 @@
+#List of Backend Fetch Services
+#List of Backend Fetch Services
+Backend : 
+    MOCK : 
+        getTransfers : InfinityTransactionServices.getUserTransaction
+        getInstructions : InfinityTransactionServices.getUserTransaction
+    T24 : 
+        getTransfers : T24ISPaymentsView.getPastTransactions
+        getInstructions : T24ISPaymentsView.getUserScheduledTransactions
+    SRMS : 
+        getTransfers : SRMSTransactionsJavaService.GetPastTransactionsFromSRMS
+        getInstructions : T24ISPaymentsView.getUserScheduledTransactions

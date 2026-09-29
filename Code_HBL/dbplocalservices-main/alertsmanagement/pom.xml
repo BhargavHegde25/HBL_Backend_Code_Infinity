@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+		<groupId>com.kony.dbp</groupId>
+		<artifactId>dbp-localservicesaggregator</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+  
+  <artifactId>alertsmanagement</artifactId>
+  <name>alertsmanagement</name>
+  
+  
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>eu.bitwalker</groupId> 
+			<artifactId>UserAgentUtils</artifactId> 
+		</dependency> 
+		
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-commonutilityservices</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.temenos.technology</groupId>
+			<artifactId>TemnLogger</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.temenos.technology</groupId>
+			<artifactId>TemnMonitorLib</artifactId>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>com.kony.dbp</groupId>
+			<artifactId>dbp-adminintegrationservices</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+  </dependencies>
+    <build>
+      <finalName>alertsmanagement</finalName>
+    </build>
+</project>
+

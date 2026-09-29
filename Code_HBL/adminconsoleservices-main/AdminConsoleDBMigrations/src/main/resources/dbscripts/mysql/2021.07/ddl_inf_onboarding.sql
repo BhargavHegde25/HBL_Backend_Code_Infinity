@@ -1,0 +1,2 @@
+ALTER TABLE `country` ADD COLUMN `LanguageCode` VARCHAR(45) NOT NULL AFTER `Name`;
+ALTER TABLE `region` ADD COLUMN `LanguageCode` VARCHAR(45) NOT NULL AFTER `Name`;

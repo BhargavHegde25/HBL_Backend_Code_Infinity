@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+	<id>copy-makerchecker-app</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>true</includeBaseDirectory>
+	<baseDirectory>Apps</baseDirectory>
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>_JARs</outputDirectory>
+			<includes>
+				<include>com.kony.adminconsole.MakerCheckerService:jar:</include>
+			</includes>
+			<outputFileNameMapping>${artifact.artifactId}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+			<useProjectArtifact>false</useProjectArtifact>
+		</dependencySet>
+	</dependencySets>
+	<files>
+		<file>            
+		<source>${project.dist.dir}/binaries/MakerCheckerService.jar</source>
+		<outputDirectory>_JARs</outputDirectory>
+        </file>
+	</files>
+	<fileSets>
+		<fileSet>
+			<directory>${project.repo.dir}/Fabric/Apps/MakerChecker/Apps</directory>
+			<outputDirectory>${file.separator}</outputDirectory>
+		</fileSet>
+	</fileSets>
+</assembly>

@@ -1,0 +1,4602 @@
+[
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "NNSW-FNCC-JHP",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "GON-7-TVRS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "GON-7-TVRS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "VRS-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "VRS-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "VRS-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "addenda3",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "10",
+        "appId": "VRS-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-691-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "GOV-703-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "MER-7-APP-16",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-7-APP-16",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "MER-7-APP-16",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-7-APP-16",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "MER-7-APP-16",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-7-APP-16",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "DOC-BRJ01",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "freeText1",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "DOC-BRJ01",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "1",
+        "length": "20",
+        "appId": "DOC-BRJ01",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "addenda3",
+        "dataType": "ANS",
+        "minLength": "-",
+        "length": "-",
+        "appId": "DOC-BRJ01",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "DOC-BHW01",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "freeText1",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "DOC-BHW01",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "1",
+        "length": "20",
+        "appId": "DOC-BHW01",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "addenda3",
+        "dataType": "ANS",
+        "minLength": "-",
+        "length": "-",
+        "appId": "DOC-BHW01",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "DOC-RS01",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "freeText1",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "DOC-RS01",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "1",
+        "length": "20",
+        "appId": "DOC-RS01",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "addenda3",
+        "dataType": "ANS",
+        "minLength": "-",
+        "length": "-",
+        "appId": "DOC-RS01",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "freeCode1",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "SSF-101-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "14",
+        "appId": "SSF-101-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "MER-7-APP-6",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-7-APP-6",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "MER-7-APP-8",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-7-APP-8",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "NEA-271-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "NEA-271-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "NEA-271-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "addenda3",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "NEA-271-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "MER-7-APP-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-7-APP-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "MER-7-APP-7",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-7-APP-7",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-518-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-518-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-518-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "E",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-518-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "freeCode1",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "SSF-101-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "14",
+        "appId": "SSF-101-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "16",
+        "appId": "HBL-483-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "HBL-483-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "16",
+        "appId": "CRE-640-APP-3",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "CRE-640-APP-3",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "99",
+        "appId": "MER-692-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "16",
+        "length": "16",
+        "appId": "MER-692-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-692-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MEG-70-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "MEG-70-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MEG-70-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MEG-70-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "LAX-13-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "LAX-13-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "LAX-13-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "LAX-13-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "SBL-11-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "SBL-11-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "SBL-11-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "SBL-11-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "GIB-13-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "GIB-13-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "GIB-13-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "GIB-13-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "NAB-76-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "NAB-76-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "NAB-76-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "NAB-76-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "NIB-7-APP-77",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "NIB-7-APP-77",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "NIB-7-APP-77",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "NIB-7-APP-77",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "NIB-516-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "NIB-516-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "NIB-516-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "NIB-516-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "SUN-76-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "SUN-76-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "SUN-76-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "SUN-76-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "SBL-11-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "SBL-11-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "SBL-11-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "SBL-11-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "CRD-34-NBB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "CRD-34-NBB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "CRD-34-NBB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "CRD-34-NBB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "NMB-15-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "NMB-15-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "NMB-15-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "NMB-15-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MBL-25-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "MBL-25-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MBL-25-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MBL-25-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BOK-77-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "BOK-77-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BOK-77-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BOK-77-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "LAX-13-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "LAX-13-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "LAX-13-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "LAX-13-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "CTZ-68-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "CTZ-68-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "CTZ-68-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "CTZ-68-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MEG-70-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "MEG-70-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MEG-70-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MEG-70-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "CRD-41-PBL-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "CRD-41-PBL-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "CRD-41-PBL-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "CRD-41-PBL-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "NMB-15-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "NMB-15-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "NMB-15-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "NMB-15-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "NAB-76-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "NAB-76-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "NAB-76-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "NAB-76-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "CEN-29-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "CEN-29-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "CEN-29-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "CEN-29-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "NIB-516-APP-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "NIB-516-APP-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "NIB-516-APP-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "NIB-516-APP-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "GIB-13-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "GIB-13-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "GIB-13-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "GIB-13-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "CEN-29-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "CEN-29-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "CEN-29-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "CEN-29-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "CRD-58-PRM-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "CRD-58-PRM-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "CRD-58-PRM-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "CRD-58-PRM-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "EBL-260-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "EBL-260-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "EBL-260-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "EBL-260-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "SAN-255-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "SAN-255-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "SAN-255-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "SAN-255-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "GON-7-RBB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "10",
+        "length": "16",
+        "appId": "GON-7-RBB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "GON-7-RBB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "GON-7-RBB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-287-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-287-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-287-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-287-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "addenda3",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-287-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-000-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "30",
+        "appId": "MER-000-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-93-APP-15",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "30",
+        "appId": "MER-93-APP-15",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-287-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "30",
+        "appId": "MER-287-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-591-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "30",
+        "appId": "MER-591-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MAR-79-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MAR-79-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-583-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-583-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "ISP-997-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "30",
+        "appId": "ISP-997-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MAR-94-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "freeCode1",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "MAR-94-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "16",
+        "appId": "MAR-94-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MAR-94-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "PMB-578-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "8",
+        "length": "8",
+        "appId": "PMB-578-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "PMB-578-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "PMB-578-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "PMB-578-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-64-LAX-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "8",
+        "length": "8",
+        "appId": "MER-64-LAX-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-64-LAX-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-64-LAX-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-64-LAX-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-81-SAB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-81-SAB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-81-SAB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-81-SAB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-81-SAB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "DPK-26-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "DPK-26-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "DPK-26-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "DPK-26-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "DPK-26-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-39-JFS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-39-JFS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-39-JFS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-39-JFS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-39-JFS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-55-AGR-5",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-55-AGR-5",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-55-AGR-5",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-55-AGR-5",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-55-AGR-5",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-50-KAL-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-50-KAL-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-50-KAL-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-50-KAL-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-57-TRI-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-57-TRI-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-57-TRI-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-57-TRI-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-57-TRI-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-57-TRI-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-82-ASH-3",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-82-ASH-3",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-82-ASH-3",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-82-ASH-3",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-82-ASH-3",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-109-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-109-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-109-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-109-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-109-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "PRG-22-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "PRG-22-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "PRG-22-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "PRG-22-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "PRG-22-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-74-LIN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-74-LIN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-74-LIN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-74-LIN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-74-LIN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-38-DAK-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-38-DAK-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-38-DAK-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-38-DAK-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-38-DAK-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-73-SEW-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-73-SEW-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-73-SEW-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-73-SEW-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-73-SEW-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MDS-23-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "MDS-23-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MDS-23-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MDS-23-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MDS-23-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "CRS-31-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "CRS-31-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "CRS-31-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "CRS-31-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "CRS-31-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-52-MKT-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-52-MKT-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-52-MKT-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-52-MKT-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-52-MKT-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-40-IMP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-40-IMP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-40-IMP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-40-IMP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-40-IMP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-43-OXF-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-43-OXF-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-43-OXF-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-43-OXF-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-43-OXF-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-44-BSB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-44-BSB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-44-BSB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-44-BSB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-44-BSB-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-45-SWA-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-45-SWA-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-45-SWA-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-45-SWA-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-45-SWA-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "INV-85-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "INV-85-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "INV-85-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "INV-85-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "INV-85-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-71-DYN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-71-DYN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-71-DYN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-71-DYN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-71-DYN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-63-IMN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-63-IMN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-63-IMN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-63-IMN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-63-IMN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-47-NAS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-47-NAS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-47-NAS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-47-NAS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-47-NAS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-67-ARN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-67-ARN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-67-ARN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-67-ARN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-67-ARN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-68-ASN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-68-ASN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-68-ASN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-68-ASN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-68-ASN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-42-NSH-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-42-NSH-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-42-NSH-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-42-NSH-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-42-NSH-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "KUM-32-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "KUM-32-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "KUM-32-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "KUM-32-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "KUM-32-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "ONL-16-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "ONL-16-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "ONL-16-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "ONL-16-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "ONL-16-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-37-TRI-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-37-TRI-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-37-TRI-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-37-TRI-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-37-TRI-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-36-SEC-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-36-SEC-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-36-SEC-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-36-SEC-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-36-SEC-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "DSS-27-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "DSS-27-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "DSS-27-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "DSS-27-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "DSS-27-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "ABC-14-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "ABC-14-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "ABC-14-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "ABC-14-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "ABC-14-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-55-AGR-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-55-AGR-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-55-AGR-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-55-AGR-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-55-AGR-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-72-SAG-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-72-SAG-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-72-SAG-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-72-SAG-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-72-SAG-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MNM-19-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "MNM-19-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MNM-19-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MNM-19-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MNM-19-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "PRM-17-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "PRM-17-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "PRM-17-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "PRM-17-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "PRM-17-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "SPB-20-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "SPB-20-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "SPB-20-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "SPB-20-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "SPB-20-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "SPL-21-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "SPL-21-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "SPL-21-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "SPL-21-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "SPL-21-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "SWT-18-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "SWT-18-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "SWT-18-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "SWT-18-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "SWT-18-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "TRV-24-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "TRV-24-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "TRV-24-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "TRV-24-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "TRV-24-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "VSN-33-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "VSN-33-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "VSN-33-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "VSN-33-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "VSN-33-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-55-AGR-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-55-AGR-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-55-AGR-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-55-AGR-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-55-AGR-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-54-SAN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-54-SAN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-54-SAN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-54-SAN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-54-SAN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-56-OPL-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-56-OPL-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-56-OPL-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-56-OPL-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-56-OPL-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-59-SKS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-59-SKS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-59-SKS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-59-SKS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-59-SKS-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-60-PRE-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-60-PRE-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-60-PRE-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-60-PRE-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-60-PRE-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-62-SUN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-62-SUN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-62-SUN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-62-SUN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-62-SUN-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-61-CRE-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-61-CRE-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-61-CRE-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-61-CRE-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-61-CRE-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-48-ARY-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-48-ARY-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-48-ARY-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-48-ARY-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-48-ARY-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-49-NEV-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-49-NEV-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-49-NEV-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-49-NEV-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-49-NEV-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-35-KOH-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-35-KOH-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-35-KOH-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-35-KOH-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-35-KOH-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-65-SSP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "BRO-65-SSP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "BRO-65-SSP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "BRO-65-SSP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "BRO-65-SSP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "1",
+        "length": "50",
+        "appId": "MER-94-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "addenda3",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-331-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-331-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-331-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-331-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-331-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-334-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-334-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-334-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-334-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "25",
+        "appId": "MER-338-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "addenda4",
+        "dataType": "E",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-364-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-364-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "freeText1",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-364-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-364-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-364-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "addenda3",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-364-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-364-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "25",
+        "appId": "INS-758-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-214-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-214-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "50",
+        "appId": "MER-214-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-214-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-80-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "25",
+        "appId": "MER-338-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-359-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-359-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-359-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-359-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "addenda4",
+        "dataType": "E",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-365-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-365-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-365-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-365-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-365-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "freeText1",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-365-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "addenda3",
+        "dataType": "ANS",
+        "minLength": "-",
+        "length": "-",
+        "appId": "MER-365-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "1",
+        "length": "6",
+        "appId": "MER-395-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-397-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-397-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-398-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-396-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "-",
+        "length": "-",
+        "appId": "MER-396-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-340-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "50",
+        "appId": "MER-340-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-262-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "50",
+        "appId": "MER-262-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-399-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "N",
+        "minLength": "12",
+        "length": "12",
+        "appId": "MER-399-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-399-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "addenda3",
+        "dataType": "E",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-399-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-399-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-396-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "-",
+        "length": "-",
+        "appId": "MER-396-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "INS-982-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-300-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-300-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-320-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "-",
+        "length": "-",
+        "appId": "MER-320-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-339-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "-",
+        "length": "-",
+        "appId": "MER-339-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-261-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "-",
+        "length": "-",
+        "appId": "MER-261-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-500-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "-",
+        "length": "-",
+        "appId": "MER-500-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-982-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "1",
+        "length": "20",
+        "appId": "GOV-993-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "-",
+        "length": "-",
+        "appId": "GOV-993-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-988-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "-",
+        "length": "-",
+        "appId": "MER-988-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-371-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "50",
+        "appId": "MER-371-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-262-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "50",
+        "appId": "MER-262-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-262-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-262-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-321-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-321-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "1",
+        "length": "10",
+        "appId": "MER-399-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "-",
+        "length": "-",
+        "appId": "MER-399-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "MER-396-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "freeText1",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "20",
+        "appId": "INS-697-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "50",
+        "appId": "INS-697-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "freeCode1",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "20",
+        "appId": "INS-697-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "50",
+        "appId": "INS-697-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "50",
+        "appId": "INS-697-APP-2",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "freeCode1",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "20",
+        "appId": "INS-697-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "50",
+        "appId": "INS-697-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "CIT-151-APP-5",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "freeCode2",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "CIT-151-APP-5",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "CIT-151-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "10",
+        "appId": "CIT-151-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "M",
+        "minLength": "10",
+        "length": "10",
+        "appId": "CIT-151-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "7",
+        "length": "7",
+        "appId": "CIT-151-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "particulars",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "CIT-151-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "addenda3",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "35",
+        "appId": "CIT-151-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "20",
+        "appId": "CIT-151-APP-7",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "CIT-151-APP-7",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "CIT-151-APP-7",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "20",
+        "appId": "CIT-151-APP-7",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "CIT-151-APP-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "amount",
+        "dataType": "C",
+        "minLength": "1",
+        "length": "20",
+        "appId": "CIT-151-APP-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "100",
+        "appId": "CIT-151-APP-4",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "N",
+        "minLength": "1",
+        "length": "20",
+        "appId": "GOV-993-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "remarks",
+        "dataType": "ANS",
+        "minLength": "-",
+        "length": "-",
+        "appId": "GOV-993-APP-1",
+        "inputFormat": "yyyy-mm-dd"
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "GOV-993-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "GOV-993-APP-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "addenda4",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "GOV-993-APP-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "GOV-993-APP-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "addenda1",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "10",
+        "appId": "GOV-993-APP-4",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "GOV-993-APP-3",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "GOV-993-APP-3",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "addenda1",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "10",
+        "appId": "GOV-993-APP-3",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-986-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-986-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-986-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-987-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-987-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-987-APP-1",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "refId",
+        "dataType": "ANS",
+        "minLength": "1",
+        "length": "20",
+        "appId": "MER-997-APP-2",
+        "inputFormat": ""
+    },
+    {
+        "fieldName": "appId",
+        "dataType": "ANS",
+        "minLength": "10",
+        "length": "10",
+        "appId": "MER-997-APP-2",
+        "inputFormat": ""
+    }
+]

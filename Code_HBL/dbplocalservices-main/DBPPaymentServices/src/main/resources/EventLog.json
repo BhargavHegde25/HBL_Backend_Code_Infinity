@@ -1,0 +1,199 @@
+
+{
+  "StoreInCache": "true",
+  "maskingLogic" : "Last4Digits", 
+  "RBObjects": [
+    {
+      "Transactions": {
+        "enableEvent": "true",
+        "eventType": "MAKE_TRANSFER",
+        "includedOperations": [
+          {
+            "operation": "getRecentAccountTransactions",
+            "logResponse": "false",
+            "eventSubType": "GET_RECENT_ACCOUNT_TRANSACTIONS"
+          },
+		  {
+            "operation": "createChequeBookRequests",
+            "logResponse": "true",
+            "eventSubType": "ORDER_CHEQUE_BOOK"
+          },
+          {
+            "operation": "createStopChequePayments",
+            "logResponse": "true",
+            "eventSubType": "STOP_PAYMENT_REQUEST"
+          },
+          {
+            "operation": "revokeStopChequePayments",
+            "logResponse": "true",
+            "eventSubType": "REVOKE_STOP_PAYMENT"
+          },
+          {
+            "operation": "getChequeBookRequests",
+            "logResponse": "false",
+            "eventSubType": "VIEW_CHEQUE_BOOK"
+          },
+          {
+            "operation": "getStopChequePayments",
+            "logResponse": "false",
+            "eventSubType": "VIEW_STOP_PAYMENT_REQUEST"
+          },
+          {
+            "operation": "getChequeSupplements",
+            "logResponse": "false",
+            "eventSubType": "VIEW_CHEQUE_STATUS"
+          }
+        ],
+        "maskedFields": [
+          "fromAccountNumber",
+          "fromAccountIBAN"
+        ],
+        "excludedFields": [
+          "endToEndReference",
+          "versionNumber"
+        ]
+      },
+     
+      "Consents": {
+        "enableEvent": "true",
+        "eventType": "CONSENT",
+        "includedOperations": [
+          {
+            "operation": "updateCDPConsent",
+            "logResponse": "true",
+            "eventSubType": "UPDATE_CDP_CONSENT"
+          },
+          {
+            "operation": "updatePSDConsent",
+            "logResponse": "true",
+            "eventSubType": "UPDATE_PSD_CONSENT"
+          },
+          {
+            "operation": "getPSDConsents",
+            "logResponse": "false",
+            "eventSubType": "GET_PSD_CONSENTS"
+          }
+        ],
+        "maskedFields": [
+        
+        ],
+        "excludedFields": [
+         
+        ]
+      }
+    }
+  ],
+  "PayeeObjects": [
+    {
+      "Recipients": {
+        "enableEvent": "true",
+        "eventType": "TRANSFER_RECIPIENT",
+        "includedOperations": [
+          {
+            "operation": "getExternalPayees",
+            "logResponse": "false",
+            "eventSubType": "GET_RECIPIENTS"
+          }
+        ],
+        "maskedFields": [ 
+        ],
+        "excludedFields": [
+        ]
+      }
+    }
+  ],
+  "LoanPayoff": [
+    {
+      "LoanSimulateObject": {
+        "enableEvent": "true",
+        "eventType": "MAKE_TRANSFER",
+        "includedOperations": [
+          {
+            "operation": "create",
+            "logResponse": "true",
+            "eventSubType": "CREATE_SIMULATION"
+          }
+        ],
+        "maskedFields": [ 
+        ],
+        "excludedFields": [
+        ]
+      },
+      "LoanBillObject": {
+        "enableEvent": "true",
+        "eventType": "MAKE_TRANSFER",
+        "includedOperations": [
+          {
+            "operation": "getByParam",
+            "logResponse": "true",
+            "eventSubType": "GET_LOAN_PAYOFF_DETAILS"
+          }
+        ],
+        "maskedFields": [ 
+        ],
+        "excludedFields": [ 
+        ]
+      }
+    }
+  ],
+     "Transfers": [
+    {
+      "DirectDebits": {
+        "enableEvent": "true",
+        "eventType": "MAKE_TRANSFER",
+        "includedOperations": [
+		  {
+            "operation": "getDirectDebits",
+            "logResponse": "false",
+            "eventSubType": "GET_DIRECT_DEBITS"
+          },
+          {
+            "operation": "cancelDirectDebit",
+            "logResponse": "true",
+            "eventSubType": "CANCEL_DIRECT_DEBITS"
+          },
+		  {
+            "operation": "stopNextPayment",
+            "logResponse": "true",
+            "eventSubType": "STOP_NEXT_PAYMENT"
+          }
+        ],
+        "maskedFields": [ 
+        ],
+        "excludedFields": [
+        ]
+      },
+	    "UpcomingTransactions": {
+        "enableEvent": "true",
+        "eventType": "MAKE_TRANSFER",
+        "includedOperations": [
+		  {
+            "operation": "getScheduledTransactions",
+            "logResponse": "false",
+            "eventSubType": "GET_SCHEDULED_USER_TRANSACTIONS"
+          }
+        ],
+        "maskedFields": [ 
+        ],
+        "excludedFields": [ 
+        ]
+      },
+	  "OneTimeTransfer": {
+        "enableEvent": "true",
+        "eventType": "MAKE_TRANSFER",
+        "includedOperations": [
+		  {
+            "operation": "getTransfers",
+            "logResponse": "false",
+            "eventSubType": "GET_RECENT_USER_TRANSACTIONS"
+          }
+        ],
+        "maskedFields": [ 
+        ],
+        "excludedFields": [ 
+        ]
+      }
+    }
+  ]  
+  
+}

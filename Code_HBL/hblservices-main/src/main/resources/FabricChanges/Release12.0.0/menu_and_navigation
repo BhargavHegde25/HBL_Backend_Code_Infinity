@@ -1,0 +1,5 @@
+De-Activate Security option under alerts menu in spotlight.
+
+ADD below key value in client app properties
+------------------------------
+NO_OF_CHEQUE_LEAVES as 10

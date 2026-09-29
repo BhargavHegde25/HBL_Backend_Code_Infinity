@@ -1,0 +1,236 @@
+
+/******** Adding card status as separate column instead creating new table********/
+
+ALTER table dbxdb.application 
+ADD COLUMN cardStatus varchar(500) NULL AFTER stopReasons;
+
+
+UPDATE `dbxdb`.`application` SET `cardStatus` = '{\"1\" : \"In Instance\",\"2\" : \"Active\",\"3\" : \"Blocked\",,\"4\" : \"Hold\",\"5\" : \"Inactive / Card not collected\",\"6\" : \"Cancelled\",\"7\" : \"Replaced\",\"8\" : \"Ready For Personalization\",\"9\" : \"KYC Pending\",\"10\" : \"Self Inactive\"}' WHERE (`id` = '2');
+
+/*** Creating new table to store all card types **************/
+
+CREATE TABLE `cardtypes` (
+  `id` varchar(50) NOT NULL,
+  `Symbol` varchar(50) NOT NULL,
+  `Card_Label` varchar(100) NOT NULL,
+  `Card_Type` varchar(100) NOT NULL,
+  `Card_Category` varchar(50) NOT NULL,
+  `Status` varchar(50) NOT NULL,
+  `createdby` varchar(50) DEFAULT NULL,
+  `modifiedby` varchar(50) DEFAULT NULL,
+  `createdts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `lastmodifiedts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `lastsynctimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `softdeleteflag` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`) VALUES 
+	('1','HACD','HBL AMEX CLASSIC DOMESTIC','AMERICAN EXPRESS','Classic Domestic','0'),
+	('2','HACDS','HBL AMEX CLASSIC DOMESTIC STAFF','AMERICAN EXPRESS','Classic Intl','0'),
+	('3','HACI','HBL AMEX CLASSIC INTL','AMERICAN EXPRESS','Classic Intl','0'),
+	('4','HACIS','HBL AMEX CLASSIC INTL STAFF','AMERICAN EXPRESS','Classic Intl','0'),
+	('5','HAGD','HBL AMEX GOLD DOMESTIC','AMERICAN EXPRESS','Gold Domestic','0'),
+	('6','HAGDS','HBL AMEX GOLD DOMESTIC STAFF','AMERICAN EXPRESS','Gold Domestic','0'),
+	('7','HAGI','HBL AMEX GOLD INTERNATIONAL','AMERICAN EXPRESS','Gold Intl','0'),
+	('8','HAGIS','HBL AMEX GOLD INTERNATIONAL STAFF','AMERICAN EXPRESS','Gold Intl','0'),
+	('9','HAPD','HBL AMEX PREPAID DOMESTIC','AMERICAN EXPRESS','Prepaid Domestic','0'),
+	('10','HAPDS','HBL AMEX PREPAID DOMESTIC STAFF','AMERICAN EXPRESS','Prepaid Domestic','0'),
+	('11','HAPI','HBL AMEX PREPAID INTL','AMERICAN EXPRESS','Prepaid Intl','0'),
+	('12','HAPIS','HBL AMEX PREPAID INTL STAFF','AMERICAN EXPRESS','Prepaid Domestic','0'),
+	('13','HBLUPI','HBL UPI NEW DEBIT','UNION PAY','Debit Domestic','0'),
+	('14','HMD1','HBL MASTER DEBIT 1 YEAR','MASTERCARD','Debit Domestic','0'),
+	('15','HMD4','HBL MASTER DEBIT 4 YEAR','MASTERCARD','Debit Domestic','0'),
+	('16','HMDD','REMOVED MASTER DEBIT DOMESTIC','MASTERCARD','Debit Domestic','0'),
+	('17','HMDF','HBL MASTER DEBIT FREE','MASTERCARD','Debit Domestic','0'),
+	('18','HMDS','HBL MASTER DEBIT STAFF','MASTERCARD','Debit Domestic','0'),
+	('19','HMDSCH','HBL MASTER DEBIT SCHEME','MASTERCARD','Debit Domestic','0'),
+	('20','HMGD','HBL MASTERCARD GOLD DOMESTIC','MASTERCARD','Credit Domestic','0'),
+	('21','HMGDS','HBL MASTERCARD GOLD DOMESTIC STAFF','MASTERCARD','Credit Domestic','0'),
+	('22','HMGI','HBL MASTERCARD GOLD INTERNATIONAL','MASTERCARD','Credit Intl','0'),
+	('23','HMGIS','HBL MASTERCARD GOLD INTERNATIONAL STAFF','MASTERCARD','Credit Intl','0'),
+	('24','HMMD','HBL MIGRATED MASTER DEBIT','MASTERCARD','Debit Domestic','0'),
+	('25','HMVD','HBL MIGRATED VISA DEBIT','VISA','Debit Domestic','0'),
+	('26','HSUD1','HBL SCT UPI DEBIT 1 YEAR','SCT UPI','Debit Domestic','0'),
+	('27','HSUD4','HBL SCT UPI DEBIT 4 YR','SCT UPI','Debit Domestic','0'),
+	('28','HSUDF','HBL SCT UPI DEBIT FREE','SCT UPI','Debit Domestic','0'),
+	('29','HSUDS','HBL SCT UPI DEBIT STAFF','SCT UPI','Debit Domestic','0'),
+	('30','HSUDSCH','HBL SCT UPI DEBIT SHCEME','SCT UPI','Debit Domestic','0'),
+	('31','HUPI','HBL UPI PREPAID INTERNATIONAL','UNION PAY','Prepaid Intl','0'),
+	('32','HUPIS','HBL UPI PREPAID INTERNATIONAL STAFF','UNION PAY','Prepaid Intl','0'),
+	('33','HVCD','HBL VISA CLASSIC DOMESTIC','VISA','Credit Domestic','0'),
+	('34','HVCDS','HBL VISA CLASSIC DOMESTIC STAFF','VISA','Credit Domestic','0'),
+	('35','HVCI','HBL VISA CLASSIC INTERNATIONAL','VISA','Credit Intl','0'),
+	('36','HVCIS','HBL VISA CLASSIC INTERNATIONAL- STAFF','VISA','Credit Intl','0'),
+	('37','HVD1','HBL VISA DEBIT 1 YEAR','VISA','Debit Domestic','0'),
+	('38','HVD4','HBL VISA DEBIT 4 YEAR','VISA','Debit Domestic','0'),
+	('39','HVDD','REMOVED VISA DEBIT DOMESTIC','VISA','Debit Domestic','0'),
+	('40','HVDF','HBL VISA DEBIT FREE','VISA','Debit Domestic','0'),
+	('41','HVDS','HBL VISA DEBIT STAFF','VISA','Debit Domestic','0'),
+	('42','HVDSCH','HBL VISA DEBIT SCHEME','VISA','Debit Domestic','0'),
+	('43','HVGD','HBL VISA GOLD DOMESTIC','VISA','Gold Credit Domestic','0'),
+	('44','HVGDB','HBL VISA GOLD DOMESTIC BNB','VISA','Gold Credit Domestic','0'),
+	('45','HVGDS','HBL VISA GOLD DOMESTIC STAFF','VISA','Gold Credit Domestic','0'),
+	('46','HVGI','HBL VISA GOLD INTERNATIONAL','VISA','Gold Credit Intl','0'),
+	('47','HVGIB','HBL VISA GOLD INTERNATIONAL BNB','VISA','Gold Credit Intl','0'),
+	('48','HVGIS','HBL VISA GOLD INTERNATIONAL STAFF','VISA','Gold Credit Intl','0'),
+	('49','HVPD','HBL VISA PREPAID DOMESTIC','VISA','Prepaid Domestic','0'),
+	('50','HVPDS','HBL VISA PREPAID DOMESTIC STAFF','VISA','Prepaid Domestic','0'),
+	('51','HVPI','HBL VISA PREPAID INTERNATIONAL','VISA','Prepaid Intl','0'),
+	('52','HVPIO','HBL VISA PREPAID INTL-ONLINE','VISA','Virtual Prepaid Intl','1'),
+	('53','HVPIS','HBL VISA PREPAID INTERNATIONAL STAFF','VISA','Prepaid Intl','0'),
+	('54','HVPISO','HBL VISA PREPAID INTL STAFF- ONLINE','VISA','Virtual Prepaid Intl','1'),
+	('57','HAPIO','HBL VISA PREPAID INTL-ONLINE','AMEX','Virtual Prepaid Intl','1'),
+	('59','HAPISO','HBL VISA PREPAID INTL-ONLINE STAFF','AMEX','Virtual Prepaid Intl','1');
+	
+	
+	INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('60', 'HeVISA', 'HBL eVISA VISA INTL', 'VISA', 'evisa visa international', '0', 'visaprepaid', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('61', 'HeMC', 'HBL eVISA MC INTL', 'VISA', 'evisa mc international', '0', 'mastercard', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('62', 'HVPIF', 'HBL VISA PREPAID INTERNATIONAL FREE', 'VISA', 'visa prepaid international', '0', 'visaprepaid', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('63', 'HAPIF', 'HBL AMEX PREPAID INTERNATIONAL FREE', 'AMERICAN EXPRESS', 'prepaid international', '0', 'amexprepaid', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('64', 'HVDSN', 'HBL VISA DEBIT STAFF', 'VISA', 'visa debit domestic', '0', 'visadebit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('65', 'HVDSCHN', 'HBL VISA DEBIT SCHEME', 'VISA', 'visa debit domestic', '0', 'visadebit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('66', 'HVDFN', 'HBL VISA DEBIT FREE', 'VISA', 'visa debit domestic', '0', 'visadebit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+
+
+
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('67', 'HVD4N', 'HBL VISA DEBIT 4 YEAR', 'VISA', 'visa debit domestic', '0', 'visadebit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('68', 'HVD1N', 'HBL VISA DEBIT 1 YEAR', 'VISA', 'visa debit domestic', '0', 'visadebit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('69', 'HVGDCOMP', 'HBL VISA GOLD DOMESTIC - COMP', 'VISA', 'visa gold domestic', '0', 'visacredit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('70', 'HVGICOMP', 'HBL VISA GOLD INTERNATIONAL - COMP', 'VISA', 'visa gold international', '0', 'visacredit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('71', 'HMGDCOMP', 'HBL MASTERCARD GOLD DOMESTIC - COMP', 'MASTERCARD', 'mastercard gold domestic', '0', 'mastercardcredit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('72', 'HMGICOMP', 'HBL MASTERCARD GOLD INTERNATIONAL - COMP', 'MASTERCARD', 'mastercard gold international', '0', 'mastercardcredit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('73', 'HAGDCOMP', 'HBL AMEX GOLD DOMESTIC - COMP', 'AMERICAN EXPRESS', 'gold domestic', '0', 'amexcredit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('74', 'HAGICOMP', 'HBL AMEX GOLD INTERNATIONAL - COMP', 'AMERICAN EXPRESS', 'gold international', '0', 'amexcredit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('75', 'HNDD', 'HBL NEPALPAY DINERS DEBIT CARD', 'DINERS NepalPay', 'nepalpay diners debit card domestic', '0', 'nepalpaydebit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('76', 'HMCDF', 'HBL MASTERCARD COMMERCIAL CARD FREE', 'MASTERCARD', 'mastercard commercial card domestic', '0', 'mastercarddebit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('77', 'HMCDS', 'HBL MASTERCARD COMMERCIAL CARD STAFF', 'MASTERCARD', 'mastercard commercial card domestic', '0', 'mastercarddebit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('78', 'HMCD4', 'HBL MASTERCARD COMMERCIAL CARD 4 YEAR', 'MASTERCARD', 'mastercard commercial card domestic', '0', 'mastercarddebit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('79', 'HNDDS', 'HBL DINERS NEPAL PAY DEBIT CARD STAFF', 'DINERS NepalPay', 'diners nepalpay debit card domestic', '0', 'nepalpaydebit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('80', 'HMCD1', 'HBL MASTERCARD COMMERCIAL DEBIT 1YEAR', 'MASTERCARD', 'mastercard commercial debit domestic', '0', 'mastercarddebit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+
+INSERT INTO `dbxdb`.`cardtypes` (`id`, `Symbol`, `Card_Label`, `Card_Type`, `Card_Category`, `Status`, `cardimage`, `createdts`, `lastmodifiedts`, `lastsynctimestamp`, `softdeleteflag`) VALUES ('81', 'HNDPI', 'HBL DINERS NEPAL PAY PREPAID  INTERNATIONAL', 'DINERS NepalPay', 'diners nepalpay prepaid  international', '0', 'nepalpaydebit', '2025-10-25 14:38:32', '2025-10-25 14:46:48', '2025-10-25 14:46:48', '0');
+
+
+
+
+
+
+
+
+
+	
+	
+	-----------------------------------------------------------------
+	
+	ALTER table dbxdb.cardtypes ADD COLUMN cardimage varchar(30) NULL AFTER Status;
+
+UPDATE dbxdb.cardtypes SET cardimage = 'amexcredit'WHERE id='1';
+UPDATE dbxdb.cardtypes SET cardimage = 'amexcredit'WHERE id='2';
+UPDATE dbxdb.cardtypes SET cardimage = 'amexcredit'WHERE id='3';
+UPDATE dbxdb.cardtypes SET cardimage = 'amexcredit'WHERE id='4';
+UPDATE dbxdb.cardtypes SET cardimage = 'amexcredit'WHERE id='5';
+UPDATE dbxdb.cardtypes SET cardimage = 'amexcredit'WHERE id='6';
+UPDATE dbxdb.cardtypes SET cardimage = 'amexcredit'WHERE id='7';
+UPDATE dbxdb.cardtypes SET cardimage = 'amexcredit'WHERE id='8';
+UPDATE dbxdb.cardtypes SET cardimage = 'amexprepaid'WHERE id='9';
+UPDATE dbxdb.cardtypes SET cardimage = 'amexprepaid'WHERE id='10';
+UPDATE dbxdb.cardtypes SET cardimage = 'amexprepaid'WHERE id='11';
+UPDATE dbxdb.cardtypes SET cardimage = 'amexprepaid'WHERE id='12';
+UPDATE dbxdb.cardtypes SET cardimage = 'unionpay'WHERE id='13';
+UPDATE dbxdb.cardtypes SET cardimage = 'mastercarddebit'WHERE id='14';
+UPDATE dbxdb.cardtypes SET cardimage = 'mastercarddebit'WHERE id='15';
+UPDATE dbxdb.cardtypes SET cardimage = 'mastercarddebit'WHERE id='16';
+UPDATE dbxdb.cardtypes SET cardimage = 'mastercarddebit'WHERE id='17';
+UPDATE dbxdb.cardtypes SET cardimage = 'mastercarddebit'WHERE id='18';
+UPDATE dbxdb.cardtypes SET cardimage = 'mastercarddebit'WHERE id='19';
+UPDATE dbxdb.cardtypes SET cardimage = 'mastercardcredit'WHERE id='20';
+UPDATE dbxdb.cardtypes SET cardimage = 'mastercardcredit'WHERE id='21';
+UPDATE dbxdb.cardtypes SET cardimage = 'mastercardcredit'WHERE id='22';
+UPDATE dbxdb.cardtypes SET cardimage = 'mastercardcredit'WHERE id='23';
+UPDATE dbxdb.cardtypes SET cardimage = 'mastercardcredit'WHERE id='24';
+UPDATE dbxdb.cardtypes SET cardimage = 'visadebit'WHERE id='25';
+UPDATE dbxdb.cardtypes SET cardimage = 'sctupi'WHERE id='26';
+UPDATE dbxdb.cardtypes SET cardimage = 'sctupi'WHERE id='27';
+UPDATE dbxdb.cardtypes SET cardimage = 'sctupi'WHERE id='28';
+UPDATE dbxdb.cardtypes SET cardimage = 'sctupi'WHERE id='29';
+UPDATE dbxdb.cardtypes SET cardimage = 'sctupi'WHERE id='30';
+UPDATE dbxdb.cardtypes SET cardimage = 'unionpay'WHERE id='31';
+UPDATE dbxdb.cardtypes SET cardimage = 'unionpay'WHERE id='32';
+UPDATE dbxdb.cardtypes SET cardimage = 'visacredit'WHERE id='33';
+UPDATE dbxdb.cardtypes SET cardimage = 'visacredit'WHERE id='34';
+UPDATE dbxdb.cardtypes SET cardimage = 'visacredit'WHERE id='35';
+UPDATE dbxdb.cardtypes SET cardimage = 'visacredit'WHERE id='36';
+UPDATE dbxdb.cardtypes SET cardimage = 'visadebit'WHERE id='37';
+UPDATE dbxdb.cardtypes SET cardimage = 'visadebit'WHERE id='38';
+UPDATE dbxdb.cardtypes SET cardimage = 'visadebit'WHERE id='39';
+UPDATE dbxdb.cardtypes SET cardimage = 'visadebit'WHERE id='40';
+UPDATE dbxdb.cardtypes SET cardimage = 'visadebit'WHERE id='41';
+UPDATE dbxdb.cardtypes SET cardimage = 'visadebit'WHERE id='42';
+UPDATE dbxdb.cardtypes SET cardimage = 'visacredit'WHERE id='43';
+UPDATE dbxdb.cardtypes SET cardimage = 'visacredit'WHERE id='44';
+UPDATE dbxdb.cardtypes SET cardimage = 'visacredit'WHERE id='45';
+UPDATE dbxdb.cardtypes SET cardimage = 'visacredit'WHERE id='46';
+UPDATE dbxdb.cardtypes SET cardimage = 'visacredit'WHERE id='47';
+UPDATE dbxdb.cardtypes SET cardimage = 'visacredit'WHERE id='48';
+UPDATE dbxdb.cardtypes SET cardimage = 'visaprepaid'WHERE id='49';
+UPDATE dbxdb.cardtypes SET cardimage = 'visaprepaid'WHERE id='50';
+UPDATE dbxdb.cardtypes SET cardimage = 'visaprepaid'WHERE id='51';
+UPDATE dbxdb.cardtypes SET cardimage = 'visaprepaid'WHERE id='52';
+UPDATE dbxdb.cardtypes SET cardimage = 'visaprepaid'WHERE id='53';
+UPDATE dbxdb.cardtypes SET cardimage = 'visaprepaid'WHERE id='54';
+UPDATE dbxdb.cardtypes SET cardimage = 'amexprepaid'WHERE id='57';
+UPDATE dbxdb.cardtypes SET cardimage = 'amexprepaid'WHERE id='59';
+
+
+UPDATE `dbxdb`.`application` SET `cardStatus` = '{\"1\" : \"In Instance\",\"2\" : \"Active\",\"3\" : \"Blocked\",,\"4\" : \"Hold\",\"5\" : \"Inactive / Card not collected\",\"6\" : \"Cancelled\",\"7\" : \"Replaced\",\"8\" : \"Ready For Personalization\",\"9\" : \"KYC Pending\",\"10\" : \"Self Inactive\",\"11\" : \"Report Lost\",\"12\" : \"Lockk\"}' WHERE (`id` = '2');
+
+UPDATE `dbxdb`.`cardLimit` SET `category` = 'Virtual Visa International' WHERE (`id` = '14');
+
+-------------------------------
+
+UPDATE `dbxdb`.`cardLimit` SET `cardDescription` = 'Choose experiences over limitations, and freedom over restrictions with Himalayan Bank Cards. Leverage lucrative cashback offers, exciting discount offers, and exclusive travel benefits. Apply for a new card with us and take on a more rewarding financial journey. ', `dailyWithdrawLimit` = '25000.00', `dailyPurchaseLimit` = '5000.00', `annualFee` = '1000.00' WHERE (`id` = '10');
+UPDATE `dbxdb`.`cardLimit` SET `cardDescription` = 'Choose experiences over limitations, and freedom over restrictions with Himalayan Bank Cards. Leverage lucrative cashback offers, exciting discount offers, and exclusive travel benefits. Apply for a new card with us and take on a more rewarding financial journey. ', `dailyWithdrawLimit` = '25000.00', `dailyPurchaseLimit` = '5000.00', `annualFee` = '1000.00' WHERE (`id` = '11');
+UPDATE `dbxdb`.`cardLimit` SET `cardDescription` = 'Choose experiences over limitations, and freedom over restrictions with Himalayan Bank Cards. Leverage lucrative cashback offers, exciting discount offers, and exclusive travel benefits. Apply for a new card with us and take on a more rewarding financial journey. ', `dailyWithdrawLimit` = '25000.00', `dailyPurchaseLimit` = '5000.00', `annualFee` = '1000.00' WHERE (`id` = '12');
+UPDATE `dbxdb`.`cardLimit` SET `cardDescription` = 'Choose experiences over limitations, and freedom over restrictions with Himalayan Bank Cards. Leverage lucrative cashback offers, exciting discount offers, and exclusive travel benefits. Apply for a new card with us and take on a more rewarding financial journey. ', `dailyWithdrawLimit` = '25000.00', `dailyPurchaseLimit` = '5000.00', `annualFee` = '1000.00' WHERE (`id` = '13');
+UPDATE `dbxdb`.`cardLimit` SET `cardDescription` = 'Choose experiences over limitations, and freedom over restrictions with Himalayan Bank Cards. Leverage lucrative cashback offers, exciting discount offers, and exclusive travel benefits. Apply for a new card with us and take on a more rewarding financial journey. ', `dailyWithdrawLimit` = '25000.00', `dailyPurchaseLimit` = '5000.00', `annualFee` = '1000.00' WHERE (`id` = '14');
+UPDATE `dbxdb`.`cardLimit` SET `cardDescription` = 'Choose experiences over limitations, and freedom over restrictions with Himalayan Bank Cards. Leverage lucrative cashback offers, exciting discount offers, and exclusive travel benefits. Apply for a new card with us and take on a more rewarding financial journey. ', `dailyWithdrawLimit` = '25000.00', `dailyPurchaseLimit` = '5000.00', `annualFee` = '1000.00' WHERE (`id` = '15');
+UPDATE `dbxdb`.`cardLimit` SET `cardDescription` = 'Choose experiences over limitations, and freedom over restrictions with Himalayan Bank Cards. Leverage lucrative cashback offers, exciting discount offers, and exclusive travel benefits. Apply for a new card with us and take on a more rewarding financial journey. ', `dailyWithdrawLimit` = '25000.00', `dailyPurchaseLimit` = '5000.00', `annualFee` = '1000.00' WHERE (`id` = '16');
+UPDATE `dbxdb`.`cardLimit` SET `cardDescription` = 'Choose experiences over limitations, and freedom over restrictions with Himalayan Bank Cards. Leverage lucrative cashback offers, exciting discount offers, and exclusive travel benefits. Apply for a new card with us and take on a more rewarding financial journey. ', `dailyWithdrawLimit` = '25000.00', `dailyPurchaseLimit` = '5000.00', `annualFee` = '1000.00' WHERE (`id` = '9');
+UPDATE `dbxdb`.`cardLimit` SET `cardDescription` = 'Choose experiences over limitations, and freedom over restrictions with Himalayan Bank Cards. Leverage lucrative cashback offers, exciting discount offers, and exclusive travel benefits. Apply for a new card with us and take on a more rewarding financial journey. ' WHERE (`id` = '1');
+UPDATE `dbxdb`.`cardLimit` SET `cardDescription` = 'Choose experiences over limitations, and freedom over restrictions with Himalayan Bank Cards. Leverage lucrative cashback offers, exciting discount offers, and exclusive travel benefits. Apply for a new card with us and take on a more rewarding financial journey. ' WHERE (`id` = '2');
+UPDATE `dbxdb`.`cardLimit` SET `cardDescription` = 'Choose experiences over limitations, and freedom over restrictions with Himalayan Bank Cards. Leverage lucrative cashback offers, exciting discount offers, and exclusive travel benefits. Apply for a new card with us and take on a more rewarding financial journey. ' WHERE (`id` = '3');
+UPDATE `dbxdb`.`cardLimit` SET `cardDescription` = 'Choose experiences over limitations, and freedom over restrictions with Himalayan Bank Cards. Leverage lucrative cashback offers, exciting discount offers, and exclusive travel benefits. Apply for a new card with us and take on a more rewarding financial journey. ' WHERE (`id` = '4');
+UPDATE `dbxdb`.`cardLimit` SET `cardDescription` = 'Choose experiences over limitations, and freedom over restrictions with Himalayan Bank Cards. Leverage lucrative cashback offers, exciting discount offers, and exclusive travel benefits. Apply for a new card with us and take on a more rewarding financial journey. ' WHERE (`id` = '6');
+UPDATE `dbxdb`.`cardLimit` SET `cardDescription` = 'Choose experiences over limitations, and freedom over restrictions with Himalayan Bank Cards. Leverage lucrative cashback offers, exciting discount offers, and exclusive travel benefits. Apply for a new card with us and take on a more rewarding financial journey. ' WHERE (`id` = '5');
+UPDATE `dbxdb`.`cardLimit` SET `cardDescription` = 'Choose experiences over limitations, and freedom over restrictions with Himalayan Bank Cards. Leverage lucrative cashback offers, exciting discount offers, and exclusive travel benefits. Apply for a new card with us and take on a more rewarding financial journey. ' WHERE (`id` = '7');
+UPDATE `dbxdb`.`cardLimit` SET `cardDescription` = 'Choose experiences over limitations, and freedom over restrictions with Himalayan Bank Cards. Leverage lucrative cashback offers, exciting discount offers, and exclusive travel benefits. Apply for a new card with us and take on a more rewarding financial journey. ' WHERE (`id` = '8');
+
+	

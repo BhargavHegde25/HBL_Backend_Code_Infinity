@@ -1,0 +1,16 @@
+{
+    "opstatus": 0,
+    "Accounts": [
+        {
+            "products": [
+                {
+                    "accountName": "Current Account",
+                    "nickName": "QA190457",
+                    "accountType": "Current Accounts",
+                    "currencyCode": "USD"
+                }
+            ]
+        }
+    ],
+    "httpStatusCode": 200
+}

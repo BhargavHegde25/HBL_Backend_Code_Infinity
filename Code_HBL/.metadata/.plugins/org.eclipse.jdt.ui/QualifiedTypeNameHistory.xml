@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.konylabs.middleware.dataobject.Result"/>
+    <fullyQualifiedTypeName name="com.konylabs.middleware.convertions.ResultToJSON"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="org.apache.commons.lang3.StringUtils"/>
+    <fullyQualifiedTypeName name="com.konylabs.middleware.dataobject.ResultToJSON"/>
+</qualifiedTypeNameHistroy>

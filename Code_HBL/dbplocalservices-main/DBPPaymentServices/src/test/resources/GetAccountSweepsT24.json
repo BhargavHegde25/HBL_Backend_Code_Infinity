@@ -1,0 +1,15 @@
+{
+  "AccountSweep":[
+    {
+      "secondaryAccountNumber":"124338",
+      "aboveSweepAmount":"120.00",
+      "belowSweepAmount":"110.00",
+      "primaryAccountNumber":"124311",
+      "sweepId":"124311",
+      "sweepType":"TWOWAY",
+      "currencyCode":"EUR",
+      "startDate":"18 APR 2023",
+      "frequency":"Every working day"
+    }
+  ],"opstatus":0,"httpStatusCode":0
+}

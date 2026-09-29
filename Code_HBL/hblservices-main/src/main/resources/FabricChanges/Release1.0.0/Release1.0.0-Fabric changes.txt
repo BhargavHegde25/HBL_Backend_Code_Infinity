@@ -1,0 +1,31 @@
+//#Added new customized preprocessor(HBLcorecustomersearchpreprocessor) for exisisting service.
+Authentication App: T24ISUser integration- added HBLServices.jar as dependency and disabled Corecustomersearchpreprocessor and enabled HBLcorecustomersearchpreprocessor
+
+// Added few server and client properties added for footer changes and Thirdparty auth
+
+CleintApp properties:
+------------------------------
+"BRANCH_ID_REFERENCE","GB0010001"
+"CLIENT_MAP_KEY","AIzaSyCRpTzFZAUOcnQzw_HahBquJ0umsPkxrIQ"
+"CONTACTUS_BANNER","https://www.updatenp.com/wp-content/uploads/2018/07/Screenshot_1-14-768x366.png"
+"CORPORATE_OFFICE","CORPORATE_OFFICE: HBL Corporate Office&comma;,Kamaladi&comma; Kathmandu&comma;Nepal.,P.O. Box: 20590,SWIFT: HIMANPKA"
+"CUSTOMRER_SUPPORT1_EMAIL","himal@himalayanbank.com"
+"CUSTOMRER_SUPPORT1_PHONE","9840003864"
+"CUSTOMRER_SUPPORT2_EMAIL","himal@himalayanbank.com"
+"CUSTOMRER_SUPPORT2_PHONE","01-5970089"
+"CUSTOMRER_SUPPORT3_EMAIL","himal@himalayanbank.com"
+"CUSTOMRER_SUPPORT3_PHONE","01-4227749"
+"GOOGLE_MAPS_API_KEY","AIzaSyCxovVAM9HcQueEGC60fpV9L2RCrFnSg0E"
+"URL_DEPOSIT_RATE","https://www.himalayanbank.com/en/rates/deposit-products-rate"
+"URL_EXCHANGE_RATE","https://www.himalayanbank.com/int/rate/"
+"URL_LOAN_RATE","https://www.himalayanbank.com/en/rates/loan-products-rates"
+
+
+ServerProperties:
+------------------------
+"AC_MAPS_SERVICES_URL","https://maps.googleapis.com/maps/api/place"
+"APPNAME","HBL_ONLINEBANKING"
+"GOOGLE_MAPS_RADIUS","100000"
+"GOOGLEAUTH_SECRETCODE","3HAAJT7CIWVCYPRWNQTBN5YX4VZD3KVT"
+"ISENROLLCONSENTPROVIDED","false"
+"T24_TRANSACTIONS_HOST_URL","http://10.0.0.8:9080/irf-provider-container/api"

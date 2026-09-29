@@ -1,0 +1,51 @@
+{
+	"code": "",
+	"campaignList": [
+		{
+			"campaignType": "SINGLE",
+			"productId": "PERSONAL.LOAN",
+			"endDate": "2035-03-16 00:00:00.0",
+			"offlineTemplate": [],
+			"campaignId": "APICP001",
+			"productGroupId": "LOANS",
+			"channelType": [
+				"ONLINE",
+				"OFFLINE"
+			],
+			"onlineContent": [],
+			"channelDetails": [
+				{
+					"channelPriority": "25",
+					"channelSubType": "MOBILE"
+				},
+				{
+					"channelPriority": "3",
+					"channelSubType": "INTERNET"
+				}
+			],
+			"objectiveType": "UPSELL",
+			"extensionData": {},
+			"profileDetails": [],
+			"campaignPriority": 21,
+			"campaignStatus": "SCHEDULED_ACTIVE_COMPLETED",
+			"campaignDescription": "This is a campaign to sell personal loan product",
+			"eventTriggerDetails": [
+				{
+					"eventCode": "OVERDRAWNACCOUNT",
+					"eventTriggerId": "ET002",
+					"eventTriggerType": "External",
+					"eventDescription": "The account in consideration is overdrawn",
+					"eventSource": "Transact/DS",
+					"eventName": "OverdrawnAccount",
+					"extensionData": {}
+				}
+			],
+			"campaignName": "API Campaign Test",
+			"startDate": "2030-03-18 00:00:00.0"
+		}
+	],
+	"opstatus": "0",
+	"message": "",
+	"httpStatusCode": 200,
+	"status": "Success"
+}

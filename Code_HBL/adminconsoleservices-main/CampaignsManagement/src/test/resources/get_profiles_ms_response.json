@@ -1,0 +1,39 @@
+[
+        {
+           "profileName": "TestKeerthana",
+            "profileCreationDate": "2023-07-24 00:00:00.0",
+            "associatedCampaignDetails": [
+                {
+                    "campaignStatus": "TERMINATED",
+                    "campaignDescription": "ABC",
+                    "campaignName": "Sas New Camp",
+                    "endDate": "2024-02-28 00:00:00.0",
+                    "campaignId": "CP2403225430",
+                    "startDate": "2024-02-01 00:00:00.0"
+                },
+                {
+                    "campaignStatus": "TERMINATED",
+                    "campaignDescription": "Sridhar Campaign1",
+                    "campaignName": "Sridhar Campaign1",
+                    "endDate": "2024-02-15 00:00:00.0",
+                    "campaignId": "CP2403222137",
+                    "startDate": "2024-02-01 00:00:00.0"
+                }
+            ],
+            "profileDescription": "testing",
+            "numberOfCampaigns": 2,
+            "profileId": "PRF2320537993",
+            "profileConditions": [
+                {
+                    "profileConditionId": "PC2402524063",
+                    "dataContextDescription": "DataContext created for Customer Attrition Model flow Profiles",
+                    "conditionExpression": "EstMonthlyExpenseVarGroup%20eq%20%2704.%20Very%20High%27",
+                    "dataContextName": "Customer Attrition Model flow",
+                    "dataContextId": "DC002",
+                    "dataContextEndPoints": "http://13.74.131.24:32081/odata/Tenant1/XAIAttritionResultsDetailed"
+                }
+            ],
+            "profileStatus": "Active",
+            "extensionData": {}
+        }
+]

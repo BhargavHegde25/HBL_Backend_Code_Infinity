@@ -1,0 +1,16 @@
+[
+  {
+    "type": "CreditCardPayableAccount",
+    "data": {
+      "accountId": "15481757",
+      "accountName": "Gandreddi098"
+    }
+  },
+  {
+    "type": "NCHLPayableAccount",
+    "data": {
+      "accountId": "15481757",
+      "accountName": "Gandreddi098"
+    }
+  }
+]

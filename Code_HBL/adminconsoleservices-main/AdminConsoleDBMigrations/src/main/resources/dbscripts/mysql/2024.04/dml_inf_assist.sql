@@ -1,0 +1,1 @@
+UPDATE `configurations` SET `config_value`= '{\"externalSystemId\":\"PARTYMS\",\"language\": \"1\",\"accountOfficerId\": \"251\",\"industryId\":\"1000\",\"target\":\"4\",\"sectorTypeSme\":\"2015\",\"sectorTypeCompany\":\"2015\",\"sectorTypeRelatedCompany\":\"2015\",\"customerStatus\":\"72\",\"infinitySystemId\":\"DBX\"}' WHERE (`configuration_id` = '392');

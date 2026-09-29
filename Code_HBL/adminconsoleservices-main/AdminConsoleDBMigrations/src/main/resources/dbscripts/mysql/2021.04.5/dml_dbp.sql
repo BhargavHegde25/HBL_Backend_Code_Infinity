@@ -1,0 +1,1 @@
+INSERT INTO jobtype (jobType, jobName, createdby, modifiedby, createdts, lastmodifiedts, synctimestamp, softdeleteflag) VALUES('SERVICE_DEFINITION_EDIT', 'Service Definition Edit', NULL, NULL, '2021-10-11 12:49:53', '2021-10-11 12:49:53', '2021-10-11 12:49:53', 0);

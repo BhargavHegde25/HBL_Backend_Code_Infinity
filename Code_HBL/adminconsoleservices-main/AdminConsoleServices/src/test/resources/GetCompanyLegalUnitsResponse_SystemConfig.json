@@ -1,0 +1,16 @@
+[
+  {
+    "id": "GB0010001",
+    "companyName": "Europe",
+    "region": "Europe",
+    "typeId": "LEGALENTITY",
+    "parentId": "GR23698574",
+    "countryCode": "EU",
+    "baseCurrency": "Euro",
+    "language": "EN",
+    "effectiveDate": "1990-09-20",
+    "closeDate": "2045-09-20",
+    "description": "LE for Europe",
+    "alternateReferences":{"alternateId":"EU1"}
+  }
+]

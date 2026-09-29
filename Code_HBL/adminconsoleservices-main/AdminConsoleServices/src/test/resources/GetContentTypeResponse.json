@@ -1,0 +1,14 @@
+{
+	"opstatus": 0,
+	"httpStatusCode": 0,
+	"contenttype": [
+		{
+			"id": "TEXT",
+			"Name": "Text"
+		},
+		{
+			"id": "URL",
+			"Name": "URL"
+		}
+	]
+}

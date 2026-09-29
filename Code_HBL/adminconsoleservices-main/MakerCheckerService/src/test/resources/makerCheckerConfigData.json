@@ -1,0 +1,83 @@
+[
+    {
+        "isApprovalRequired":"true",
+        "companyLegalUnit":"GB0010001",
+        "approvalPermissionId":"PID701",
+        "module":"Contract Management",
+        "action":"Create Contract",
+        "expAPIOperationName":"ContractManagementObjService_Contract_createContract",
+        "id":"1",
+        "createdts":"2023-12-27 14:33:35.0",
+        "keyColumnNames":"coreCustomerIds",
+        "auditModule":"Contract",
+        "auditEvent":"Create"
+    }
+,
+    {
+        "isApprovalRequired":"true",
+        "companyLegalUnit":"GB0010001",
+        "approvalPermissionId":"PID702",
+        "module":"Contract Management",
+        "action":"Edit Contract",
+        "expAPIOperationName":"ContractManagementObjService_Contract_editContract",
+        "id":"2",
+        "createdts":"2023-12-27 14:33:35.0",
+        "keyColumnNames":"contractId"
+    }
+,
+    {
+        "isApprovalRequired":"true",
+        "companyLegalUnit":"GB0010001",
+        "approvalPermissionId":"PID703",
+        "module":"Customer Management",
+        "action":"Create Customer",
+        "expAPIOperationName":"CustomerManagementObjService_InfinityUser_createInfinityUser",
+        "auditEvent":"CREATE",
+        "auditModule":"CUSTOMER_MANAGEMENT",
+        "id":"3",
+        "createdts":"2023-12-27 14:33:35.0",
+        "keyColumnNames":"coreCustomerId"
+    }
+,
+    {
+        "isApprovalRequired":"false",
+        "companyLegalUnit":"GB0010001",
+        "approvalPermissionId":"PID704",
+        "module":"Customer Management",
+        "action":"Edit Customer",
+        "expAPIOperationName":"CustomerManagementObjService_InfinityUser_editInfinityUser",
+        "id":"4",
+        "createdts":"2023-12-27 14:33:35.0",
+        "keyColumnNames":"customerId"
+    },
+    {
+        "companyLegalUnit":"GB0010001",
+        "viewDetailsAPI":"MakerCheckerService:CommonRequestDetails",
+        "module":"CUSTOMER_MANAGEMENT",
+        "expAPIOperationName":"CustomerManagementObjService_Customer_updateDBPUserStatus",
+        "auditEvent":"Edit",
+        "createdts":"2024-04-05 14:56:58.91",
+        "approvalPermissionName":"ApproveSuspendOrActivateCustomer",
+        "isApprovalRequired":"true",
+        "approvalPermissionId":"PID721",
+        "auditModule":"Customer Management",
+        "action":"SUSPEND_ACTIVATE_CUSTOMER",
+        "id":"19",
+        "keyColumnNames":"id"
+    },
+    {
+        "companyLegalUnit":"NL0020001",
+        "viewDetailsAPI":"MakerCheckerService:CommonRequestDetails",
+        "module":"CUSTOMER_MANAGEMENT",
+        "expAPIOperationName":"CustomerManagementObjService_Customer_updateDBPUserStatus",
+        "auditEvent":"Edit",
+        "createdts":"2024-04-05 14:56:58.91",
+        "approvalPermissionName":"ApproveSuspendOrActivateCustomer",
+        "isApprovalRequired":"false",
+        "approvalPermissionId":"PID721",
+        "auditModule":"Customer Management",
+        "action":"SUSPEND_ACTIVATE_CUSTOMER",
+        "id":"19",
+        "keyColumnNames":"id"
+    }
+]

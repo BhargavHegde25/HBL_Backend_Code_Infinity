@@ -1,0 +1,2 @@
+UPDATE `configurations` SET `config_value` = '90' WHERE (`configuration_id` = 'IA_63');
+UPDATE `configurations` SET `config_value` = '{\"creditComponents\":[{\"id\":\"LTV\",\"name\":\"Loan to Value\",\"isVisible\":\"true\"},{\"id\":\"DTI\",\"name\":\"Debt to Income\",\"isVisible\":\"true\"},{\"id\":\"NetAffordability\",\"name\":\"Affordability Ratio\",\"isVisible\":\"true\"},{\"id\":\"CreditScore\",\"name\":\"Credit Score\",\"isVisible\":\"true\"}]}' WHERE (`configuration_id` = 'IA_62');

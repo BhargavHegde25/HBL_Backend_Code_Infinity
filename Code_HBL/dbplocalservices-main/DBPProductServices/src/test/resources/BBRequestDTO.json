@@ -1,0 +1,31 @@
+{
+  "requestId": "REQ_001",
+  "assocRequestId": "ASSOC_REQ_001",
+  "transactionId": "TRANSACTION_ID_001",
+  "approvalMatrixIds": ["APPROVAL_ID_001", "APPROVAL_ID_002", "APPROVAL_ID_003"],
+  "signatoryGroupMatrices": {
+    "matrix1": {"field1": "value1", "field2": "value2"},
+    "matrix2": {"field3": "value3", "field4": "value4"}
+  },
+  "featureActionId": "ACTION_ID_001",
+  "companyId": "COMPANY_ID_001",
+  "accountId": "ACCOUNT_ID_001",
+  "status": "STATUS_001",
+  "createdby": "USER_ID_001",
+  "requiredSets": 3,
+  "receivedSets": 2,
+  "amIApprover": "YES",
+  "amICreator": "NO",
+  "requiredApprovals": "2",
+  "receivedApprovals": "1",
+  "actedByMeAlready": "NO",
+  "requestApprovalMatrixId": "APPROVAL_MATRIX_ID_001",
+  "numberOfApprovals": "5",
+  "isSelfApproved": "NO",
+  "isGroupMatrix": "YES",
+  "additionalMeta": "META_INFO",
+  "companyLegalUnit": "LEGAL_UNIT_001",
+  "sentByName": "SENT_BY_NAME_001",
+  "sentByUserName": "SENT_BY_USERNAME_001",
+  "createdts": "2024-02-08"
+}

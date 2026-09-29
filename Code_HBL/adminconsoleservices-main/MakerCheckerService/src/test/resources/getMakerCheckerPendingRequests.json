@@ -1,0 +1,17 @@
+{
+	"records": [
+		{
+			"requestDetails": "contractmanagement_create_GB0010001_101010",
+			"requestId": "R898989296"
+		},
+		{
+			"requestDetails": "customermanagement_edit_AU0010001_100010,9593935265",
+			"requestId": "R898989294"
+		},
+		{
+			"requestDetails": "usermanagement_update_NL0010001_119999,7592343258"
+		}
+	],
+	"opstatus": 0,
+	"httpStatusCode": 0
+}

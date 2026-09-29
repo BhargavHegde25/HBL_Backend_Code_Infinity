@@ -1,0 +1,63 @@
+{
+	"totalNumberOfRecords": 2,
+    "opstatus": 0,
+    "get_mc_requestshistory_view": [
+        {
+            "reason": "Rejecting as there is a issue",
+            "companyLegalUnit": "GB0010001",
+            "createdDate": "2024-02-27",
+            "createdby": "admin2",
+            "requestId": "REQ_1608093574",
+            "checkedBy": "admin1",
+            "module": "CUSTOMER_MANAGEMENT",
+            "action": "CREATE_CUSTOMER",
+            "createdTs": "2024-02-27 12:05:13.0",
+            "approvalPermissionName": "ApproveCreateCustomer",
+            "status": "SID_REJECTED"
+        },
+        {
+            "reason": "application is rejected",
+            "companyLegalUnit": "GB0010001",
+            "createdDate": "2024-02-27",
+            "createdby": "admin2",
+            "requestId": "REQ_1719513830",
+            "actionedDate": "2024-02-28 16:55:17.0",
+            "checkedBy": "admin3",
+            "module": "CUSTOMER_MANAGEMENT",
+            "action": "CREATE_CUSTOMER",
+            "createdTs": "2024-02-27 12:27:33.0",
+            "approvalPermissionName": "ApproveCreateCustomer",
+            "status": "SID_REJECTED"
+        }
+    ],
+    "requests": [
+        {
+            "reason": "Rejecting as there is a issue",
+            "companyLegalUnit": "GB0010001",
+            "createdDate": "2024-02-27",
+            "createdby": "admin2",
+            "requestId": "REQ_1608093574",
+            "checkedBy": "admin1",
+            "module": "CUSTOMER_MANAGEMENT",
+            "action": "CREATE_CUSTOMER",
+            "createdTs": "2024-02-27 12:05:13.0",
+            "approvalPermissionName": "ApproveCreateCustomer",
+            "status": "SID_REJECTED"
+        },
+        {
+            "reason": "application is rejected",
+            "companyLegalUnit": "GB0010001",
+            "createdDate": "2024-02-27",
+            "createdby": "admin2",
+            "requestId": "REQ_1719513830",
+            "actionedDate": "2024-02-28 16:55:17.0",
+            "checkedBy": "admin3",
+            "module": "CUSTOMER_MANAGEMENT",
+            "action": "CREATE_CUSTOMER",
+            "createdTs": "2024-02-27 12:27:33.0",
+            "approvalPermissionName": "ApproveCreateCustomer",
+            "status": "SID_REJECTED"
+        }
+    ],
+    "httpStatusCode": 0
+}

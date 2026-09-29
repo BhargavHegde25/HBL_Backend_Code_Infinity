@@ -1,0 +1,81 @@
+{
+	"records1": [
+		{
+			"createdby": "admin2",
+			"requestId": "ccdbae4d-d619-11ee-b27c-0205857feb80",
+			"module": "CONTRACT_MANAGEMENT",
+			"action": "CREATE_CONTRACT",
+			"createdts": "2024-02-14 14:45:28.0"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "ccdb3011-d619-11ee-b27c-0205857feb80",
+			"module": "CONTRACT_MANAGEMENT",
+			"action": "CREATE_CONTRACT",
+			"createdts": "2024-02-14 14:45:28.0"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "ccdac045-d619-11ee-b27c-0205857feb80",
+			"module": "CONTRACT_MANAGEMENT",
+			"action": "CREATE_CONTRACT",
+			"createdts": "2024-02-14 14:45:28.0"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "ccda41de-d619-11ee-b27c-0205857feb80",
+			"module": "CONTRACT_MANAGEMENT",
+			"action": "CREATE_CONTRACT",
+			"createdts": "2024-02-14 14:45:28.0"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "ccd9d2e9-d619-11ee-b27c-0205857feb80",
+			"module": "CONTRACT_MANAGEMENT",
+			"action": "CREATE_CONTRACT",
+			"createdts": "2024-02-14 14:45:28.0"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "ccd9670c-d619-11ee-b27c-0205857feb80",
+			"module": "CONTRACT_MANAGEMENT",
+			"action": "CREATE_CONTRACT",
+			"createdts": "2024-02-14 14:45:28.0"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "ccd8fbc3-d619-11ee-b27c-0205857feb80",
+			"module": "CONTRACT_MANAGEMENT",
+			"action": "CREATE_CONTRACT",
+			"createdts": "2024-02-14 14:45:28.0"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "ccd887bd-d619-11ee-b27c-0205857feb80",
+			"module": "CONTRACT_MANAGEMENT",
+			"action": "CREATE_CONTRACT",
+			"createdts": "2024-02-14 14:45:28.0"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "ccd806e5-d619-11ee-b27c-0205857feb80",
+			"module": "CONTRACT_MANAGEMENT",
+			"action": "CREATE_CONTRACT",
+			"createdts": "2024-02-14 14:45:28.0"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "ccd78060-d619-11ee-b27c-0205857feb80",
+			"module": "CONTRACT_MANAGEMENT",
+			"action": "CREATE_CONTRACT",
+			"createdts": "2024-02-14 14:45:28.0"
+		}
+	],
+	"records": [
+		{
+			"totalRecords": "24"
+		}
+	],
+	"opstatus": 0,
+	"httpStatusCode": 0
+}

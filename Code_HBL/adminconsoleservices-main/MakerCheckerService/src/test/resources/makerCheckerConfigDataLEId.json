@@ -1,0 +1,54 @@
+[
+  {
+    "isApprovalRequired": "true",
+    "companyLegalUnit": "GB0010001",
+    "approvalPermissionId": "PID701",
+    "viewDetailsAPI": "MakerCheckerService:CreateContractViewDetails",
+    "module": "CONTRACT_MANAGEMENT",
+    "action": "CREATE_CONTRACT",
+    "expAPIOperationName": "ContractManagementObjService_Contract_createContract",
+    "id": "1",
+    "createdts": "2024-02-14 14:33:08.0",
+    "approvalPermissionName": "ApproveCreateContract",
+    "keyColumnNames": "coreCustomerIds"
+  },
+  {
+    "isApprovalRequired": "true",
+    "companyLegalUnit": "GB0010001",
+    "approvalPermissionId": "PID702",
+    "viewDetailsAPI": "MakerCheckerService:EditContractViewDetails",
+    "module": "CONTRACT_MANAGEMENT",
+    "action": "EDIT_CONTRACT",
+    "expAPIOperationName": "ContractManagementObjService_Contract_editContract",
+    "id": "2",
+    "createdts": "2024-02-14 14:33:08.0",
+    "approvalPermissionName": "ApproveUpdateContract",
+    "keyColumnNames": "contractId"
+  },
+  {
+    "isApprovalRequired": "true",
+    "companyLegalUnit": "GB0010001",
+    "approvalPermissionId": "PID703",
+    "viewDetailsAPI": "MakerCheckerService:EnrollCustomerViewDetails",
+    "module": "CUSTOMER_MANAGEMENT",
+    "action": "CREATE_CUSTOMER",
+    "expAPIOperationName": "CustomerManagementObjService_InfinityUser_createInfinityUser",
+    "id": "3",
+    "createdts": "2024-02-14 14:33:08.0",
+    "approvalPermissionName": "ApproveCreateCustomer",
+    "keyColumnNames": "coreCustomerId"
+  },
+  {
+    "isApprovalRequired": "true",
+    "companyLegalUnit": "GB0010001",
+    "approvalPermissionId": "PID704",
+    "viewDetailsAPI": "MakerCheckerService:EditCustomerViewDetails",
+    "module": "CUSTOMER_MANAGEMENT",
+    "action": "EDIT_CUSTOMER",
+    "expAPIOperationName": "CustomerManagementObjService_InfinityUser_editInfinityUser",
+    "id": "4",
+    "createdts": "2024-02-14 14:33:08.0",
+    "approvalPermissionName": "ApproveUpdateCustomer",
+    "keyColumnNames": "customerId"
+  }
+]

@@ -1,0 +1,1 @@
+Execute hbl_verify_user_device_login.sql store procedure

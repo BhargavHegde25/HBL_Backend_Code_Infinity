@@ -1,0 +1,30 @@
+{
+    "opstatus": 0,
+    "Response": [{
+            "features": [
+                "SBA_XAI_DASHBOARD",
+                "SBA_BUSINESS_HEALTH_SCORE",
+                "SBA_INSIGHTS",
+                "SBA_AID",
+                "SBA_AID",
+                "SBA_SIMULATION"],
+            "enrolmentStatus": {
+                "EnrollmentState": "ILP_Complete",
+                "Subscriber": "190368",
+                "EventDateTime": "2021-09-22T16:49:41",
+                "EventMinutesAgo": "1209329"
+            },
+            "Customer_id": "7902044901",
+            "permissions": [
+                "CASHFLOW_PREDICTION_CHART_VIEW",
+                "SBA_BUSINESS_HEALTH_SCORE_VIEW",
+                "SBA_INSIGHTS_VIEW",
+                "SBA_PAYABLES_VIEW",
+                "SBA_RECEVIABLES_VIEW",
+                "SBA_SIMULATION_VIEW"],
+            "BackendId": "190368",
+            "sbaEnrolmentStatus": {"status":"Completed"}
+	}
+    ],
+    "httpStatusCode": 200
+}

@@ -1,0 +1,89 @@
+CREATE TABLE `requestnewcard` (
+  `id` varchar(50) NOT NULL,
+  `customerId` varchar(50) NOT NULL,
+  `coreIdentifier` varchar(50) NOT NULL,
+  `cardType` varchar(50) DEFAULT NULL,
+  `debitAccount` varchar(50) DEFAULT NULL,
+  
+  `serviceProvider` varchar(50) DEFAULT NULL,
+  `cardDescription` varchar(1000) DEFAULT NULL,
+  `dailyWithdrawLimit` varchar(20) DEFAULT NULL,
+  `dailyPurchaseLimit` varchar(20) DEFAULT NULL,
+  `annualFee` varchar(20) DEFAULT NULL,
+  `nameOnTheCard` varchar(50) DEFAULT NULL,
+  `referenceNumber` varchar(50) DEFAULT NULL,
+  `cardCategory` varchar(50) DEFAULT NULL,
+  `cardFee` varchar(20) DEFAULT NULL,
+  `panNo` varchar(20) DEFAULT NULL,
+  `topupAmount` varchar(20) DEFAULT NULL,
+  `totalDebitAmount` varchar(20) DEFAULT NULL,
+  `requestdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `createdts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `lastmodifiedts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `lastsynctimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `softdeleteflag` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `FK_Cust_id_idcc` (`customerId`),
+  CONSTRAINT `FK_Cust_id_idcc` FOREIGN KEY (`customerId`) REFERENCES `customer` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3
+
+------------------------------------------------
+
+INSERT INTO `dbxdb`.`emailtemplates` (`id`, `TemplateName`, `TemplateText`, `Subject`, `SenderName`, `SenderEmail`) VALUES ('220', 'requestCardEmailToCustomer', '<tbody> <tr> <td style="padding:0 0 15pt 0;"> <div align="center"> <table border="0" cellspacing="0" cellpadding="0" style="width:100%;"> <tbody> <tr> <td style="padding:0 0 15pt 0;"> <p align="center" style="font-size:12pt;font-family:Aptos,sans-serif;text-align:center;margin:0;"> <img data-imagetype="External" src="https://ib1.himalayanbank.com/Public/client/emailBrand.png" border="0" id="x__x0000_i1025" style="width:390.99pt;height:72.99pt;"> </p> </td> </tr> </tbody> </table> </div> </td> </tr> <tr> <td style="padding:15pt 11.25pt;border:4.5pt solid black;"> <p> <strong> <span style="font-family:Aptos,sans-serif;">Dear %customerName% ,</span> </strong> </p> </td> <td style="padding:15pt 11.25pt;border:4.5pt solid black;"> <p> <strong> <span style="font-family:Aptos,sans-serif;">Thank you for reaching out to HBL. We have received your request for a new %cardType%. Please find the details below:</span> </strong> </p> </td> <ul> <li> <td><b>Application Reference No::</b> %referenceNumber%</td> </li> <li> <td><b>Account Number:</b> %debitAccount%</td> </li> <li> <td><b>Requested Card Type:</b> %cardType%</td> </li> <li> <td><b>Expected Name on the Card:</b> %nameOnTheCard%</td> </li> <li> <td><b>Date of Request:</b> %requestdate%</td> </li> </ul> </br> <l>Our team is currently processing your request, and we will notify you once your card has been issued and shipped. Please allow %estimatedTime%  for delivery.</l> </br> </br> <l>If you have any questions or need further assistance in the meantime, feel free to contact us at %customerCareNumber%</l> </br> </br> <l>Best Regards,</l> </br> <l>Himalayan Bank Limited,</l> </br> </tr> </tbody>', 'Confirmation of Card Request – Himalayan Bank Limited.', 'himalayanbank', 'ibanking@himalayanbank.com');
+
+--------------------------------------------------
+
+INSERT INTO `dbxdb`.`emailtemplates` (`id`, `TemplateName`, `TemplateText`, `Subject`, `SenderName`, `SenderEmail`) VALUES ('221', 'requestCardEmailToBank', '<tbody> <tr> <td style="padding:0 0 15pt 0;"> <div align="center"> <table border="0" cellspacing="0" cellpadding="0" style="width:100%;"> <tbody> <tr> <td style="padding:0 0 15pt 0;"> <p align="center" style="font-size:12pt;font-family:Aptos,sans-serif;text-align:center;margin:0;"> <img data-imagetype="External" src="https://ib1.himalayanbank.com/Public/client/emailBrand.png" border="0" id="x__x0000_i1025" style="width:390.99pt;height:72.99pt;"> </p> </td> </tr> </tbody> </table> </div> </td> </tr> <tr> <l>Dear Card Processing Team,</l> </br> </br> <l>This is to notify you of a new %cardType%  request for the following customer:</l> </br> <ul> <li> <td><b>Customer Name:</b> %coreIdentifier%</td> </li> <li> <td><b>Application Reference No:</b> %referenceNumber%</td> </li> <li> <td><b>Account Number:</b> %debitAccount%</td> </li> <li> <td><b>Requested Card Type:</b> %cardType%</td> </li> <li> <td><b>Expected Name on the Card:</b> %nameOnTheCard%</td> </li> <li> <td><b>Date of Request:</b> %requestdate%</td> </li> </ul> </br> <l>Please proceed with processing the %cardType% request and ensure that all necessary steps are followed.</l> </br> </br> <l>Best Regards,</l> </br> <l>%cardTeamName%</l> </br> </tr> </tbody>', 'New Card Request', 'himalayanbank', 'ibanking@himalayanbank.com');
+
+
+CREATE TABLE `cardLimit` (
+  `id` varchar(50) NOT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  `category` varchar(50) DEFAULT NULL,
+  `cardDescription` varchar(1000) DEFAULT NULL,
+  `dailyWithdrawLimit` varchar(50) DEFAULT NULL,
+  `dailyPurchaseLimit` varchar(50) DEFAULT NULL,
+  `annualFee` varchar(50) DEFAULT NULL,
+  `createdts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `lastmodifiedts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `lastsynctimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `softdeleteflag` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3
+
+
+INSERT INTO `dbxdb`.`cardLimit` (`id`, `type`, `category`, `cardDescription`, `dailyWithdrawLimit`, `dailyPurchaseLimit`, `annualFee`) VALUES ('1', 'DebitCard', 'Visa', 'sample HTML', '25000.00', '5000.00', '1000.00');
+INSERT INTO `dbxdb`.`cardLimit` (`id`, `type`, `category`, `cardDescription`, `dailyWithdrawLimit`, `dailyPurchaseLimit`, `annualFee`) VALUES ('2', 'DebitCard', 'Master card', 'sample HTML', '26000.00', '6000.00', '1000.00');
+INSERT INTO `dbxdb`.`cardLimit` (`id`, `type`, `category`, `cardDescription`, `dailyWithdrawLimit`, `dailyPurchaseLimit`, `annualFee`) VALUES ('3', 'DebitCard', 'SCT UPI', 'sample HTML', '27000.00', '7000.00', '1000.00');
+INSERT INTO `dbxdb`.`cardLimit` (`id`, `type`, `category`, `cardDescription`, `dailyWithdrawLimit`, `dailyPurchaseLimit`, `annualFee`) VALUES ('4', 'DebitCard', 'Nepal pay', 'sample HTML', '28000.00', '8000.00', '1000.00');
+INSERT INTO `dbxdb`.`cardLimit` (`id`, `type`, `category`, `cardDescription`, `dailyWithdrawLimit`, `dailyPurchaseLimit`, `annualFee`) VALUES ('5', 'Credit Card', 'Visa Domestic', 'sample HTML', '28000.00', '8000.00', '1000.00');
+INSERT INTO `dbxdb`.`cardLimit` (`id`, `type`, `category`, `cardDescription`, `dailyWithdrawLimit`, `dailyPurchaseLimit`, `annualFee`) VALUES ('6', 'Credit Card', 'Visa International', 'sample HTML', '28000.00', '8000.00', '1000.00');
+INSERT INTO `dbxdb`.`cardLimit` (`id`, `type`, `category`, `cardDescription`, `dailyWithdrawLimit`, `dailyPurchaseLimit`, `annualFee`) VALUES ('7', 'Credit Card', 'AMEX Domestic', 'sample HTML', '28000.00', '8000.00', '1000.00');
+INSERT INTO `dbxdb`.`cardLimit` (`id`, `type`, `category`, `cardDescription`, `dailyWithdrawLimit`, `dailyPurchaseLimit`, `annualFee`) VALUES ('8', 'Credit Card', 'AMEX International', 'sample HTML', '28000.00', '8000.00', '1000.00');
+INSERT INTO `dbxdb`.`cardLimit` (`id`, `type`, `category`, `cardDescription`, `dailyWithdrawLimit`, `dailyPurchaseLimit`, `annualFee`) VALUES ('9', 'Prepaid Card', 'Physical Visa Domestic', 'sample HTML', '', '', '');
+INSERT INTO `dbxdb`.`cardLimit` (`id`, `type`, `category`, `cardDescription`, `dailyWithdrawLimit`, `dailyPurchaseLimit`, `annualFee`) VALUES ('10', 'Prepaid Card', 'Physical Visa International', 'sample HTML', '', '', '');
+INSERT INTO `dbxdb`.`cardLimit` (`id`, `type`, `category`, `cardDescription`, `dailyWithdrawLimit`, `dailyPurchaseLimit`, `annualFee`) VALUES ('11', 'Prepaid Card', 'Physical AMEX Domestic', 'sample HTML', '', '', '');
+INSERT INTO `dbxdb`.`cardLimit` (`id`, `type`, `category`, `cardDescription`, `dailyWithdrawLimit`, `dailyPurchaseLimit`, `annualFee`) VALUES ('12', 'Prepaid Card', 'Physical AMEX International', 'sample HTML', '', '', '');
+INSERT INTO `dbxdb`.`cardLimit` (`id`, `type`, `category`, `cardDescription`, `dailyWithdrawLimit`, `dailyPurchaseLimit`, `annualFee`) VALUES ('13', 'Prepaid Card', 'Virtual Visa Domestic', 'sample HTML', '', '', '');
+INSERT INTO `dbxdb`.`cardLimit` (`id`, `type`, `category`, `cardDescription`, `dailyWithdrawLimit`, `dailyPurchaseLimit`, `annualFee`) VALUES ('14', 'Prepaid Card', 'Virtual  Visa International', 'sample HTML', '', '', '');
+INSERT INTO `dbxdb`.`cardLimit` (`id`, `type`, `category`, `cardDescription`, `dailyWithdrawLimit`, `dailyPurchaseLimit`, `annualFee`) VALUES ('15', 'Prepaid Card', 'Virtual AMEX Domestic', 'sample HTML', '', '', '');
+INSERT INTO `dbxdb`.`cardLimit` (`id`, `type`, `category`, `cardDescription`, `dailyWithdrawLimit`, `dailyPurchaseLimit`, `annualFee`) VALUES ('16', 'Prepaid Card', 'Virtual AMEX International', 'sample HTML', '', '', '');
+
+
+-------------ALTER requestnewcard with new column 'status'-------------------------------------
+
+
+ALTER table dbxdb.requestnewcard ADD COLUMN status varchar(50) NULL AFTER totalDebitAmount;
+
+--------New Email template for request dollar card------------
+
+INSERT INTO `dbxdb`.`emailtemplates` (`id`, `TemplateName`, `TemplateText`, `Subject`, `SenderName`, `SenderEmail`) VALUES ('222', 'requestdollarCardEmailToCustomer', '<tbody> <tr> <td style=\"padding:0 0 15pt 0;\"> <div align=\"center\"> <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"width:100%;\"> <tbody> <tr> <td style=\"padding:0 0 15pt 0;\"> <p align=\"center\" style=\"font-size:12pt;font-family:Aptos,sans-serif;text-align:center;margin:0;\"> <img data-imagetype=\"External\" src=\"https://ib1.himalayanbank.com/Public/client/emailBrand.png\" border=\"0\" id=\"x__x0000_i1025\" style=\"width:390.99pt;height:72.99pt;\"> </p> </td> </tr> </tbody> </table> </div> </td> </tr> <tr> <td style=\"padding:15pt 11.25pt;border:4.5pt solid black;\"> <p> <strong> <span style=\"font-family:Aptos,sans-serif;\">Dear %customerName% ,</span> </strong> </p> </td> <td style=\"padding:15pt 11.25pt;border:4.5pt solid black;\"> <p> <strong> <span style=\"font-family:Aptos,sans-serif;\">Thank you for reaching out to HBL. We have received your request for a new %cardType%. Please find the details below:</span> </strong> </p> </td> <ul> <li> <td><b>Application Reference No::</b> %referenceNumber%</td> </li> <li> <td><b>Account Number:</b> %debitAccount%</td> </li> <li> <td><b>Requested Card Type:</b> %cardType%</td> </li>  <li> <td><b>Date of Request:</b> %requestdate%</td> </li> </ul> </br> <l>Our team is currently processing your request, and we will notify you once your card has been issued and shipped. Please allow %estimatedTime%  for delivery.</l> </br> </br> <l>If you have any questions or need further assistance in the meantime, feel free to contact us at %customerCareNumber%</l> </br> </br> <l>Best Regards,</l> </br> <l>Himalayan Bank Limited,</l> </br> </tr> </tbody>', 'Confirmation of Card Request – Himalayan Bank Limited.', 'himalayanbank', 'ibanking@himalayanbank.com');
+
+INSERT INTO `dbxdb`.`emailtemplates` (`id`, `TemplateName`, `TemplateText`, `Subject`, `SenderName`, `SenderEmail`) VALUES ('223', 'requestdollarCardEmailToBank', '<tbody> <tr> <td style=\"padding:0 0 15pt 0;\"> <div align=\"center\"> <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"width:100%;\"> <tbody> <tr> <td style=\"padding:0 0 15pt 0;\"> <p align=\"center\" style=\"font-size:12pt;font-family:Aptos,sans-serif;text-align:center;margin:0;\"> <img data-imagetype=\"External\" src=\"https://ib1.himalayanbank.com/Public/client/emailBrand.png\" border=\"0\" id=\"x__x0000_i1025\" style=\"width:390.99pt;height:72.99pt;\"> </p> </td> </tr> </tbody> </table> </div> </td> </tr> <tr> <l>Dear Card Processing Team,</l> </br> </br> <l>This is to notify you of a new %cardType%  request for the following customer:</l> </br> <ul> <li> <td><b>Customer Name:</b> %coreIdentifier%</td> </li> <li> <td><b>Application Reference No:</b> %referenceNumber%</td> </li> <li> <td><b>Account Number:</b> %debitAccount%</td> </li> <li> <td><b>Requested Card Type:</b> %cardType%</td> </li> <li> <td><b>Date of Request:</b> %requestdate%</td> </li> </ul> </br> <l>Please proceed with processing the %cardType% request and ensure that all necessary steps are followed.</l> </br> </br> <l>Best Regards,</l> </br> <l>%cardTeamName%</l> </br> </tr> </tbody>', 'New Card Request', 'himalayanbank', 'ibanking@himalayanbank.com');
+
+
+UPDATE `dbxdb`.`emailtemplates` SET `TemplateText` = '<tbody> <tr> <td style=\"padding:0 0 15pt 0;\"> <div align=\"center\"> <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"width:100%;\"> <tbody> <tr> <td style=\"padding:0 0 15pt 0;\"> <p align=\"center\" style=\"font-size:12pt;font-family:Aptos,sans-serif;text-align:center;margin:0;\"> <img data-imagetype=\"External\" src=\"https://ib1.himalayanbank.com/Public/client/emailBrand.png\" border=\"0\" id=\"x__x0000_i1025\" style=\"width:390.99pt;height:72.99pt;\"> </p> </td> </tr> </tbody> </table> </div> </td> </tr> <tr> <l>Dear Card Processing Team,</l> </br> </br> <l>This is to notify you of a new %cardType%  request for the following customer:</l> </br> <ul> <li> <td><b>Customer Name:</b> %coreIdentifier%</td> </li> <li> <td><b>Application Reference No:</b> %referenceNumber%</td> </li> <li> <td><b>Account Number:</b> %debitAccount%</td> </li> <li> <td><b>Requested Card Type:</b> %cardType%</td> </li> <li> <td><b>Card Fee:</b> %cardFee%</td> </li> <li> <td><b>Top up Amount:</b> %topupAmount%</td> </li> <li> <td><b>Total Debit Amount:</b> %totalDebitAmount%</td> </li> <li> <td><b>Date of Request:</b> %requestdate%</td> </li> </ul> </br> <l>Please proceed with processing the %cardType% request and ensure that all necessary steps are followed.</l> </br> </br> <l>Best Regards,</l> </br> <l>%cardTeamName%</l> </br> </tr> </tbody>' WHERE (`id` = '223');
+
+UPDATE `dbxdb`.`emailtemplates` SET `TemplateText` = '<tbody> <tr> <td style=\"padding:0 0 15pt 0;\"> <div align=\"center\"> <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"width:100%;\"> <tbody> <tr> <td style=\"padding:0 0 15pt 0;\"> <p align=\"center\" style=\"font-size:12pt;font-family:Aptos,sans-serif;text-align:center;margin:0;\"> <img data-imagetype=\"External\" src=\"https://ib1.himalayanbank.com/Public/client/emailBrand.png\" border=\"0\" id=\"x__x0000_i1025\" style=\"width:390.99pt;height:72.99pt;\"> </p> </td> </tr> </tbody> </table> </div> </td> </tr> <tr> <td style=\"padding:15pt 11.25pt;border:4.5pt solid black;\"> <p> <strong> <span style=\"font-family:Aptos,sans-serif;\">Dear %customerName% ,</span> </strong> </p> </td> <td style=\"padding:15pt 11.25pt;border:4.5pt solid black;\"> <p> <strong> <span style=\"font-family:Aptos,sans-serif;\">Thank you for reaching out to HBL. We have received your request for a new %cardType%. Please find the details below:</span> </strong> </p> </td> <ul> <li> <td><b>Application Reference No::</b> %referenceNumber%</td> </li> <li> <td><b>Account Number:</b> %debitAccount%</td> </li> <li> <td><b>Requested Card Type:</b> %cardType%</td> </li> <li> <td><b>Card Fee:</b> %cardFee%</td> </li> <li> <td><b>Top up Amount:</b> %topupAmount%</td> </li> <li> <td><b>Total Debit Amount:</b> %totalDebitAmount%</td> </li> <li> <td><b>Date of Request:</b> %requestdate%</td> </li> </ul> </br> <l>Our team is currently processing your request, and we will notify you once your card has been issued and shipped. Please allow %estimatedTime%  for delivery.</l> </br> </br> <l>If you have any questions or need further assistance in the meantime, feel free to contact us at %customerCareNumber%</l> </br> </br> <l>Best Regards,</l> </br> <l>Himalayan Bank Limited,</l> </br> </tr> </tbody>' WHERE (`id` = '222');
+

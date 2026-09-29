@@ -1,0 +1,26 @@
+{
+    "allProfiles": [
+        {
+            "profileName": "test profile",
+            "profileCreationDate": "2024-02-15T12:12:11",
+            "associatedCampaignDetails": [],
+            "profileDescription": "test profile",
+            "numberOfCampaigns": 0,
+            "profileId": "PRF1454476085",
+            "numberOfUsers": 0,
+            "profileConditions": [
+                {
+                    "conditionExpression": "EstMonthlySavingsGroup%20eq%20%2707.%20High%20Surplus%27",
+                    "dataContextName": "Customer Attrition Model flow",
+                    "dataContextId": "DC002",
+                    "dataContextEndPoints": "http://40.127.187.34/APIServices/odata/Tenant1/XAIAttritionResultsDetailed",
+                    "profileConditionId": "PC1305156306",
+                    "dataContextDescription": "DataContext created for Customer Attrition Model flow Profiles"
+                }
+            ],
+            "profileStatus": "Active"
+        }
+    ],
+    "opstatus": 0,
+    "httpStatusCode": 0
+}

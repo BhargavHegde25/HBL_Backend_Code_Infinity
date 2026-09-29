@@ -1,0 +1,22 @@
+{
+  "get_mc_approvalrequests_view": [
+    {
+      "requestCount": "1",
+      "companyLegalUnit": "GB0010001",
+      "createdby": "admin2",
+      "action": "CREATE_CONTRACT",
+      "approvalPermissionName": "ApproveCreateContract",
+      "status": "SID_PENDING"
+    },
+    {
+      "requestCount": "3",
+      "companyLegalUnit": "GB0010001",
+      "createdby": "admin1",
+      "action": "CREATE_CUSTOMER",
+      "approvalPermissionName": "ApproveCreateCustomer",
+      "status": "SID_PENDING"
+    }
+  ],
+  "opstatus": 0,
+  "httpStatusCode": 0
+}

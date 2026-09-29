@@ -1,0 +1,20 @@
+{
+	"customertermsandconditions": [
+		{
+			"lastmodifiedts": "2023-11-20 13:44:23.0",
+			"companyLegalUnit": "GB0010001",
+			"versionId": "1.0",
+			"browser": "Chrome 11",
+			"appId": "OnlineBanking",
+			"channel": "rc",
+			"customerId": "2598100797",
+			"termsAndConditionsCode": "Login_TnC",
+			"id": "5c57b450-8f2e-4f35-868a-1faaa0cde3cd",
+			"languageCode": "en-US",
+			"createdts": "2023-11-20 13:44:23.0",
+			"platform": "web"
+		}
+	],
+	"opstatus": 0,
+	"httpStatusCode": 0
+}

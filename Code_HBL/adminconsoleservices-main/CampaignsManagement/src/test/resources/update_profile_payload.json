@@ -1,0 +1,15 @@
+{
+    "profile": {
+        "profileId": "PRF0011",
+        "profileName": "ABCDEF",
+        "profileDescription": "ABCDEF",
+        "profileStatus": "Active",
+        "profileConditions": [
+            {
+                "profileConditionId": "PC1046746195",
+                "conditionExpression": "dvdsfdd",
+                "dataContextId": "DC001"
+            }
+        ]
+    }
+}

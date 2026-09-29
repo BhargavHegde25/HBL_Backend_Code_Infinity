@@ -1,0 +1,15 @@
+
+// configuration will changes depends on the environment
+
+CROSSBORDER_BASE64_CRED  SEJMTlBJWDpBYmNkQDEyMw==
+CROSSBORDER_AUTH_USER   HBLNPIX@999
+CROSSBORDER_AUTH_PSWD   123Abcd@123
+CROSSBORDER_BASIC_AUTH_USER	HBLNPIX
+CROSSBORDER_BASIC_AUTH_PSWD	Abcd@123
+CROSSBORDER_PFX_FILE_PATH		C:\\HBL-Certificate\\Certificate\\NPIX.pfx
+
+Server properties
+---------------
+
+Key - NPIX_CERT_PATH
+Value -  /data/infinity/certificates/NPIX.pfx

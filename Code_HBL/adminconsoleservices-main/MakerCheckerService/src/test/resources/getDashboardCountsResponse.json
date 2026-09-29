@@ -1,0 +1,12 @@
+{
+    "opstatus": 0,
+    "maker": {
+        "GB0010001": 12,
+        "AU0010001": 7
+    },
+    "checker": {
+        "GB0010001": 27,
+        "AU0010001": 2
+    },
+    "httpStatusCode": 0
+}

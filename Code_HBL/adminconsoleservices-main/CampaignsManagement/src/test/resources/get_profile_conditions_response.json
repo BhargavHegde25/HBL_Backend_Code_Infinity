@@ -1,0 +1,9 @@
+{
+"profilecondition":[
+	{
+		"profileConditionId": "PC0011",
+		"conditionExpression": "EstMonthlyExpenseVarGroup%20eq%20%2701.%20Low%27",
+		"dataContextId": "DC002"
+	}
+]
+}

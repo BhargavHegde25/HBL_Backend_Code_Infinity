@@ -1,0 +1,16 @@
+{
+	"termandconditiontext": [
+		{
+			"LanguageCode": "en-US",
+			"Status_id": "SID_TANDC_ACTIVE",
+			"ContentModifiedBy": "Kony User",
+			"Content": "sample",
+			"ContentModifiedOn": "sample",
+			"Version_Id": "1.0",
+			"Description": "sample",
+			"ContentType_id": "TEXT"
+		}
+	],
+	"opstatus": 0,
+	"httpStatusCode": 0
+}

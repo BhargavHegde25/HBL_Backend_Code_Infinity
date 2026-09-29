@@ -1,0 +1,1 @@
+INSERT INTO `configurations` (`configuration_id`, `bundle_id`, `config_type`, `config_key`, `description`, `config_value`, `target`, `isPreLoginConfiguration`) VALUES ('251', 'NUO_CONFIG_BUNDLE', 'PREFERENCE', 'FUNDING_APPLICABLE_CUSTOMER_TYPES', 'Customer Type', '[\"TYPE_ID_RETAIL\"]', 'CLIENT', '1');

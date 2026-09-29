@@ -1,0 +1,44 @@
+Added new object basemapper2 for ExternalUserManagement-->ExternalUsers_1-->enrollRetailUser method. in ExternalUserMAnagement app.
+Added below 4 Request Inputs in EnrollRetailUser operation under eumProductServices in ExternalUserMAnagement app.
+1. accountName
+2. accountNumber
+3. email
+4. mobileNumber
+
+Added new request input parameter( customerName) in T24ISUser-searchCoreCustomers operation in Authentication App
+
+
+
+
+
+JAR-Changes
+---------------------
+eum-ProductServicesExtn
+
+------------------
+Client App Properties
+------------------
+CUSTOMER_SUPPORT_MB_CALLUS 01-5971399 (Added newly)
+
+-------------------
+Fabric Apps
+-------------------
+
+Authentication
+Arrangements
+ExternalUsermanagement
+==============
+Javaservice	HBLCustomJavaServices (Created newly)
+DBservice	HBLCustomCRUD (Created newly)
+Objectservice	getUsernameByDeviceId (Custom verb newly created)
+
+
+------------------------------
+Spotlight Web - Config changes
+------------------------------
+
+Alert -> Security -> Deactivate
+Alert -> Approvals -> Deactivate
+Alert -> Trade Finance -> Deactivate
+Alert -> Trade Supply Finance -> Deactivate
+System Configurations -->ACTIVATIONCODE_EXPIRYTIME ->10080

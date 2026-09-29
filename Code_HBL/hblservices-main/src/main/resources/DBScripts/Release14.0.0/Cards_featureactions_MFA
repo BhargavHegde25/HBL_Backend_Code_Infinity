@@ -1,0 +1,193 @@
+# Required scipts of CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD for new feature action and MFA
+
+# MFA creating for CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD
+
+INSERT INTO `dbxdb`.`mfa` (`id`, `App_id`, `Action_id`, `FrequencyType_id`, `Status_id`, `Description`, `PrimaryMFAType`, `SecondaryMFAType`, `SMSText`, `EmailSubject`, `EmailBody`, `createdby`, `modifiedby`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('1868396787', 'RETAIL_AND_BUSINESS_BANKING', 'CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD', 'ALWAYS', 'SID_INACTIVE', 'Card Management- Apply for virtual dollar card', 'SECURITY_QUESTIONS', 'SECURE_ACCESS_CODE', '[#]OTP[/#]\n', 'OTP', '<br>[#]OTP[/#]<br><br class=\"\">', 'UID10', 'admin1', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '0', 'NP0010001');
+
+# feature action creating for CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD
+
+INSERT INTO `dbxdb`.`featureaction` (`id`, `Feature_id`, `App_id`, `Type_id`, `name`, `description`, `isAccountLevel`, `isMFAApplicable`, `MFA_id`, `isPrimary`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `status`, `accesspolicyId`, `actionlevelId`, `isApprovalAction`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD', 'CARD_MANAGEMENT', 'RETAIL_AND_BUSINESS_BANKING', 'NON_MONETARY', 'Apply For Virtual Dollar card', 'Apply For Virtual Dollar card', '0', '1', '1868396787', '0', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '0', 'SID_ACTION_ACTIVE', 'CREATE', 'CUSTOMERID_LEVEL', '0', 'NP0010001');
+
+# actiondisplaynamedescription scripts for CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD
+
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD', 'de-DE', 'Card Management Apply For Virtual Dollar card', 'Apply For Virtual Dollar card', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD', 'en-GB', 'Card Management Apply For Virtual Dollar card', 'Apply For Virtual Dollar card', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD', 'en-US', 'Apply For Virtual Dollar card', 'Apply For Virtual Dollar card', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD', 'es-ES', 'Card Management Apply For Virtual Dollar card', 'Apply For Virtual Dollar card', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD', 'fr-FR', 'Card Management Apply For Virtual Dollar card', 'Apply For Virtual Dollar card', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+
+# featureactionroletype scripts for CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD
+
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_BUSINESS', 'CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_RETAIL', 'CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_WEALTH', 'CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD', '2024-09-29 10:27:35', '2024-09-29 10:27:35', '2024-09-29 10:27:35', '0', 'NP0010001');
+
+# dependentactions scripts for CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD
+
+INSERT INTO `dbxdb`.`dependentactions` (`actionId`, `dependentactionId`, `featureId`, `actionName`, `featureName`, `createdts`, `lastmodifiedts`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_APPLY_FOR_VIRTUAL_DOLLAR_CARD', 'CARD_MANAGEMENT', 'CARD_MANAGEMENT', 'Card Management', 'Manage Debit and Credit Cards', '2024-09-29 10:27:29', '2024-09-29 10:27:29', 'NP0010001');
+
+
+-------------------------------------------------------------------
+
+# Required scipts of CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD for new feature action and MFA
+
+# MFA creating for CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD
+
+INSERT INTO `dbxdb`.`mfa` (`id`, `App_id`, `Action_id`, `FrequencyType_id`, `Status_id`, `Description`, `PrimaryMFAType`, `SecondaryMFAType`, `SMSText`, `EmailSubject`, `EmailBody`, `createdby`, `modifiedby`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('1868396788', 'RETAIL_AND_BUSINESS_BANKING', 'CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD', 'ALWAYS', 'SID_INACTIVE', 'Card Management- Apply for prepaid card', 'SECURITY_QUESTIONS', 'SECURE_ACCESS_CODE', '[#]OTP[/#]\n', 'OTP', '<br>[#]OTP[/#]<br><br class=\"\">', 'UID10', 'admin1', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '0', 'NP0010001');
+
+# feature action creating for CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD
+
+INSERT INTO `dbxdb`.`featureaction` (`id`, `Feature_id`, `App_id`, `Type_id`, `name`, `description`, `isAccountLevel`, `isMFAApplicable`, `MFA_id`, `isPrimary`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `status`, `accesspolicyId`, `actionlevelId`, `isApprovalAction`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD', 'CARD_MANAGEMENT', 'RETAIL_AND_BUSINESS_BANKING', 'NON_MONETARY', 'Apply For prepaid card', 'Apply For prepaid card', '0', '1', '1868396788', '0', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '0', 'SID_ACTION_ACTIVE', 'CREATE', 'CUSTOMERID_LEVEL', '0', 'NP0010001');
+
+# actiondisplaynamedescription scripts for CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD
+
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD', 'de-DE', 'Card Management Apply For prepaid card', 'Apply For prepaid card', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD', 'en-GB', 'Card Management Apply For prepaid card', 'Apply For prepaid card', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD', 'en-US', 'Apply For prepaid card', 'Apply For prepaid card', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD', 'es-ES', 'Card Management Apply For prepaid card', 'Apply For prepaid card', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD', 'fr-FR', 'Card Management Apply For prepaid card', 'Apply For prepaid card', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+
+# featureactionroletype scripts for CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD
+
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_BUSINESS', 'CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_RETAIL', 'CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_WEALTH', 'CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD', '2024-09-29 10:27:35', '2024-09-29 10:27:35', '2024-09-29 10:27:35', '0', 'NP0010001');
+
+# dependentactions scripts for CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD
+
+INSERT INTO `dbxdb`.`dependentactions` (`actionId`, `dependentactionId`, `featureId`, `actionName`, `featureName`, `createdts`, `lastmodifiedts`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_APPLY_FOR_PREPAID_CARD', 'CARD_MANAGEMENT', 'CARD_MANAGEMENT', 'Card Management', 'Manage Debit and Credit Cards', '2024-09-29 10:27:29', '2024-09-29 10:27:29', 'NP0010001');
+
+-------------------------------------------------------------------
+
+# Required scipts of CARD_MANAGEMENT_EMI_REQUEST for new feature action and MFA
+
+# MFA creating for CARD_MANAGEMENT_EMI_REQUEST
+
+INSERT INTO `dbxdb`.`mfa` (`id`, `App_id`, `Action_id`, `FrequencyType_id`, `Status_id`, `Description`, `PrimaryMFAType`, `SecondaryMFAType`, `SMSText`, `EmailSubject`, `EmailBody`, `createdby`, `modifiedby`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('1868396789', 'RETAIL_AND_BUSINESS_BANKING', 'CARD_MANAGEMENT_EMI_REQUEST', 'ALWAYS', 'SID_INACTIVE', 'Card Management- Request for EMI', 'SECURITY_QUESTIONS', 'SECURE_ACCESS_CODE', '[#]OTP[/#]\n', 'OTP', '<br>[#]OTP[/#]<br><br class=\"\">', 'UID10', 'admin1', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '0', 'NP0010001');
+
+# feature action creating for CARD_MANAGEMENT_EMI_REQUEST
+
+INSERT INTO `dbxdb`.`featureaction` (`id`, `Feature_id`, `App_id`, `Type_id`, `name`, `description`, `isAccountLevel`, `isMFAApplicable`, `MFA_id`, `isPrimary`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `status`, `accesspolicyId`, `actionlevelId`, `isApprovalAction`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_EMI_REQUEST', 'CARD_MANAGEMENT', 'RETAIL_AND_BUSINESS_BANKING', 'NON_MONETARY', 'Request for EMI', 'Request for EMI', '0', '1', '1868396789', '0', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '0', 'SID_ACTION_ACTIVE', 'CREATE', 'CUSTOMERID_LEVEL', '0', 'NP0010001');
+
+# actiondisplaynamedescription scripts for CARD_MANAGEMENT_EMI_REQUEST
+
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_EMI_REQUEST', 'de-DE', 'Card Management Request for EMI', 'Request for EMI', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_EMI_REQUEST', 'en-GB', 'Card Management Request for EMI', 'Request for EMI', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_EMI_REQUEST', 'en-US', 'Request for EMI', 'Request for EMI', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_EMI_REQUEST', 'es-ES', 'Card Management Request for EMI', 'Request for EMI', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_EMI_REQUEST', 'fr-FR', 'Card Management Request for EMI', 'Request for EMI', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+
+# featureactionroletype scripts for CARD_MANAGEMENT_EMI_REQUEST
+
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_BUSINESS', 'CARD_MANAGEMENT_EMI_REQUEST', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_RETAIL', 'CARD_MANAGEMENT_EMI_REQUEST', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_WEALTH', 'CARD_MANAGEMENT_EMI_REQUEST', '2024-09-29 10:27:35', '2024-09-29 10:27:35', '2024-09-29 10:27:35', '0', 'NP0010001');
+
+# dependentactions scripts for CARD_MANAGEMENT_EMI_REQUEST
+
+INSERT INTO `dbxdb`.`dependentactions` (`actionId`, `dependentactionId`, `featureId`, `actionName`, `featureName`, `createdts`, `lastmodifiedts`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_EMI_REQUEST', 'CARD_MANAGEMENT', 'CARD_MANAGEMENT', 'Card Management', 'Manage Debit and Credit Cards', '2024-09-29 10:27:29', '2024-09-29 10:27:29', 'NP0010001');
+
+
+
+-------------------------------------------------------------------
+
+# Required scipts of CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP for new feature action and MFA
+
+# MFA creating for CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP
+
+INSERT INTO `dbxdb`.`mfa` (`id`, `App_id`, `Action_id`, `FrequencyType_id`, `Status_id`, `Description`, `PrimaryMFAType`, `SecondaryMFAType`, `SMSText`, `EmailSubject`, `EmailBody`, `createdby`, `modifiedby`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('1868396790', 'RETAIL_AND_BUSINESS_BANKING', 'CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP', 'ALWAYS', 'SID_INACTIVE', 'Card Management- Prepaid domestic card topup', 'SECURITY_QUESTIONS', 'SECURE_ACCESS_CODE', '[#]OTP[/#]\n', 'OTP', '<br>[#]OTP[/#]<br><br class=\"\">', 'UID10', 'admin1', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '0', 'NP0010001');
+
+# feature action creating for CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP
+
+INSERT INTO `dbxdb`.`featureaction` (`id`, `Feature_id`, `App_id`, `Type_id`, `name`, `description`, `isAccountLevel`, `isMFAApplicable`, `MFA_id`, `isPrimary`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `status`, `accesspolicyId`, `actionlevelId`, `isApprovalAction`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP', 'CARD_MANAGEMENT', 'RETAIL_AND_BUSINESS_BANKING', 'NON_MONETARY', 'Prepaid domestic card topup', 'Prepaid domestic card topup', '0', '1', '1868396790', '0', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '0', 'SID_ACTION_ACTIVE', 'CREATE', 'CUSTOMERID_LEVEL', '0', 'NP0010001');
+
+# actiondisplaynamedescription scripts for CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP
+
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP', 'de-DE', 'Card Management Prepaid domestic card topup', 'Prepaid domestic card topup', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP', 'en-GB', 'Card Management Prepaid domestic card topup', 'Prepaid domestic card topup', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP', 'en-US', 'Prepaid domestic card topup', 'Prepaid domestic card topup', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP', 'es-ES', 'Card Management Prepaid domestic card topup', 'Prepaid domestic card topup', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP', 'fr-FR', 'Card Management Prepaid domestic card topup', 'Prepaid domestic card topup', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+
+# featureactionroletype scripts for CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP
+
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_BUSINESS', 'CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_RETAIL', 'CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_WEALTH', 'CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP', '2024-09-29 10:27:35', '2024-09-29 10:27:35', '2024-09-29 10:27:35', '0', 'NP0010001');
+
+# dependentactions scripts for CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP
+
+INSERT INTO `dbxdb`.`dependentactions` (`actionId`, `dependentactionId`, `featureId`, `actionName`, `featureName`, `createdts`, `lastmodifiedts`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_PREPAID_DOMESTIC_TOPUP', 'CARD_MANAGEMENT', 'CARD_MANAGEMENT', 'Card Management', 'Manage Debit and Credit Cards', '2024-09-29 10:27:29', '2024-09-29 10:27:29', 'NP0010001');
+
+
+-------------------------------------------------------------------
+
+# Required scipts of CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP for new feature action and MFA
+
+# MFA creating for CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP
+
+INSERT INTO `dbxdb`.`mfa` (`id`, `App_id`, `Action_id`, `FrequencyType_id`, `Status_id`, `Description`, `PrimaryMFAType`, `SecondaryMFAType`, `SMSText`, `EmailSubject`, `EmailBody`, `createdby`, `modifiedby`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('1868396791', 'RETAIL_AND_BUSINESS_BANKING', 'CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP', 'ALWAYS', 'SID_INACTIVE', 'Card Management- Virtual dollar card topup', 'SECURITY_QUESTIONS', 'SECURE_ACCESS_CODE', '[#]OTP[/#]\n', 'OTP', '<br>[#]OTP[/#]<br><br class=\"\">', 'UID10', 'admin1', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '0', 'NP0010001');
+
+# feature action creating for CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP
+
+INSERT INTO `dbxdb`.`featureaction` (`id`, `Feature_id`, `App_id`, `Type_id`, `name`, `description`, `isAccountLevel`, `isMFAApplicable`, `MFA_id`, `isPrimary`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `status`, `accesspolicyId`, `actionlevelId`, `isApprovalAction`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP', 'CARD_MANAGEMENT', 'RETAIL_AND_BUSINESS_BANKING', 'NON_MONETARY', 'Virtual dollar card topup', 'Virtual dollar card topup', '0', '1', '1868396791', '0', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '0', 'SID_ACTION_ACTIVE', 'CREATE', 'CUSTOMERID_LEVEL', '0', 'NP0010001');
+
+# actiondisplaynamedescription scripts for CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP
+
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP', 'de-DE', 'Card Management Virtual dollar card topup', 'Virtual dollar card topup', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP', 'en-GB', 'Card Management Virtual dollar card topup', 'Virtual dollar card topup', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP', 'en-US', 'Virtual dollar card topup', 'Virtual dollar card topup', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP', 'es-ES', 'Card Management Virtual dollar card topup', 'Virtual dollar card topup', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP', 'fr-FR', 'Card Management Virtual dollar card topup', 'Virtual dollar card topup', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+
+# featureactionroletype scripts for CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP
+
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_BUSINESS', 'CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_RETAIL', 'CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_WEALTH', 'CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP', '2024-09-29 10:27:35', '2024-09-29 10:27:35', '2024-09-29 10:27:35', '0', 'NP0010001');
+
+# dependentactions scripts for CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP
+
+INSERT INTO `dbxdb`.`dependentactions` (`actionId`, `dependentactionId`, `featureId`, `actionName`, `featureName`, `createdts`, `lastmodifiedts`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_VIRTUAL_DOLLAR_CARD_TOPUP', 'CARD_MANAGEMENT', 'CARD_MANAGEMENT', 'Card Management', 'Manage Debit and Credit Cards', '2024-09-29 10:27:29', '2024-09-29 10:27:29', 'NP0010001');
+
+-------------------------------------------------------------------
+
+# Required scipts of CARD_MANAGEMENT_CARD_PAYMENT for new feature action and MFA
+
+# MFA creating for CARD_MANAGEMENT_CARD_PAYMENT
+
+INSERT INTO `dbxdb`.`mfa` (`id`, `App_id`, `Action_id`, `FrequencyType_id`, `Status_id`, `Description`, `PrimaryMFAType`, `SecondaryMFAType`, `SMSText`, `EmailSubject`, `EmailBody`, `createdby`, `modifiedby`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('1868396792', 'RETAIL_AND_BUSINESS_BANKING', 'CARD_MANAGEMENT_CARD_PAYMENT', 'ALWAYS', 'SID_INACTIVE', 'Card Management- Card payment', 'SECURITY_QUESTIONS', 'SECURE_ACCESS_CODE', '[#]OTP[/#]\n', 'OTP', '<br>[#]OTP[/#]<br><br class=\"\">', 'UID10', 'admin1', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '0', 'NP0010001');
+
+# feature action creating for CARD_MANAGEMENT_CARD_PAYMENT
+
+INSERT INTO `dbxdb`.`featureaction` (`id`, `Feature_id`, `App_id`, `Type_id`, `name`, `description`, `isAccountLevel`, `isMFAApplicable`, `MFA_id`, `isPrimary`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `status`, `accesspolicyId`, `actionlevelId`, `isApprovalAction`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_CARD_PAYMENT', 'CARD_MANAGEMENT', 'RETAIL_AND_BUSINESS_BANKING', 'NON_MONETARY', 'Card payment', 'Card payment', '0', '1', '1868396792', '0', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '0', 'SID_ACTION_ACTIVE', 'CREATE', 'CUSTOMERID_LEVEL', '0', 'NP0010001');
+
+# actiondisplaynamedescription scripts for CARD_MANAGEMENT_CARD_PAYMENT
+
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_CARD_PAYMENT', 'de-DE', 'Card Management Card payment', 'Card payment', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_CARD_PAYMENT', 'en-GB', 'Card Management Card payment', 'Card payment', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_CARD_PAYMENT', 'en-US', 'Card payment', 'Card payment', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_CARD_PAYMENT', 'es-ES', 'Card Management Card payment', 'Card payment', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_CARD_PAYMENT', 'fr-FR', 'Card Management Card payment', 'Card payment', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '2024-09-29 10:27:29', '0', 'NP0010001');
+
+# featureactionroletype scripts for CARD_MANAGEMENT_CARD_PAYMENT
+
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_BUSINESS', 'CARD_MANAGEMENT_CARD_PAYMENT', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_RETAIL', 'CARD_MANAGEMENT_CARD_PAYMENT', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '2024-09-29 10:27:27', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_WEALTH', 'CARD_MANAGEMENT_CARD_PAYMENT', '2024-09-29 10:27:35', '2024-09-29 10:27:35', '2024-09-29 10:27:35', '0', 'NP0010001');
+
+# dependentactions scripts for CARD_MANAGEMENT_CARD_PAYMENT
+
+INSERT INTO `dbxdb`.`dependentactions` (`actionId`, `dependentactionId`, `featureId`, `actionName`, `featureName`, `createdts`, `lastmodifiedts`, `companyLegalUnit`) VALUES ('CARD_MANAGEMENT_CARD_PAYMENT', 'CARD_MANAGEMENT', 'CARD_MANAGEMENT', 'Card Management', 'Manage Debit and Credit Cards', '2024-09-29 10:27:29', '2024-09-29 10:27:29', 'NP0010001');
+
+-------------------------------------------------------------------
+
+# Required scipts of CARD_MANAGEMENT_REPORT_CARD_STOLEN for new feature action and MFA
+
+# MFA creating for CARD_MANAGEMENT_REPORT_CARD_STOLEN
+
+INSERT INTO `dbxdb`.`mfa` (`id`, `App_id`, `Action_id`, `FrequencyType_id`, `Status_id`, `Description`, `PrimaryMFAType`, `SecondaryMFAType`, `SMSText`, `EmailSubject`, `EmailBody`, `createdby`, `modifiedby`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('1868396793', 'RETAIL_AND_BUSINESS_BANKING', 'CARD_MANAGEMENT_REPORT_CARD_STOLEN', 'ALWAYS', 'SID_INACTIVE', 'Card Management- Report card stolen', 'SECURITY_QUESTIONS', 'SECURE_ACCESS_CODE', '[#]OTP[/#]\n', 'OTP', '<br>[#]OTP[/#]<br><br class=\"\">', 'UID10', 'admin1', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '2024-09-29 10:26:51', '0', 'NP0010001');
+
+UPDATE `dbxdb`.`featureaction` SET `isMFAApplicable` = '1', `MFA_id` = '1868396793' WHERE (`id` = 'CARD_MANAGEMENT_REPORT_CARD_STOLEN') and (`companyLegalUnit` = 'NP0010001');
+
+

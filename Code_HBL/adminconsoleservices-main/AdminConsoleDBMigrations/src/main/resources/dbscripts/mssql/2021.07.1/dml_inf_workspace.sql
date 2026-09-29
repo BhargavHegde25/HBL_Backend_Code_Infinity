@@ -1,0 +1,6 @@
+INSERT INTO [${dbxschemaname}].[configurations] ([configuration_id], [bundle_id], [config_type], [config_key], [description], [config_value], [target], [isPreLoginConfiguration], [createdts], [lastmodifiedts], [synctimestamp], [softdeleteflag]) VALUES (N'7ca16df5-fbef-27bf-a5se-41dfb4f57209', N'INFINITY_WORKSPACE_CONFIG_BUNDLE', N'PREFERENCE', N'AC_SPOTLIGHT_URL', N'Spotlight app URL', N'https://dbxdev.konycloud.com/apps/Spotlight/#_frmDashboard', N'CLIENT', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 0);
+GO
+UPDATE [${dbxschemaname}].[configurations] SET config_value = N'["SME RM", "SME Ops","SME RM Manager","SME Operations Manager","SME IT Administrator"]' WHERE (configuration_id = '7ca16df5-cbef-47bf-a988-48dfb4f57209');
+GO
+INSERT INTO [${dbxschemaname}].[configurations] ([configuration_id], [bundle_id], [config_type], [config_key], [description], [config_value], [target], [isPreLoginConfiguration], [createdts], [lastmodifiedts], [synctimestamp], [softdeleteflag]) VALUES (N'7ca16df5-cbef-47bf-a988-48dfb4f57299', N'INFINITY_WORKSPACE_CONFIG_BUNDLE', N'PREFERENCE', N'DEFAULT_MODULE', N'Default Workspace module', N'Application Management', N'CLIENT', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 0);
+GO

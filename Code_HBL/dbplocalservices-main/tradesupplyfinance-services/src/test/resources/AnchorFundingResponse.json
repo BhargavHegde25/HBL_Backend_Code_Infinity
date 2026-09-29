@@ -1,0 +1,21 @@
+{
+    "fundingRequestId": "AFR23307UR3YI",
+    "buyerId": "BYR000111",
+    "currency": "USD",
+    "facilityAvailableLimit": "50000",
+    "facilityCurrency": "USD",
+    "facilityId": "FAC000111",
+    "facilityUtilisedLimit": "100000",
+    "financingDate": "",
+    "fundingDocuments": "{\"a\":\"b\"}",
+    "fundingRequestAmount": "20000",
+    "invoiceReferences": "[\"REF001\",\"REF002\",\"REF003\"]",
+    "productId": "PDT000111",
+    "productName": "Pdt Name",
+    "programName": "Program Name",
+    "supplierId": "SLR000111",
+    "orderId": "AFR23307UR3YI",
+    "status": "Draft",
+    "opstatus": 0,
+    "httpStatusCode": 0
+}

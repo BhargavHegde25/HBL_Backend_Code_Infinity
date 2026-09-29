@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.kony.adminconsole</groupId>
+		<artifactId>AdminConsoleAggregator</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>KeyPairGeneratorTool</artifactId>
+	<name>KeyPairGeneratorTool</name>
+	<description>Key Pair Generator Tool</description>
+	<properties>
+		<apache.commonslang.version>2.6</apache.commonslang.version>
+		<bouncycastle.version>1.78</bouncycastle.version>
+		<bouncycastle-bcpkix.version>1.75</bouncycastle-bcpkix.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${apache.commonslang.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk18on</artifactId>
+			<version>${bouncycastle.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpkix-jdk18on</artifactId>
+			<version>${bouncycastle-bcpkix.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.temenos.infinity</groupId>
+			<artifactId>infinity-api-commons</artifactId>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<finalName>KeyPairGenerator</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>create-keypair-generator-application-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<appendAssemblyId>false</appendAssemblyId>
+							<descriptors>
+								<descriptor>${project.basedir}/assembly/key-pair-generator-application-assembly.xml</descriptor>
+							</descriptors>
+							<archive>
+								<manifest>
+									<mainClass>com.infinity.dbx.certificate.generator.KeyPairGeneratorApplication</mainClass>
+								</manifest>
+								<manifestEntries>
+									<Bundle-Release-Version>${project.version}</Bundle-Release-Version>
+								</manifestEntries>
+							</archive>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

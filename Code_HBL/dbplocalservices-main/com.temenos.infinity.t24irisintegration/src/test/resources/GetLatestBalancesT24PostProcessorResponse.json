@@ -1,0 +1,20 @@
+{
+	"opstatus": 0,
+	"Accounts": [
+		{
+			"products": [
+				{
+					"availableFunds": "-1000",
+					"transactionCurrency": "USD",
+					"Account_id": "125725",
+					"productId": "CURRENT.ACCOUNT",
+					"principalBalance": "-1000",
+					"currentBalance": "-1000",
+					"currencyCode": "USD",
+					"availableBalance": "-1000"
+				}
+			]
+		}
+	],
+	"httpStatusCode": 200
+}

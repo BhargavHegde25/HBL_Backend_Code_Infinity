@@ -1,0 +1,90 @@
+feature: add base64EncodedQR param in getList service for mobile channel
+====================================================================================================================================================================================
+
+In Arrangements app:
+Added hblservices jar to the Holdings object service.
+In getList method, added the postprocessor - AddBase64QRToAccountsPostProcessor.
+In Holdings object service, In DigitalArrangements data model - added new custom field - base64EncodedQR.
+In Response mapping, added base64EncodedQR param to the Accounts map.
+
+====================================================================================================================================================================================
+
+Configured the server property - ACCOUNT_LIST_QR_PARAMS to store the config values required to generate the EMV Standard QR.
+
+====================================================================================================================================================================================
+
+
+--To map accountType (Checking→Current, Deposit→Fixed Deposit) in getList and getDetails services
+
+In Holdings object service, added a postprocessor GetDetailsAccountsCustomPostProcessor in the ArrangementDetails data model (getDetails method).
+
+Introduced a new base mapper BaseMapper2, and configured existing request and response mappings to support additional custom mappings if required.
+
+In DigitalArrangements data model (getList method), removed the postprocessor AddBase64QRToAccountsPostProcessor and added the new postprocessor GetListAccountsCustomPostProcessor.
+
+====================================================================================================================================================================================
+
+Configured QR_AGGREGATOR_TYPE server property to force routing of QR payments via configured aggregator type (fallback to user-selected type if not set).
+
+====================================================================================================================================================================================
+
+Introduced server properties to control parking account flow for Personal and Merchant QR, and added separate credential configuration for QR Connect IPS authorization:
+
+Parking Flags:
+- PARKING_ACC_TRANSFER_PERSONALQR_OTHERBANK_ENABLED
+- PARKING_ACC_TRANSFER_MERCHANTQR_ENABLED
+
+Connect IPS Credentials:
+- QR_CONNECTIPS_AUTHORIZATION
+- QR_CONNECTIPS_API_USER
+- QR_CONNECTIPS_API_PASSWORD
+
+====================================================================================================================================================================================
+Payments App - HBLQRNepalPay Integration Updates:
+
+1. Cloned the existing `QRPayment` service and created a new service named `QRPaymentDirectDebit`.
+2. Updated the service target URL to remove `/dnrq` suffix for direct debit processing.
+3. Attached `QRConnectIPSAuthorizationPreprocessor` to handle Connect IPS authentication.
+4. Removed `categoryPurpose` field from service input parameters and request template to align with updated API specification.
+5. Published the application after applying and validating changes.
+
+====================================================================================================================================================================================
+
+In Arrangements App :
+
+In dbpRbLocalServicesdb integration service - Updated/Refreshed the meta data for CRUD operations of qrtransaction_history table.
+Published the App
+
+====================================================================================================================================================================================
+
+Added server property - QR_SAMEBANK_VALIDATION_ENABLED to enable/disable Same Bank QR validation logic
+
+====================================================================================================================================================================================
+
+
+In Payments App :
+
+In T24ISPaymentsView integration service, cloned the getBeneficiaryName service and renamed it to getBeneficiaryNameQR.
+Removed the preprocessor.
+Added the postprocessor - payeeEligibleCheckPostprocessor.
+Configured the request input and output params.
+
+In QRPayments object service - qrValidation data model and validateQR method, added errorDetails param in response mapping.
+
+====================================================================================================================================================================================
+
+Added server property - QR_SAME_BANK_VALIDATION_MATCH_PERCENTAGE to maintain the match percentage of same bank QR Validation service.
+
+====================================================================================================================================================================================
+
+Added server property - QR_CONNECTIPS_BASE_URL to store the QR ConnectIps base URL.
+
+====================================================================================================================================================================================
+In Payments App:
+
+In HBLCustomQRService java service - created a new operation GenerateCIPSTokenQR and added the java class GenerateCIPSTokenQR.
+Changed the operation security level to Anonymous App Users.
+Saved and published the app.
+
+====================================================================================================================================================================================
+

@@ -1,0 +1,79 @@
+{
+	"opstatus": 0,
+	"totalNumberOfRecords": "9",
+	"approvarPendingRequests": [
+		{
+			"createdby": "admin2",
+			"requestId": "R12420",
+			"module": "CONTRACT_MANAGEMENT",
+			"action": "CREATE_CONTRACT",
+			"createdts": "2024-02-14 14:45:28.0",
+			"permissionName":"ApproveCreateContract"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "REQ_1608093574",
+			"module": "CUSTOMER_MANAGEMENT",
+			"action": "CREATE_CUSTOMER",
+			"createdts": "2024-02-27 12:05:13.0",
+			"permissionName":"ApproveCreateContract"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "REQ_1242270703",
+			"module": "CUSTOMER_MANAGEMENT",
+			"action": "CREATE_CUSTOMER",
+			"createdts": "2024-02-27 12:21:59.0",
+			"permissionName":"ApproveCreateContract"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "REQ_1437015991",
+			"module": "CUSTOMER_MANAGEMENT",
+			"action": "CREATE_CUSTOMER",
+			"createdts": "2024-02-27 12:24:51.0",
+			"permissionName":"ApproveCreateContract"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "REQ_1488305550",
+			"module": "CUSTOMER_MANAGEMENT",
+			"action": "CREATE_CUSTOMER",
+			"createdts": "2024-02-27 12:25:46.0",
+			"permissionName":"ApproveCreateContract"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "REQ_1708977525",
+			"module": "CUSTOMER_MANAGEMENT",
+			"action": "CREATE_CUSTOMER",
+			"createdts": "2024-02-27 12:26:47.0",
+			"permissionName":"ApproveCreateContract"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "REQ_1406914894",
+			"module": "CUSTOMER_MANAGEMENT",
+			"action": "CREATE_CUSTOMER",
+			"createdts": "2024-02-27 12:40:05.0",
+			"permissionName":"ApproveCreateContract"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "REQ_1247710174",
+			"module": "CUSTOMER_MANAGEMENT",
+			"action": "CREATE_CUSTOMER",
+			"createdts": "2024-02-27 13:15:48.0",
+			"permissionName":"ApproveCreateContract"
+		},
+		{
+			"createdby": "admin2",
+			"requestId": "REQ_1240418176",
+			"module": "CUSTOMER_MANAGEMENT",
+			"action": "CREATE_CUSTOMER",
+			"createdts": "2024-02-27 13:27:00.0",
+			"permissionName":"ApproveCreateContract"
+		}
+	],
+	"httpStatusCode": 0
+}

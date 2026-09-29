@@ -1,0 +1,14 @@
+{
+  "facilityId": "F123456789",
+  "loanProduct": "12345654321",
+  "currency": "USD",
+  "loanAmount": "33",
+  "drawdownTermDays": "3",
+  "drawdownTermMonths": "2",
+  "drawdownTermYears": "2",
+  "drawdownRequestId": "10000003",
+  "payInDetails":"[{\"amount\":\"20\",\"currency\":\"USD\",\"creditAccountId\":\"fgh\"},{\"amount\":\"30\",\"currency\":\"USD\",\"creditAccountId\":\"ghj\"}]",
+  "payOutDetails":"[{\"amount\":\"40\",\"debitAccountId\":\"fgh\",\"currency\":\"USD\"}]",
+  "customerDetails":"[{\"customerId\":\"45565\",\"customerRole\":\"dfg\",\"customerName\":\"dfg\"},{\"customerId\":\"454546\",\"customerRole\":\"ghj\",\"customerName\":\"fghn\"}]",
+  "record_id": "10000003"
+}

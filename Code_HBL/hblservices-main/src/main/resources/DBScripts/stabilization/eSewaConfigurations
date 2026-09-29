@@ -1,0 +1,283 @@
+--------Add below Server properties------------
+
+ESEWA_BASE_URL: https://uat-upi.esewa.com.np
+
+ESEWA_SERVER_DATA_ENCRYPTION_PUBLICKEY: 
+
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmWHkgP0GilpceoO2RezjZmpUTgnQkwevVK71Dww4m4IcMTQSN14lB1aP0+O/mYnqCL+GoTlIlqBjtxTC7TUQCcNx3t9pOGIeEJqqiwtAyMqXndLgLGE/toYnnPL6mG6G6TTCyfheLx+wmCDBtGk/WJVYqqKxZUp2BBYSpZZRg8emYG69xbKU2cAuQAyFVsONVEsseG8R40X1hgQXr3n0hsoktj/wEpGJzwpmq1tuWLjs8ZJ+GQU6zvet1wbTCaAOxFepYJ093z9W62UrMuRydbN6DHdtQWRxvGk1anLfL6DCU4fWeSIYYgJ3DKc8dXls0VmcyWZFDxwMtCct6V8sRQIDAQAB
+
+ESEWA_CLIENT_SIGNATURE_PRIVATEKEY:
+
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCKixfBEBAKrfrRJhEnHEfPmLQ/0BExp+4b/Kd+Xs/mie/Xg7lJqPOx1GNQQXaXnDOE9pcWBP7dmeKfJEibRfoAxAHLAtKXHxDklUPJI+o/P2zat8+ZYJHeX4yHVrRya/UbAm7pooacahSkUrzSUih9NX8DAF/O/wpeMU00FsWko5sqfhr40cQAvbr5MU/Vbz0e6oPPtRzj9e+A7fV95uaIdVEavLFaUZlQ7/8Y3R5q5w1gZA++HQJquTBsr/wd37aMbkErFR2JRE52v98dmsYf8GwzLxpX/sygbtZ40v3vIBqm0Dq6tBIlEKuAekjEGpK/3VoB9W97KkVI+BVCGQtFAgMBAAECggEAFHpgxXmxVVLICxgcWvKULrw8kF4Z3IQc7ugWfdhX1JS47dsbjSa69qMVFuzGMby15MZqKKgOYAT5+VnsnX7naCuQtEgzhoDiB1eE0HtNiZG/bkjTF7GtffgTloGbZHpOnXJroH8UdJQ9fth37oKUV4WLw47PmpIaHzgcWEGxbxdECNwQSWRWuuLzYTpMglqO79tDXkwjdzT9oPHOVVXY6fPi3Id0azxVaxyS640uDOb7Ev9/QEr6yRqkRlokFgA5IHRo9z+ZZMXfdaG+U8XdHgoipMoFikiINHr74Y6nDdtF052W+q/krxF5nvaBofvh3RlAIgwihQYbCpBA6gGEIQKBgQDCqPIV8v3gjkHdV7V8Tnq8vkRYZTF6HqeE70KNavkXSeZue/E8Jh6DCelwwJShujoYiavFBhakbbhEU8dPCPVvzzFncZAkHP9eyuzxvoaW0BxMnenZvbQ6GhZ2iZt1j0hU7G84z6dWM/KKS8yokGGo4sTpx+5kwU6iUxe/WkZ7iQKBgQC2M0RfJ1+oloM0mQ/aEFkg4pzVuXBS5hBeoCqlYZkNEBP6NXKcbhTj0PL/xFdZg2507orHFzWd6dUmGugHv+QJQG81pbyqct540Jrt3CCOPaPZa8Mkh2uerlMUau9RSWXGIJ1Z91d8n5Xuqlrkm+k59wR60OtpF96KtYSzL8W23QKBgAZ7JYRBkN5XHi5Ga052NnPuScw/okQUnTM53BdlRmHWHgvzqHZ+NmnafKE6aDhyQNjsTIHE0CAtXwM3Xt1syO8uENEG4Ouy43W+f+EUnNqMl0SdxVlwjX2ZvMG5lyl02c2qCZH0p/egxyR/nZLHK9k5o6C8/VzxarLQ3WuLj+kxAoGAdPknDRv/KwIujCc0aSCTyCwU2pXqSh6QJeAYYQLuutc2rC2CPnHiEXzFdXU9Sye5U3MOP9Fjx9Um1gbyLn+AzHvEqiGUpa2HrPLodIsdj5R9TAoGR751VnO+vN4GdR51K6UmwGqujUD7hjVyk1CRhHhVNPBKIreDVXRCFLQ38DUCgYEAuGGlAXWdPuDCHorNHQNVc/79pzX1lflC6Fk4yF26Rm49AnJb7S1hXBgzeR4585DaRlRsOlLd9X+uRlys2Ws5U4G5Be84lfZbw/gyEdU1Pjy1+yl0cSO2Hu3RPm/h1nBJGNvNFVAnyw4chs6My0WWU6yvKexMTFkspSi2SRFs+4I=
+
+ESEWA_CLIENT_DATA_ENCRYPTION_PRIVATE_KEY:
+
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCh0ghkSd2wjGD6j2SS8VYke8g0m5zbLRHPL7vEdVwN6vZygQaXStSggpD20IW8G+4UaRls9KebYXEJoqvRcp9n7VqRM+ujcukIEYuHXZModPHAK4V3Z7VXtYlTWLTqiEINjrxpP+SISwMjnBVrZoPWb4OqORmfsr3mY3WefoN9sbLBGmSI/CCh705ezHpkf7G7KnxMK9gT6/K2Y2lQp5CKP2tJ0xnHbdBDQPY23/ddGZOMV6xuJQST3Psrx5pu6FBT/ar3QlauL4Y/fLZBV6aSyXMf17IEGRA+iy0gQZa7sFIgWyl9qVho2wRMsKDZWu13VyoKlyz0Ag1yX3nqfPy1AgMBAAECggEACUEdwb6HsyUUFsBEnDK5HnUFyhxsKAy3zAWK031yukkJtxqx6c0Zw+QzrinWvB9MylYIYjbLrxMvh8GJ2fyYKTVlzJAPldVohlGajS9IzzOA7+CNTXrc4Bs9s0qLbi5EuMnE9K/2veSsVUkD4JSITacq/H0vffaW7aoae+n4UyPTLzEm1AmtM8bzQPArciTTH1RmQyg2PfgeumuLZhobwvCCQh2zPSJFH4jCYp9a+H04XXdX2ZKrsJxNHUO8I0hOWUrNJswwEp1hQqgfBj8uiWFayu4LYrAr/iwpRHvS6hzNg5tEO7pFnVb7LTZANts/P0tNog+IS8sFlQfYcAiPMQKBgQDRTs8svKwRzUFGGBsukZXG8LynLHIHM0iovIrf2dQMObFJxcKCDSkl+TPcCHnQPgvLS3JFUEcXCjRRRb0ghdt9UXLPQ85oGtT/U5z2V0YsEZWB3gPMj4Gp73EiL40JbjySDIjbg3BG/IwK3rnRcZWHRTnpE0TsKZGTRxGx/OnGawKBgQDF603P5WntrDvlUAVrW8ZQJFk7m95UsKoSVyEWVExsM02SLF3RunA5mj8+A6i1M84Qvpf+aevGhHfp/x5TLmpsuCZsHwHOaxeZOV85mvWOrxwpPwnVjx+Mq/vBIP1EfuxDMQB9CeXreRvZLWNzh8YTPSRLQUhBqA+qhi+gl/3RXwKBgByc2Gd2N1OLqpOpcfXQwxfaCwATbFcdpJ4kgBuPzJQLQvghx7A9mlVtlrBKnFRiVvxoiOt+yOkWZQaDMRKEGfgsrTQ2Qb4rhNiOlpN6ZMZbdQO21PAe4gvYBrA0reQPJMqWWhMgCbY6ie5meiJuk5FVXlBFaRObryHiAkJBn7eXAoGBAKW1UE3rH5iOJwvkxtTPXygEdu2woCK6U3rNlndSlzXUcnMbUGXjukiQO7kZaSxltndQjIPHfU+V46x4HJS6fQKP4COQhnukMHrqjS727ffL50EldX9nuJuX904I5+RsfDX5lhYarnVLziQ0m1rEZ/P9siCMBQprwsocVU4ZU7rzAoGAHReTyJLjRIbyjmOnfubCM23p1V/am20VM/TL8moUTvVroTyg9C0Krsv4iyo2VvjXBJNYYKqTB4P92ZQ1VBMs6fomdgm70tCcgEBwaz5fpn997CJLLENOFdD/A/vhu+CqscYOOED+l5cv5bhJLMCTDp3tqAeJ1aQ9zjY406pldLU=
+
+ESEWA_SERVER_SIGNATURE_PUBLICKEY: 
+
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg1G7H4N6xLNVweKHOPUqYeXOmo3kYMKzNQmTE1aJXT4xC/6GLmPuaJDrvIlA7UMgnpgg9xATThHDd3FC1vsNRjI7+CNc3WwLhW7obBCuNWdLoSdg4IATOHfifF4wVGi12sIqHurn9lcrvw43OLxU8gx+euY59sJrYQrPNBIOMpSeFI0qRl6llCyZQkvKMuxaKKLyi73nEdL6ATIwV9i0xaXyzC8GTdzOtKJXCmeMAVjfjkfcjndAefC34Lme7RQy2U3pmDShSkxFgE3ANL9sxXgwnhoIQ5NqZLQK9iXZC0+bTfp5xooWJ5yjDrqxkEOqkV8LNHSaq8JtdjGkUqR73wIDAQAB
+
+ESEWA_CLINET_ID: HBNNPKA
+ESEWA_SWIFT_CODE: HBNNPKA
+
+HBL_HEAD_BRANCH: HBL Corporate Office,Kamaladi, Kathmandu, Nepal,P.O. Box: 20590,SWIFT: HIMANPKA
+
+
+-------Client App Properties-------
+
+Key: ESEWA_PURPOSE
+Value:  {"Utility Payment","Travel and Ticketing","Insurance and EMI","School/College Fee"}
+
+ESEWA_TOPUP_PAYABLE_ACCOUNT: 12008433710017
+ENABLE_LANGUAGE_SWITCH : value wil either false or true
+KYC_REG_KEY : Please provide your KYC details as registered with the bank.
+
+-----------Server properties-----------
+
+ESEWA_TOPUP_PAYABLE_ACCOUNT - value might be different based on the environment
+S2M_CARD_PAYMENT_PAYABLE_ACCNOUNT_NO - value might be different based on the environment
+S2M_CARD_TOPUP_PAYABLE_ACCNOUNT_NO- value might be different based on the environment
+
+------------ Enable eSewa MFA and feature-------------
+INSERT INTO `dbxdb`.`feature` (`id`, `App_id`, `name`, `description`, `Type_id`, `Status_id`, `Service_Fee`, `DisplaySequence`, `isPrimary`, `modifiedby`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('ESEWA_TOPUP', 'RETAIL_AND_BUSINESS_BANKING', 'eSewa Topup', 'eSewa Topup', 'NON_MONETARY', 'SID_FEATURE_ACTIVE', '0.00', '88', '0', 'admin1', '2024-12-03 18:50:43', '2025-08-31 16:03:33', '2024-12-03 18:50:43', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`mfa` (`id`, `App_id`, `Action_id`, `FrequencyType_id`, `Status_id`, `Description`, `PrimaryMFAType`, `SecondaryMFAType`, `SMSText`, `EmailSubject`, `EmailBody`, `createdby`, `modifiedby`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('1868396795', 'RETAIL_AND_BUSINESS_BANKING', 'ESEWA_TOPUP_ACTIVATE', 'ALWAYS', 'SID_ACTIVE', 'Enable ESEWA TOPUP', 'TRANSACTION_PIN', 'SECURE_ACCESS_CODE', '[#]OTP[/#]', 'Your Secure Access Code', '[#]OTP[/#]', 'UID10', 'user1', '2023-11-08 11:57:50', '2024-07-18 15:17:12', '2023-11-08 11:57:50', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`featuredisplaynamedescription` (`Feature_id`, `Locale_id`, `displayName`, `displayDescription`, `companyLegalUnit`) VALUES ('ESEWA_TOPUP', 'en-US', 'eSewa Topup', 'eSewa Topup', 'NP0010001');
+INSERT INTO `dbxdb`.`featureroletype` (`RoleType_id`, `Feature_id`,`companyLegalUnit`) VALUES ('TYPE_ID_RETAIL', 'ESEWA_TOPUP', 'NP0010001');
+INSERT INTO `dbxdb`.`rrole` (`id`, `createdts`, `lastmodifiedts`, `softdeleteflag`) VALUES ('ESEWA_TOPUP-CREATE', '2024-09-10 20:47:13', '2024-10-29 09:28:26', '0');
+INSERT INTO `dbxdb`.`featureaction` (`id`, `Feature_id`, `App_id`, `Type_id`, `Rrole_id`, `name`, `description`, `isAccountLevel`, `isMFAApplicable`, `MFA_id`, `isPrimary`, `DisplaySequence`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `status`, `accesspolicyId`, `actionlevelId`, `isApprovalAction`, `companyLegalUnit`) VALUES ('ESEWA_TOPUP_ACTIVATE', 'ESEWA_TOPUP', 'RETAIL_AND_BUSINESS_BANKING', 'NON_MONETARY', 'ESEWA_TOPUP-CREATE', 'eSewa Topup activate', 'Enable or disable eSewa Topup', '1', '0', '1868396795', '0', '3', '2024-09-26 12:09:43', '2024-09-26 12:09:43', '2024-09-26 12:09:43', '0', 'SID_ACTION_ACTIVE', 'CREATE', 'CUSTOMERID_LEVEL', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('ESEWA_TOPUP_ACTIVATE', 'de-DE', 'eSewa Topup', 'eSewa Topup account for customer', '2024-09-10 20:47:42', '2024-09-10 20:47:42', '2024-09-10 20:47:42', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('ESEWA_TOPUP_ACTIVATE', 'en-GB', 'eSewa Topup', 'eSewa Topup account for customer', '2024-09-10 20:47:41', '2024-09-10 20:47:41', '2024-09-10 20:47:41', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('ESEWA_TOPUP_ACTIVATE', 'en-US', 'eSewa Topup', 'eSewa Topup account for customer', '2024-09-10 20:47:41', '2024-09-10 20:47:41', '2024-09-10 20:47:41', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('ESEWA_TOPUP_ACTIVATE', 'es-ES', 'eSewa Topup', 'eSewa Topup account for customer', '2024-09-10 20:47:42', '2024-09-10 20:47:42', '2024-09-10 20:47:42', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('ESEWA_TOPUP_ACTIVATE', 'fr-FR', 'eSewa Topup', 'eSewa Topup account for customer', '2024-09-10 20:47:42', '2024-09-10 20:47:42', '2024-09-10 20:47:42', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`dependentactions` (`actionId`, `dependentactionId`, `featureId`, `actionName`, `featureName`, `createdts`, `lastmodifiedts`, `companyLegalUnit`) VALUES ('ESEWA_TOPUP_ACTIVATE', 'ESEWA_TOPUP_ACTIVATE', 'ESEWA_TOPUP', 'eSewa Topup', 'eSewa Topup', '2024-09-10 20:47:42', '2024-09-10 20:47:42', 'NP0010001');
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_RETAIL', 'ESEWA_TOPUP_ACTIVATE', '2024-09-10 20:47:41', '2024-09-10 20:47:41', '2024-09-10 20:47:41', '0', 'NP0010001');
+UPDATE `dbxdb`.`mfa` SET `Action_id` = 'ESEWA_TOPUP_ACTIVATE' WHERE (`id` = '1868396795') and (`App_id` = 'RETAIL_AND_BUSINESS_BANKING') and (`Action_id` = 'ESEWA_TOPUP');
+UPDATE `dbxdb`.`featureaction` SET `isAccountLevel` = '0', `isMFAApplicable` = '1' WHERE (`id` = 'ESEWA_TOPUP_ACTIVATE') and (`companyLegalUnit` = 'NP0010001');
+
+------------------------------------------
+CREATE TABLE `esewaApiAuditLog` (
+  `id` varchar(50) NOT NULL,
+  `Customer_id` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `core_identifier` varchar(50) NOT NULL,
+  `ApiName` varchar(100) DEFAULT NULL,
+  `PlainPayload` varchar(1000) DEFAULT NULL,
+  `EncryptedRequest` varchar(5000) DEFAULT NULL,
+  `EncryptedResponse` varchar(5000) DEFAULT NULL,
+   `ValidatedResponse` varchar(1000) DEFAULT NULL,
+  
+  `createdts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `lastmodifiedts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `synctimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `softdeleteflag` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `FK_Cust_id_esewa_idx` (`Customer_id`),
+  CONSTRAINT `FK_Cust_id_esewa_idx` FOREIGN KEY (`Customer_id`) REFERENCES `customer` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3
+
+
+CREATE TABLE `esewaTransactionReprocessLog` (
+  `id` varchar(50) NOT NULL,
+  `OriginatingUniqueId` varchar(50) NOT NULL,
+  `SourceAccountNo` varchar(50) NOT NULL,
+  `EsewaId` varchar(50) NOT NULL,
+  `Amount` varchar(50) DEFAULT NULL,
+  `SourceFTID` varchar(50) DEFAULT NULL,
+  `ContraFTID` varchar(50) DEFAULT NULL,
+  `LoggedDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `lastmodifiedts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `synctimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `softdeleteflag` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3
+
+------------------ Spotlight system configuration for eSewa Fee-------
+Key: ESEWA_TRANSFER_FEE
+Value:
+
+[
+    {
+        "minRange": "1.00",
+        "maxRange": "100.00",
+        "feeValue": "2.00"
+    },
+	{
+        "minRange": "101.00",
+        "maxRange": "1000.00",
+        "feeValue": "10.00"
+    },
+    {
+        "minRange": "1001.00",
+        "maxRange": "10000.00",
+        "feeValue": "100.00"
+    },
+    {
+        "minRange": "10001.00",
+        "maxRange": "100000000.00",
+        "feeValue": "200.00"
+    }
+]
+
+
+Key: ESEWA_CHANNEL_LIMIT
+Value: 
+[
+    {
+        "OLB_MIN_AMT_PER_TXN": "10",
+        "OLB_MAX_AMT_PER_TXN": "1000",
+        "OLB_MAX_AMT_PER_DAY": "5000",
+		"OLB_MAX_AMT_PER_MONTH": "50000",
+		"OLB_MAX_TXN_PER_DAY": "5",
+		"OLB_MAX_TXN_PER_MONTH": "20",
+		"OLB_MAX_TXN_PER_DAY_WALLET_ACCOUNT": "10"
+    },
+	{
+        "MB_MIN_AMT_PER_TXN": "10",
+        "MB_MAX_AMT_PER_TXN": "1000",
+        "MB_MAX_AMT_PER_DAY": "5000",
+		"MB_MAX_AMT_PER_MONTH": "50000",
+		"MB_MAX_TXN_PER_DAY": "5",
+		"MB_MAX_TXN_PER_MONTH": "20",
+		"MB_MAX_TXN_PER_DAY_WALLET_ACCOUNT": "10"
+    }
+]
+
+
+
+--------------------------
+
+CREATE TABLE `esewaTransactionLog` (
+  `id` varchar(50) NOT NULL,
+  `Customer_id` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `core_identifier` varchar(50) NOT NULL,
+  `BatchId` varchar(50) DEFAULT NULL,
+  `SwiftCode` varchar(50) DEFAULT NULL,
+  `EsewaId` varchar(50) DEFAULT NULL,
+  `EsewaReceiverName` varchar(50) DEFAULT NULL,
+  `Fee` varchar(50) DEFAULT NULL,
+  `Amount` varchar(50) DEFAULT NULL,
+  `OriginatingUniqueId` varchar(50) DEFAULT NULL,
+  `Status` varchar(50) DEFAULT NULL,
+  `ResponseCode` varchar(50) DEFAULT NULL,
+  `StatusCode` varchar(50) DEFAULT NULL,
+  `RawResponse` varchar(5000) DEFAULT NULL,
+  `SourceAccountNo` varchar(50) DEFAULT NULL,
+  `SenderName` varchar(100) DEFAULT NULL,
+  `SenderMobileNo` varchar(50) DEFAULT NULL,
+  `SenderAddress` varchar(200) DEFAULT NULL,
+  `TransactionPurpose` varchar(50) DEFAULT NULL,
+  `TransactionStatus` varchar(50) DEFAULT NULL,
+  `TransactionDetailOriginatingUniqueId` varchar(50) DEFAULT NULL,
+  `statuscheck` varchar(50) DEFAULT NULL,
+  `channelName` varchar(50) DEFAULT NULL,
+  `TransactionDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  
+  `createdts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `lastmodifiedts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `synctimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `softdeleteflag` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `FK_Cust_id_esewaTrans_idx` (`Customer_id`),
+  CONSTRAINT `FK_Cust_id_esewaTrans_idx` FOREIGN KEY (`Customer_id`) REFERENCES `customer` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3
+
+
+--------- eSewa Default account scripts-------------
+
+ALTER table dbxdb.customerpreference 
+ADD COLUMN DefaultAccounteSewa varchar(50) NULL AFTER DefaultAccountCheckManagement;
+
+
+USE `dbxdb`;
+CREATE 
+     OR REPLACE ALGORITHM = UNDEFINED 
+      SQL SECURITY DEFINER
+VIEW `customerpreferencesview` AS
+    SELECT DISTINCT
+        `address`.`addressLine1` AS `addressLine1`,
+        `address`.`addressLine2` AS `addressLine2`,
+        `address`.`state` AS `state`,
+        `address`.`cityName` AS `city`,
+        `address`.`country` AS `country`,
+        `address`.`zipCode` AS `zipcode`,
+        `customer`.`areUserAlertsTurnedOn` AS `areUserAlertsTurnedOn`,
+        `customer`.`areAccountStatementTermsAccepted` AS `areAccountStatementTermsAccepted`,
+        `customer`.`areDepositTermsAccepted` AS `areDepositTermsAccepted`,
+        `customerpreference`.`DefaultAccountDeposit` AS `default_account_deposit`,
+        `customerpreference`.`DefaultAccountBillPay` AS `default_account_billPay`,
+        `customerpreference`.`DefaultAccountPayments` AS `default_account_payments`,
+        `customerpreference`.`DefaultAccountCardless` AS `default_account_cardless`,
+        `customerpreference`.`DefaultAccountTransfers` AS `default_account_transfers`,
+        `customerpreference`.`DefaultAccountLoanPayment` AS `default_account_loanpayment`,
+        `customerpreference`.`DefaultAccountCardPayment` AS `default_account_cardpayment`,
+        `customerpreference`.`DefaultAccountCheckManagement` AS `default_account_checkmanagement`,
+        `customerpreference`.`DefaultAccountDashboard` AS `default_account_dashboard`,
+        `customerpreference`.`DefaultAccountQRPayment` AS `default_account_qrpayment`,
+		`customerpreference`.`DefaultAccounteSewa` AS `default_account_esewa`,
+        `customerpreference`.`DefaultAccountCheckDeposit` AS `default_account_checkdeposit`,
+        `customerpreference`.`DefaultAccountCashWithdrawl` AS `default_account_cashwithdrawl`,
+        `customerpreference`.`DefaultModule_id` AS `DefaultModule_id`,
+        `customerpreference`.`DefaultAccountWire` AS `default_account_wire`,
+        `customerpreference`.`DefaultFromAccountP2P` AS `default_from_account_p2p`,
+        `customerpreference`.`DefaultToAccountP2P` AS `default_to_account_p2p`,
+        `customer`.`isP2PActivated` AS `isP2PActivated`,
+        `customer`.`isP2PSupported` AS `isP2PSupported`,
+        `customer`.`isBillPaySupported` AS `isBillPaySupported`,
+        `customer`.`isBillPayActivated` AS `isBillPayActivated`,
+        `customer`.`isWireTransferActivated` AS `isWireTransferActivated`,
+        `customer`.`isWireTransferEligible` AS `isWireTransferEligible`,
+        `customerpreference`.`ShowBillPayFromAccPopup` AS `showBillPayFromAccPopup`,
+        `customer`.`FirstName` AS `userFirstName`,
+        `customer`.`LastName` AS `userLastName`,
+        `customer`.`Gender` AS `gender`,
+        `customer`.`IsPinSet` AS `isPinSet`,
+        `customer`.`DateOfBirth` AS `DateOfBirth`,
+        `customer`.`NoOfDependents` AS `noofdependents`,
+        `customer`.`SpouseName` AS `spousefirstname`,
+        `customer`.`Ssn` AS `ssn`,
+        `customer`.`CountryCode` AS `CountryCode`,
+        `customer`.`UserImage` AS `userImage`,
+        `customer`.`UserImageURL` AS `userImageURL`,
+        `customer`.`isEagreementSigned` AS `isEagreementSigned`,
+        `customer`.`id` AS `id`,
+        `customer`.`UserName` AS `UserName`,
+        `customer`.`MaritalStatus_id` AS `maritalstatus`,
+        `customer`.`Lastlogintime` AS `lastlogintime`,
+        `customer`.`Bank_id` AS `Bank_id`,
+        `primaryphone`.`Value` AS `Phone`,
+        `primaryemail`.`Value` AS `Email`
+    FROM
+        ((((`customer`
+        LEFT JOIN `customerpreference` ON ((`customerpreference`.`Customer_id` = `customer`.`id`)))
+        LEFT JOIN (`customeraddress`
+        JOIN `address` ON ((`address`.`id` = `customeraddress`.`Address_id`))) ON (((`customer`.`id` = `customeraddress`.`Customer_id`)
+            AND (`customeraddress`.`isPrimary` = 1))))
+        LEFT JOIN `customercommunication` `primaryphone` ON (((`primaryphone`.`Customer_id` = `customer`.`id`)
+            AND (`primaryphone`.`isPrimary` = 1)
+            AND (`primaryphone`.`Type_id` = 'COMM_TYPE_PHONE'))))
+        LEFT JOIN `customercommunication` `primaryemail` ON (((`primaryemail`.`Customer_id` = `customer`.`id`)
+            AND (`primaryemail`.`isPrimary` = 1)
+            AND (`primaryemail`.`Type_id` = 'COMM_TYPE_EMAIL'))))
+			
+Note: refresh meta data of customerpreference table			
+
+--------------
+ALTER TABLE transactionpinResetReq CHANGE channel channelName VARCHAR(50);
+
+ALTER table dbxdb.transactionpinResetReq 
+ADD COLUMN email varchar(50) NULL AFTER browser,
+ADD COLUMN phone varchar(50) NULL AFTER email;
+
+refreshmetadata of above table
+-------------------
+
+INSERT INTO `dbxdb`.`emailtemplates` (`id`, `TemplateName`, `TemplateText`, `Subject`, `SenderName`, `SenderEmail`) VALUES ('317', 'emailTempleteeSewaLoad', '<table style=\"border-color:#e0e0e0;border-style:solid;margin:auto;max-width:600px;\" border=\"0\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" bgcolor=\"#FFFFFF\"> <tbody> <tr> <td style=\"padding:20px 0;text-align:center;vertical-align:middle;\"> <figure class=\"image image_resized\" style=\"height:auto;margin:auto;width:270px;\"><img style=\"display:block;\" src=\"http://himalayanbank.com/int/notification/logo/HBL-Logo-280x56.png\" alt=\"Himalayan Bank\"></figure> </td> </tr> <tr> <td style=\"background-color:#a72c32;color:#ffffff;font-family:Verdana, Arial;font-size:13px;padding:15px 0;text-align:center;\"><strong>eSewa Load Details</strong></td> </tr> <td style=\"padding:5px 15px;\"> <figure class=\"table\" style=\"width:85%;\"> <table class=\"ck-table-resized\" border=\"0\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\"> <tr> <td style=\"background-color:#f4f4f4;border-radius:5px;color:#12120d;font-family:Verdana, Arial;font-size:16px;padding:8px 20px;\"><strong>Transactions Details</strong></td> </tr> <tbody> <tr> <td style=\"padding:8px 20px;\"> <figure class=\"table\"> <table style=\"font-family:Verdana, Arial;font-size:13px;\" border=\"0\" width=\"100%\"> <tbody> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Transaction Id :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%transactionId%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Transaction Status :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%transactionStatus%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Transaction Purpose :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%transactionPurpose%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Transaction Amount :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%transactionAmount%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Transaction Date :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%transactionDate%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Reference Id :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%referenceId%</td> </tr> </tbody> </table> </figure> </td> </tr> <tr> <td style=\"background-color:#f4f4f4;border-radius:5px;color:#12120d;font-family:Verdana, Arial;font-size:16px;padding:8px 20px;\"><strong>Customer Account Details</strong></td> </tr> <tr> <td style=\"padding:8px 20px;\"> <figure class=\"table\"> <table style=\"font-family:Verdana, Arial;font-size:13px;\" border=\"0\" width=\"100%\"> <tbody> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Bank Name:</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%bankName%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Account Name:</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%accountName%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Account Number:</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%accountNumber%</td> </tr> </tbody> </table> </figure> </td> </tr> <tr> <td style=\"background-color:#f4f4f4;border-radius:5px;color:#12120d;font-family:Verdana, Arial;font-size:16px;padding:8px 20px;\"><strong>Beneficiary Details</strong></td> </tr> <tr> <td style=\"padding:8px 20px;\"> <figure class=\"table\"> <table style=\"font-family:Verdana, Arial;font-size:13px;\" border=\"0\" width=\"100%\"> <tbody> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Receiver Name:</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%receiverName%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>eSewa Id:</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%eSewaId%</td> </tr> </tbody> </table> </figure> </td> </tr> </tbody> </table> </figure> </td> </tr> <tr> <td style=\"font-family:Verdana, Arial;padding:20px 0;text-align:center;\"> <figure class=\"table\"> <table border=\"0\" width=\"100%\"> <tbody> <tr> <td style=\"color:#777;font-size:13px;text-align:center;\"><strong>Himalayan Bank Limited</strong></td> </tr> </tbody> </table> </figure> </td> </tr> </tbody> </table>', 'eSewa Load Details', 'Infinity', 'dbx_cl@infinity.com');
+
+INSERT INTO `dbxdb`.`emailtemplates` (`id`, `TemplateName`, `TemplateText`, `Subject`, `SenderName`, `SenderEmail`) VALUES ('320', 'CARD_EMI_REQ_EMAIL_TEMPLATE', '<table style=\"border-color:#e0e0e0;border-style:solid;margin:auto;max-width:600px;\" border=\"0\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" bgcolor=\"#FFFFFF\"> <tbody> <tr> <td style=\"padding:20px 0;text-align:center;vertical-align:middle;\"> <figure class=\"image image_resized\" style=\"height:auto;margin:auto;width:270px;\"><img style=\"display:block;\" src=\"http://himalayanbank.com/int/notification/logo/HBL-Logo-280x56.png\" alt=\"Himalayan Bank\"></figure> </td> </tr> <tr> <td style=\"background-color:#a72c32;color:#ffffff;font-family:Verdana, Arial;font-size:13px;padding:15px 0;text-align:center;\"><strong>EMI Conversion Request Details </strong></td> </tr> <td style=\"padding:5px 15px;\"> <figure class=\"table\" style=\"width:85%;\"> <table class=\"ck-table-resized\" border=\"0\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\"> <tr> <td style=\"background-color:#f4f4f4;border-radius:5px;color:#12120d;font-family:Verdana, Arial;font-size:16px;padding:8px 20px;\"><strong>Transactions Details</strong></td> </tr> <tbody> <tr> <td style=\"padding:8px 20px;\"> <figure class=\"table\"> <table style=\"font-family:Verdana, Arial;font-size:13px;\" border=\"0\" width=\"100%\"> <tbody> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Transaction Id :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%transactionId%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Billing Amount :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%transactionAmount%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Transaction Date :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%transactionDate%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Requested EMI Tenure :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%tenure%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Card Number :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%cardNumber%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Card Account Number :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%cardAccNumber%</td> </tr> </tbody> </table> </figure> </td> </tr> <tr> <td style=\"background-color:#f4f4f4;border-radius:5px;color:#12120d;font-family:Verdana, Arial;font-size:16px;padding:8px 20px;\"><strong>Customer Details</strong></td> </tr> <tr> <td style=\"padding:8px 20px;\"> <figure class=\"table\"> <table style=\"font-family:Verdana, Arial;font-size:13px;\" border=\"0\" width=\"100%\"> <tbody> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Customer Name:</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%customerName%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Customer ID:</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%customerId%</td> </tr> </tbody> </table> </figure> </td> </tr> </tbody> </table> </figure> </td> </tr> <tr> <td style=\"font-family:Verdana, Arial;padding:20px 0;text-align:center;\"> <figure class=\"table\"> <table border=\"0\" width=\"100%\"> <tbody> <tr> <td style=\"color:#777;font-size:13px;text-align:center;\"><strong>Himalayan Bank Limited</strong></td> </tr> </tbody> </table> </figure> </td> </tr> </tbody> </table>', 'EMI Conversion Request Details', 'Infinity', 'dbx_cl@infinity.com');
+
+UPDATE `dbxdb`.`emailtemplates` SET `TemplateText` = '<table style=\"border-color:#e0e0e0;border-style:solid;margin:auto;max-width:600px;\" border=\"0\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" bgcolor=\"#FFFFFF\"> <tbody> <tr> <td style=\"padding:20px 0;text-align:center;vertical-align:middle;\"> <figure class=\"image image_resized\" style=\"height:auto;margin:auto;width:270px;\"><img style=\"display:block;\" src=\"http://himalayanbank.com/int/notification/logo/HBL-Logo-280x56.png\" alt=\"Himalayan Bank\"></figure> </td> </tr> <tr> <td style=\"background-color:#a72c32;color:#ffffff;font-family:Verdana, Arial;font-size:13px;padding:15px 0;text-align:center;\"><strong>EMI Conversion Request Details </strong></td> </tr> <td style=\"padding:5px 15px;\"> <figure class=\"table\" style=\"width:85%;\"> <table class=\"ck-table-resized\" border=\"0\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\"> <tr> <td style=\"background-color:#f4f4f4;border-radius:5px;color:#12120d;font-family:Verdana, Arial;font-size:16px;padding:8px 20px;\"><strong>Transactions Details</strong></td> </tr> <tbody> <tr> <td style=\"padding:8px 20px;\"> <figure class=\"table\"> <table style=\"font-family:Verdana, Arial;font-size:13px;\" border=\"0\" width=\"100%\"> <tbody> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Transaction Id :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%transactionId%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Billing Amount :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%transactionAmount%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Transaction Currency :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%currency%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Transaction Date :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%transactionDate%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Requested EMI Tenure :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%tenure%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Card Number :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%cardNumber%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Card Account Number :</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%cardAccNumber%</td> </tr> </tbody> </table> </figure> </td> </tr> <tr> <td style=\"background-color:#f4f4f4;border-radius:5px;color:#12120d;font-family:Verdana, Arial;font-size:16px;padding:8px 20px;\"><strong>Customer Details</strong></td> </tr> <tr> <td style=\"padding:8px 20px;\"> <figure class=\"table\"> <table style=\"font-family:Verdana, Arial;font-size:13px;\" border=\"0\" width=\"100%\"> <tbody> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Customer Name:</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%customerName%</td> </tr> <tr> <td style=\"padding:4px 0px;white-space:nowrap;width:35%;\"><strong>Customer ID:</strong></td> <td style=\"padding:4px 0px;white-space:nowrap;width:65%;\">%customerId%</td> </tr> </tbody> </table> </figure> </td> </tr> </tbody> </table> </figure> </td> </tr> <tr> <td style=\"font-family:Verdana, Arial;padding:20px 0;text-align:center;\"> <figure class=\"table\"> <table border=\"0\" width=\"100%\"> <tbody> <tr> <td style=\"color:#777;font-size:13px;text-align:center;\"><strong>Himalayan Bank Limited</strong></td> </tr> </tbody> </table> </figure> </td> </tr> </tbody> </table>' WHERE (`id` = '320');
+
+

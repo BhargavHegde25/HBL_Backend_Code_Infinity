@@ -1,0 +1,6 @@
+/* Smart Banking Advisory Featuresactions assignment for specfic role */
+
+INSERT INTO `groupactionlimit` (`id`, `Group_id`, `Action_id`, `isNewAction`, `createdby`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`) VALUES (uuid(), 'GROUP_ADMINISTRATOR', 'CASHFLOW_PREDICTION_CHART_VIEW', '0', 'UID10', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '0');
+INSERT INTO `groupactionlimit` (`id`, `Group_id`, `Action_id`, `isNewAction`, `createdby`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`) VALUES (uuid(), 'GROUP_ADMINISTRATOR', 'SBA_BUSINESS_HEALTH_SCORE_VIEW', '0', 'UID10', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '0');
+INSERT INTO `groupactionlimit` (`id`, `Group_id`, `Action_id`, `isNewAction`, `createdby`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`) VALUES (uuid(), 'GROUP_ADMINISTRATOR', 'SBA_INSIGHTS_VIEW', '0', 'UID10', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '0');
+INSERT INTO `groupactionlimit` (`id`, `Group_id`, `Action_id`, `isNewAction`, `createdby`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`) VALUES (uuid(), 'GROUP_ADMINISTRATOR', 'SBA_SIMULATION_VIEW', '0', 'UID10', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '0');

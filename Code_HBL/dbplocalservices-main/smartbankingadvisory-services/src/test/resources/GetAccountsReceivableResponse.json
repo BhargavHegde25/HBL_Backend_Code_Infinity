@@ -1,0 +1,37 @@
+{
+  "name": "VCOOInvoiceBySubscriber",
+  "opstatus": 0,
+  "value": [
+    {
+      "summaryOverdueUpcomingAmt": "10276760",
+      "overduePercent0to10Days": "0.344437",
+      "summaryOverdueAmt": "9125960",
+      "rid": "0",
+      "duePercent31to60Days": "0.133485",
+      "overdue0to10Days": "3143325",
+      "overdue60Days": "1562765",
+      "overduePercent11to30Days": "0.014071",
+      "Subscriber": "114213",
+      "duePercent11to30Days": "0.32427",
+      "overduePercent60Days": "0.171243",
+      "CountOfOverdueInvoices11to30": "10",
+      "overduePercent31to60Days": "0.470246",
+      "summaryOverdueInvoices": "176",
+      "CountOfOverdueInvoices31to60": "14",
+      "summary31to60Days": "1537615",
+      "CountOfOverdueInvoicesBeyond60": "145",
+      "duePercent60Days": "0.026459",
+      "summary11to30Days": "3731660",
+      "summaryOverdueAmtPercent": "0.888019",
+      "summary0to10Days": "5935655",
+      "overdue11to30Days": "128415",
+      "CountOfOverdueInvoices0to10": "7",
+      "summary60Days": "30450",
+      "overdue31to60Days": "4291455",
+      "duePercent0to10Days": "0.515784",
+      "summaryOverdueInvoicesPercent": "0.888888888888888",
+      "summaryOverdueUpcomingInvoices": "198"
+    }
+  ],
+  "httpStatusCode": 200
+}

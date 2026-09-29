@@ -1,0 +1,2 @@
+INSERT INTO `configurations` (`configuration_id`,`bundle_id`,`config_type`,`config_key`,`description`,`config_value`,`target`,`isPreLoginConfiguration`,`createdby`,`modifiedby`,`createdts`,`lastmodifiedts`,`synctimestamp`,`softdeleteflag`) VALUES
+	 ('80b2a729-c211-44b3-aae6-e3cc8d546b1','C360_CONFIG_BUNDLE','PREFERENCE','DEFAULT_PROSPECT_GROUP','Deafult Group For Prospect','DEFAULT_GROUP','SERVER',0,NULL,NULL,'2020-12-07 11:34:52','2020-12-07 11:34:52','2020-12-07 11:34:52',0);

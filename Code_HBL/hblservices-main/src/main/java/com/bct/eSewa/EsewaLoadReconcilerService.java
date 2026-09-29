@@ -1,0 +1,410 @@
+package com.bct.eSewa;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.json.JSONObject;
+
+import com.bct.eSewa.EsewaLoadStateDao.State;
+import com.kony.dbx.util.CommonUtils;
+import com.konylabs.middleware.common.JavaService2;
+import com.konylabs.middleware.controller.DataControllerRequest;
+import com.konylabs.middleware.controller.DataControllerResponse;
+import com.konylabs.middleware.dataobject.Param;
+import com.konylabs.middleware.dataobject.Result;
+
+/**
+ * Finishes every eSewa load that the synchronous request could not resolve.
+ *
+ * Run this from a Fabric job. It replaces EsewaStatusCheckService, which queried a
+ * five-minute window and only wrote an audit row - it never resolved anything, so a
+ * missed job run dropped transactions permanently.
+ *
+ * This class is what makes "fail safe" actually safe. Without it, refusing to load on an
+ * unresolved status simply relocates the loss onto the customer: debited, not credited,
+ * nobody looking.
+ *
+ * POLICY - this job NEVER loads eSewa. A load only ever happens inside the customer's own
+ * request, where the outcome can be shown to them and their limits applied. Loading from a
+ * background job would credit a wallet for a request the customer was already told had failed,
+ * and would make "did this top-up succeed?" unanswerable at the moment they ask. The only
+ * corrective action here is a refund.
+ *
+ * Resolution rules:
+ *   - T24 still unresolved  -> re-check TPH. Fail => close. Complete (i.e. debited but the load
+ *                              never ran) => REVERSAL_PENDING and refund.
+ *   - eSewa outcome unknown -> status enquiry by originating_unique_id. NEVER a blind retry,
+ *                              and never a fresh load.
+ *   - Past max age          -> MANUAL_INTERVENTION + ERROR log. Never silently abandoned.
+ */
+public class EsewaLoadReconcilerService implements JavaService2 {
+
+    private static final Logger logger = LogManager.getLogger(EsewaLoadReconcilerService.class);
+
+    private static final String REVERSAL_SERVICE   = "HBLCreateExternalTransfers";
+    private static final String REVERSAL_OPERATION = "reverseTransaction";
+
+    private final EsewaLoadStateDao dao = new EsewaLoadStateDao();
+
+    @Override
+    public Object invoke(String methodId, Object[] inputArray, DataControllerRequest request,
+                         DataControllerResponse response) throws Exception {
+
+        final Result result = new Result();
+
+        final int  batchSize        = (int) ESewaLoadAmountServiceExtn.longProperty(request, "ESEWA_RECON_BATCH_SIZE", 50L);
+        final long maxAgeMinutes    = ESewaLoadAmountServiceExtn.longProperty(request, "ESEWA_RECON_MAX_AGE_MINUTES", 1440L);
+        final long minAgeSeconds    = ESewaLoadAmountServiceExtn.longProperty(request, "ESEWA_RECON_MIN_AGE_SECONDS", 30L);
+        final long notFoundGraceMs  = ESewaLoadAmountServiceExtn.longProperty(request, "ESEWA_RECON_NOT_FOUND_GRACE_MS", 60000L);
+
+        List<JSONObject> work = dao.findWork(request, batchSize);
+        logger.info("eSewa reconciler: {} row(s) to consider", work.size());
+
+        int resolved = 0, escalated = 0, skipped = 0;
+
+        for (JSONObject row : work) {
+            String referenceId = row.optString("OriginatingUniqueId", "");
+            State  state       = EsewaLoadStateDao.stateOf(row);
+            if (StringUtils.isBlank(referenceId) || state == null || state.isTerminal()) {
+                skipped++;
+                continue;   // legacy row or already finished
+            }
+
+            long ageSeconds = ageSeconds(row);
+            if (ageSeconds < minAgeSeconds) {
+                skipped++;  // still in flight in a live request
+                continue;
+            }
+
+            if (ageSeconds > maxAgeMinutes * 60L) {
+                logger.error("eSewa reconciler: ESCALATING order={} state={} age={}min - MANUAL ACTION REQUIRED",
+                        referenceId, state, ageSeconds / 60L);
+                dao.markState(request, referenceId, State.MANUAL_INTERVENTION, null,
+                        "unresolved past max age in state " + state, EsewaLoadStateDao.attemptsOf(row));
+                escalated++;
+                continue;
+            }
+
+            try {
+                if (resolveOne(request, row, referenceId, state, notFoundGraceMs)) { resolved++; }
+            } catch (Exception e) {
+                logger.error("eSewa reconciler: order={} state={} threw {}",
+                        referenceId, state, e.toString());
+            }
+        }
+
+        logger.info("eSewa reconciler finished: resolved={} escalated={} skipped={}",
+                resolved, escalated, skipped);
+
+        // Response shape deliberately mirrors EsewaStatusCheckService, the job-driven service
+        // that the previous vendor ran successfully: a "message", opstatus "0" and
+        // httpStatusCode "200" as STRINGS, and no errmsg on a successful run. Fabric marks a
+        // job run Failed on a non-zero opstatus, on the presence of errmsg/dbpErrMsg, or on an
+        // exception escaping invoke() - so a clean run must produce none of those.
+        result.setParam(new Param("message", work.isEmpty()
+                ? "No pending eSewa transactions to reconcile"
+                : "eSewa reconciliation complete: resolved=" + resolved
+                        + " escalated=" + escalated + " skipped=" + skipped));
+        result.setParam(new Param("resolved", String.valueOf(resolved)));
+        result.setParam(new Param("escalated", String.valueOf(escalated)));
+        result.setParam(new Param("skipped", String.valueOf(skipped)));
+        result.setParam(new Param("opstatus", "0"));
+        result.setParam(new Param("httpStatusCode", "200"));
+        return result;
+    }
+
+    // ---------------------------------------------------------------- per row
+
+    private boolean resolveOne(DataControllerRequest request, JSONObject row, String referenceId,
+                               State state, long notFoundGraceMs) {
+        switch (state) {
+
+            // ---- TPH still unresolved: re-check, then act
+            case T24_CHECK_PENDING:
+            case T24_PENDING_UNRESOLVED:
+            case T24_STATUS_UNKNOWN:
+            case ESEWA_SKIPPED_NO_BUDGET: {
+                T24PaymentStatusPoller.Outcome t24 =
+                        T24PaymentStatusPoller.forRequest(request).checkOnce(referenceId, request);
+                logger.info("eSewa reconciler: order={} t24={}", referenceId, t24);
+
+                if (t24.isTerminalFailure()) {
+                    dao.markState(request, referenceId, State.T24_FAILED,
+                            single("StatusCode", t24.rawStatus), "TPH terminal failure", bump(row));
+                    return true;
+                }
+                if (t24.mayLoadEsewa()) {
+                    // POLICY: the reconciler NEVER performs an eSewa load. A load is only ever
+                    // performed inside the customer's own request, where the outcome can be shown
+                    // to them and their limits applied. TPH completed after that window closed,
+                    // so the customer was debited and never credited: the only correct action is
+                    // to refund. Loading here would credit a wallet for a request the customer
+                    // was already told had failed.
+                    logger.error("eSewa reconciler: order={} completed in T24 after the request "
+                            + "window and was never loaded - refunding", referenceId);
+                    dao.markState(request, referenceId, State.REVERSAL_PENDING,
+                            single("StatusCode", t24.rawStatus),
+                            "load not performed within the request window - refunding", bump(row));
+                    return applyReversal(request, referenceId, row);
+                }
+                // Still pending or unknown: leave the state, record the attempt, try again later.
+                dao.markState(request, referenceId, state,
+                        single("StatusCode", t24.rawStatus), "still unresolved: " + t24, bump(row));
+                return false;
+            }
+
+            // ---- eSewa outcome not known: ENQUIRE, never retry the load
+            case ESEWA_LOAD_INITIATED:
+            case ESEWA_OUTCOME_UNKNOWN:
+            case ESEWA_PENDING: {
+                return resolveEsewaByEnquiry(request, row, referenceId, notFoundGraceMs);
+            }
+
+            // ---- reversal owed or previously failed
+            case ESEWA_FAILED_CONFIRMED:
+            case REVERSAL_PENDING:
+            case REVERSAL_FAILED:
+                return applyReversal(request, referenceId, row);
+
+            default:
+                return false;
+        }
+    }
+
+    // ---------------------------------------------------------------- reversal application
+
+    /**
+     * The reconciler's ONLY corrective action. It never loads eSewa; it only refunds a T24
+     * debit that was never credited.
+     */
+    private boolean applyReversal(DataControllerRequest request, String referenceId, JSONObject row) {
+        switch (reverse(request, referenceId, row)) {
+
+            case REVERSED:
+                dao.markState(request, referenceId, State.REVERSED, null,
+                        "reversal confirmed by reconciler", bump(row));
+                return true;
+
+            case DEFERRED:
+                // NOT a failure. T24 has not posted yet, so there is nothing to
+                // reverse. Hold the state and retry; logging this at ERROR would
+                // raise a false alarm on every run until T24 settles.
+                logger.warn("eSewa reconciler: reversal deferred order={} - T24 not Complete yet",
+                        referenceId);
+                dao.markState(request, referenceId, State.ESEWA_FAILED_CONFIRMED, null,
+                        "reversal deferred - awaiting T24 completion", bump(row));
+                return false;
+
+            case REJECTED:
+                // T24 answered and refused. Nothing was applied, so retrying is safe.
+                logger.error("eSewa reconciler: reversal REJECTED by T24 order={}", referenceId);
+                dao.markState(request, referenceId, State.REVERSAL_FAILED, null,
+                        "reversal rejected by T24", bump(row));
+                return false;
+
+            case UNKNOWN:
+            default:
+                // We never learned whether the reversal was applied. Retrying could
+                // post a SECOND reversing entry and refund the customer twice, so
+                // this must be settled by a human.
+                logger.error("eSewa reconciler: reversal OUTCOME UNKNOWN order={} - "
+                        + "escalating, do NOT retry automatically", referenceId);
+                dao.markState(request, referenceId, State.MANUAL_INTERVENTION, null,
+                        "reversal outcome unknown - verify in T24 before retrying", bump(row));
+                return false;
+        }
+    }
+
+    // ---------------------------------------------------------------- eSewa enquiry
+
+    private boolean resolveEsewaByEnquiry(DataControllerRequest request, JSONObject row,
+                                          String referenceId, long notFoundGraceMs) {
+        String statusUrl = ESewaLoadAmountServiceExtn.serverProperty(request, "ESEWA_BASE_URL")
+                + "/api/auth/load/status";
+        String decrypted;
+        try {
+            decrypted = EsewaValidationClient.checkTransactionStatus(request,
+                    new String[] { referenceId },
+                    ESewaLoadAmountServiceExtn.serverProperty(request, "ESEWA_SERVER_DATA_ENCRYPTION_PUBLICKEY"),
+                    ESewaLoadAmountServiceExtn.serverProperty(request, "ESEWA_CLIENT_SIGNATURE_PRIVATEKEY"),
+                    ESewaLoadAmountServiceExtn.serverProperty(request, "ESEWA_CLIENT_DATA_ENCRYPTION_PRIVATE_KEY"),
+                    ESewaLoadAmountServiceExtn.serverProperty(request, "ESEWA_SERVER_SIGNATURE_PUBLICKEY"),
+                    ESewaLoadAmountServiceExtn.serverProperty(request, "ESEWA_CLINET_ID"),
+                    ESewaLoadAmountServiceExtn.serverProperty(request, "ESEWA_SWIFT_CODE"),
+                    statusUrl,
+                    row.optString("core_identifier", ""),
+                    row.optString("Customer_id", ""),
+                    row.optString("username", ""));
+        } catch (Exception e) {
+            logger.warn("eSewa enquiry failed order={}: {}", referenceId, e.toString());
+            dao.markState(request, referenceId, State.ESEWA_OUTCOME_UNKNOWN, null,
+                    "enquiry threw " + e.getClass().getSimpleName(), bump(row));
+            return false;
+        }
+
+        String status = statusFromEnquiry(decrypted);
+        logger.info("eSewa enquiry order={} -> '{}'", referenceId, status);
+
+        if ("COMPLETE".equalsIgnoreCase(status)) {
+            // The load DID happen (the live request just never learned the outcome), so the
+            // transaction-log row was never written. Write it now, or this credit is absent
+            // from the customer's history and from their limit counts.
+            if (!dao.transactionLogExists(request, referenceId)) {
+                dao.writeTransactionLogFromRow(request, row, "COMPLETE", "ELR000", status,
+                        row.optString("TransactionDetailOriginatingUniqueId", ""),
+                        "resolved by eSewa status enquiry");
+            }
+            dao.markState(request, referenceId, State.ESEWA_SUCCESS,
+                    single("TransactionStatus", status), "confirmed by enquiry", bump(row));
+            return true;
+        }
+        if ("FAILED".equalsIgnoreCase(status)) {
+            dao.markState(request, referenceId, State.ESEWA_FAILED_CONFIRMED,
+                    single("TransactionStatus", status), "failure confirmed by enquiry", bump(row));
+            return false;
+        }
+        if ("NOT_FOUND".equalsIgnoreCase(status)) {
+            // NOT_FOUND immediately after a load can mean "not yet visible". Only treat it as
+            // terminal once the grace period has elapsed.
+            if (ageSeconds(row) * 1000L < notFoundGraceMs) {
+                dao.markState(request, referenceId, State.ESEWA_OUTCOME_UNKNOWN, null,
+                        "NOT_FOUND inside grace period - re-check later", bump(row));
+                return false;
+            }
+            dao.markState(request, referenceId, State.ESEWA_FAILED_CONFIRMED,
+                    single("TransactionStatus", status), "NOT_FOUND past grace - never registered",
+                    bump(row));
+            return false;
+        }
+
+        dao.markState(request, referenceId, State.ESEWA_PENDING,
+                single("TransactionStatus", nvl(status)), "still pending at eSewa", bump(row));
+        return false;
+    }
+
+    // ---------------------------------------------------------------- reversal
+
+    /**
+     * Four distinct outcomes, because they demand different handling:
+     *   REVERSED - T24 confirmed the reversing entry.
+     *   DEFERRED - not attempted. T24 has not posted yet, so there is nothing to reverse.
+     *              Retry later; this is normal, not an error.
+     *   REJECTED - attempted, and T24 refused. Nothing was applied, so retrying is safe.
+     *   UNKNOWN  - no answer (timeout / exception). The reversal MAY have been applied;
+     *              retrying could refund the customer twice. Needs a human.
+     */
+    private enum ReversalOutcome { REVERSED, DEFERRED, REJECTED, UNKNOWN }
+
+    private ReversalOutcome reverse(DataControllerRequest request, String referenceId, JSONObject row) {
+        T24PaymentStatusPoller.Outcome t24;
+        try {
+            t24 = T24PaymentStatusPoller.forRequest(request).checkOnce(referenceId, request);
+        } catch (Exception e) {
+            logger.warn("eSewa reversal: T24 status unreadable order={}: {}", referenceId, e.toString());
+            return ReversalOutcome.DEFERRED;   // cannot decide yet - never guess
+        }
+
+        // Only reverse a payment that actually posted. Reversing anything in flight is a race
+        // against the payment engine and can silently lose the customer's money.
+        if (!t24.mayLoadEsewa()) {
+            return ReversalOutcome.DEFERRED;
+        }
+        if (StringUtils.isBlank(t24.paymentSystemId)) {
+            // The key may be retrievable on a later run; not attempted, so not a failure.
+            logger.warn("eSewa reversal deferred order={}: no paymentSystemId available yet", referenceId);
+            return ReversalOutcome.DEFERRED;
+        }
+
+        try {
+            Map<String, Object> in = new HashMap<String, Object>();
+            in.put("paymentReferenceId", t24.paymentSystemId);
+            in.put("referenceId", referenceId);
+            in.put("transactionId", "");
+            request.addRequestParam_("paymentReferenceId", t24.paymentSystemId);
+            request.addRequestParam_("referenceId", referenceId);
+
+            Result r = CommonUtils.callIntegrationService(request, in,
+                    request.getHeaderMap(), REVERSAL_SERVICE, REVERSAL_OPERATION, true);
+
+            if (r == null) {
+                return ReversalOutcome.UNKNOWN;   // no response object at all
+            }
+            if (StringUtils.isNotBlank(r.getParamValueByName("dbpErrCode"))
+                    || StringUtils.isNotBlank(r.getParamValueByName("dbpErrMsg"))) {
+                logger.error("eSewa reversal rejected order={} code={} msg={}", referenceId,
+                        r.getParamValueByName("dbpErrCode"), r.getParamValueByName("dbpErrMsg"));
+                return ReversalOutcome.REJECTED;  // T24 answered and said no - nothing applied
+            }
+            String status = nvl(r.getParamValueByName("status"));
+            if ("Reversed".equalsIgnoreCase(status) || "success".equalsIgnoreCase(status)) {
+                return ReversalOutcome.REVERSED;
+            }
+            logger.error("eSewa reversal not confirmed order={} status='{}'", referenceId, status);
+            return ReversalOutcome.REJECTED;
+
+        } catch (Exception e) {
+            // Timeout or transport failure: we do NOT know whether T24 applied the reversal.
+            logger.error("eSewa reversal OUTCOME UNKNOWN order={}: {}", referenceId, e.toString());
+            return ReversalOutcome.UNKNOWN;
+        }
+    }
+
+    // ---------------------------------------------------------------- helpers
+
+    /**
+     * Seconds since this row was last touched.
+     *
+     * The journal "ts" inside RawResponse is authoritative: lastmodifiedts on
+     * esewaTransactionPendingLog is DEFAULT_GENERATED with no "on update CURRENT_TIMESTAMP",
+     * so it does not move on its own, and relying on it made every run retry every row with
+     * no backoff at all. The DB columns remain as a fallback for rows written before this fix.
+     */
+    private static long ageSeconds(JSONObject row) {
+        String ts = EsewaLoadStateDao.journalTimestamp(row);
+        if (StringUtils.isBlank(ts)) {
+            ts = StringUtils.defaultIfBlank(row.optString("lastmodifiedts", ""),
+                    row.optString("createdts", ""));
+        }
+        if (StringUtils.isBlank(ts)) { return Long.MAX_VALUE; }
+        for (DateTimeFormatter f : new DateTimeFormatter[] {
+                DateTimeFormatter.ISO_LOCAL_DATE_TIME,
+                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss") }) {
+            try {
+                return Duration.between(LocalDateTime.parse(ts.trim(), f), LocalDateTime.now()).getSeconds();
+            } catch (Exception ignored) { /* try next */ }
+        }
+        return Long.MAX_VALUE;
+    }
+
+    private static int bump(JSONObject row) { return EsewaLoadStateDao.attemptsOf(row) + 1; }
+
+    private static Map<String, Object> single(String k, String v) {
+        Map<String, Object> m = new HashMap<String, Object>();
+        m.put(k, nvl(v));
+        return m;
+    }
+
+    /** Reads transactionStatus out of the decrypted enquiry payload, in either shape. */
+    private static String statusFromEnquiry(String decrypted) {
+        if (StringUtils.isBlank(decrypted)) { return ""; }
+        try {
+            JSONObject root = new JSONObject(decrypted);
+            if (root.has("esewa_load_status_responses")) {
+                return root.getJSONArray("esewa_load_status_responses")
+                           .getJSONObject(0).optString("transactionStatus", "");
+            }
+            return root.optString("transactionStatus", "");
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+    private static String nvl(String s) { return s == null ? "" : s; }
+}

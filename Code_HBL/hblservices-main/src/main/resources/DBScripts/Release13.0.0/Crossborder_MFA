@@ -1,0 +1,39 @@
+
+
+-- INTERNATIONAL VPA TRANSFER Feature creation and enable MFA 
+INSERT INTO `dbxdb`.`feature` (`id`, `App_id`, `name`, `description`, `Type_id`, `Status_id`, `DisplaySequence`, `isPrimary`, `companyLegalUnit`) VALUES ('INTERNATIONAL_VPA_TRANSFER', 'RETAIL_AND_BUSINESS_BANKING', 'INTERNATIONAL VPA TRANSFER', 'CROSS BORDER INTERNATIONAL VPA TRANSFERS', 'NON_MONETARY', 'SID_FEATURE_ACTIVE', '89', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`featuredisplaynamedescription` (`Feature_id`, `Locale_id`, `displayName`, `displayDescription`) VALUES ('INTERNATIONAL_VPA_TRANSFER', 'en-US', 'INTERNATIONAL VPA TRANSFER', 'CROSS BORDER INTERNATIONAL VPA TRANSFERS');
+INSERT INTO `dbxdb`.`featuredisplaynamedescription` (`Feature_id`, `Locale_id`, `displayName`, `displayDescription`) VALUES ('INTERNATIONAL_VPA_TRANSFER', 'de-DE', 'INTERNATIONAL VPA TRANSFER', 'CROSS BORDER INTERNATIONAL VPA TRANSFERS');
+INSERT INTO `dbxdb`.`featuredisplaynamedescription` (`Feature_id`, `Locale_id`, `displayName`, `displayDescription`) VALUES ('INTERNATIONAL_VPA_TRANSFER', 'en-GB', 'INTERNATIONAL VPA TRANSFER', 'CROSS BORDER INTERNATIONAL VPA TRANSFERS');
+INSERT INTO `dbxdb`.`featuredisplaynamedescription` (`Feature_id`, `Locale_id`, `displayName`, `displayDescription`) VALUES ('INTERNATIONAL_VPA_TRANSFER', 'es-ES', 'INTERNATIONAL VPA TRANSFER', 'CROSS BORDER INTERNATIONAL VPA TRANSFERS');
+INSERT INTO `dbxdb`.`featuredisplaynamedescription` (`Feature_id`, `Locale_id`, `displayName`, `displayDescription`) VALUES ('INTERNATIONAL_VPA_TRANSFER', 'fr-FR', 'INTERNATIONAL VPA TRANSFER', 'CROSS BORDER INTERNATIONAL VPA TRANSFERS');
+INSERT INTO `dbxdb`.`rrole` (`id`, `createdts`, `lastmodifiedts`, `softdeleteflag`) VALUES ('INTERNATIONAL_VPA_TRANSFER-CREATE', '2024-09-10 20:47:13', '2024-10-30 17:38:58', '0');
+INSERT INTO `dbxdb`.`featureaction` (`id`, `Feature_id`, `App_id`, `Type_id`, `name`, `description`, `isAccountLevel`, `isMFAApplicable`, `MFA_id`,`isPrimary`, `DisplaySequence`, `softdeleteflag`,`companyLegalUnit`) VALUES ('INTERNATIONAL_VPA_TRANSFER', 'INTERNATIONAL_VPA_TRANSFER', 'RETAIL_AND_BUSINESS_BANKING', 'NON_MONETARY', 'International VPA Transfer', 'Enable or disable International VPA Transfer', '0', '1', '1692872788', '0', '3', '0','NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('INTERNATIONAL_VPA_TRANSFER', 'de-DE', 'INTERNATIONAL VPA TRANSFER', 'CROSS BORDER INTERNATIONAL VPA TRANSFERS', '2024-09-10 20:47:42', '2024-09-10 20:47:42', '2024-09-10 20:47:42', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('INTERNATIONAL_VPA_TRANSFER', 'en-GB', 'INTERNATIONAL VPA TRANSFER', 'CROSS BORDER INTERNATIONAL VPA TRANSFERS', '2024-09-10 20:47:41', '2024-09-10 20:47:41', '2024-09-10 20:47:41', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('INTERNATIONAL_VPA_TRANSFER', 'en-US', 'INTERNATIONAL VPA TRANSFER', 'CROSS BORDER INTERNATIONAL VPA TRANSFERS', '2024-09-10 20:47:41', '2024-09-10 20:47:41', '2024-09-10 20:47:41', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('INTERNATIONAL_VPA_TRANSFER', 'es-ES', 'INTERNATIONAL VPA TRANSFER', 'CROSS BORDER INTERNATIONAL VPA TRANSFERS', '2024-09-10 20:47:42', '2024-09-10 20:47:42', '2024-09-10 20:47:42', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`actiondisplaynamedescription` (`Action_id`, `Locale_id`, `displayName`, `displayDescription`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('INTERNATIONAL_VPA_TRANSFER', 'fr-FR', 'INTERNATIONAL VPA TRANSFER', 'CROSS BORDER INTERNATIONAL VPA TRANSFERS', '2024-09-10 20:47:42', '2024-09-10 20:47:42', '2024-09-10 20:47:42', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`dependentactions` (`actionId`, `dependentactionId`, `featureId`, `actionName`, `featureName`, `createdts`, `lastmodifiedts`, `companyLegalUnit`) VALUES ('INTERNATIONAL_VPA_TRANSFER', 'INTERNATIONAL_VPA_TRANSFER', 'INTERNATIONAL_VPA_TRANSFER', 'INTERNATIONAL VPA TRANSFER', 'INTERNATIONAL VPA TRANSFER', '2024-09-10 20:47:42', '2024-09-10 20:47:42', 'NP0010001');
+INSERT INTO `dbxdb`.`featureactionroletype` (`RoleType_id`, `Action_id`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('TYPE_ID_RETAIL', 'INTERNATIONAL_VPA_TRANSFER', '2024-09-10 20:47:41', '2024-09-10 20:47:41', '2024-09-10 20:47:41', '0', 'NP0010001');
+INSERT INTO `dbxdb`.`featureroletype` (`RoleType_id`, `Feature_id`,`companyLegalUnit`) VALUES ('TYPE_ID_BUSINESS', 'INTERNATIONAL_VPA_TRANSFER','NP0010001');
+INSERT INTO `dbxdb`.`featureroletype` (`RoleType_id`, `Feature_id`,`companyLegalUnit`) VALUES ('TYPE_ID_RETAIL', 'INTERNATIONAL_VPA_TRANSFER','NP0010001');
+INSERT INTO `dbxdb`.`featureroletype` (`RoleType_id`, `Feature_id`,`companyLegalUnit`) VALUES ('TYPE_ID_WEALTH', 'INTERNATIONAL_VPA_TRANSFER','NP0010001');
+UPDATE `dbxdb`.`featureaction` SET `Rrole_id` = 'INTERNATIONAL_VPA_TRANSFER-CREATE' WHERE (`id` = 'INTERNATIONAL_VPA_TRANSFER') and (`companyLegalUnit` = 'NP0010001');
+
+INSERT INTO `dbxdb`.`mfa` (`id`, `App_id`, `Action_id`, `FrequencyType_id`, `Status_id`, `Description`, `PrimaryMFAType`, `SecondaryMFAType`, `SMSText`, `EmailSubject`, `EmailBody`, `createdby`, `modifiedby`, `createdts`, `lastmodifiedts`, `synctimestamp`, `softdeleteflag`, `companyLegalUnit`) VALUES ('1692872788', 'RETAIL_AND_BUSINESS_BANKING', 'INTERNATIONAL_VPA_TRANSFER', 'ALWAYS', 'SID_ACTIVE', 'Enable International VPA Transfers', 'TRANSACTION_PIN', 'SECURE_ACCESS_CODE', '[#]OTP[/#]', 'Your Secure Access Code', '[#]OTP[/#]', 'UID10', 'user1', '2023-11-08 11:57:50', '2024-07-18 15:17:12', '2023-11-08 11:57:50', '0', 'NP0010001');
+
+UPDATE `dbxdb`.`featureaction` SET `isAccountLevel` = '1', `accesspolicyId` = 'CREATE', `actionlevelId` = 'ACCOUNT_LEVEL' WHERE (`id` = 'INTERNATIONAL_VPA_TRANSFER') and (`companyLegalUnit` = 'NP0010001');
+
+
+-- INTERNATIONAL VPA TRANSFERS ACTIONS
+
+
+UPDATE `dbxdb`.`mfa` SET `SMSText` = '[#]OTP[/#]', `EmailSubject` = 'Your Secure Access Code', `EmailBody` = '[#]OTP[/#]' WHERE (`id` = '1692872788') and (`App_id` = 'RETAIL_AND_BUSINESS_BANKING') and (`Action_id` = 'INTERNATIONAL_VPA_TRANSFER');
+
+
+
+
+
+
+

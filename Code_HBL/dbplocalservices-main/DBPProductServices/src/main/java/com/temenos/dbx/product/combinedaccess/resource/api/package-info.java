@@ -1,0 +1,1 @@
+package com.temenos.dbx.product.combinedaccess.resource.api;

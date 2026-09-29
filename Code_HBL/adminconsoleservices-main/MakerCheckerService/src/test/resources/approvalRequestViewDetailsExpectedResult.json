@@ -1,0 +1,44 @@
+{
+    "isWireTransferEligible": "true",
+    "userlastname": "Co",
+    "default_account_wire": "100382",
+    "isActivationLinkSent": "false",
+    "city": "Mulgrave",
+    "userfirstname": "Kmart",
+    "bankName": "Infinity",
+    "default_to_account_p2p": "100382",
+    "isAssociated": "true",
+    "feedbackUserId": "475a218f-caac-44dd-9841-9472c54115be",
+    "default_account_billPay": "100382",
+    "lastlogintime": "2024-02-12 09:29:38.0",
+    "ssn": "****2423",
+    "customerStatus": "SID_CUS_ACTIVE",
+    "Addresses": [{
+            "Address_id": "1",
+            "ZipCode": "VIC 3170",
+            "City_id": "Mulgrave",
+            "Region_id": "",
+            "isPrimary": "true",
+            "CityName": "Mulgrave",
+            "AddressType": "ADR_TYPE_HOME"
+        }, {
+            "RegionCode": "AT-1",
+            "CountryName": "Austria",
+            "Address_id": "AD24017DTFTS",
+            "ZipCode": "508001",
+            "City_id": "hyder",
+            "Region_id": "AT-1",
+            "Country_id": "AT",
+            "CityName": "hyder",
+            "AddressLine2": "Addr lib2",
+            "AddressLine1": "Test Addr",
+            "RegionName": "Burgenland",
+            "isPrimary": "false",
+            "AddressType": "ADR_TYPE_HOME",
+            "CountryCode": "AT"
+        }
+    ],
+    "opstatus": 0,
+    "httpStatusCode": 0
+
+}

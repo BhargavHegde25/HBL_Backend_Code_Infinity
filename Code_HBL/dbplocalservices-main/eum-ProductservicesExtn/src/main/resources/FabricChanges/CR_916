@@ -1,0 +1,13 @@
+=====================================================================SearchCoreCustomers_ResponseEnhancement======================================================
+In Authentication App,
+Updates were made to the response structure.
+
+In HBL_T24ISUser integration service,
+Within the SearchCoreCustomers operation:
+- Added the following parameters to the response output:
+  - error
+  - code
+  - message
+  - type
+
+Then published the App.

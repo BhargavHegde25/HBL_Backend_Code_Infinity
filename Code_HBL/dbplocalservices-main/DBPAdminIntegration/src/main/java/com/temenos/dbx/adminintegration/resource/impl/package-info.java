@@ -1,0 +1,1 @@
+package com.temenos.dbx.adminintegration.resource.impl;

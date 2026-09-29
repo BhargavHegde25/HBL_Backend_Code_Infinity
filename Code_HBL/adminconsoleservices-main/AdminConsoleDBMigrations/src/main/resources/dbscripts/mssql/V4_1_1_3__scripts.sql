@@ -1,0 +1,5 @@
+USE [${dbxdbname}]
+GO
+INSERT [${dbxschemaname}].[roletype] ([id], [Name], [createdby], [modifiedby], [createdts], [lastmodifiedts], [synctimestamp], [softdeleteflag]) VALUES (N'ROLE_TYPE_1', N'RoleType1', N'Kony User', N'Kony Dev', CAST(N'2020-07-28T12:04:15.000' AS DateTime), CAST(N'2020-07-28T12:04:15.000' AS DateTime), CAST(N'2020-07-28T12:04:15.000' AS DateTime), 0)
+GO
+INSERT [${dbxschemaname}].[role] ([id], [Type_id], [Status_id], [Parent_id], [Name], [Description], [createdby], [modifiedby], [createdts], [lastmodifiedts], [synctimestamp], [softdeleteflag]) VALUES (N'RID_SUPERADMIN', N'ROLE_TYPE_1', N'SID_ACTIVE', N'RID_SUPERADMIN', N'Super Admin', N'This user has all the permissions available in the system', N'Kony User', N'Kony Dev', CAST(N'2020-07-28T12:04:12.000' AS DateTime), CAST(N'2020-07-28T12:04:12.000' AS DateTime), CAST(N'2020-07-28T12:04:12.000' AS DateTime), 0)

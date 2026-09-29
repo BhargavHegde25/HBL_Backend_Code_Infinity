@@ -1,0 +1,1 @@
+java -Ddb.config="config.properties" -Ddb.operationname=completerun -jar MultiEntityDataUpgrade.jar

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1788151359754_0" label="Java Main Sources" name="Java Main Sources"/>
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1788151359782_1" label="Java Test Sources" name="Java Test Sources"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1788151456541_3" label="dbp-localservicesaggregator" name="dbp-localservicesaggregator">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbplocalservices-main" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/accountaggregation-services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/arrangementsapi-services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ArtifactsManager" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-campaigndeliveryengine" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-campaignengine" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-CampaignJWTGeneration" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-consentmanagement" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/contentmanagement" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-adminintegrationservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-businessbankingservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-cardlesscash" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-chequemanagementservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-commonutilityservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-customerdetailsservice" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-customerfeedback" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-demoandcoreservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/DBPJWTGeneration" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-mfaservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-nonproductservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-ObjectServices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-partyarrangementmicroservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-paymentservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-productservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-scaintegration" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-testscripts" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/docmanagementapi-services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/financemanagement-services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/holdingsapi-services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-partyservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/portfolio-services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/savingspotapi-services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/SecureMessages" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/t24common" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/transactionadviceapi-services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/TransactionAdviceBackendDelegateAPI" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/TransactionAdviceBackendDelegateAPIImpl" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/usermanagementapi-services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/wealthorder-services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/wealth-services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/alertsmanagement" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/bulkpaymentservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/cardmanagement-services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.temenos.infinity.integration.common" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/com.temenos.infinity.t24irisintegration" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-P2P-enrollment" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-authservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-authservicesExtn" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-billPay-enrollment" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-checkManagement" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-datamigrationservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-productservicesExtn" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/dbp-qrPayment-enrollment" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/eum-ProductservicesExtn" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/eum-mfaservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/eum-productservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/externalusermanagment" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/forexservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/notifications" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/servicerequest-services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/smartbankingadvisory-services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/tradefinanceservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/tradelendingservices" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/tradesupplyfinance-services" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/utility" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/visaintegrationapi-services" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1788151364732_2" label="Window Working Set" name="Aggregate for window 1788151364732"/>
+</workingSetManager>

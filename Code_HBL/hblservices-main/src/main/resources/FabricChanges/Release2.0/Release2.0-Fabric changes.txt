@@ -1,0 +1,70 @@
+KonyBankingAdminConsole
+--------------------------------------------------------
+Added new crud operation- dbxdb_hbl_feature_action_limits_update_proc  -in KonyBankingAdminConsole App
+Added new crud operation- dbxdb_hbl_limits_update_proc   -in KonyBankingAdminConsole App
+Added new crud operation- dbxdb_hbl_user_limitgroup_limits_create_proc   -in Authentication App
+Added new Integration operation as HBLGetCustomerAccountActionLimits in dbpProductServices under Authentication App.
+And added new connector jar as DBP-ProductServicesExtn.
+Added one new response output parameter as 'paidBy' in dbxdb_ownaccounttransfers_get operation. -in TransactionLimitsEngine App
+---------------------
+JAR-Changes
+---------------------
+DBP-ProductServicesExtn, AdminConsoleServicesExtn, TransactionLimitsExtn, eum-ProductServicesExtn, HBLServices
+dbp-CommonutilityServices, eum-ProductServices
+
+
+------------------
+Server Properties
+------------------
+THIRDPARTY_AUTH_ENABLE (By default - true)
+
+-------------------
+Fabric Apps
+-------------------
+
+Authentication, KonyBankingAdminConsole, Arrangements
+
+------------------------
+Spotlight configurations
+------------------------------
+Terms and conditions added for Thirdparty AUth
+
+----------------------------------
+Execute below API to add t&C for thirdpartyAuth in spotlight
+---------------------------------
+
+TermNConditionsCode-Api
+http://localhost:8304/ms-consent-api/api/v2.0.0/reference/termNConditionsCode
+{
+  "termConditionCode": "Thirdparty_Auth",
+  "consentType": "GENERIC.INFO",
+  "title": [
+    "Thirdparty_Auth code"
+  ],
+  "retentionPeriod": 30,
+  "description": [
+    "Thirdparty_Auth description"
+  ]
+}
+TermNConditionsApps: Once run above TermNConditionsCode-Api will get termNConditionsCodeId. then pass that id to TermNConditionsApps in path variable 
+-----------------
+http://localhost:8304/ms-consent-api/api/v2.0.0/reference/termsConditionsApps/TE2412992D2F
+Payload: {
+  "appId": "RETAIL_AND_BUSINESS_BANKING",
+  "status": "ACTIVE"
+}
+
+TermNConditionsContent: Once run above TermNConditionsApps will get termNConditionsContentId. then pass that id to TermNConditionsContent in path variable and payload as below 
+-------------------
+http://localhost:8304/ms-consent-api/api/v2.0.0/reference/termsConditionsContents/TCA24129VWDN1
+{
+"termConditionAppsId": "TCA24129VWDN1",
+  "language": "en-US",
+  "description": "Account consent details v1.001",
+  "content": "Because the content created by users content.",
+  "contentType": "TEXT",
+  "saveAndPublish": true
+  
+}
+}
+

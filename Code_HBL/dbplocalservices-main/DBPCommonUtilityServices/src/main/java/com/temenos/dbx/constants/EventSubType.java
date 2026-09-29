@@ -1,0 +1,16 @@
+package com.temenos.dbx.constants;
+
+public class EventSubType {
+	
+	 public static final String BULK_PAYMENT_FILE_UPLOAD = "BULK_PAYMENT_FILE_UPLOAD";
+	 public static final String BULK_PAYMENT_TEMPLATE_CREATE = "BULK_PAYMENT_TEMPLATE_CREATE";
+	 public static final String BULK_PAYMENT_TEMPLATE_EDIT = "BULK_PAYMENT_TEMPLATE_EDIT";
+	 public static final String BULK_PAYMENT_REQUEST_INITIATE = "BULK_PAYMENT_REQUEST_INITIATE";
+	 public static final String BULK_PAYMENT_REQUEST_EDIT = "BULK_PAYMENT_REQUEST_EDIT";
+	 public static final String BULK_PAYMENT_REQUEST_CANCEL = "BULK_PAYMENT_REQUEST_CANCEL";
+	 public static final String BULK_PAYMENT_REQUEST_APPROVE = "BULK_PAYMENT_REQUEST_APPROVE";
+	public static final String BULK_PAYMENT_REQUEST_REJECT = "BULK_PAYMENT_REQUEST_REJECT";
+	public static final String BULK_PAYMENT_REQUEST_WAITING = "BULK_PAYMENT_REQUEST_WAITING";
+	 public static final String BULK_PAYMENT_REQUEST_WAITING_ACK = "BULK_PAYMENT_REQUEST_WAITING_ACK";
+	 
+}

@@ -1,0 +1,18 @@
+====>Added 2 new params in verifyDbxUser operation at eumProductServices in ExternalUserManagement app
+1. Name
+2. AccountNumber
+
+====>Added 2 new params in verifyDbxUser operation at authProductServices in Authentication app
+1. Name
+2. AccountNumber
+
+
+===>Added basemapper2 for below operation
+http://20.197.50.171:8080/services/data/v1/Login/operations/Users_2/verifyUser in Authentication app
+
+===> added “Himalayan bank spotlight” display name in the Realm settings from the key cloak admin console.
+===> added SMTP details under Email Settings
+
+//Arrangement fabric app required to deploy and HBLServices.jar
+
+//dbp-productservicesExtn jar required to deploy

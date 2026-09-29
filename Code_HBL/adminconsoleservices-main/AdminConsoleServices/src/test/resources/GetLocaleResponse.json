@@ -1,0 +1,42 @@
+{
+	"opstatus": 0,
+	"locale": [
+		{
+			"Language": "Arabic(Arab)",
+			"Code": "ar-AR"
+		},
+		{
+			"Language": "German (Germany)",
+			"Code": "de-DE"
+		},
+		{
+			"Language": "English (United Kingdom)",
+			"Code": "en-GB"
+		},
+		{
+			"Language": "English (United States)",
+			"Code": "en-US"
+		},
+		{
+			"Language": "Spanish (Spain)",
+			"Code": "es-ES"
+		},
+		{
+			"Language": "French (France)",
+			"Code": "fr-FR"
+		},
+		{
+			"Language": "Italian (Italy)",
+			"Code": "it-IT"
+		},
+		{
+			"Language": "Portuguese(Portugal)",
+			"Code": "pt-PT"
+		},
+		{
+			"Language": "Swedish (Sweden)",
+			"Code": "sv-SE"
+		}
+	],
+	"httpStatusCode": 0
+}

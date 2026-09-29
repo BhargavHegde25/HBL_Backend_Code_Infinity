@@ -1,0 +1,14 @@
+package com.dbp.transactionslimitengine.resource.api;
+
+import com.dbp.core.api.Resource;
+import com.konylabs.middleware.controller.DataControllerRequest;
+import com.konylabs.middleware.controller.DataControllerResponse;
+import com.konylabs.middleware.dataobject.Result;
+
+public interface TransactionsLimitResource extends Resource {
+
+	Result getTransactionLimits(String methodID, Object[] inputArray, DataControllerRequest request,
+			DataControllerResponse response);
+	
+
+}

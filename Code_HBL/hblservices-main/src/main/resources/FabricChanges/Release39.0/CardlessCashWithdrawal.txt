@@ -1,0 +1,69 @@
+===================================================CardlessCash Withdrawal=========================================================================================
+
+In Arrangements App,
+
+In dbpRbLocalServicesdb database service, created CRUD operations for cardless_transaction_audit_log table.
+Published the App.
+Configured the request input params in dbxdb_cardless_transaction_audit_log_create service.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In Payments App,
+
+Configured new java service - HBLCardlessCashService and added HBLServices jar. 
+Created new operation - validateCardlessTransaction and added the class - ValidateCardlessTransaction.
+Changed the operation security level to Public.
+Added the request input and output params.
+Published the App.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+The following server properties have been introduced in Fabric-
+
+1. Authentication Validation Toggle
+Server Property - CARDLESS_CASH_AUTH_VALIDATION_ENABLED
+
+Purpose - This property controls whether authentication validation should be performed before processing the API request.
+
+Supported Values
+true - Authentication validation is enabled. The API validates the incoming X-Custom-Auth header before processing the request.         
+false - Authentication validation is disabled. The API bypasses authentication validation and proceeds directly with business processing.
+
+2. Authentication Configuration
+Server Property - CARDLESS_CASH_AUTH_CONFIG
+
+Purpose - This property stores the username and password used for validating incoming authentication requests.
+
+The API reads the configured credentials from this server property and compares them against the credentials received in the `X-Custom-Auth` request header.
+
+Configuration Format
+
+=====json====
+{"username":"admin","password":"secret123"}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In the CardManagementMA App:
+
+1. Navigated to the CardManagementServices Object Service.
+2. In the ListOfCards Data Model - Added a new custom verb: getCustomerDebitCards.
+3. Mapped the custom verb to the following Integration Service:
+   Integration Service: CardS2MJSON
+   Operation: getDebitCards
+4. Saved the Object Service configuration.
+5. Published the app.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Import hbl_update_cardless_cash_expired_trx.sql Store Procedure available in the DB scripts folder
+
+Navigate to
+Fabric -> Authentication -> Integration -> HBLCustomCRUD 
+
+Select dbxdb -> StoredProcedures -> dbxdb_hbl_update_cardless_cash_expired_trx -> Click Add Operation
+
+Publish Authentication
+
+Create a Job updateCardlessCashExpiredTransactions which will execute every 5 minutes of dbxdb_hbl_update_cardless_cash_expired_trx service(Refer to QA Fabric)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In Authentication, In dbpRbLocalServicesdb integration service, Refreshed Meta Data for dbxdb_cardless_transaction_audit_log table CRUD operations.
+Published the App.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------

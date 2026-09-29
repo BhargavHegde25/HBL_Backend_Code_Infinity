@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pdf-data>
+	<gdprinfo>
+		<prospectId>{PROSPECT_ID}</prospectId>
+		<dated>{DATE}</dated>
+		<requestType>{REQUEST_TYPE}</requestType>
+		<time>{TIME}</time>
+	</gdprinfo>
+	{GDPR_TABLE}
+</pdf-data>

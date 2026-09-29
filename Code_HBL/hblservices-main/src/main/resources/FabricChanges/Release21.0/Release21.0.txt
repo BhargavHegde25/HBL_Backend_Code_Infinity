@@ -1,0 +1,23 @@
+Alert Managment
+=========================
+1.Added below response params in getUserDetailsForAdmin in Authentication App and 
+2.Added HBLGetUSerPostProcessor.java class
+Name					path						datatype			CollectionId
+=======================================================================================
+1.contactDetails1  //body/contactDetails[*]			Collection
+2.phone			    /contactDetails[0]/contactData	String				User
+3.email				/contactDetails[1]/contactData	String				User
+4.contactDetails	/contactDetails[*]				Collection			User
+
+
+Payment/Transfers
+====================
+1. Added below response params in createPaymentWithoutApprover-Operation T24ISPaymentOrders-ServiceId in Payments App For Storing BNKID for reversal
+Name					path						datatype			CollectionId
+=======================================================================================
+paymentId				/body/paymentSystemId		String
+
+2.Added below response params in T24CreateTransferWithoutApprover-Operation T24JavaPaymentsServices-ServiceId
+Name					path						datatype			CollectionId
+=======================================================================================
+paymentId											String

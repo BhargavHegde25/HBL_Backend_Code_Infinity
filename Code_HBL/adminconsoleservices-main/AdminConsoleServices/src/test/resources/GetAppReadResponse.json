@@ -1,0 +1,18 @@
+{
+	"app": [
+		{
+			"id": "CONSUMER_LENDING",
+			"Name": "Consumer Lending"
+		},
+		{
+			"id": "ORIGINATION",
+			"Name": "Customer Origination"
+		},
+		{
+			"id": "RETAIL_AND_BUSINESS_BANKING",
+			"Name": "Retail And Business Banking"
+		}
+	],
+	"opstatus": 0,
+	"httpStatusCode": 0
+}

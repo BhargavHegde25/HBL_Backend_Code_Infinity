@@ -1,0 +1,6 @@
+Add below server property and set value to 0
+MOCK_MOBILE_DEVICE_BINDING 
+=======
+
+Authentication Fabric App updated with new services
+HBLServices.jar to be deployed
