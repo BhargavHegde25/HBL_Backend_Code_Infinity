@@ -10,6 +10,10 @@ public final class GetListPerfConstants {
     public static final String PROP_TIMING_LOG = "HBL_GETLIST_TIMING_LOG";
     public static final boolean DEFAULT_TIMING_LOG = false;
 
+    /** Server property: seconds a loaded bundle configuration is reused; 0 turns the cache off. */
+    public static final String PROP_BUNDLE_CONFIG_TTL_SECONDS = "HBL_BUNDLE_CONFIG_TTL_SECONDS";
+    public static final int DEFAULT_BUNDLE_CONFIG_TTL_SECONDS = 600;
+
     /** Component names used in the timing log line. */
     public static final String COMPONENT_JAVA_SERVICE = "GetAccountsOperation";
     public static final String COMPONENT_T24_PRE = "getAccountsFromT24PreProcessor";

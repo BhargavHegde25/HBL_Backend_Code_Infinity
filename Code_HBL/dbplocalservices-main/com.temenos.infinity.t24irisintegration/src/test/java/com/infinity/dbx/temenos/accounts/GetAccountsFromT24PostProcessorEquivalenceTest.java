@@ -28,6 +28,7 @@ import com.dbp.core.fabric.extn.DBPServiceExecutor;
 import com.dbp.core.fabric.extn.DBPServiceExecutorBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.hbl.infinity.accounts.perf.BundleConfigCache;
 import com.infinity.dbx.temenos.accounts.legacy.LegacyGetAccountsFromT24PostProcessor;
 import com.infinity.dbx.temenos.utils.TemenosUtils;
 import com.kony.dbputilities.customersecurityservices.createOrgEmployeeAccounts;
@@ -176,6 +177,33 @@ public class GetAccountsFromT24PostProcessorEquivalenceTest {
         assertSame(s, 4);
     }
 
+    // ---------------------------------------------------------------- bundle config cache
+
+    @Test
+    public void warmBundleCacheGivesSameResultWithoutReloading() throws Exception {
+        assertSameWithWarmBundleCache(baseScenario());
+    }
+
+    @Test
+    public void warmBundleCacheKeepsNoAccessFiltering() throws Exception {
+        Scenario s = baseScenario();
+        s.bundle.put("ACCOUNTS_TYPES_NOACCESS", "{\"CUR01\":\"x\"}");
+        assertSameWithWarmBundleCache(s);
+    }
+
+    @Test
+    public void failedBundleLoadIsNotCached() throws Exception {
+        Scenario s = baseScenario();
+        // The handler returns an empty map when the Admin call fails.
+        s.bundle.clear();
+        Outcome legacy = run(s, (r, req) -> new LegacyGetAccountsFromT24PostProcessor().execute(r, req, null));
+        Outcome first = run(s, (r, req) -> new getAccountsFromT24PostProcessor().execute(r, req, null));
+        Outcome second = run(s, (r, req) -> new getAccountsFromT24PostProcessor().execute(r, req, null), true);
+        assertEquals(legacy.toString(), first.toString());
+        assertEquals(legacy.toString(), second.toString());
+        assertEquals("a failed load must be retried on the next request", 1, second.bundleLoads);
+    }
+
     // ---------------------------------------------------------------- fixtures
 
     private static final class Scenario {
@@ -270,6 +298,8 @@ public class GetAccountsFromT24PostProcessorEquivalenceTest {
         Map<String, String> requestParams;
         List<String> calls = new ArrayList<>();
         List<String> sessionWrites = new ArrayList<>();
+        /** Calls that reached BundleConfigurationHandler; not part of the compared output. */
+        int bundleLoads;
 
         @Override
         public String toString() {
@@ -298,8 +328,32 @@ public class GetAccountsFromT24PostProcessorEquivalenceTest {
         }
     }
 
-    @SuppressWarnings("unchecked")
+    /**
+     * Runs legacy, then the current class with a cold bundle cache, then the current class again with the cache
+     * warmed by the previous run. All three must give the same output, and the warm run must not load the bundle.
+     */
+    private static void assertSameWithWarmBundleCache(Scenario s) throws Exception {
+        Outcome legacy = run(s, (r, req) -> new LegacyGetAccountsFromT24PostProcessor().execute(r, req, null));
+        Outcome cold = run(s, (r, req) -> new getAccountsFromT24PostProcessor().execute(r, req, null));
+        Outcome warm = run(s, (r, req) -> new getAccountsFromT24PostProcessor().execute(r, req, null), true);
+        assertEquals(legacy.toString(), cold.toString());
+        assertEquals(legacy.toString(), warm.toString());
+        assertEquals(1, cold.bundleLoads);
+        assertEquals(0, warm.bundleLoads);
+    }
+
     private static Outcome run(Scenario s, PostProcessor processor) throws Exception {
+        return run(s, processor, false);
+    }
+
+    /**
+     * @param warmBundleCache when false the bundle cache is cleared first, so every run starts from a cold cache
+     */
+    @SuppressWarnings("unchecked")
+    private static Outcome run(Scenario s, PostProcessor processor, boolean warmBundleCache) throws Exception {
+        if (!warmBundleCache) {
+            BundleConfigCache.invalidateAll();
+        }
         Outcome out = new Outcome();
         Map<String, String> params = new HashMap<>(s.requestParams);
         DataControllerRequest request = mockRequest(params);
@@ -328,7 +382,10 @@ public class GetAccountsFromT24PostProcessorEquivalenceTest {
                     .thenAnswer(i -> ResultCanonical.of(i.getArgument(0)));
             tu.when(TemenosUtils::getInstance).thenReturn(temenosUtils);
             bch.when(() -> BundleConfigurationHandler.fetchBundleConfigurations(eq("DBP"), any()))
-                    .thenAnswer(i -> new HashMap<>(s.bundle));
+                    .thenAnswer(i -> {
+                        out.bundleLoads++;
+                        return new HashMap<>(s.bundle);
+                    });
             // Plain static mocks: with CALLS_REAL_METHODS the stubbing call would run the real method and the
             // stub would attach to whatever static it calls internally. Pure helpers call through explicitly.
             cu.when(() -> CommonUtils.getParamValue(any(Record.class), anyString())).thenCallRealMethod();
