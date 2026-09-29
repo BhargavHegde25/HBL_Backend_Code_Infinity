@@ -11,6 +11,7 @@ This work speeds up getList without changing its response. It was delivered in f
 | 3 | Snapshot cache: replays what getList read from the database when nothing it depends on has changed | **Yes**, `HBL_GETLIST_CACHE_ENABLED` |
 | 4 | Invalidation: writers in online banking, HBL services and Spotlight make cached snapshots obsolete | Runs always; only matters when the switch is on |
 | 5 | Tests, `tools/getlist-diff.ps1`, `tools/getlist-timing.ps1`, these notes | - |
+| Optional | Balance cache: reuses the whole T24 accounts response, balances included, for a few seconds | **Yes**, its own switch `HBL_GETLIST_BAL_CACHE_ENABLED` |
 
 **No Fabric change is needed.** No object service, integration service, operation, Java service, preprocessor,
 postprocessor, binding, endpoint or mapping was added, renamed or changed. The four getList classes keep their
@@ -53,6 +54,8 @@ property is read on each request (no restart), except the pool size.
 | `HBL_GETLIST_PERMVER_TTL_SECONDS` | `86400` | How long a version token is kept. Must be > 0. |
 | `HBL_GETLIST_CACHE_TIMEOUT_MS` | `50` | Longest wait for one cache read before using the database instead. Must be > 0. |
 | `HBL_GETLIST_PARALLEL_POOL_SIZE` | `16` | Threads used for cache calls. Read once, when the pool is created (restart to change). Must be > 0. |
+| `HBL_GETLIST_BAL_CACHE_ENABLED` | `false` | Switch of the optional balance cache (section 3a). Independent of `HBL_GETLIST_CACHE_ENABLED`. |
+| `HBL_GETLIST_BAL_TTL_SECONDS` | `45` | How long a T24 accounts response (with balances) is reused. Must be > 0. |
 | `HBL_BUNDLE_CONFIG_TTL_SECONDS` | `600` | How long the DBP bundle configuration is cached (phase 2). `0` turns that cache off. |
 | `HBL_GETLIST_TIMING_LOG` | `false` | `true` logs one timing line per getList class per request (no customer data). For QA only. |
 
@@ -72,6 +75,29 @@ property is read on each request (no restart), except the pool size.
 - Immediate, no deploy: set `HBL_GETLIST_CACHE_ENABLED=false`. The next request runs the original code;
   stored snapshots are ignored and expire on their own.
 - Full: revert the `feature/bhargav` merges and redeploy.
+
+---
+
+## 3a. Balance cache (optional, for performance testing)
+
+With `HBL_GETLIST_BAL_CACHE_ENABLED=true`, `GetAccountsOperation` reuses the complete response of the T24
+integration call (`ArrangementT24ISAccounts.getAccountsByCoreCustomerIdList`) for
+`HBL_GETLIST_BAL_TTL_SECONDS` (default 45 s). A hit skips T24 and both T24 processors; the object postprocessor
+(permissions, details) still runs.
+
+- **Balances can be up to the TTL old** while it is on, for example right after a transfer. The bank must approve
+  that before it is used in production; it was built for performance testing.
+- Only for a customer's own session (not for administrators), keyed on customer, company, `Membership_id`,
+  `coreCustomerIdList`, `actions` and `loginUserId`, plus the same version tokens as the snapshots, so every
+  invalidation hook (section 5) clears it too.
+- Stored only when the response is clean: `opstatus` 0, no error, at least one account, no account with
+  `isNew=true`.
+- The session copy of the accounts that transfer and bill pay validate against (`<userId>_Accounts`, one hour) is
+  written by the call that filled the entry, so it is still there during a hit.
+- With `HBL_GETLIST_TIMING_LOG=true` the log shows `balanceCacheStore` on the call that filled the entry and
+  `balanceCacheLookup` without `integrationService` on a hit.
+
+Performance-test combinations: both switches off (baseline), `HBL_GETLIST_CACHE_ENABLED` only, both on.
 
 ---
 
@@ -113,7 +139,9 @@ Captured responses contain customer data: keep them on your machine and delete t
 ### 4.5 Transactions and failure
 
 - [ ] Transfer, bill pay and eSewa load right after getList: validation passes and balances are fresh
-      (balances always come live from T24).
+      (with the balance cache off, balances always come live from T24).
+- [ ] Balance cache on: a second getList within the TTL shows `balanceCacheLookup` and no `integrationService`
+      in the timing log; after a transfer, the balance updates within `HBL_GETLIST_BAL_TTL_SECONDS`.
 - [ ] Cache down or blocked: getList still answers correctly (slower).
 - [ ] Load test: 50 concurrent users for 15 minutes; p90 on target; no error spike after a Spotlight change
       (every customer reads the database once after it).
@@ -193,7 +221,7 @@ the cache cannot be used, the class runs the original code for that request.
 | F18 | Bundle configuration load fails | Returned as today, never cached | `failedBundleLoadIsNotCached`, `emptyResultIsReturnedButNotCached`, `handlerExceptionPropagatesAndIsNotCached` |
 | F19 | `actions=false`, `Membership_id`, `coreCustomerIdList` in the request | Same semantics in both paths | `cacheWithActionsFalseIsKeptApart`, `cacheWithMembershipIdStillSkipsTheAccountsCacheWrite`, `cacheIsNotUsedWhenMembershipIdIsGiven`, `cacheIsNotUsedWhenCoreCustomersAreGiven` |
 | F20 | Login and other operations bound to the same classes | Same code paths | QA checklist 4.2 |
-| F21 | Balance cache | Not built (not approved): balances always live from T24 | - |
+| F21 | Balance cache: miss, corrupt, unreachable or unclean response | T24 called live, as today; unclean responses never stored | `T24AccountsSnapshotTest`, `balanceCacheHasItsOwnSwitch`, `balanceEntriesAreClearedByTheSameBumps`, `corruptOrForeignValuesAreTreatedAsMisses` |
 | F22 | Unexpected exception in the cache code | Caught; original code for this request | `readAndStoreNeverThrowWhenTheCacheFails`, `cacheDownRunsTodaysCode`, `GetListSnapshotCache.open` catches every runtime error |
 
 Also covered: `cacheIsNotUsedForMockMortgage`, `cacheKeepsCompaniesApart`, `stagesDoNotShareSlots`,

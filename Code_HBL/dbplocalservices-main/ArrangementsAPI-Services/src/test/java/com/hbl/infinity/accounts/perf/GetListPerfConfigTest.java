@@ -96,6 +96,9 @@ public class GetListPerfConfigTest {
         assertEquals(50, intWithProperty(GetListPerfConstants.PROP_CACHE_TIMEOUT_MS, "abc"));
         assertEquals(16, intWithProperty(GetListPerfConstants.PROP_POOL_SIZE, "0"));
         assertEquals(4, intWithProperty(GetListPerfConstants.PROP_POOL_SIZE, "4"));
+        assertEquals(45, intWithProperty(GetListPerfConstants.PROP_BAL_TTL_SECONDS, null));
+        assertEquals(45, intWithProperty(GetListPerfConstants.PROP_BAL_TTL_SECONDS, "0"));
+        assertEquals(20, intWithProperty(GetListPerfConstants.PROP_BAL_TTL_SECONDS, "20"));
     }
 
     private static boolean cacheSwitchWithProperty(String value) {
@@ -116,6 +119,8 @@ public class GetListPerfConfigTest {
                 return GetListPerfConfig.getPermVerTtlSeconds();
             case GetListPerfConstants.PROP_CACHE_TIMEOUT_MS:
                 return GetListPerfConfig.getCacheTimeoutMs();
+            case GetListPerfConstants.PROP_BAL_TTL_SECONDS:
+                return GetListPerfConfig.getBalanceTtlSeconds();
             default:
                 return GetListPerfConfig.getPoolSize();
             }
