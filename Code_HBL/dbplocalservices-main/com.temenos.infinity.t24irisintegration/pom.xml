@@ -11,6 +11,8 @@
   <properties>
 		<nimbus-jose-jwt.version>9.37.3</nimbus-jose-jwt.version>
 		<bouncycastle.version>1.74</bouncycastle.version>
+		<!-- Unit tests stay skipped by default, as before. Run them with -DskipUnitTests=false -->
+		<skipUnitTests>true</skipUnitTests>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -192,7 +194,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
                 <configuration>
-					 <skipTests>true</skipTests>
+					 <skipTests>${skipUnitTests}</skipTests>
                     <systemPropertyVariables>
                         <jacoco-agent.destfile>
 							${project.build.directory}/coverage.exec</jacoco-agent.destfile>

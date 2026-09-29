@@ -11,6 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.dbp.core.api.factory.impl.DBPAPIAbstractFactoryImpl;
+import com.hbl.infinity.accounts.perf.GetListPerfConstants;
+import com.hbl.infinity.accounts.perf.GetListTimer;
 import com.dbp.core.fabric.extn.DBPServiceExecutorBuilder;
 import com.kony.dbputilities.util.DBPUtilitiesConstants;
 import com.kony.dbputilities.util.EnvironmentConfigurationsHandler;
@@ -115,21 +117,29 @@ public class GetAccountsOperation implements JavaService2 {
     		return mockAccounts.invoke(methodID, inputArray, request, response);
     	}
         else if (ARRANGEMENTS_BACKEND.equals("t24")) {
+        	GetListTimer timer = GetListTimer.start(GetListPerfConstants.COMPONENT_JAVA_SERVICE);
         	try {
         		HashMap<String, Object> headerParams = new HashMap<String, Object>();
         		HashMap<String, Object> inputParams = new HashMap<String, Object>();
         		inputParams.put("Membership_id", request.getParameter(TemenosConstants.Membership_id));
         		request.addRequestParam_("Membership_id", request.getParameter(TemenosConstants.Membership_id));
+				// getResponse() + JSONToResult is kept on purpose: getResult() skips Fabric's response
+				// serialisation, and its output could not be proven identical outside a Fabric runtime.
 				String accounts = DBPServiceExecutorBuilder.builder()
                         .withServiceId("ArrangementT24ISAccounts")
                         .withOperationId("getAccountsByCoreCustomerIdList")
                         .withRequestParameters(inputParams).withRequestHeaders(headerParams)
                         .withDataControllerRequest(request).build().getResponse();
-				return JSONToResult.convert(accounts);
+				timer.mark("integrationService");
+				Result accountsResult = JSONToResult.convert(accounts);
+				timer.mark("jsonToResult");
+				return accountsResult;
             } catch (Exception e) {
             	alert.prepareError(e.toString()).log();
-            
+
                 throw new ApplicationException(ErrorCodeEnum.ERR_20041);
+            } finally {
+            	timer.finish();
             }
     	}
 		}
