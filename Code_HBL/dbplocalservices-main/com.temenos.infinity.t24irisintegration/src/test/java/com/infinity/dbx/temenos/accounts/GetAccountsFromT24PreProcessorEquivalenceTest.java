@@ -165,6 +165,15 @@ public class GetAccountsFromT24PreProcessorEquivalenceTest {
     }
 
     @Test
+    public void cacheIsNotUsedWhenMembershipIdIsGiven() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = new Scenario();
+        s.cacheOn = true;
+        s.requestParams.put("Membership_id", "100100");
+        assertNeverCached(s);
+    }
+
+    @Test
     public void cacheDownRunsTodaysCode() throws Exception {
         GetListCacheTestSupport.install().failing = true;
         Scenario s = new Scenario();

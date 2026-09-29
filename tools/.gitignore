@@ -1,0 +1,4 @@
+# Captured getList responses contain customer account data: never commit them.
+out/
+*.json
+users.csv

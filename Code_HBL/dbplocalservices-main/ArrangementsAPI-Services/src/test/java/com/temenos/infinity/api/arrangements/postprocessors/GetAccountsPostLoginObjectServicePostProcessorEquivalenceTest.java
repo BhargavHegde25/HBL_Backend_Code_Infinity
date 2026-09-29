@@ -182,6 +182,34 @@ public class GetAccountsPostLoginObjectServicePostProcessorEquivalenceTest {
     }
 
     @Test
+    public void cacheWithMembershipIdStillSkipsTheAccountsCacheWrite() throws Exception {
+        GetListCacheTestSupport.install();
+        Scenario s = settledScenario();
+        s.request.addProperty("Membership_id", CORE_A);
+        Outcome legacy = withoutUserCustomers(run(s, true));
+        Outcome cold = run(s, false);
+        Outcome warm = run(s, false);
+        assertEquals(legacy.toString(), cold.toString());
+        assertEquals(legacy.withoutCalls(), warm.withoutCalls());
+        assertTrue("no ACCOUNTS cache write with Membership_id", warm.cacheWrites.isEmpty());
+        assertTrue(warm.calls.isEmpty());
+    }
+
+    @Test
+    public void cacheColdThenWarmForBusinessAccountWithExcludedActions() throws Exception {
+        GetListCacheTestSupport.install();
+        // 100004 is a business account (isBusinessAccount=true in its details row) of core customer B, and core
+        // customer A has excluded actions; both must come back unchanged from the cache.
+        Scenario s = settledScenario();
+        Outcome legacy = withoutUserCustomers(run(s, true));
+        assertTrue(legacy.response.contains("\"isBusinessAccount\":\"true\""));
+        Outcome warm = run(s, false);
+        warm = run(s, false);
+        assertEquals(legacy.withoutCalls(), warm.withoutCalls());
+        assertTrue(warm.calls.isEmpty());
+    }
+
+    @Test
     public void cacheDoesNotStoreWhenNewFeatureActionsAreFound() throws Exception {
         GetListCacheTestSupport.install();
         Scenario s = settledScenario();
