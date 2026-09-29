@@ -22,6 +22,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.hbl.infinity.accounts.perf.BundleConfigCache;
 import com.hbl.infinity.accounts.perf.GetListPerfConstants;
 import com.hbl.infinity.accounts.perf.GetListTimer;
 import com.infinity.dbx.temenos.constants.TemenosConstants;
@@ -119,7 +120,10 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
 	private Result processT24Data(List<Record> accountTypeRecords,DataControllerRequest request,
 			String accountsString,String newAccounts,String loginUserId, Map<String, String> accountTypes,
 			String backendId, GetListTimer timer) {
-		Map<String, String> dbpConfigurations = BundleConfigurationHandler.fetchBundleConfigurations("DBP", request);
+		// Static Admin configuration: served from a TTL cache (HBL_BUNDLE_CONFIG_TTL_SECONDS, 0 = off) instead of
+		// calling Admin.BundleConfifurations on every request. Failed loads are never cached.
+		Map<String, String> dbpConfigurations = BundleConfigCache.fetchBundleConfigurations(
+				BundleConfigurationHandler.BUDLENAME_DBP, request);
 		timer.mark("bundleConfig");
 		Map<String, String> transferFlagDetails = getTransferSupportedFlagDetails(dbpConfigurations);
 		Map<String, Object> noAccessProducts = getNoAccessProducts(dbpConfigurations);

@@ -26,6 +26,40 @@ public final class GetListPerfConfig {
     }
 
     /**
+     * @return seconds a bundle configuration stays cached ({@value GetListPerfConstants#PROP_BUNDLE_CONFIG_TTL_SECONDS});
+     *         0 means the cache is off
+     */
+    public static int getBundleConfigTtlSeconds() {
+        return getNonNegativeInt(GetListPerfConstants.PROP_BUNDLE_CONFIG_TTL_SECONDS,
+                GetListPerfConstants.DEFAULT_BUNDLE_CONFIG_TTL_SECONDS);
+    }
+
+    /**
+     * Reads a non-negative integer server property. A negative or non-numeric value returns the default and logs
+     * one warning.
+     *
+     * @param key          server property name
+     * @param defaultValue value used when the property is missing or invalid
+     * @return the property value, or the default
+     */
+    static int getNonNegativeInt(String key, int defaultValue) {
+        String value = readProperty(key);
+        if (StringUtils.isBlank(value)) {
+            return defaultValue;
+        }
+        try {
+            int parsed = Integer.parseInt(value.trim());
+            if (parsed >= 0) {
+                return parsed;
+            }
+        } catch (NumberFormatException e) {
+            // Falls through to the warning below.
+        }
+        alert.prepareWarn("Invalid value for server property " + key + ", using default " + defaultValue).log();
+        return defaultValue;
+    }
+
+    /**
      * Reads a boolean server property. Only "true" and "false" (any case) are accepted; anything else returns the
      * default and logs one warning.
      *
