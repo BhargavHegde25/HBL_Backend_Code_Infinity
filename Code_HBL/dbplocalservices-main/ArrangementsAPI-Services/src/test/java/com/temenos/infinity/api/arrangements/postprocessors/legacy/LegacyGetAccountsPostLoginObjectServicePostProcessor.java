@@ -1,4 +1,5 @@
-package com.temenos.infinity.api.arrangements.postprocessors;
+// Verbatim copy of the pre-optimisation production class, kept only as the reference for equivalence tests. Do not edit.
+package com.temenos.infinity.api.arrangements.postprocessors.legacy;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -18,8 +19,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.hbl.infinity.accounts.perf.GetListPerfConstants;
-import com.hbl.infinity.accounts.perf.GetListTimer;
 import com.kony.dbp.exception.ApplicationException;
 import com.kony.dbputilities.exceptions.HttpCallException;
 import com.kony.dbputilities.memorymanagement.MemoryManager;
@@ -46,7 +45,7 @@ import com.temenos.infinity.api.arrangements.utils.ObjectServiceHelperMethods;
 import com.temenos.infinity.api.arrangements.config.ServerConfigurations;
 import com.temenos.infinity.api.arrangements.constants.Constants;
 
-public class GetAccountsPostLoginObjectServicePostProcessor
+public class LegacyGetAccountsPostLoginObjectServicePostProcessor
         implements ObjectServicePostProcessor, ObjectServicesConstants, ObjectProcessorTask {
 
 	private static final Alert alert = Logger.forAlert().forModule("Infinity", "DIGITALBANKING");
@@ -56,16 +55,6 @@ public class GetAccountsPostLoginObjectServicePostProcessor
     @Override
     public boolean process(FabricRequestManager fabricRequestManager, FabricResponseManager fabricResponseManager)
             throws Exception {
-        GetListTimer timer = GetListTimer.start(GetListPerfConstants.COMPONENT_OBJECT_POST);
-        try {
-            return processAccounts(fabricRequestManager, fabricResponseManager, timer);
-        } finally {
-            timer.finish();
-        }
-    }
-
-    private boolean processAccounts(FabricRequestManager fabricRequestManager,
-            FabricResponseManager fabricResponseManager, GetListTimer timer) throws Exception {
         JsonObject responsePayloadJson = fabricResponseManager.getPayloadHandler().getPayloadAsJson().getAsJsonObject();
         JsonObject requestPayloadJson = fabricRequestManager.getPayloadHandler().getPayloadAsJson() != null ? fabricRequestManager.getPayloadHandler().getPayloadAsJson().getAsJsonObject() : new JsonObject();
         JsonObject cacheJson = new JsonObject();
@@ -81,8 +70,8 @@ public class GetAccountsPostLoginObjectServicePostProcessor
         }
         if(StringUtils.isNotBlank(loginUserId)) {
             addAccountLevelPermissionsandUpdateCacheArray(loginUserId, responsePayloadJson, fabricRequestManager,
-                    accountsCacheArray, timer);
-
+                    accountsCacheArray);
+            
             JsonObject request = (JsonObject) fabricRequestManager.getPayloadHandler().getPayloadAsJson();
             Boolean muteActions = Boolean.FALSE;
             if (request!=null && request.has("Membership_id") && StringUtils.isNotBlank(request.get("Membership_id").getAsString()))
@@ -101,7 +90,6 @@ public class GetAccountsPostLoginObjectServicePostProcessor
                 MemoryManager.saveIntoCache(DBPUtilitiesConstants.ACCOUNTS_POSTLOGIN_CACHE_KEY + loginUserId,
                         cacheJson.toString(), CACHE_IN_SECONDS);
             }
-            timer.mark("accountsCacheWrite");
             }
             fabricResponseManager.getPayloadHandler().updatePayloadAsJson(responsePayloadJson);
         }
@@ -111,31 +99,23 @@ public class GetAccountsPostLoginObjectServicePostProcessor
 		Log4j2Configurator.getInstance();
             alert.prepareError("Exception while caching accounts in session", e).log();
         }
-        timer.mark("events");
         return true;
     }
 
     private void addAccountLevelPermissionsandUpdateCacheArray(String customerId, JsonObject responsePayloadJson,
-            FabricRequestManager fabricRequestManager, JsonArray accountsCacheArray, GetListTimer timer)
-            throws Exception {
+            FabricRequestManager fabricRequestManager, JsonArray accountsCacheArray) throws Exception {
         Map<String, Set<String>> accountLevelActions = new HashMap<>();
 		Map<String, String> serviceDefinitions = new HashMap<>();
 		Map<String, String> contracts = new HashMap<>();
 		Map<String, String> customerGroups = new HashMap<>();
-		MockMortgageFlag mockMortgageFlag = new MockMortgageFlag();
 		Set<String> coreCustomers = getCoreCustomersList(responsePayloadJson, customerId, fabricRequestManager,
-				serviceDefinitions, customerGroups, contracts, mockMortgageFlag);
-		timer.mark("coreCustomers");
+				serviceDefinitions, customerGroups, contracts);
+		alert.prepareError("coreCustomers >>"+coreCustomers).log();
 		Map<String, Map<String, String>> accountsDetails = getCoreCustomerAccountsDetails(coreCustomers, customerId,
 				fabricRequestManager);
-		timer.mark("coreCustomerAccountsDetails");
         Set<String> usedCoreCustomers = new HashSet<>();
-        JsonArray accountsArray = JSONUtil.hasKey(responsePayloadJson, "Accounts") ? responsePayloadJson.get("Accounts").getAsJsonArray() : new JsonArray();
-        String coreCustomerIdTwo= null;
-        String mockMortgageResponse = mockMortgageFlag.get();
-        if(mockMortgageResponse != null && mockMortgageResponse.equalsIgnoreCase("Yes")) {
-        //setting coreCutomerId's for Mortgage Accounts
-        //getting User list (only the mock mortgage branch below reads it)
+      //setting coreCutomerId's for Mortgage Accounts
+        //getting User list
         Map<String, Object> inputParamsOne = new HashMap<>();
         inputParamsOne.put("_customerId", customerId);
         JsonObject resultObjectNew =
@@ -144,7 +124,12 @@ public class GetAccountsPostLoginObjectServicePostProcessor
         				URLConstants.USER_CUSTOMERS_PROC);
         Set<String>  coreCustomersMortgage = new HashSet<String>();
         coreCustomersMortgage.addAll(coreCustomers);
-
+         
+        JsonArray accountsArray = JSONUtil.hasKey(responsePayloadJson, "Accounts") ? responsePayloadJson.get("Accounts").getAsJsonArray() : new JsonArray();
+        String coreCustomerIdTwo= null;
+        String mockMortgageResponse = ServerConfigurations.MOCK_MORTGAGE_RESPONSE.getValue();
+        if(mockMortgageResponse != null && mockMortgageResponse.equalsIgnoreCase("Yes")) {
+		
 			  for (JsonElement accountObject : accountsArray) { JsonObject account =
 			  accountObject.isJsonObject() ? accountObject.getAsJsonObject() : new
 			  JsonObject(); if
@@ -223,27 +208,8 @@ public class GetAccountsPostLoginObjectServicePostProcessor
 					accountLevelActions, accountsDetails);
         }
         }
-        timer.mark("accountActions");
 
         addPermissionsToAccountRecords(responsePayloadJson, accountLevelActions, accountsDetails, accountsCacheArray);
-        timer.mark("attachPermissions");
-    }
-
-    /**
-     * Reads MOCK_MORTGAGE_RESPONSE at most once per request, at the first point the original code read it, so a
-     * missing or failing property behaves exactly as before.
-     */
-    private static final class MockMortgageFlag {
-        private boolean loaded;
-        private String value;
-
-        String get() throws Exception {
-            if (!loaded) {
-                value = ServerConfigurations.MOCK_MORTGAGE_RESPONSE.getValue();
-                loaded = true;
-            }
-            return value;
-        }
     }
 
 	private void getAccountLevelNewActions(String customerId, String contractId, String coreCustomerId, String groupId,
@@ -893,8 +859,7 @@ public class GetAccountsPostLoginObjectServicePostProcessor
     }
 
     private Set<String> getCoreCustomersList(JsonObject accountsJson, String customerId, FabricRequestManager request,
-			Map<String, String> serviceDefinitions, Map<String, String> customerGroups, Map<String, String> contracts,
-			MockMortgageFlag mockMortgageFlag)
+			Map<String, String> serviceDefinitions, Map<String, String> customerGroups, Map<String, String> contracts)
             throws HttpCallException,Exception {
         Set<String> coreCustomers = new HashSet<>();
 		Map<String, String> serviceDefinition = new HashMap<String, String>();
@@ -903,7 +868,7 @@ public class GetAccountsPostLoginObjectServicePostProcessor
                 : new JsonArray();
         for (JsonElement accountObject : accountsArray) {
             JsonObject account = accountObject.isJsonObject() ? accountObject.getAsJsonObject() : new JsonObject();
-            String mockMortgageResponse = mockMortgageFlag.get();
+            String mockMortgageResponse = ServerConfigurations.MOCK_MORTGAGE_RESPONSE.getValue();
             if(mockMortgageResponse != null && mockMortgageResponse.equalsIgnoreCase("Yes")) {
             	if(!account.get("accountType").getAsString().equalsIgnoreCase("mortgageFacility")) {
             		if (JSONUtil.hasKey(account, "Account_id") && JSONUtil.hasKey(account, "Membership_id")) {

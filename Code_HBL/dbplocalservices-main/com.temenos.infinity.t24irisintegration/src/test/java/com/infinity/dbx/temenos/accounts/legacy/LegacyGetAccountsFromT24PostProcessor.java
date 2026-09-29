@@ -1,4 +1,6 @@
-package com.infinity.dbx.temenos.accounts;
+// Verbatim copy of the pre-optimisation production class, kept only as the reference for equivalence tests. Do not edit.
+package com.infinity.dbx.temenos.accounts.legacy;
+import com.infinity.dbx.temenos.accounts.AccountsConstants;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,14 +18,13 @@ import org.json.JSONObject;
 import com.dbp.core.api.factory.impl.DBPAPIAbstractFactoryImpl;
 import com.dbp.core.fabric.extn.DBPServiceExecutorBuilder;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.hbl.infinity.accounts.perf.GetListPerfConstants;
-import com.hbl.infinity.accounts.perf.GetListTimer;
 import com.infinity.dbx.temenos.constants.TemenosConstants;
 import com.infinity.dbx.temenos.utils.TemenosUtils;
 import com.kony.dbp.exception.ApplicationException;
@@ -45,6 +46,7 @@ import com.konylabs.middleware.controller.DataControllerResponse;
 import com.konylabs.middleware.dataobject.Dataset;
 import com.konylabs.middleware.dataobject.Record;
 import com.konylabs.middleware.dataobject.Result;
+import com.konylabs.middleware.dataobject.ResultToJSON;
 import com.konylabs.middleware.registry.AppRegistryException;
 import com.temenos.dbx.eum.product.constants.OperationName;
 import com.temenos.dbx.eum.product.constants.ServiceId;
@@ -56,34 +58,22 @@ import com.temenos.logger.Logger;
 import com.temenos.logger.alert.Alert;
 import com.temenos.logger.diagnostics.Diagnostic;
 
-public class getAccountsFromT24PostProcessor extends BasePostProcessor implements AccountsConstants {
+public class LegacyGetAccountsFromT24PostProcessor extends BasePostProcessor implements AccountsConstants {
 
 	private static final Alert alert = Logger.forAlert().forModule("Infinity", "DIGITALBANKING");
 	private static final Diagnostic diagnostic = Logger.forDiagnostic().forModule("Infinity", "DIGITALBANKING");
 
-	/** Thread-safe once configured; shared to avoid building a mapper per call. */
-	private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
-
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public Result execute(Result result, DataControllerRequest request, DataControllerResponse response)
             throws Exception {
-        GetListTimer timer = GetListTimer.start(GetListPerfConstants.COMPONENT_T24_POST);
-        try {
-            return processAccounts(result, request, timer);
-        } finally {
-            timer.finish();
-        }
-    }
-
-    private Result processAccounts(Result result, DataControllerRequest request, GetListTimer timer) {
         TemenosUtils temenosUtils = TemenosUtils.getInstance();
         temenosUtils.loadAccountTypeProperties(request);
-        // One reference for the whole request: the singleton field can be reassigned by concurrent requests.
-        Map<String, String> accountTypes = temenosUtils.accountTypesMap;
-        timer.mark("accountTypes");
         String loginUserId = request.getParameter(TemenosConstants.PARAM_LOGINUSERID);
         String explicitCoreCustomerIdList = request.getParameter("explicitCoreCustomerIdList");
         List<Record> accountRecords = new ArrayList<Record>();
+        diagnostic.debug("Transact Accounts Response:###"+ ResultToJSON.convert(result) );
+        ResultToJSON.convert(result);
         if (result != null && result.getAllDatasets().size() > 0 && result.getDatasetById("Accounts") != null &&
                     result.getDatasetById("Accounts").getAllRecords().size() > 0) {
             	accountRecords = result.getDatasetById("Accounts").getAllRecords();
@@ -95,15 +85,13 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
             emptyResult.addHttpStatusCodeParam(200);
             return emptyResult;
         }
-        String backendId = getCoreBackendId(request);
-
-        JsonArray jsonarray = parseRecordsForNAPNew(accountRecords,explicitCoreCustomerIdList,accountTypes,backendId);
+                
+        JsonArray jsonarray = parseRecordsForNAPNew(accountRecords,explicitCoreCustomerIdList,temenosUtils,request);
         Result NAPResult = newAccountProcessing(jsonarray,loginUserId, request);
-        timer.mark("newAccountProcessing");
-
+        
         String accountsString = NAPResult.getParamValueByName("accounts");
         String newAccounts = NAPResult.getParamValueByName("newAccounts");
-
+        
         if(StringUtils.isBlank(accountsString)) {
             Result emptyResult = new Result();
             emptyResult.addDataset(new Dataset("Accounts"));
@@ -111,19 +99,19 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
             emptyResult.addHttpStatusCodeParam(200);
             return emptyResult;
         }
-
-        return processT24Data(accountRecords, request, accountsString, newAccounts, loginUserId, accountTypes,
-                backendId, timer);
+        
+        Result finalResult = processT24Data(accountRecords, request, accountsString, newAccounts, loginUserId);    
+        
+        diagnostic.debug("Transact Accounts finalResult Response:###"+ ResultToJSON.convert(finalResult) );
+        return finalResult;
     }
 
 	private Result processT24Data(List<Record> accountTypeRecords,DataControllerRequest request,
-			String accountsString,String newAccounts,String loginUserId, Map<String, String> accountTypes,
-			String backendId, GetListTimer timer) {
+			String accountsString,String newAccounts,String loginUserId) {
 		Map<String, String> dbpConfigurations = BundleConfigurationHandler.fetchBundleConfigurations("DBP", request);
-		timer.mark("bundleConfig");
-		Map<String, String> transferFlagDetails = getTransferSupportedFlagDetails(dbpConfigurations);
-		Map<String, Object> noAccessProducts = getNoAccessProducts(dbpConfigurations);
-
+		alert.prepareError("dbpConfigurations:"+dbpConfigurations).log();
+		Map<String, String> transferFlagDetails = getTransferSupportedFlagDetails(dbpConfigurations, request);
+				
         HashMap<String, Account> accounts = new HashMap<String, Account>();
         List<Record> accountFinals = new ArrayList<Record>();
         Map<String, String> newAcntCoreCustomerId = new HashMap<>();
@@ -147,7 +135,6 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
         if(StringUtils.isNotBlank(loginUserId) && !"false".equals(Actions)) {
             coreCustomerActions = fetchDefaultAccountActions(request, loginUserId, newAccountCoreCustomerIdList);
         }
-        timer.mark("defaultAccountActions");
         if (accountTypeRecords == null || accountTypeRecords.isEmpty()) {
             alert.prepareError("Accounts empty return result").log();
             Result emptyResult = new Result();
@@ -158,11 +145,14 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
         }
 
         TemenosUtils temenosUtils = TemenosUtils.getInstance();
+        temenosUtils.loadAccountTypeProperties(request);
 
+        String backendId = getCoreBackendId(request);
         String defaultAcc = getCustomerDefaultAcc(backendId);
-        timer.mark("defaultAccount");
-        boolean debugEnabled = diagnostic.isDebugEnabled();
-
+        diagnostic.prepareDebug("defaultAcc###"+ defaultAcc).log();
+        
+		diagnostic.prepareDebug("backendId product id###"+ backendId).log();
+		
         for (Record record : accountTypeRecords) {
             List<Record> products = record.getDatasetById(DS_PRODUCTS) != null
                     ? record.getDatasetById(DS_PRODUCTS).getAllRecords()
@@ -196,8 +186,8 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
                     product.addStringParam("isPortFolioAccount", Boolean.FALSE.toString());
 
                 String accountType = product.getParamValueByName(PARAM_ACCOUNT_TYPE);
-                if (accountTypes.containsKey(accountType)) {
-                    accountType = accountTypes.get(accountType);// getDBXAccountType(accountType);
+                if (temenosUtils.accountTypesMap.containsKey(accountType)) {
+                    accountType = temenosUtils.accountTypesMap.get(accountType);// getDBXAccountType(accountType);
                 }
                 product.addStringParam("IBAN", product.getParamValueByName("accountIBAN"));
                 //String favouriteStatus = product.getParamValueByName("favouriteStatus");
@@ -212,7 +202,7 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
 						String accountCardImageUrl = HBL_IMAGES_APP_URL+""+"/accountdashboard/accountcard.png";
 						product.addStringParam("IBAN", accountCardImageUrl);
 					} catch (AppRegistryException e) {
-						alert.prepareError("Unable to read HBL_IMAGES_APP_URL", e).log();
+						e.printStackTrace();
 					}
 					
 				}else {
@@ -225,7 +215,8 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
                 product.addStringParam("productGroup", product.getParamValueByName("productId"));
                 product.addStringParam("typeDescription", accountType);
                 product.addStringParam("description", product.getParamValueByName("productDescription"));
-
+                
+                diagnostic.prepareDebug("Description::::" + product.getParamValueByName("productDescription")).log();
                 product.addStringParam("account_id",accountId);
                 String customerReference = CommonUtils.getParamValue(product, CUSTOMER_REFERENCE);
                 if (!"".equalsIgnoreCase(customerReference)) {
@@ -278,8 +269,10 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
                     	
                         product.addStringParam(PARAM_SUPPORT_CHECKS, YES);
                         product.addStringParam(PARAM_DEPOSIT_DESTINATION_ACCOUNT, YES);
-                        String supportTransferFromFlag = getTransferSupportFlag(transferFlagDetails,product.getParamValueByName("categoryId"), "Dr");
-                        String supportTransferToFlag =getTransferSupportFlag(transferFlagDetails,product.getParamValueByName("categoryId"), "Cr");
+                        String supportTransferFromFlag = getTransferSupportFlag(transferFlagDetails,product.getParamValueByName("categoryId"), "Dr", request);
+                        diagnostic.prepareDebug("getTransferSupportFlag supportTransferFromFlag::::" + supportTransferFromFlag).log();
+                        String supportTransferToFlag =getTransferSupportFlag(transferFlagDetails,product.getParamValueByName("categoryId"), "Cr", request);
+                        diagnostic.prepareDebug("getTransferSupportFlag supportTransferToFlag::::" + supportTransferToFlag).log();
                         product.addStringParam(PARAM_TRANSFER_SOURCE_ACCOUNT, supportTransferFromFlag);
                         product.addStringParam(PARAM_TRANSFER_DESTINATION_ACCOUNT, supportTransferToFlag);
 
@@ -296,13 +289,11 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
                     
                     /**** remove accounts which are no access ***/
                     String productIdVal = product.getParamValueByName("productId");
-					if (!isAccountHasNoAccess(noAccessProducts, productIdVal)) {
+					if (!isAccountHasNoAccess(dbpConfigurations,productIdVal, request)) {
 						/*** Setting new default account if customer doesn't have default account  ***/
 						if (ACCOUNT_TYPE_SAVINGS.equalsIgnoreCase(accountType) || ACCOUNT_TYPE_CHECKING.equalsIgnoreCase(accountType)) {
 						   if(StringUtils.isBlank(defaultAcc) && StringUtils.isNotBlank(accountId)) {
-							   if (debugEnabled) {
-								   diagnostic.prepareDebug("HBL: no default account, setting new default account for user").log();
-							   }
+							   alert.prepareError("HBL:exisisting default accountId:"+defaultAcc+",and new default accountId:"+accountId+",for user:"+loginUserId).log();
 							   try {
 								   boolean isUpdated = updateDefaultAccount(loginUserId, accountId, request);
 								   if(isUpdated) {
@@ -323,13 +314,19 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
                 
                 List<Record> customerDetailsRecordList = product.getDatasetById("customerDetails") != null
     					? product.getDatasetById("customerDetails").getAllRecords() : null;
-
+    			diagnostic.prepareDebug("customerDetailsRecordList  product ::"+customerDetailsRecordList).log();
+    			
     			if (customerDetailsRecordList == null || customerDetailsRecordList.size() > 1) {
+    				diagnostic.prepareDebug("customerDetailsRecordList if loop product").log();
     				for (Record customerDetailsRecord : customerDetailsRecordList) {
     					if (backendId.equalsIgnoreCase(customerDetailsRecord.getParamValueByName("customerId"))) {
+    						String customerId = customerDetailsRecord.getParamValueByName("customerId");
     						String roleDisplayName = customerDetailsRecord.getParamValueByName("roleDisplayName");
     						String customerRole = customerDetailsRecord.getParamValueByName("customerRole");
-
+    						diagnostic.prepareDebug("customerDetailsRecordList customerId product##"+ customerId).log();
+    						diagnostic.prepareDebug("customerDetailsRecordList roleDisplayName product##"+ roleDisplayName).log();
+    						diagnostic.prepareDebug("customerDetailsRecordList customerRole product##"+ customerRole).log();
+    						
     						product.addStringParam("roleDisplayName", roleDisplayName);
     						product.addStringParam("customerRole", customerRole);
     						break;
@@ -343,6 +340,10 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
 					for (Record customerDetailsRecord : customerDetailsRecordList) {
 						String roleDisplayName = customerDetailsRecord.getParamValueByName("roleDisplayName");
 						String customerRole = customerDetailsRecord.getParamValueByName("customerRole");
+						diagnostic.prepareDebug("customerDetailsRecordList roleDisplayName product Else##" + roleDisplayName)
+								.log();
+						diagnostic.prepareDebug("customerDetailsRecordList customerRole product## Else" + customerRole)
+								.log();
 
 						product.addStringParam("roleDisplayName", roleDisplayName);
 						product.addStringParam("customerRole", customerRole);
@@ -352,14 +353,12 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
     			
             }
         }
-        timer.mark("mapAccounts");
         if (!accounts.isEmpty() && StringUtils.isNotBlank(loginUserId) && StringUtils.isBlank(Membership_id)) {
             Gson gson = new Gson();
             String gsonAccounts = gson.toJson(accounts);
             temenosUtils.insertIntoSession(SESSION_ATTRIB_ACCOUNT, gsonAccounts, request);
-            timer.mark("sessionWrite");
         }
-
+       
         Result finalResult = new Result();
         Dataset ds = new Dataset(DS_ACCOUNTS);
         ds.addAllRecords(accountFinals);
@@ -370,6 +369,7 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
 	}
 	
 	private String getCustomerDefaultAcc(String customerID) {
+		diagnostic.prepareDebug("customerID ##" + customerID);
 		JSONArray accounts = new JSONArray();
 		String defaultAccId = "";
 
@@ -382,31 +382,39 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
 					.withRequestParameters(inputParams).build().getResponse();
 			JSONObject responseJSON = new JSONObject(response);
 			accounts = responseJSON.getJSONArray("customeraccounts");
+			diagnostic.prepareDebug("Default Accounts" + accounts);
 			JSONObject acc = accounts.getJSONObject(0);
 			defaultAccId = acc.getString("Account_id");
+			diagnostic.prepareDebug("defaultAccId:::" + defaultAccId);
 		} catch (Exception e) {
-			// No default account (empty list) is the common case here; nothing to log.
+			diagnostic.prepareDebug("Exception caught while getCustomerDefaultAcc", e);
 		}
 		return defaultAccId;
 	}
-
-	/**
-	 * Parses the TRANSFER_SUPPORTED_ACCOUNTS bundle entry. As before, a missing entry makes Jackson throw
-	 * IllegalArgumentException, which is not caught and fails the request; invalid JSON yields an empty map.
-	 */
-	@SuppressWarnings("unchecked")
-	private HashMap<String, String> getTransferSupportedFlagDetails(Map<String, String> dbpConfigurations) {
+	
+	private HashMap<String, String> getTransferSupportedFlagDetails(Map<String, String> dbpConfigurations,DataControllerRequest request) {
+        ObjectMapper mapper = new ObjectMapper();
         HashMap<String, String> map = new HashMap<String, String>();
         try {
-			map = OBJECT_MAPPER.readValue(dbpConfigurations.get("TRANSFER_SUPPORTED_ACCOUNTS"), HashMap.class);
+			map = mapper.readValue(dbpConfigurations.get("TRANSFER_SUPPORTED_ACCOUNTS"), HashMap.class);
+			alert.prepareError("map:"+map).log();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
 		} catch (JsonProcessingException e) {
-			alert.prepareError("Invalid TRANSFER_SUPPORTED_ACCOUNTS bundle configuration", e).log();
+			e.printStackTrace();
 		}
         return map;
 	}
 	
-	private String getTransferSupportFlag(Map<String, String> transferFlagDetails, String productId, String supportType) {
+	private String getTransferSupportFlag(Map<String, String> transferFlagDetails, String productId, String supportType, DataControllerRequest request) {
 		String isSupported = "0";
+
+		diagnostic.prepareDebug("getTransferSupportFlag productId::::" + productId).log();
+		diagnostic.prepareDebug("getTransferSupportFlag supportType::::" + supportType).log();
+
+		//JSONObject supportedAccs = ArrangementsUtils.getBundleConfigurations(TemenosConstants.ACCOUNT_TYPE_BUNDLE_NAME,
+			//	"TRANSFER_SUPPORTED_ACCOUNTS", request);
+		
 		if(null != transferFlagDetails && transferFlagDetails.containsKey(productId)) {
 			String supportedKeyVal = transferFlagDetails.get(productId);
 			if (StringUtils.isNotBlank(supportedKeyVal)) {
@@ -414,27 +422,76 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
 			} else {
 				isSupported = "0";
 			}
+
+			return isSupported;
 		}
+		
+
+		/*JSONObject supportedAccs = new JSONObject(transferFlagDetails.get("TRANSFER_SUPPORTED_ACCOUNTS"));
+		JSONObject configData = new JSONObject();
+		String data = "";
+		if (supportedAccs != null) {
+			JSONArray configurations = supportedAccs.optJSONArray(TemenosConstants.CONFIGURATIONS);
+			if (configurations != null && configurations.length() > 0) {
+				configData = configurations.optJSONObject(0);
+				if (configData.has(TemenosConstants.DBP_CONFIG_TABLE_VALUE))
+					data = configData.getString(TemenosConstants.DBP_CONFIG_TABLE_VALUE);
+			}
+		}
+		diagnostic.prepareDebug("getTransferSupportFlag data::::" + data).log();
+
+		JSONObject dataobj = new JSONObject(data);
+		String supportedKeyVal = dataobj.has(productId) && dataobj.get(productId)!=null? dataobj.getString(productId):"";
+		diagnostic.prepareDebug("getTransferSupportFlag dataobj::::" + dataobj.toString()).log();
+		diagnostic.prepareDebug("getTransferSupportFlag supportedKeyVal::::" + supportedKeyVal).log();
+		if (StringUtils.isNotBlank(supportedKeyVal)) {
+			isSupported = (supportedKeyVal.contains(supportType)) ? "1" : "0";
+		} else {
+			isSupported = "0";
+		}*/
+
 		return isSupported;
 	}
 
-	/**
-	 * Parses the ACCOUNTS_TYPES_NOACCESS bundle entry once per request. Returns null when the configuration map or
-	 * the entry is missing or not valid JSON; every product then counts as accessible, the same result the
-	 * per-product parse gave before.
-	 */
-	@SuppressWarnings("unchecked")
-	private Map<String, Object> getNoAccessProducts(Map<String, String> dbpConfigurations) {
+	
+	private boolean isAccountHasNoAccess(Map<String, String> dbpConfigurations, String productId, DataControllerRequest request) {
+		boolean accHasAccess = false;
+ 
 		try {
-			return OBJECT_MAPPER.readValue(dbpConfigurations.get("ACCOUNTS_TYPES_NOACCESS"), HashMap.class);
-		} catch (Exception e) {
-			alert.prepareError("Unable to read ACCOUNTS_TYPES_NOACCESS bundle configuration", e).log();
-			return null;
-		}
-	}
+		diagnostic.prepareDebug("getTransferSupportFlag productId::::" + productId).log();
+		String supportedAccs = null != dbpConfigurations.get("ACCOUNTS_TYPES_NOACCESS")
+				? (dbpConfigurations.get("ACCOUNTS_TYPES_NOACCESS"))
+				: null;
+		alert.prepareError("supportedAccs:"+supportedAccs).log();
+		
+        ObjectMapper mapper = new ObjectMapper();
+        HashMap<String, Object> map = mapper.readValue(supportedAccs, HashMap.class);
 
-	private boolean isAccountHasNoAccess(Map<String, Object> noAccessProducts, String productId) {
-		return noAccessProducts != null && noAccessProducts.containsKey(productId);
+        if (map.containsKey(productId)) {
+			accHasAccess = true;
+		}
+				
+				//ArrangementsUtils.getBundleConfigurations(TemenosConstants.ACCOUNT_TYPE_BUNDLE_NAME,"ACCOUNTS_TYPES_NOACCESS", request);
+		/*JSONObject configData = new JSONObject();
+		String data = "";
+		if (supportedAccs != null) {
+			JSONArray configurations = supportedAccs.optJSONArray(TemenosConstants.CONFIGURATIONS);
+			if (configurations != null && configurations.length() > 0) {
+				configData = configurations.optJSONObject(0);
+				if (configData.has(TemenosConstants.DBP_CONFIG_TABLE_VALUE))
+					data = configData.getString(TemenosConstants.DBP_CONFIG_TABLE_VALUE);
+			}
+		}
+		diagnostic.prepareDebug("getTransferSupportFlag data::::" + data).log();
+ 
+		JSONObject dataobj = new JSONObject(data);
+		if (dataobj.has(productId)) {
+			accHasAccess = true;
+		}*/
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return accHasAccess;
 	}
 	private Result newAccountProcessing(JsonArray jsonarray,String loginUserId,DataControllerRequest request) {
 		HashMap<String, Object> inputParams = new HashMap<>();
@@ -443,6 +500,7 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
 		request.addRequestParam_("accounts", jsonarray.toString());
         request.addRequestParam_("customerId", loginUserId);
 
+        diagnostic.prepareDebug("input params in GetAccountDetailsByAccountIdListPreProcessor::::" + inputParams.toString()).log();
         Result newAccountProcessing = new Result();
 		try {
 			newAccountProcessing = CommonUtils.callIntegrationService(request, inputParams, request.getHeaderMap(),
@@ -454,8 +512,7 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
         return newAccountProcessing;
 	}
 
-	private JsonArray parseRecordsForNAPNew(List<Record> accountRecords,String explicitCoreCustomerIdList,
-			Map<String, String> accountTypes, String backendId) {
+	private JsonArray parseRecordsForNAP(List<Record> accountRecords,String explicitCoreCustomerIdList, TemenosUtils temenosUtils) {
 		JsonArray jsonarray = new JsonArray();
 		String customerId = "";
 		String roleDisplayName = "";
@@ -466,16 +523,12 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
             for (Record record : products) { 
 			List<Record> customerDetailsRecordList = record.getDatasetById("customerDetails") != null
 					? record.getDatasetById("customerDetails").getAllRecords() : null;
+			diagnostic.prepareDebug("customerDetailsRecordList ::"+customerDetailsRecordList).log();
 			if (customerDetailsRecordList == null || customerDetailsRecordList.size() > 1) {
-				for (Record customerDetailsRecord : customerDetailsRecordList) {
-					if (backendId.equalsIgnoreCase(customerDetailsRecord.getParamValueByName("customerId"))) {
-						customerId = customerDetailsRecord.getParamValueByName("customerId");
-						roleDisplayName = customerDetailsRecord.getParamValueByName("roleDisplayName");
-						break;
-					}
-				}
 				
+				diagnostic.prepareDebug("customerDetailsRecordList if loop").log();
 			} else {
+				diagnostic.prepareDebug("customerDetailsRecordList else loop").log();
 				for (Record customerDetailsRecord : customerDetailsRecordList) {
 					customerId = customerDetailsRecord.getParamValueByName("customerId");
 					roleDisplayName = customerDetailsRecord.getParamValueByName("roleDisplayName");
@@ -483,8 +536,74 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
 			}
             if (StringUtils.isNotBlank(customerId) && !explicitCoreCustomerIdList.contains(" "+customerId+" ")) {
                 String accountType = record.getParamValueByName("productId");
-                if (accountTypes.containsKey(accountType)) {
-                    accountType = accountTypes.get(accountType);
+                if (temenosUtils.accountTypesMap.containsKey(accountType)) {
+                    accountType = temenosUtils.accountTypesMap.get(accountType);
+                } else {
+                    accountType = null;
+                }
+                if (StringUtils.isBlank(accountType))
+                    continue;
+                if (StringUtils.isBlank(record.getParamValueByName("accountId")))
+                    continue;
+                if (StringUtils.isBlank(customerId))
+                    continue;
+                if (StringUtils.isBlank(record.getParamValueByName("accountName")))
+                    continue;
+                if (StringUtils.isBlank(record.getParamValueByName("arrangementId")))
+                    continue;
+                if (StringUtils.isBlank(roleDisplayName))
+                    continue;
+                JsonObject json = new JsonObject();
+                json.addProperty("accountId", record.getParamValueByName("accountId"));
+                json.addProperty("customerId", customerId);
+                json.addProperty("accountType", accountType);
+                json.addProperty("accountName", record.getParamValueByName("accountName"));
+                json.addProperty("arrangementId", record.getParamValueByName("arrangementId"));
+                json.addProperty("roleDisplayName", record.getParamValueByName("roleDisplayName"));
+                jsonarray.add(json);
+            }
+            }
+        }
+		return jsonarray;
+	}
+	
+	private JsonArray parseRecordsForNAPNew(List<Record> accountRecords,String explicitCoreCustomerIdList, TemenosUtils temenosUtils, DataControllerRequest request) {
+		JsonArray jsonarray = new JsonArray();
+		String customerId = "";
+		String roleDisplayName = "";
+		String backendId = getCoreBackendId(request);
+		diagnostic.prepareDebug("backendId ###"+ backendId).log();
+		for (Record product : accountRecords) {
+			List<Record> products = product.getDatasetById(DS_PRODUCTS) != null
+                    ? product.getDatasetById(DS_PRODUCTS).getAllRecords()
+                    : null;
+            for (Record record : products) { 
+			List<Record> customerDetailsRecordList = record.getDatasetById("customerDetails") != null
+					? record.getDatasetById("customerDetails").getAllRecords() : null;
+			diagnostic.prepareDebug("customerDetailsRecordList ::"+customerDetailsRecordList).log();
+			if (customerDetailsRecordList == null || customerDetailsRecordList.size() > 1) {
+				diagnostic.prepareDebug("customerDetailsRecordList if loop").log();
+				for (Record customerDetailsRecord : customerDetailsRecordList) {
+					if (backendId.equalsIgnoreCase(customerDetailsRecord.getParamValueByName("customerId"))) {
+						customerId = customerDetailsRecord.getParamValueByName("customerId");
+						roleDisplayName = customerDetailsRecord.getParamValueByName("roleDisplayName");
+						diagnostic.prepareDebug("customerDetailsRecordList customerId ##"+ customerId).log();
+						diagnostic.prepareDebug("customerDetailsRecordList roleDisplayName ##"+ roleDisplayName).log();
+						break;
+					}
+				}
+				
+			} else {
+				diagnostic.prepareDebug("customerDetailsRecordList else loop").log();
+				for (Record customerDetailsRecord : customerDetailsRecordList) {
+					customerId = customerDetailsRecord.getParamValueByName("customerId");
+					roleDisplayName = customerDetailsRecord.getParamValueByName("roleDisplayName");
+				}
+			}
+            if (StringUtils.isNotBlank(customerId) && !explicitCoreCustomerIdList.contains(" "+customerId+" ")) {
+                String accountType = record.getParamValueByName("productId");
+                if (temenosUtils.accountTypesMap.containsKey(accountType)) {
+                    accountType = temenosUtils.accountTypesMap.get(accountType);
                 } else {
                     accountType = null;
                 }
@@ -627,6 +746,7 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
         if(getIdFromCustomerAccounts(inputParams, dcRequest, result)) {
         result=HelperMethods.callApi(dcRequest, inputParams, HelperMethods.getHeaders(dcRequest),
                 URLConstants.CUSTOMERACCOUNTS_UPDATE);
+        diagnostic.prepareDebug("HBL:updateDefaultAccount response:"+ResultToJSON.convert(result)).log();
         if (StringUtils.isNotBlank(result.getParamValueByName("updatedRecords"))) {
 				if (Integer.parseInt(result.getParamValueByName("updatedRecords")) > 0)
 					return true;
@@ -638,6 +758,7 @@ public class getAccountsFromT24PostProcessor extends BasePostProcessor implement
         String filter = DBPUtilitiesConstants.CUSTOMER_ID + DBPUtilitiesConstants.EQUAL + inputParams.get("Customer_id") +DBPUtilitiesConstants.AND + DBPUtilitiesConstants.ACCOUNT_ID + DBPUtilitiesConstants.EQUAL +inputParams.get("Account_id");
         createOrgEmployeeAccounts accountsHelper = new createOrgEmployeeAccounts();
         Result existingAccounts = accountsHelper.getExistingAccounts(filter, inputParams.get("Customer_id"), dcRequest);
+        diagnostic.prepareDebug("HBL:getIdFromCustomerAccounts response:"+ResultToJSON.convert(existingAccounts)).log();
         if (!HelperMethods.hasRecords(existingAccounts)) {
             HelperMethods.setValidationMsgwithCode(ErrorConstants.INVALID_ACCOUNT_NUMBER, ErrorCodes.ERROR_SEARCHING_RECORD,result);
             alert.error("hbl::user:"+inputParams.get("Customer_id")+" doesn't have this account:"+inputParams.get("Account_id"));

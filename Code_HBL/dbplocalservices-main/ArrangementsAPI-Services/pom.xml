@@ -13,6 +13,11 @@
 	<name>ArrangementsAPI-Services</name>
 	<description>ArrangementsAPI-Services</description>
 
+	<properties>
+		<!-- Unit tests stay skipped by default, as before. Run them with -DskipUnitTests=false -->
+		<skipUnitTests>true</skipUnitTests>
+	</properties>
+
 	<dependencies>
 		<dependency>
           <groupId>com.kony.dbp</groupId>
@@ -110,7 +115,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
                 <configuration>
-					 <skipTests>true</skipTests>
+					 <skipTests>${skipUnitTests}</skipTests>
                     <systemPropertyVariables>
                         <jacoco-agent.destfile>
 							${project.build.directory}/coverage.exec</jacoco-agent.destfile>
