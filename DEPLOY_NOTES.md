@@ -40,6 +40,12 @@ cd ../hblservices-main && mvn clean install
 cd ../adminconsoleservices-main && mvn clean install
 ```
 
+**Patching the deployed jars instead of redeploying them:** `tools/patch-deployed-jars.ps1` copies only the
+changed classes (with their inner classes) into copies of the jars downloaded from Fabric. `-Scope GetList`
+patches the three jars getList needs (`arrangementsapi-services`, `com.temenos.infinity.t24irisintegration`,
+`dbp-commonutilityservices`); `-Scope All` adds the jars with the invalidation hooks. Compile with JDK 11 first;
+the script checks the class versions and writes nothing if a jar or class is missing.
+
 ---
 
 ## 2. Server properties
