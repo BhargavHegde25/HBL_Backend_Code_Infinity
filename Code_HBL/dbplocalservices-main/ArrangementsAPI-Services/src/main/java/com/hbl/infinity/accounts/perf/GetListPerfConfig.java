@@ -42,6 +42,21 @@ public final class GetListPerfConfig {
     }
 
     /**
+     * @return true when the optional balance cache is switched on
+     *         ({@value GetListPerfConstants#PROP_BAL_CACHE_ENABLED})
+     */
+    public static boolean isBalanceCacheEnabled() {
+        return getBoolean(GetListPerfConstants.PROP_BAL_CACHE_ENABLED, GetListPerfConstants.DEFAULT_BAL_CACHE_ENABLED);
+    }
+
+    /**
+     * @return seconds a T24 accounts response is reused ({@value GetListPerfConstants#PROP_BAL_TTL_SECONDS})
+     */
+    public static int getBalanceTtlSeconds() {
+        return getPositiveInt(GetListPerfConstants.PROP_BAL_TTL_SECONDS, GetListPerfConstants.DEFAULT_BAL_TTL_SECONDS);
+    }
+
+    /**
      * @return seconds a getList snapshot is kept ({@value GetListPerfConstants#PROP_ENT_TTL_SECONDS})
      */
     public static int getEntTtlSeconds() {

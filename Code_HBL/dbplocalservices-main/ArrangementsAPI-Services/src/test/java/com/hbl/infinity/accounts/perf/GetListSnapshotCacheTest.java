@@ -202,7 +202,46 @@ public class GetListSnapshotCacheTest {
         session.store(new T24PreSnapshot("100100", " "));
     }
 
+    // ---------------------------------------------------------------- balance cache
+
+    @Test
+    public void balanceCacheHasItsOwnSwitch() {
+        assertNull(openBalancesWith(null, null));
+        assertNull(openBalancesWith("true", null));
+        assertNull(openBalancesWith("true", "false"));
+        assertNotNull(openBalancesWith(null, "true"));
+        assertNotNull(openBalancesWith("false", "true"));
+    }
+
+    @Test
+    public void balanceEntriesAreClearedByTheSameBumps() {
+        GetListSnapshotCache.Session before = openBalancesWith(null, "true");
+        before.store(new T24AccountsSnapshot("{\"Accounts\":[]}"));
+        assertNotNull(openBalancesWith(null, "true").read(T24AccountsSnapshot.class));
+        PermissionVersionService.get().bump(CUSTOMER);
+        assertNull(openBalancesWith(null, "true").read(T24AccountsSnapshot.class));
+    }
+
+    @Test
+    public void balanceSlotIsSeparateFromSnapshotSlots() {
+        GetListSnapshotCache.Session balances = openBalancesWith("true", "true");
+        assertNotEquals(open(CUSTOMER, "a").key(), balances.key());
+    }
+
     // ---------------------------------------------------------------- helpers
+
+    private static GetListSnapshotCache.Session openBalancesWith(String cacheSwitch, String balanceSwitch) {
+        try (MockedStatic<EnvironmentConfigurationsHandler> env = mockStatic(EnvironmentConfigurationsHandler.class)) {
+            env.when(() -> EnvironmentConfigurationsHandler.getServerProperty(anyString())).thenAnswer(i -> {
+                String key = i.getArgument(0);
+                if (GetListPerfConstants.PROP_CACHE_ENABLED.equals(key)) {
+                    return cacheSwitch;
+                }
+                return GetListPerfConstants.PROP_BAL_CACHE_ENABLED.equals(key) ? balanceSwitch : null;
+            });
+            return GetListSnapshotCache.openBalances(CUSTOMER, "a");
+        }
+    }
 
     private GetListSnapshotCache.Session open(String customer, String... parts) {
         return withSwitchOn(() -> GetListSnapshotCache.open(GetListPerfConstants.STAGE_T24_PRE, customer, parts));

@@ -27,6 +27,18 @@ public final class GetListPerfConstants {
     public static final String PROP_ENT_TTL_SECONDS = "HBL_GETLIST_ENT_TTL_SECONDS";
     public static final int DEFAULT_ENT_TTL_SECONDS = 300;
 
+    /**
+     * Server property: switch for the optional balance cache, which reuses the whole T24 accounts response
+     * (balances included) for {@value #PROP_BAL_TTL_SECONDS} seconds. Independent of
+     * {@value #PROP_CACHE_ENABLED}. Anything but "true" calls T24 on every request.
+     */
+    public static final String PROP_BAL_CACHE_ENABLED = "HBL_GETLIST_BAL_CACHE_ENABLED";
+    public static final boolean DEFAULT_BAL_CACHE_ENABLED = false;
+
+    /** Server property: seconds a T24 accounts response (with balances) is reused by the balance cache. */
+    public static final String PROP_BAL_TTL_SECONDS = "HBL_GETLIST_BAL_TTL_SECONDS";
+    public static final int DEFAULT_BAL_TTL_SECONDS = 45;
+
     /** Server property: seconds a permission-version key is kept. */
     public static final String PROP_PERMVER_TTL_SECONDS = GetListCacheInvalidator.PROP_PERMVER_TTL_SECONDS;
     public static final int DEFAULT_PERMVER_TTL_SECONDS = GetListCacheInvalidator.DEFAULT_PERMVER_TTL_SECONDS;
@@ -51,6 +63,7 @@ public final class GetListPerfConstants {
     public static final String STAGE_T24_PRE = "PRE";
     public static final String STAGE_T24_POST = "T24POST";
     public static final String STAGE_OBJECT_POST = "OBJPOST";
+    public static final String STAGE_BALANCES = "BAL";
 
     /** Component names used in the timing log line. */
     public static final String COMPONENT_JAVA_SERVICE = "GetAccountsOperation";

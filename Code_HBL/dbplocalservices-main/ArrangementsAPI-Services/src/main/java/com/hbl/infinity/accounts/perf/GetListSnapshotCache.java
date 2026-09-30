@@ -53,6 +53,29 @@ public final class GetListSnapshotCache {
         }
     }
 
+    /**
+     * Opens the slot of the optional balance cache, which has its own switch
+     * ({@value GetListPerfConstants#PROP_BAL_CACHE_ENABLED}) and lifetime
+     * ({@value GetListPerfConstants#PROP_BAL_TTL_SECONDS}). Its keys carry the same version tokens, so every
+     * invalidation hook clears it too.
+     *
+     * @param customerId       Infinity customer id
+     * @param fingerprintParts every request input the T24 accounts response depends on
+     * @return the slot, or null when the balance cache must not be used for this request
+     */
+    public static Session openBalances(String customerId, String... fingerprintParts) {
+        try {
+            if (!GetListPerfConfig.isBalanceCacheEnabled()) {
+                return null;
+            }
+            return open(PermissionVersionService.get(), GetListCache.get(), GetListPerfConfig::getBalanceTtlSeconds,
+                    GetListPerfConstants.STAGE_BALANCES, customerId, fingerprintParts);
+        } catch (RuntimeException | LinkageError e) {
+            GetListCache.warn("balance cache unavailable (" + e.getClass().getSimpleName() + ")");
+            return null;
+        }
+    }
+
     static Session open(PermissionVersionService versions, GetListCache cache, IntSupplier ttlSeconds, String stage,
             String customerId, String... fingerprintParts) {
         if (StringUtils.isBlank(customerId)) {

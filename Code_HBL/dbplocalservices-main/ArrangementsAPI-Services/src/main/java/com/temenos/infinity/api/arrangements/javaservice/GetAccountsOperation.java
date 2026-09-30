@@ -12,7 +12,9 @@ import org.json.JSONObject;
 
 import com.dbp.core.api.factory.impl.DBPAPIAbstractFactoryImpl;
 import com.hbl.infinity.accounts.perf.GetListPerfConstants;
+import com.hbl.infinity.accounts.perf.GetListSnapshotCache;
 import com.hbl.infinity.accounts.perf.GetListTimer;
+import com.hbl.infinity.accounts.perf.T24AccountsSnapshot;
 import com.dbp.core.fabric.extn.DBPServiceExecutorBuilder;
 import com.kony.dbputilities.util.DBPUtilitiesConstants;
 import com.kony.dbputilities.util.EnvironmentConfigurationsHandler;
@@ -123,14 +125,36 @@ public class GetAccountsOperation implements JavaService2 {
         		HashMap<String, Object> inputParams = new HashMap<String, Object>();
         		inputParams.put("Membership_id", request.getParameter(TemenosConstants.Membership_id));
         		request.addRequestParam_("Membership_id", request.getParameter(TemenosConstants.Membership_id));
-				// getResponse() + JSONToResult is kept on purpose: getResult() skips Fabric's response
-				// serialisation, and its output could not be proven identical outside a Fabric runtime.
-				String accounts = DBPServiceExecutorBuilder.builder()
-                        .withServiceId("ArrangementT24ISAccounts")
-                        .withOperationId("getAccountsByCoreCustomerIdList")
-                        .withRequestParameters(inputParams).withRequestHeaders(headerParams)
-                        .withDataControllerRequest(request).build().getResponse();
-				timer.mark("integrationService");
+				// Optional balance cache (HBL_GETLIST_BAL_CACHE_ENABLED, default off): reuses the whole T24 accounts
+				// response, balances included, for HBL_GETLIST_BAL_TTL_SECONDS. Only for a customer's own session,
+				// keyed on every request input the response depends on; only a clean response without new
+				// accounts is stored. The T24 postprocessor's session copy of the accounts, written by the call
+				// that filled this entry, stays in place for an hour, so skipping it here is safe.
+				GetListSnapshotCache.Session balances = isSuperAdmin ? null
+						: GetListSnapshotCache.openBalances(customerID, customerID, companyId,
+								request.getParameter(TemenosConstants.Membership_id),
+								request.getParameter("coreCustomerIdList"), request.getParameter("actions"),
+								request.getParameter("loginUserId"));
+				T24AccountsSnapshot cachedAccounts = balances == null ? null
+						: balances.read(T24AccountsSnapshot.class);
+				timer.mark("balanceCacheLookup");
+				String accounts;
+				if (cachedAccounts != null) {
+					accounts = cachedAccounts.getResponse();
+				} else {
+					// getResponse() + JSONToResult is kept on purpose: getResult() skips Fabric's response
+					// serialisation, and its output could not be proven identical outside a Fabric runtime.
+					accounts = DBPServiceExecutorBuilder.builder()
+	                        .withServiceId("ArrangementT24ISAccounts")
+	                        .withOperationId("getAccountsByCoreCustomerIdList")
+	                        .withRequestParameters(inputParams).withRequestHeaders(headerParams)
+	                        .withDataControllerRequest(request).build().getResponse();
+					timer.mark("integrationService");
+					if (balances != null && T24AccountsSnapshot.isStorable(accounts)) {
+						balances.store(new T24AccountsSnapshot(accounts));
+						timer.mark("balanceCacheStore");
+					}
+				}
 				Result accountsResult = JSONToResult.convert(accounts);
 				timer.mark("jsonToResult");
 				return accountsResult;
