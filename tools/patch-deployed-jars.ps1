@@ -36,11 +36,17 @@ param(
     [Parameter(Mandatory = $true)][string] $JarsDir,
     [Parameter(Mandatory = $true)][string] $OutDir,
     [ValidateSet('GetList', 'All')][string] $Scope = 'GetList',
-    [string] $RepoRoot = (Split-Path -Parent $PSScriptRoot)
+    # Defaults to the repository that contains this script.
+    [string] $RepoRoot
 )
 
 Set-StrictMode -Version 2.0
 $ErrorActionPreference = 'Stop'
+if (-not $RepoRoot) {
+    # Resolved here, not as the parameter default: Windows PowerShell 5.1 leaves $PSScriptRoot empty there.
+    $scriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
+    $RepoRoot = Split-Path -Parent $scriptDir
+}
 Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 
